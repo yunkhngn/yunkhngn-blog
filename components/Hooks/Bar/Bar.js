@@ -12,7 +12,7 @@ const SocialMedia = [
       id: 5,
       name: "Instagram",
       icon: "Instagram",
-      link: "https://instagram.com/yun.khngn_",
+      link: "https://instagram.com/yun.khngn",
     },
     {
       id: 6,
@@ -24,7 +24,7 @@ const SocialMedia = [
       id: 7,
       name: "Behance",
       icon: "Behance",
-      link: "https://www.behance.net/yunkhngn",
+      link: "https://www.behance.net/yunkhngn_",
     },
   ];
 
@@ -45,7 +45,7 @@ const BarNavigate = [
     id: 3,
     name: "Writings",
     icon: "Mail",
-    url: "/writings",
+    url: "/images",
     }, 
 ]
   

@@ -2,11 +2,15 @@ import {Template, Title} from '../components/Template/'
 import {Intro} from '../components/Post/'
 import {desc} from '../lib'
 import ElementSpace from '../components/Post/ElementSpace'
-const about = ({themeUse,theme,content}) => {
+const about = ({themeUse,theme}) => {
+    const content = {
+        Description: "Hi, I'm Khoa Nguyễn",
+        Content: "I am the one you looking for"
+      }
     return (
         <Template description={desc.about} height="100%">
             <Title color={themeUse.primary}>About me</Title>
-            <Intro content={content.attributes} themeUse={themeUse} theme={theme}/>
+            <Intro content={content} themeUse={themeUse} theme={theme}/>
             <ElementSpace/>
             &nbsp;
         </Template>
@@ -14,14 +18,3 @@ const about = ({themeUse,theme,content}) => {
 }
 
 export default about;
-
-export async function getStaticProps() {
-    const URL = require('../lib/url')
-    const res = await fetch(`${URL.url}abouts`);
-    const data = await res.json();
-    const content = data.data[0];
-    return {
-        props: {content},
-        revalidate: 30, 
-    }
-  }

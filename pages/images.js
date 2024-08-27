@@ -1,0 +1,14 @@
+import {Template, Title} from '../components/Template'
+import {Blog} from '../components/Post'
+import {desc} from '../lib'
+
+const writings = ({content,themeUse,theme}) => {
+    return (
+        <Template description={desc.writings} height="100%">
+            <Title color={themeUse.primary}>Image</Title>
+            <Blog data={content} themeUse={themeUse} theme={theme}/>
+        </Template>
+    );
+}
+
+export default writings;
