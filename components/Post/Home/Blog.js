@@ -47,36 +47,66 @@ const Blog = ({ theme, themeUse }) => {
             <Div>
                 {data.map((item) => {
                     return (
-                        <Link href="https://facebook.com" key={item.id}>
-                            <a>
-                                <Div
-                                    justify="space-between"
-                                    align="center"
-                                    d="flex"
-                                    hoverBg={theme === 'light' ? 'gray200' : '#222222'}
-                                    rounded="12px"
-                                    p="16px"
-                                    transition
-                                    m={{ r: '-16px', l: '-16px' }}
-                                >
-                                    <Image
-                                        src={item.attributes.Image} // Hiển thị hình ảnh
-                                        alt={item.attributes.Title}
-                                        w="150px"
-                                        h="150px"
-                                        rounded="12px"
-                                    />
-                                    <Div flexGrow="1" m={{ l: '16px' }}>
-                                        <Para margin="true" which="right" color={theme === 'light' ? '#171717' : '#ededed'}>
-                                            <strong>{item.attributes.Title}</strong>
-                                        </Para>
-                                        <Para margin="true" which="left" color={themeUse.secondary}>
-                                            {dateFormer(item.attributes.createdAt)}
-                                        </Para>
-                                    </Div>
-                                </Div>
-                            </a>
-                        </Link>
+                        <div key={item.id}>
+                        <a target="_blank" rel="noreferrer" href={item.attributes.Link}>
+                        <Div
+            justify="flex-start"
+            align="center"
+            d="flex"
+            flexWrap="wrap" // Cho phép các phần tử xuống dòng khi không còn đủ không gian
+            hoverBg={theme === 'light' ? 'gray200' : '#222222'}
+            rounded="12px"
+            p="16px"
+            transition
+            m={{ r: '-16px', l: '-16px' }}
+            textAlign="left"
+        >
+            <Image
+                m={{ r: '16px' }}
+                alt="image"
+                src={item.attributes.Image}
+                h={{ xs: '70px', sm: '100px' }} // Đặt kích thước hình ảnh theo kích thước màn hình
+                w={{ xs: '70px', sm: '100px' }}
+                rounded="12px"
+            />
+            <Para
+                margin={{ b: '16px' }}
+                which="right"
+                color={theme === 'light' ? '#171717' : '#ededed'}
+                d={{ xs: 'block', sm: 'flex' }} // Đặt kiểu hiển thị linh hoạt
+                textAlign={{ xs: 'center', sm: 'left' }} // Căn chỉnh văn bản tùy thuộc vào kích thước màn hình
+            >
+                <strong>{item.attributes.Title}</strong>
+            </Para>
+           
+            <Para
+                margin={{ b: '16px' }}
+                which="right"
+                color={theme === 'light' ? '#171717' : '#ededed'}
+                d={{ xs: 'block', sm: 'flex' }}
+                textAlign={{ xs: 'center', sm: 'left' }}
+            >
+                Đây là project mẫu
+            </Para>
+            <hr
+                className={'hr' + theme}
+                style={{
+                    margin: '16px 0',
+                    width: '100%',
+                }}
+            />
+            <Para
+                margin={{ t: '16px' }}
+                which="left"
+                color={themeUse.secondary}
+                d={{ xs: 'block', sm: 'flex' }}
+                textAlign={{ xs: 'center', sm: 'left' }}
+            >
+                {dateFormer(item.attributes.createdAt)}
+            </Para>
+        </Div>
+                        </a>
+                    </div>
                     );
                 })}
             </Div>
