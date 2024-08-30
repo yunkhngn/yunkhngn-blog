@@ -3,19 +3,15 @@ import { Para } from '../../Template';
 import { Div, Image } from 'atomize';
 import ElementSpace from '../ElementSpace';
 const contentful = require('contentful')
-import dotenv from 'dotenv';
-
-// Load biến môi trường từ file .env
-dotenv.config();
 
 const client = contentful.createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    environment: process.env.CONTENTFUL_ENVIRONMENT,
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+    space: 'ylftmc9jqqoq',
+    environment: 'master', // defaults to 'master' if not set
+    accessToken: 'Kj4D3ADbeK9g1DA4zKE338aBQT9JfbaJkW_Hiznt_fg'
   })
+
 const Blog = ({ theme, themeUse }) => {
     const [data, setData] = useState([]); // Khai báo state để lưu trữ dữ liệu
-
     const dateFormer = (date) => {
         let dateArr = date.split('T')[0].split('-');
         return `${dateArr[2]}/${dateArr[1]}/${dateArr[0]}`;
