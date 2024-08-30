@@ -1,43 +1,52 @@
+import { useEffect, useState } from 'react'; // Thêm useState và useEffect
 import { Para } from '../../Template';
-import Link from 'next/link';
-import { Div, Image } from 'atomize'; // Sử dụng Image từ atomize
+import { Div, Image } from 'atomize';
 import ElementSpace from '../ElementSpace';
+const contentful = require('contentful')
+import dotenv from 'dotenv';
 
+// Load biến môi trường từ file .env
+dotenv.config();
+
+const client = contentful.createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    environment: process.env.CONTENTFUL_ENVIRONMENT,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+  })
 const Blog = ({ theme, themeUse }) => {
+    const [data, setData] = useState([]); // Khai báo state để lưu trữ dữ liệu
+
     const dateFormer = (date) => {
         let dateArr = date.split('T')[0].split('-');
         return `${dateArr[2]}/${dateArr[1]}/${dateArr[0]}`;
     };
 
-    const data = [
-        {
-            id: 1,
-            attributes: {
-                Title: 'Graphic Design Project 1',
-                Image: 'https://via.placeholder.com/150', // URL của hình ảnh
-                createdAt: '2023-07-06T00:00:00.000Z',
-                slug: 'graphic-design-project-1'
+    useEffect(() => {
+        // Fetch dữ liệu từ Contentful
+        const fetchEntries = async () => {
+            try {
+                const response = await client.getEntries({
+                    content_type: 'behanceBlog' // ID của content model bạn muốn fetch
+                });
+
+                const fetchedData = response.items.map(item => ({
+                    id: item.sys.id,
+                    attributes: {
+                        Title: item.fields.title,
+                        Image: item.fields.image.fields.file.url,
+                        createdAt: item.sys.createdAt,
+                        url: item.fields.url
+                    }
+                }));
+
+                setData(fetchedData);
+            } catch (error) {
+                console.error('Error fetching entries:', error);
             }
-        },
-        {
-            id: 2,
-            attributes: {
-                Title: 'Graphic Design Project 2',
-                Image: 'https://via.placeholder.com/150',
-                createdAt: '2023-07-06T00:00:00.000Z',
-                slug: 'graphic-design-project-2'
-            }
-        },
-        {
-            id: 3,
-            attributes: {
-                Title: 'Graphic Design Project 3',
-                Image: 'https://via.placeholder.com/150',
-                createdAt: '2023-07-06T00:00:00.000Z',
-                slug: 'graphic-design-project-3'
-            }
-        }
-    ];
+        };
+
+        fetchEntries();
+    }, []); // Chạy một lần khi component được mount
 
     return (
         <article>
@@ -48,12 +57,12 @@ const Blog = ({ theme, themeUse }) => {
                 {data.map((item) => {
                     return (
                         <div key={item.id}>
-                        <a target="_blank" rel="noreferrer" href={item.attributes.Link}>
+                        <a target="_blank" rel="noreferrer" href={item.attributes.url}>
                         <Div
             justify="flex-start"
             align="center"
             d="flex"
-            flexWrap="wrap" // Cho phép các phần tử xuống dòng khi không còn đủ không gian
+            flexWrap="wrap"
             hoverBg={theme === 'light' ? 'gray200' : '#222222'}
             rounded="12px"
             p="16px"
@@ -65,7 +74,7 @@ const Blog = ({ theme, themeUse }) => {
                 m={{ r: '16px' }}
                 alt="image"
                 src={item.attributes.Image}
-                h={{ xs: '70px', sm: '100px' }} // Đặt kích thước hình ảnh theo kích thước màn hình
+                h={{ xs: '70px', sm: '100px' }}
                 w={{ xs: '70px', sm: '100px' }}
                 rounded="12px"
             />
@@ -73,8 +82,8 @@ const Blog = ({ theme, themeUse }) => {
                 margin={{ b: '16px' }}
                 which="right"
                 color={theme === 'light' ? '#171717' : '#ededed'}
-                d={{ xs: 'block', sm: 'flex' }} // Đặt kiểu hiển thị linh hoạt
-                textAlign={{ xs: 'center', sm: 'left' }} // Căn chỉnh văn bản tùy thuộc vào kích thước màn hình
+                d={{ xs: 'block', sm: 'flex' }}
+                textAlign={{ xs: 'center', sm: 'left' }}
             >
                 <strong>{item.attributes.Title}</strong>
             </Para>
@@ -92,7 +101,7 @@ const Blog = ({ theme, themeUse }) => {
                 className={'hr' + theme}
                 style={{
                     margin: '16px 0',
-                    width: '100%',
+                    width: '30%', // Đặt chiều rộng của hr thành 30%
                 }}
             />
             <Para
