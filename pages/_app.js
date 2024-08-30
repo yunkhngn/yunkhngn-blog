@@ -14,7 +14,7 @@ import {useRouter} from 'next/router'
 import {AnimatePresence} from 'framer-motion'
 import {Div} from 'atomize'
 import { Analytics } from "@vercel/analytics/react"
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 function MyApp({ Component, pageProps }) {
   const [theme, setTheme] = useState('light')
   const router = useRouter()  
@@ -137,6 +137,7 @@ function MyApp({ Component, pageProps }) {
           </div>
           </KBarProvider>
           <Analytics/>
+          <SpeedInsights/>
     </StyletronProvider>
   )
 }
