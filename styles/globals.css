@@ -19,7 +19,22 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
+.blur-overlay {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20vh; /* Chiều cao của phần cần mờ, điều chỉnh theo ý muốn */
+  mask: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 10%,
+    rgba(0, 0, 0, 0.436) 50.5%,
+    rgba(0, 0, 0, 0.77) 70.5%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  backdrop-filter: blur(10px); /* Độ mờ, điều chỉnh theo ý muốn */
+  z-index: 999; /* Đặt thấp hơn thanh điều hướng */
+}
 * {
   box-sizing: border-box;
 }

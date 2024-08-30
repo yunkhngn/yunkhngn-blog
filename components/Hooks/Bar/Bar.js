@@ -43,9 +43,9 @@ const BarNavigate = [
     },
     {
     id: 3,
-    name: "Writings",
-    icon: "Mail",
-    url: "/images",
+    name: "Library",
+    icon: "Bulk",
+    url: "/library",
     }, 
 ]
   

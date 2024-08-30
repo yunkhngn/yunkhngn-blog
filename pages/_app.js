@@ -23,6 +23,7 @@ function MyApp({ Component, pageProps }) {
     // Thay đổi lớp của phần tử HTML dựa trên theme
     document.documentElement.className = theme === 'light' ? 'light-theme' : 'dark-theme';
   }, [theme])
+  // cmd bar actions
   const actions = [
     {
       id: "homeAction",
@@ -53,7 +54,7 @@ function MyApp({ Component, pageProps }) {
     },
     {
       id: "writingsAction",
-      name: "Writings",
+      name: "Li",
       shortcut: ["w"],
       keywords: "writing writings blog",
       section: "Navigation",
@@ -139,6 +140,7 @@ function MyApp({ Component, pageProps }) {
               </AnimatedTags>
             </AnimatePresence>
             <Bar theme={theme} setTheme={setTheme} setThemeUse={setThemeUse} themeProvider={themeProvider}/>
+            <div className="blur-overlay" />
           </div>
           </KBarProvider>
           <Analytics/>

@@ -122,6 +122,7 @@ const Blog = ({ theme, themeUse }) => {
                     ))
                 )}
             </Div>
+            <a target="_blank" rel="noreferrer" href="https://www.behance.net/yunkhngn_"><Div m={{t:"1em"}} textColor={themeUse.secondary} hoverTextColor={themeUse.hover} transition>View all my Behance...</Div></a>
             <ElementSpace space="12em" />
         </article>
     );
