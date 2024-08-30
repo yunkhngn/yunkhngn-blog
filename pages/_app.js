@@ -11,12 +11,18 @@ import Metatags from '../components/Template/Metatags'
 import { AnimatedTags } from '../components/Template'
 import {KBarProvider} from 'kbar'
 import {useRouter} from 'next/router'
+import {useEffect} from 'react'
 import {AnimatePresence} from 'framer-motion'
 import {Div} from 'atomize'
 import { Analytics } from "@vercel/analytics/react"
+
 function MyApp({ Component, pageProps }) {
   const [theme, setTheme] = useState('light')
   const router = useRouter()  
+  useEffect(() => {
+    // Thay đổi lớp của phần tử HTML dựa trên theme
+    document.documentElement.className = theme === 'light' ? 'light-theme' : 'dark-theme';
+  }, [theme])
   const actions = [
     {
       id: "homeAction",
@@ -111,7 +117,7 @@ function MyApp({ Component, pageProps }) {
   ];
 
   const [themeUse,setThemeUse] = useState(theme === 'light' ? themeProvider[0] : themeProvider[1])
-  const [isLove, setIsLove] = useState(false)
+
   return (
     <StyletronProvider value={styletron}>
         <KBarProvider
@@ -128,7 +134,7 @@ function MyApp({ Component, pageProps }) {
             <AnimatePresence exitBeforeEnter>
               <AnimatedTags key={router.pathname}>
                 <Div textColor={themeUse.styles.secondary}>
-                  <Component isLove={isLove} setIsLove={setIsLove} themeUse={themeUse.styles} theme={theme} {...pageProps}/>
+                  <Component themeUse={themeUse.styles} theme={theme} {...pageProps}/>
                 </Div>
               </AnimatedTags>
             </AnimatePresence>

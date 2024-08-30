@@ -50,7 +50,9 @@ const Blog = ({ theme, themeUse }) => {
             <Para color={themeUse.secondary}>A collection of my (un)organized musings.</Para>
             <Div m={{ b: '1.7em' }} />
             <hr className={'hr' + theme} />
-            <Div>
+            <Div
+            p = {{b: '1em'}}
+            >
                 {data.length === 0 ? (
                     <Para color={themeUse.secondary}>There are no post yet...</Para>
                 ) : (
