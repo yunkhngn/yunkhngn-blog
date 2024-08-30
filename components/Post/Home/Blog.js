@@ -3,7 +3,6 @@ import { Para } from '../../Template';
 import { Div, Image } from 'atomize';
 import ElementSpace from '../ElementSpace';
 const contentful = require('contentful')
-import Skeleton from '../Skeleton';
 
 const client = contentful.createClient({
     space: 'ylftmc9jqqoq',
@@ -59,26 +58,28 @@ const Blog = ({ theme, themeUse }) => {
                         <div key={item.id}>
                             <a target="_blank" rel="noreferrer" href={item.attributes.url}>
                                 <Div
-                                    justify="flex-start"
+                                    justify="space-between"
                                     align="center"
                                     d="flex"
                                     flexWrap="wrap"
                                     hoverBg={theme === 'light' ? 'gray200' : '#222222'}
-                                    rounded="12px"
+                                    rounded="24px"
                                     p="16px"
                                     transition
                                     m={{ r: '-16px', l: '-16px' }}
                                     textAlign="left"
                                 >
-                                    <Skeleton
+                                    <Image
                                         src={item.attributes.Image}
                                         alt={item.attributes.Title}
                                         h={{ xs: '70px', sm: '100px' }}
                                         w={{ xs: '70px', sm: '100px' }}
-                                        rounded="12px"
+                                        rounded="16px"
+                                        m = {{r:'1em'}}
                                     />
+                                    <Div>
                                     <Para
-                                        margin={{ b: '16px' }}
+                                        margin="true"
                                         which="right"
                                         color={theme === 'light' ? '#171717' : '#ededed'}
                                         d={{ xs: 'block', sm: 'flex' }}
@@ -86,7 +87,6 @@ const Blog = ({ theme, themeUse }) => {
                                     >
                                         <strong>{item.attributes.Title}</strong>
                                     </Para>
-
                                     <Para
                                         margin={{ b: '16px' }}
                                         which="right"
@@ -96,6 +96,7 @@ const Blog = ({ theme, themeUse }) => {
                                     >
                                         {item.attributes.desc}
                                     </Para>
+                                    </Div>
                                     <hr
                                         className={'hr' + theme}
                                         style={{
@@ -107,8 +108,9 @@ const Blog = ({ theme, themeUse }) => {
                                         margin={{ t: '16px' }}
                                         which="left"
                                         color={themeUse.secondary}
-                                        d={{ xs: 'block', sm: 'flex' }}
                                         textAlign={{ xs: 'center', sm: 'left' }}
+                                        //hide when xs
+                                        d={{ xs: "block", md: "flex" }}
                                     >
                                         {dateFormer(item.attributes.createdAt)}
                                     </Para>
