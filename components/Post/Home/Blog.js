@@ -30,12 +30,11 @@ const Blog = ({ theme, themeUse }) => {
                     attributes: {
                         Title: item.fields.title,
                         Image: item.fields.image.fields.file.url,
-                        createdAt: item.sys.createdAt,
+                        createdAt: item.fields.date,
                         url: item.fields.url,
                         desc: item.fields.desc
                     }
                 }));
-
                 setData(fetchedData);
             } catch (error) {
                 console.error('Error fetching entries:', error);
@@ -47,7 +46,7 @@ const Blog = ({ theme, themeUse }) => {
 
     return (
         <article>
-            <Para color={themeUse.secondary}>A collection of my (un)organized musings.</Para>
+            <Para color={themeUse.secondary}>A collection of my graphic design from Behance.</Para>
             <Div m={{ b: '1.7em' }} />
             <hr className={'hr' + theme} />
             <Div
@@ -65,8 +64,8 @@ const Blog = ({ theme, themeUse }) => {
                                     d="flex"
                                     flexWrap="wrap"
                                     hoverBg={theme === 'light' ? 'gray200' : '#222222'}
-                                    rounded="24px"
-                                    p="16px"
+                                    rounded={{ xs: '26px', sm: '24px' }}
+                                    p={{ xs: '16px', md: '16px' }}
                                     transition
                                     m={{ r: '-16px', l: '-16px' }}
                                     textAlign="left"
@@ -76,7 +75,7 @@ const Blog = ({ theme, themeUse }) => {
                                         alt={item.attributes.Title}
                                         h={{ xs: '70px', sm: '100px' }}
                                         w={{ xs: '70px', sm: '100px' }}
-                                        rounded="16px"
+                                        rounded={{ xs: '12px', sm: '16px' }}
                                         m = {{r:'1em'}}
                                     />
                                     <Div>
@@ -122,7 +121,7 @@ const Blog = ({ theme, themeUse }) => {
                     ))
                 )}
             </Div>
-            <a target="_blank" rel="noreferrer" href="https://www.behance.net/yunkhngn_"><Div m={{t:"1em"}} textColor={themeUse.secondary} hoverTextColor={themeUse.hover} transition>View all my Behance...</Div></a>
+            <a target="_blank" rel="noreferrer" href="https://www.behance.net/yunkhngn_"><Div textColor={themeUse.secondary} hoverTextColor={themeUse.hover} transition>View all my Behance...</Div></a>
             <ElementSpace space="12em" />
         </article>
     );

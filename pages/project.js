@@ -1,5 +1,5 @@
-import {Template, Title} from '../components/Template/'
-import {Project} from '../components/Post/'
+import {Template, Title} from '../components/Template'
+import {Project} from '../components/Post'
 import {desc} from '../lib'
 
 const projects = ({themeUse,theme}) => {
@@ -47,7 +47,7 @@ const projects = ({themeUse,theme}) => {
     ]
     return (
         <Template description={desc.projects} height="100%">
-            <Title color={themeUse.primary}>Projects</Title>
+            <Title color={themeUse.primary}>Project</Title>
             <Project prj={prj} themeUse={themeUse} theme={theme}/>
         </Template>
     );

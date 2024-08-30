@@ -37,16 +37,22 @@ const BarNavigate = [
     },
     {
     id: 2,
-    name: "Projects",
+    name: "Project",
     icon: "Draft",
-    url: "/projects",
+    url: "/project",
     },
     {
     id: 3,
     name: "Library",
     icon: "Bulk",
     url: "/library",
-    }, 
+    },
+    {
+    id: 4,
+    name: "Writing",
+    icon: "EditSolid",
+    url: "/writing",
+    }
 ]
   
 const openURL = (url) => {

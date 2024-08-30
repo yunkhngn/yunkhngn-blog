@@ -4,7 +4,7 @@ import {desc} from '../lib'
 
 const writings = ({content,themeUse,theme}) => {
     return (
-        <Template description={desc.writings} height="100%">
+        <Template description={desc.pics} height="100%">
             <Title color={themeUse.primary}>Library</Title>
             <Blog data={content} themeUse={themeUse} theme={theme}/>
         </Template>
