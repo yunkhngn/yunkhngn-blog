@@ -13,6 +13,8 @@ import {KBarProvider} from 'kbar'
 import {useRouter} from 'next/router'
 import {AnimatePresence} from 'framer-motion'
 import {Div} from 'atomize'
+import { Analytics } from "@vercel/analytics/react"
+
 function MyApp({ Component, pageProps }) {
   const [theme, setTheme] = useState('light')
   const router = useRouter()  
@@ -134,6 +136,7 @@ function MyApp({ Component, pageProps }) {
             <Bar theme={theme} setTheme={setTheme} setThemeUse={setThemeUse} themeProvider={themeProvider}/>
           </div>
           </KBarProvider>
+          <Analytics/>
     </StyletronProvider>
   )
 }

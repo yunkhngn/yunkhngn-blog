@@ -52,70 +52,71 @@ const Blog = ({ theme, themeUse }) => {
             <Div m={{ b: '1.7em' }} />
             <hr className={'hr' + theme} />
             <Div>
-                {data.map((item) => {
-                    return (
+                {data.length === 0 ? (
+                    <Para color={themeUse.secondary}>There are no post yet...</Para>
+                ) : (
+                    data.map((item) => (
                         <div key={item.id}>
-                        <a target="_blank" rel="noreferrer" href={item.attributes.url}>
-                        <Div
-            justify="flex-start"
-            align="center"
-            d="flex"
-            flexWrap="wrap"
-            hoverBg={theme === 'light' ? 'gray200' : '#222222'}
-            rounded="12px"
-            p="16px"
-            transition
-            m={{ r: '-16px', l: '-16px' }}
-            textAlign="left"
-        >
-            <Image
-                m={{ r: '16px' }}
-                alt="image"
-                src={item.attributes.Image}
-                h={{ xs: '70px', sm: '100px' }}
-                w={{ xs: '70px', sm: '100px' }}
-                rounded="12px"
-            />
-            <Para
-                margin={{ b: '16px' }}
-                which="right"
-                color={theme === 'light' ? '#171717' : '#ededed'}
-                d={{ xs: 'block', sm: 'flex' }}
-                textAlign={{ xs: 'center', sm: 'left' }}
-            >
-                <strong>{item.attributes.Title}</strong>
-            </Para>
-           
-            <Para
-                margin={{ b: '16px' }}
-                which="right"
-                color={theme === 'light' ? '#171717' : '#ededed'}
-                d={{ xs: 'block', sm: 'flex' }}
-                textAlign={{ xs: 'center', sm: 'left' }}
-            >
-                {item.attributes.desc}
-            </Para>
-            <hr
-                className={'hr' + theme}
-                style={{
-                    margin: '16px 0',
-                    width: '30%', // Đặt chiều rộng của hr thành 30%
-                }}
-            />
-            <Para
-                margin={{ t: '16px' }}
-                which="left"
-                color={themeUse.secondary}
-                d={{ xs: 'block', sm: 'flex' }}
-                textAlign={{ xs: 'center', sm: 'left' }}
-            >
-                {dateFormer(item.attributes.createdAt)}
-            </Para>
-        </Div>
-                        </a>
-                    </div>
-                    );
-                })}
+                            <a target="_blank" rel="noreferrer" href={item.attributes.url}>
+                                <Div
+                                    justify="flex-start"
+                                    align="center"
+                                    d="flex"
+                                    flexWrap="wrap"
+                                    hoverBg={theme === 'light' ? 'gray200' : '#222222'}
+                                    rounded="12px"
+                                    p="16px"
+                                    transition
+                                    m={{ r: '-16px', l: '-16px' }}
+                                    textAlign="left"
+                                >
+                                    <Skeleton
+                                        src={item.attributes.Image}
+                                        alt={item.attributes.Title}
+                                        h={{ xs: '70px', sm: '100px' }}
+                                        w={{ xs: '70px', sm: '100px' }}
+                                        rounded="12px"
+                                    />
+                                    <Para
+                                        margin={{ b: '16px' }}
+                                        which="right"
+                                        color={theme === 'light' ? '#171717' : '#ededed'}
+                                        d={{ xs: 'block', sm: 'flex' }}
+                                        textAlign={{ xs: 'center', sm: 'left' }}
+                                    >
+                                        <strong>{item.attributes.Title}</strong>
+                                    </Para>
+
+                                    <Para
+                                        margin={{ b: '16px' }}
+                                        which="right"
+                                        color={theme === 'light' ? '#171717' : '#ededed'}
+                                        d={{ xs: 'block', sm: 'flex' }}
+                                        textAlign={{ xs: 'center', sm: 'left' }}
+                                    >
+                                        {item.attributes.desc}
+                                    </Para>
+                                    <hr
+                                        className={'hr' + theme}
+                                        style={{
+                                            margin: '16px 0',
+                                            width: '100%',
+                                        }}
+                                    />
+                                    <Para
+                                        margin={{ t: '16px' }}
+                                        which="left"
+                                        color={themeUse.secondary}
+                                        d={{ xs: 'block', sm: 'flex' }}
+                                        textAlign={{ xs: 'center', sm: 'left' }}
+                                    >
+                                        {dateFormer(item.attributes.createdAt)}
+                                    </Para>
+                                </Div>
+                            </a>
+                        </div>
+                    ))
+                )}
             </Div>
             <ElementSpace space="12em" />
         </article>
