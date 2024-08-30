@@ -6,12 +6,14 @@ import ReactMarkdown from 'react-markdown'
 const Intro = ({theme,themeUse, content}) => {
     return (
         <article>
-            <Para color={themeUse.secondary}>Graphic Designer / FullStack Developer</Para>
+            <Para color={themeUse.secondary}>Graphic Designer / Software Engineer</Para>
             <Spacer theme={theme} length="140px"/>
             <ReactMarkdown>{content.Description}</ReactMarkdown>
-            <SocialLink theme={theme}/>
+            <br/>
+            <i>{content.Content}</i>
             <Spacer theme={theme} length="80px"/>
-            <ReactMarkdown>{content.Content}</ReactMarkdown>
+            <SocialLink theme={theme}/>
+
         </article>
     );
 }

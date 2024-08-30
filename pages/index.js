@@ -1,14 +1,13 @@
 //this is the main page
 import {Template, Title} from '../components/Template/'
 import {Intro} from '../components/Post/'
-import {useState, useEffect} from 'react'
 import {desc} from '../lib'
 import {Button, Div, Icon} from 'atomize'
 
 export default function Home({theme, themeUse, counter}) {
   const content = {
-    Description: "Hi, I'm Khoa Nguyễn",
-    Content: "I am the one you looking for"
+    Description: "Hi, I’m Khoa Nguyễn. I’m currently a college student at FPT University, where I’m honing my skills in software engineering. I have a deep interest in building dynamic applications using Reactjs and Nodejs, and I thrive on creating innovative designs.",
+    Content: "Ctrl / Cmd + K to discover..."
   }
   return (
     <Template description={desc.home} height="100%">

@@ -24,7 +24,7 @@ const social = [
       id: 7,
       name: "Behance",
       icon: "Behance",
-      link: "https://www.behance.net/yunkhngn",
+      link: "https://www.behance.net/yunkhngn_",
     },
 ];
 
