@@ -3,6 +3,7 @@ import { Para } from '../../Template';
 import { Div, Image } from 'atomize';
 import ElementSpace from '../ElementSpace';
 const contentful = require('contentful')
+import Skeleton from '../Skeleton';
 
 const client = contentful.createClient({
     space: 'ylftmc9jqqoq',
