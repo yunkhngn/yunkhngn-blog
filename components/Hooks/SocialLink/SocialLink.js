@@ -31,7 +31,7 @@ const social = [
 const SocialLink = () => {
     return (
       <footer>
-        <Div m={{t:'1em'}}>
+        <Div justify="space-around" d="flex"  w="200px" m={{t:'1em'}}>
             {social.map(item => (
                 <SocialIcon key={item.id} icon={item.icon} link={item.link} />
             ))}

@@ -4,7 +4,7 @@ const SocialIcon = ({icon,link}) => {
         window.open(link, '_blank');
     }
     return (
-        <Icon onClick={open} name={icon}  color="#858585" m={{r:'2em'}}/>
+        <Icon onClick={open} name={icon}  color="#858585"/>
     );
 }
 
