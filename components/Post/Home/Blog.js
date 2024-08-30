@@ -22,7 +22,7 @@ const Blog = ({ theme, themeUse }) => {
         const fetchEntries = async () => {
             try {
                 const response = await client.getEntries({
-                    content_type: 'behanceBlog' // ID của content model bạn muốn fetch
+                    content_type: 'behanceBlog' 
                 });
 
                 const fetchedData = response.items.map(item => ({
@@ -31,7 +31,8 @@ const Blog = ({ theme, themeUse }) => {
                         Title: item.fields.title,
                         Image: item.fields.image.fields.file.url,
                         createdAt: item.sys.createdAt,
-                        url: item.fields.url
+                        url: item.fields.url,
+                        desc: item.fields.desc
                     }
                 }));
 
@@ -91,7 +92,7 @@ const Blog = ({ theme, themeUse }) => {
                 d={{ xs: 'block', sm: 'flex' }}
                 textAlign={{ xs: 'center', sm: 'left' }}
             >
-                Đây là project mẫu
+                {item.attributes.desc}
             </Para>
             <hr
                 className={'hr' + theme}
