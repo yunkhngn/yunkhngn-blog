@@ -125,8 +125,28 @@ function MyApp({ Component, pageProps }) {
       subtitle: "Looking for my design projects?.",
     },
   ];
+  const [themeUse, setThemeUse] = useState(themeProvider[0]);
 
-  const [themeUse,setThemeUse] = useState(theme === 'light' ? themeProvider[0] : themeProvider[1])
+  // Sử dụng theme của hệ thống
+  useEffect(() => {
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    setTheme(systemTheme);
+    setThemeUse(systemTheme === 'light' ? themeProvider[0] : themeProvider[1]);
+
+    // Theo dõi sự thay đổi của theme hệ thống
+    const themeChangeListener = (e) => {
+      const newTheme = e.matches ? 'dark' : 'light';
+      setTheme(newTheme);
+      setThemeUse(newTheme === 'light' ? themeProvider[0] : themeProvider[1]);
+    };
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', themeChangeListener);
+
+    // Clean up khi component unmount
+    return () => {
+      window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', themeChangeListener);
+    };
+  }, []);
 
   return (
     <StyletronProvider value={styletron}>

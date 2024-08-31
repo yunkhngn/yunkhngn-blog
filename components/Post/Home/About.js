@@ -1,6 +1,6 @@
 import { SocialLink, Spacer } from "../../Hooks";
 import { Para } from "../../Template";
-import { Button } from "atomize";
+import { Div } from "atomize";
 import ReactMarkdown from "react-markdown";
 import Image from "next/Image";
 const About = ({ theme, themeUse, content }) => {
@@ -23,7 +23,7 @@ const About = ({ theme, themeUse, content }) => {
       <br />
       <ReactMarkdown>{content.Content}</ReactMarkdown>
       <Spacer theme={theme} length="80px" />
-      <ReactMarkdown>Follow me for more...</ReactMarkdown>
+      <a target="_blank" rel="noreferrer" href="https://facebook.com/yun.khngn"><Div m={{t:"1em"}} textColor={themeUse.secondary} hoverTextColor={themeUse.hover} transition>Follow me for more...</Div></a>
     </article>
   );
 };

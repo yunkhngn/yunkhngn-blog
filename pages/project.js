@@ -43,6 +43,38 @@ const projects = ({themeUse,theme}) => {
                 Link: 'https://www.khoanguyen.dev',
                 createdAt: '2021-07-06T00:00:00.000Z'
             }
+        },
+        {
+            id: 6,
+            attributes: {
+                Title: 'Project 6',
+                Link: 'https://www.khoanguyen.dev',
+                createdAt: '2021-07-06T00:00:00.000Z'
+            }
+        },
+        {
+            id: 7,
+            attributes: {
+                Title: 'Project 7',
+                Link: 'https://www.khoanguyen.dev',
+                createdAt: '2021-07-06T00:00:00.000Z'
+            }
+        },
+        {
+            id: 8,
+            attributes: {
+                Title: 'Project 8',
+                Link: 'https://www.khoanguyen.dev',
+                createdAt: '2021-07-06T00:00:00.000Z'
+            }
+        },
+        {
+            id: 9,
+            attributes: {
+                Title: 'Project 9',
+                Link: 'https://www.khoanguyen.dev',
+                createdAt: '2021-07-06T00:00:00.000Z'
+            }
         }
     ]
     return (
