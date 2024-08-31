@@ -80,7 +80,7 @@ const Write = ({theme,themeUse, write}) => {
                       <strong>{item.attributes.Title}</strong>
                     </Para>
                     <Para w={{ xs: '170px', md: '350px' }} margin="true" which="right" color={theme === 'light' ? '#171717' : '#ededed'}>
-                      {item.attributes.Desc+ '...'}
+                      {item.attributes.Desc}
                     </Para>
                     <hr className={'hr' + theme} />
                     <Para margin="true" which="left" color={themeUse.secondary}>
