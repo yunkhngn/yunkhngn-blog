@@ -8,7 +8,7 @@ const About = ({ theme, themeUse, content }) => {
       <Para color={themeUse.secondary}>
         Graphic Designer / Software Engineer
       </Para>
-      <Spacer theme={theme} length="200px" />
+      <Spacer theme={theme} length="170px" />
       <Image
         src="/image/self.svg"
         width={200}

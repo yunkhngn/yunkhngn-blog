@@ -70,11 +70,49 @@ const WritingPage = ({ themeUse, theme }) => {
   }, [slug]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    const desc = {
+      title: "Loading",
+      desc: "Loading...",
+      url: "https://khoanguyen.me/writing"
+    };
+    return ( <Template description={desc} height="100%">
+      <article>
+        <Title color={themeUse.primary}>Loading...</Title>
+        
+        <Spacer theme={theme} length="200px" />
+        <Para color={themeUse.secondary}>We are searching for your page.</Para>
+        <Spacer theme={theme} length="150px" />
+        <Link href="/writing" passHref>
+          <Div m={{ t: '1em' }} textColor={themeUse.secondary} hoverTextColor={themeUse.hover} transition>
+            Go back...
+          </Div>
+        </Link>
+        <ElementSpace space="12em" />
+      </article>
+    </Template>) // Hiển thị thông báo lỗi nếu không tìm thấy bài viết hoặc có lỗi
   }
 
   if (error) {
-    return <p>Post not found.</p>; // Hiển thị thông báo lỗi nếu không tìm thấy bài viết hoặc có lỗi
+    const desc = {
+      title: "Page not found",
+      desc: "Sorry, your post looking for is not found!",
+      url: "https://khoanguyen.me/writing"
+    };
+    return ( <Template description={desc} height="100%">
+      <article>
+        <Title color={themeUse.primary}>Post not found!</Title>
+        
+        <Spacer theme={theme} length="200px" />
+        <Para color={themeUse.secondary}>Sorry, your post looking for is not found!</Para>
+        <Spacer theme={theme} length="150px" />
+        <Link href="/writing" passHref>
+          <Div m={{ t: '1em' }} textColor={themeUse.secondary} hoverTextColor={themeUse.hover} transition>
+            Go back...
+          </Div>
+        </Link>
+        <ElementSpace space="12em" />
+      </article>
+    </Template>) 
   }
 
   const desc = {
@@ -101,6 +139,7 @@ const WritingPage = ({ themeUse, theme }) => {
         bgPos="center"
         h="300px"
         w="100%"
+        cursor="pointer"
         rounded="lg"
         m={{ b: '1.5em' }}
         />
