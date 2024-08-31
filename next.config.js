@@ -7,4 +7,12 @@ const nextConfig = {
   },
 }
 
+
+// next.config.js
+module.exports = {
+  images: {
+    domains: ['images.ctfassets.net'], // Thêm tên miền của bạn ở đây
+  },
+};
+
 module.exports = nextConfig

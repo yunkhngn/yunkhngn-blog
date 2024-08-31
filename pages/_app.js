@@ -126,14 +126,10 @@ function MyApp({ Component, pageProps }) {
     },
   ];
   const [themeUse, setThemeUse] = useState(themeProvider[0]);
-
-  // Sử dụng theme của hệ thống
   useEffect(() => {
     const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     setTheme(systemTheme);
     setThemeUse(systemTheme === 'light' ? themeProvider[0] : themeProvider[1]);
-
-    // Theo dõi sự thay đổi của theme hệ thống
     const themeChangeListener = (e) => {
       const newTheme = e.matches ? 'dark' : 'light';
       setTheme(newTheme);
@@ -147,7 +143,7 @@ function MyApp({ Component, pageProps }) {
       window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', themeChangeListener);
     };
   }, []);
-
+  
   return (
     <StyletronProvider value={styletron}>
         <KBarProvider
