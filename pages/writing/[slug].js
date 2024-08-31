@@ -94,7 +94,7 @@ const WritingPage = ({ themeUse, theme }) => {
         <Spacer theme={theme} length="200px" />
         <Para color={themeUse.secondary}>Author: Khoa Nguyễn</Para>
         <Para color={themeUse.secondary}>{"P/s: " +post.Desc}</Para>
-        <Spacer theme={theme} length="200px" />
+        <Spacer theme={theme} length="150px" />
         <Div
         bgImg={src}
         bgSize="cover"

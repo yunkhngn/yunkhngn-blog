@@ -1,8 +1,7 @@
 import { SocialLink, Spacer } from "../../Hooks";
 import { Para } from "../../Template";
-import { Div } from "atomize";
-import ReactMarkdown from "react-markdown";
-import Image from "next/Image";
+import { Div, Image } from "atomize";
+import ReactMarkdown from "react-markdown"; 
 const About = ({ theme, themeUse, content }) => {
   return (
     <article>
@@ -16,9 +15,14 @@ const About = ({ theme, themeUse, content }) => {
         height={200}
         alt="Picture of the author"
       />
-      
+      <Div
+      justify="center"
+      align="center"
+      d="flex"
+      >
       <SocialLink theme={theme} />
-      <Spacer theme={theme} length="75%" />
+      </Div>
+      <Spacer theme={theme} length="100%" />
       <ReactMarkdown>{content.Description}</ReactMarkdown>
       <br />
       <ReactMarkdown>{content.Content}</ReactMarkdown>
