@@ -5,8 +5,6 @@ import { useEffect, useState } from 'react';
 
 const Project = ({ theme, themeUse }) => {
   const [prj, setPrj] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1); // State cho trang hiện tại
-  const itemsPerPage = 5; // Số lượng repository trên mỗi trang
 
   const fetchRepositories = async () => {
     try {

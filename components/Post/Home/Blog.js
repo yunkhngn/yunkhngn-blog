@@ -4,10 +4,12 @@ import { Div, Image } from 'atomize';
 import ElementSpace from '../ElementSpace';
 const contentful = require('contentful');
 
+import dotenv from 'dotenv';
+dotenv.config();
 const client = contentful.createClient({
-  space: 'ylftmc9jqqoq',
-  environment: 'master',
-  accessToken: 'Kj4D3ADbeK9g1DA4zKE338aBQT9JfbaJkW_Hiznt_fg'
+  space: process.env.CONTENTFUL_SPACE_ID,
+  environment: process.env.CONTENTFUL_ENVIRONMENT,
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 });
 
 const Blog = ({ theme, themeUse }) => {

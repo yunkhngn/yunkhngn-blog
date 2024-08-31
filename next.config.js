@@ -5,14 +5,11 @@ const nextConfig = {
     locales: ["en"],
     defaultLocale: "en",
   },
-}
-
-
-// next.config.js
-module.exports = {
-  images: {
-    domains: ['images.ctfassets.net'], // Thêm tên miền của bạn ở đây
+  env: {
+    CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID,
+    CONTENTFUL_ENVIRONMENT: process.env.CONTENTFUL_ENVIRONMENT,
+    CONTENTFUL_ACCESS_TOKEN: process.env.CONTENTFUL_ACCESS_TOKEN,
   },
-};
+}
 
 module.exports = nextConfig
