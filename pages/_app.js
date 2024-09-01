@@ -10,6 +10,9 @@ import {StyleReset} from 'atomize'
 import {useState, useEffect} from 'react'
 import {useRouter} from 'next/router'
 import { AnimatedTags, Metatags } from '../components/Template'
+import { injectSpeedInsights } from '@vercel/speed-insights';
+
+injectSpeedInsights();
 
 import {KBarProvider} from 'kbar'
 import {AnimatePresence} from 'framer-motion'
