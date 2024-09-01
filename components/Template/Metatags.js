@@ -50,7 +50,7 @@ export default function Metatags({description}) {
             <meta property="twitter:url" content={description.url}/>
             <meta property="twitter:title" content={description.title}/>
             <meta property="twitter:description" content={(description.desc) ? description.desc : "Khoa Nguyễn is a software engineer in Hanoi, Vietnam. He enjoys building software with Reactjs and dealing with algorithms and data structures."}/>
-            <meta property="twitter:image" content="/favicon/wall.png"/>
+            <meta property="twitter:image" content="https://khoanguyen.codes/favicon/wall.png"/>
             <meta property="twitter:image:alt" content="Khoa Nguyen"/>
             <meta property="twitter:image:width" content="1200"/>
             <meta property="twitter:image:height" content="630"/>
