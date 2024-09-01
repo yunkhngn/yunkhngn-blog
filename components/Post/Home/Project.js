@@ -1,41 +1,8 @@
 import { Para } from '../../Template';
 import { Div, Button } from 'atomize'; // Import Button từ Atomize
 import ElementSpace from '../ElementSpace';
-import { useEffect, useState } from 'react';
 
-const Project = ({ theme, themeUse }) => {
-  const [prj, setPrj] = useState([]);
-
-  const fetchRepositories = async () => {
-    try {
-      const username = 'yunkhngn';
-      const response = await fetch(`https://api.github.com/users/${username}/repos`);
-      const repositories = await response.json();
-
-      if (!response.ok) {
-        console.error('Error fetching repositories:', repositories.message);
-        return;
-      }
-
-      // Lọc 5 repository mới nhất và nhiều sao nhất
-      const filteredRepos = repositories
-        .sort((a, b) => {
-          if (a.stargazers_count === b.stargazers_count) {
-            return new Date(b.created_at) - new Date(a.created_at); // Sắp xếp theo ngày tạo nếu số sao bằng nhau
-          }
-          return b.stargazers_count - a.stargazers_count; // Sắp xếp theo số sao giảm dần
-        })
-        .slice(0, 5); // Chỉ lấy 5 repository đầu tiên
-
-      setPrj(filteredRepos);
-    } catch (error) {
-      console.error('Failed to fetch repositories:', error);
-    }
-  };
-
-  useEffect(() => {
-    fetchRepositories();
-  }, []);
+const Project = ({ theme, themeUse, prj }) => {
 
   const dateFormer = (date) => {
     let dateArr = date.split('T')[0].split('-');

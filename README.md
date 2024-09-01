@@ -1,10 +1,14 @@
-# Các features sẽ update trong tương lai
+# Khoa Nguyễn website
+
+Website portfolio cá nhân
+
 ### Bug:
-> NOTE: Hiện tại các bug đã được fix hết, không có gì nhiều.
+> NOTE: Updating thêm
 - [ ] Cải thiện SEO và loading trang web.
-- [ ] Cải thiện theme.
+- [ ] Fix getStaticProps ở các trang
 ### Feature:
 > NOTE: Các feature đang và sẽ được xây dựng.
-- [ ] Reboot lại trang
+- [ ] Làm Navigation.
+- [ ] Skeleton cho ảnh
 
 Thế thôi, không có gì nhiều lắm, có gì mình hoàn thiện!

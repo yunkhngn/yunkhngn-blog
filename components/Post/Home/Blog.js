@@ -1,53 +1,13 @@
-import { useEffect, useState } from 'react'; // Thêm useState và useEffect
 import { Para } from '../../Template';
 import { Div, Image } from 'atomize';
 import ElementSpace from '../ElementSpace';
-const contentful = require('contentful');
 
-import dotenv from 'dotenv';
-dotenv.config();
-const client = contentful.createClient({
-  space: process.env.CONTENTFUL_SPACE_ID,
-  environment: process.env.CONTENTFUL_ENVIRONMENT,
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-});
-
-const Blog = ({ theme, themeUse }) => {
-  const [data, setData] = useState([]); // Khai báo state để lưu trữ dữ liệu
+const Blog = ({ theme, themeUse, data}) => {
 
   const dateFormer = (date) => {
     let dateArr = date.split('T')[0].split('-');
     return `${dateArr[2]}/${dateArr[1]}/${dateArr[0]}`;
   };
-
-  useEffect(() => {
-    // Fetch dữ liệu từ Contentful
-    const fetchEntries = async () => {
-      try {
-        const response = await client.getEntries({
-          content_type: 'behanceBlog'
-        });
-
-        // Sắp xếp dữ liệu theo ngày từ mới nhất đến cũ nhất
-        const sortedData = response.items.map(item => ({
-          id: item.sys.id,
-          attributes: {
-            Title: item.fields.title,
-            Image: item.fields.image.fields.file.url,
-            createdAt: item.fields.date,
-            url: item.fields.url,
-            desc: item.fields.desc
-          }
-        })).sort((a, b) => new Date(b.attributes.createdAt) - new Date(a.attributes.createdAt));
-
-        setData(sortedData);
-      } catch (error) {
-        console.error('Error fetching entries:', error);
-      }
-    };
-
-    fetchEntries();
-  }, []); // Chạy một lần khi component được mount
 
   return (
     <article>
@@ -56,7 +16,7 @@ const Blog = ({ theme, themeUse }) => {
       <hr className={'hr' + theme} />
       <Div p={{ b: '1em' }}>
         {data.length === 0 ? (
-          <Para color={themeUse.secondary}>There are no post yet...</Para>
+          <Para color={themeUse.secondary}>There are no posts yet...</Para>
         ) : (
           data.map((item) => (
             <div key={item.id}>
@@ -113,7 +73,6 @@ const Blog = ({ theme, themeUse }) => {
                     which="left"
                     color={themeUse.secondary}
                     textAlign={{ xs: 'center', sm: 'left' }}
-                    //hide when xs
                     d={{ xs: "block", md: "flex" }}
                   >
                     {dateFormer(item.attributes.createdAt)}

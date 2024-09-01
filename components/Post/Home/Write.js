@@ -1,15 +1,6 @@
-import { useState, useEffect } from 'react'; // Thêm useState và useEffect
 import { Para } from '../../Template';
 import { Div } from 'atomize';
 import Link from 'next/link';
-const contentful = require('contentful');
-import dotenv from 'dotenv';
-dotenv.config();
-const client = contentful.createClient({
-  space: process.env.CONTENTFUL_SPACE_ID,
-  environment: process.env.CONTENTFUL_ENVIRONMENT,
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-});
 
 const formatDate = (dateString) => {
   const date = new Date(dateString);
@@ -19,38 +10,7 @@ const formatDate = (dateString) => {
   return `${day}/${month}/${year}`;
 };
 
-const Write = ({ theme, themeUse }) => {
-  const [content, setContent] = useState([]); // Khai báo state để lưu trữ dữ liệu
-
-  useEffect(() => {
-    // Fetch dữ liệu từ Contentful
-    const fetchEntries = async () => {
-      try {
-        const response = await client.getEntries({
-          content_type: 'blogPage'
-        });
-
-        // Sắp xếp dữ liệu theo ngày từ mới nhất đến cũ nhất
-        const sortedData = response.items.map(item => ({
-          id: item.sys.id,
-          attributes: {
-            Title: item.fields.title,
-            Image: `https:${item.fields.image.fields.file.url}`, // Thêm "https:" để đảm bảo URL đầy đủ
-            Slug: item.fields.slug,
-            createdAt: item.sys.createdAt,
-            Desc: item.fields.description, // Chuyển đổi rich text sang HTML
-          }
-        })).sort((a, b) => new Date(b.attributes.createdAt) - new Date(a.attributes.createdAt));
-
-        setContent(sortedData);
-      } catch (error) {
-        console.error('Error fetching entries:', error);
-      }
-    };
-
-    fetchEntries();
-  }, []); // Chạy một lần khi component được mount
-
+const Write = ({ theme, themeUse, content }) => {
   return (
     <article>
       <Para color={themeUse.secondary}>A collection of my (un)organized musings.</Para>
