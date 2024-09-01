@@ -4,8 +4,8 @@ Website portfolio cá nhân
 
 ### Bug:
 > NOTE: Updating thêm
-- [ ] Cải thiện SEO và loading trang web.
-- [ ] Fix getStaticProps ở các trang
+- [X] Cải thiện SEO và loading trang web.
+- [X] Fix getStaticProps ở các trang
 ### Feature:
 > NOTE: Các feature đang và sẽ được xây dựng.
 - [ ] Làm Navigation.
