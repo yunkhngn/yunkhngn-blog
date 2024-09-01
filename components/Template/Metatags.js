@@ -43,16 +43,22 @@ export default function Metatags({description}) {
             <meta property="og:description" content={(description.desc) ? description.desc : "Khoa Nguyễn is a software engineer in Hanoi, Vietnam. He enjoys building software with Reactjs and dealing with algorithms and data structures."}/>
             <meta property="og:image" content="/favicon/wall.png"/>
             <meta property="og:image:alt" content="Khoa Nguyen"/>
+            <meta property="og:image:width" content="1200"/>
+            <meta property="og:image:height" content="630"/>
             {/* <!-- Twitter --> */}
             <meta property="twitter:card" content="summary_large_image"/>
             <meta property="twitter:url" content={description.url}/>
             <meta property="twitter:title" content={description.title}/>
             <meta property="twitter:description" content={(description.desc) ? description.desc : "Khoa Nguyễn is a software engineer in Hanoi, Vietnam. He enjoys building software with Reactjs and dealing with algorithms and data structures."}/>
             <meta property="twitter:image" content="/favicon/wall.png"/>
+            <meta property="twitter:image:alt" content="Khoa Nguyen"/>
+            <meta property="twitter:image:width" content="1200"/>
+            <meta property="twitter:image:height" content="630"/>
             {/* <!-- SEO--> */}
             <meta name="googlebot" content="notranslate"/>
             <meta name="author" content="Khoa Nguyễn"/>
             <meta name="copyright" content="Khoa Nguyễn"/>
+            <meta name="application-name" content="Khoa Nguyễn"/>
         </Head>
     )
 }
