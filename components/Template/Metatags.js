@@ -42,7 +42,7 @@ export default function Metatags({description}) {
             <meta property="og:title" content={description.title}/>
             <meta property="og:description" content={(description.desc) ? description.desc : "Khoa Nguyễn is a software engineer in Hanoi, Vietnam. He enjoys building software with Reactjs and dealing with algorithms and data structures."}/>
             <meta property="og:image" content="/favicon/wall.png"/>
-            <meta property="og:image:alt" content="A rainy day"/>
+            <meta property="og:image:alt" content="Khoa Nguyen"/>
             {/* <!-- Twitter --> */}
             <meta property="twitter:card" content="summary_large_image"/>
             <meta property="twitter:url" content={description.url}/>
