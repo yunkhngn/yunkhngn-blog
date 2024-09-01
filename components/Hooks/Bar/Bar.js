@@ -1,6 +1,7 @@
 import Icon from "./BarIcon";
 import Link from "next/link";
 import Spacer from "./Spacer";
+
 const SocialMedia = [
     {
       id: 4,

@@ -7,17 +7,17 @@ const SkeletonImage = ({ src, alt, h, w, rounded, m }) => {
 
     return (
         <div>
-            {isLoading && <Skeleton height={h} width={w} />}
             <Image
                 src={src}
                 alt={alt}
                 h={h}
                 w={w}
-                m = {m}
                 rounded={rounded}
+                m={m}
                 onLoad={() => setIsLoading(false)}
-                style={{ visibility: isLoading ? 'hidden' : 'visible' }}
+                d="block"
             />
+            {isLoading && <Skeleton height={h} width={w} />}
         </div>
     );
 };

@@ -1,17 +1,17 @@
 import '../styles/globals.css'
 import '../styles/Bar.css'
 import '../styles/BarIcon.css'
+
 import { themeProvider } from '../lib'
 import { Bar, CmdBar} from '../components/Hooks'
 import {styletron} from '../styletron'
 import { Provider as StyletronProvider } from 'styletron-react'
 import {StyleReset} from 'atomize'
-import {useState} from 'react'
-import Metatags from '../components/Template/Metatags'
-import { AnimatedTags } from '../components/Template'
-import {KBarProvider} from 'kbar'
+import {useState, useEffect} from 'react'
 import {useRouter} from 'next/router'
-import {useEffect} from 'react'
+import { AnimatedTags, Metatags } from '../components/Template'
+
+import {KBarProvider} from 'kbar'
 import {AnimatePresence} from 'framer-motion'
 import {Div} from 'atomize'
 import { Analytics } from "@vercel/analytics/react"

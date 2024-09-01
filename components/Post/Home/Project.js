@@ -3,12 +3,6 @@ import { Div, Button } from 'atomize'; // Import Button từ Atomize
 import ElementSpace from '../ElementSpace';
 
 const Project = ({ theme, themeUse, prj }) => {
-
-  const dateFormer = (date) => {
-    let dateArr = date.split('T')[0].split('-');
-    return `${dateArr[2]}/${dateArr[1]}/${dateArr[0]}`;
-  };
-
   return (
     <article>
       <Para color={themeUse.secondary}>My latest incredible things built with React, Next.js,...from my Github.</Para>

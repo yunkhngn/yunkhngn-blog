@@ -2,6 +2,7 @@ import {Template, Title} from '../components/Template'
 import {Blog} from '../components/Post'
 import {desc} from '../lib'
 
+// Lấy content từ api
 const contentful = require('contentful');
 import dotenv from 'dotenv';
 dotenv.config();
@@ -25,9 +26,7 @@ export const getStaticProps = async () => {
       const response = await client.getEntries({
         content_type: 'behanceBlog'
       });
-  
-      console.log('Contentful response:', response); // Log để kiểm tra response từ Contentful
-  
+
       const sortedData = response.items.map(item => ({
         id: item.sys.id,
         attributes: {

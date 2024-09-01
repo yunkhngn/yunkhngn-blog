@@ -11,7 +11,6 @@ const projects = ({themeUse,theme,prj}) => {
     );
 }
 
-
 export async function getStaticProps() {
     const res = await fetch('https://api.github.com/users/yunkhngn/repos');
     const prj = await res.json();

@@ -22,7 +22,6 @@ const writing = ({themeUse,theme, content}) => {
     );
 }
 
-
 export async function getStaticProps() {
     const response = await client.getEntries({
       content_type: 'blogPage'

@@ -1,11 +1,8 @@
-// pages/writing/[slug].js
-
 import { useRouter } from 'next/router';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { Template } from '../../components/Template';
-import { Title, Para } from '../../components/Template';
+import { Title, Para, Template } from '../../components/Template';
 import { Spacer } from '../../components/Hooks';
-import ElementSpace from '../../components/Post/ElementSpace';
+import {ElementSpace} from '../../components/Post/';
 import { Div } from 'atomize';
 import Link from 'next/link';
 

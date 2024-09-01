@@ -1,5 +1,4 @@
-import {Template} from '../components/Template/'
-import {Title, Para} from '../components/Template/'
+import {Title, Para, Template} from '../components/Template/'
 import {Spacer} from '../components/Hooks/'
 
 const description = {
