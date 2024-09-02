@@ -5,6 +5,7 @@ import { Spacer } from '../../components/Hooks';
 import {ElementSpace} from '../../components/Post/';
 import { Div } from 'atomize';
 import Link from 'next/link';
+import { htmlToText } from 'html-to-text';
 
 const contentful = require('contentful');
 import dotenv from 'dotenv';
@@ -102,13 +103,28 @@ const WritingPage = ({ post, themeUse, theme }) => {
     );
   }
 
+  function truncateHtml(htmlString, maxLength) {
+    // Chuyển đổi HTML thành văn bản thuần
+    const text = htmlToText(htmlString, {
+      wordwrap: false
+    });
+  
+    // Cắt ngắn văn bản và thêm ba dấu chấm
+    if (text.length > maxLength) {
+      return text.slice(0, maxLength) + '...';
+    }
+  
+    return text;
+  }
+
   const desc = {
     title: post.Title,
-    desc: post.Body,
-    url: `https://khoanguyen.me/writing/${post.slug}`
+    desc: truncateHtml(post.Body, 100), // Cắt ngắn với chiều dài 100 ký tự
+    url: `https://khoanguyen.me/writing/${post.slug}`,
+    img: post.Image
   };
+  
   const src = post.Image;
-
   return (
     <Template description={desc} height="100%">
       <article>

@@ -158,7 +158,6 @@ function MyApp({ Component, pageProps }) {
       >
           <div className={'webkit selection'+theme}>
             <CmdBar theme={theme}/>
-            <Metatags description='null'/>
             <StyleReset/>
             <AnimatePresence exitBeforeEnter>
               <AnimatedTags key={router.pathname}>
