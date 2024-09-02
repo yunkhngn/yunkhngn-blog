@@ -126,7 +126,7 @@ const Bar = ({setTheme, theme, setThemeUse, themeProvider}) => {
             name="Admin"
             alt="Admin"
             changeColor={theme === 'light' ? true : false}
-            clickHandler={() => window.open("https://admin.khoanguyen.codes", "_self")}
+            clickHandler={() => window.open("https://app.contentful.com/spaces/", "_self")}
             theme={theme}
           />
         </div>
