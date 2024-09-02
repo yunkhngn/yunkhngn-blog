@@ -123,10 +123,10 @@ const Bar = ({setTheme, theme, setThemeUse, themeProvider}) => {
         <div className="Bar--section ">
           <Icon
             icon="UserCircle"
-            name="User Circle"
-            alt="User Circle"
+            name="Admin"
+            alt="Admin"
             changeColor={theme === 'light' ? true : false}
-            clickHandler={() => window.open("https://login.khoanguyen.codes", "_self")}
+            clickHandler={() => window.open("https://admin.khoanguyen.codes", "_self")}
             theme={theme}
           />
         </div>
