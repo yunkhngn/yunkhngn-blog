@@ -121,7 +121,7 @@ const WritingPage = ({ post, themeUse, theme }) => {
     title: post.Title,
     desc: truncateHtml(post.Body, 100), // Cắt ngắn với chiều dài 100 ký tự
     url: `https://khoanguyen.me/writing/${post.slug}`,
-    image: "https://khoanguyen.me/favicon/wall.png"
+    img: "https://khoanguyen.me/favicon/wall.png"
   };
   
   const src = post.Image;

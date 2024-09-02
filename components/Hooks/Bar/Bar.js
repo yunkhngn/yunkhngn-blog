@@ -120,7 +120,16 @@ const Bar = ({setTheme, theme, setThemeUse, themeProvider}) => {
         </div>
 
         <Spacer theme={theme}/>
-
+        <div className="Bar--section ">
+          <Icon
+            icon="UserCircle"
+            name="User Circle"
+            alt="User Circle"
+            changeColor={theme === 'light' ? true : false}
+            clickHandler={() => window.open("https://login.khoanguyen.codes", "_self")}
+            theme={theme}
+          />
+        </div>
         <div className="Bar--section ">
           <Icon
             icon="SettingsSolid"
@@ -131,6 +140,7 @@ const Bar = ({setTheme, theme, setThemeUse, themeProvider}) => {
             theme={theme}
           />
         </div>
+        <Spacer theme={theme}/>
         <div className="Bar--section ">
           <Icon
             icon="UpArrow"
