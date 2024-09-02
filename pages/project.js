@@ -31,6 +31,7 @@ export async function getStaticProps() {
     props: {
       prj: filteredRepos,
     },
+    revalidate: 60 // ISR sau mỗi 60 giây
   };
 }
 
