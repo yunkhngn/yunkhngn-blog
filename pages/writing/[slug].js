@@ -46,7 +46,6 @@ export async function getStaticProps({ params }) {
     if (response.items.length > 0) {
       const item = response.items[0];
       const bodyHtml = documentToHtmlString(item.fields.body);
-
       const postData = {
         id: item.sys.id,
         Title: item.fields.title,
@@ -56,7 +55,6 @@ export async function getStaticProps({ params }) {
         Desc: item.fields.description,
         slug: item.fields.slug,
       };
-
       return {
         props: { post: postData }, // Pass post data to the page component as props
         revalidate: 60, // Revalidate every 60 seconds
@@ -118,15 +116,15 @@ const WritingPage = ({ post, themeUse, theme }) => {
   
     return text;
   }
+
   const src = post.Image;
   
   const desc = {
     title: post.Title,
     desc: truncateHtml(post.Body, 100), // Cắt ngắn với chiều dài 100 ký tự
     url: `https://khoanguyen.codes/writing/${post.slug}`,
-    img: "https://khoanguyen.codes/favicon/wall.png"
+    img: src,
   };
-
   return (
     <Template description={desc} height="100%">
       <article>
