@@ -83,7 +83,8 @@ const WritingPage = ({ post, themeUse, theme }) => {
     const desc = {
       title: "Page not found",
       desc: "Sorry, your post looking for is not found!",
-      url: "https://khoanguyen.me/writing/"
+      url: `https://khoanguyen.codes/writing/${post.slug}`,
+      img: "https://khoanguyen.codes/favicon/wall.png"
     };
     return ( 
       <Template description={desc} height="100%">
@@ -121,7 +122,7 @@ const WritingPage = ({ post, themeUse, theme }) => {
     title: post.Title,
     desc: truncateHtml(post.Body, 100), // Cắt ngắn với chiều dài 100 ký tự
     url: `https://khoanguyen.codes/writing/${post.slug}`,
-    img: "https://khoanguyen.codes/favicon/wall.png"
+    img: post.Image
   };
   
   const src = post.Image;
