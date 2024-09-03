@@ -2,12 +2,14 @@ import { useRouter } from 'next/router';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { Title, Para, Template } from '../../components/Template';
 import { Spacer } from '../../components/Hooks';
-import { ElementSpace } from '../../components/Post/';
+import {ElementSpace} from '../../components/Post/';
 import { Div } from 'atomize';
 import Link from 'next/link';
 import { htmlToText } from 'html-to-text';
-import sharp from 'sharp';
-const contentful = require('contentful'); 
+
+const contentful = require('contentful');
+import dotenv from 'dotenv';
+dotenv.config();
 
 const client = contentful.createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -23,35 +25,15 @@ const formatDate = (dateString) => {
   return `${day}/${month}/${year}`;
 };
 
-const optimizeImage = async (url) => {
-  try {
-    // Fetch the image from the URL
-    const response = await fetch(url);
-    const buffer = await response.buffer();
-
-    // Process the image with Sharp
-    const optimizedBuffer = await sharp(buffer)
-      .resize({ width: 1200, height: 675, fit: 'cover' }) // Resize to 16:9 aspect ratio
-      .jpeg({ quality: 80 }) // Convert to JPEG and compress
-      .toBuffer();
-
-    // Convert buffer to base64 for rendering in HTML
-    const base64Image = optimizedBuffer.toString('base64');
-    return `data:image/jpeg;base64,${base64Image}`;
-  } catch (error) {
-    console.error('Error optimizing image:', error);
-    return url; // Return the original URL if there's an error
-  }
-};
-
 export async function getStaticPaths() {
+  // Fetch all posts to get slugs for each post
   const response = await client.getEntries({ content_type: 'blogPage' });
 
   const paths = response.items.map((item) => ({
     params: { slug: item.fields.slug },
   }));
 
-  return { paths, fallback: false };
+  return { paths, fallback: false }; // Pre-render only these paths at build time, other routes will return 404
 }
 
 export async function getStaticProps({ params }) {
@@ -65,13 +47,10 @@ export async function getStaticProps({ params }) {
       const item = response.items[0];
       const bodyHtml = documentToHtmlString(item.fields.body);
 
-      // Optimize image using Sharp
-      const optimizedImage = await optimizeImage(`https:${item.fields.image.fields.file.url}`);
-
       const postData = {
         id: item.sys.id,
         Title: item.fields.title,
-        Image: optimizedImage,
+        Image: `https:${item.fields.image.fields.file.url}`,
         createdAt: item.sys.createdAt,
         Body: bodyHtml,
         Desc: item.fields.description,
@@ -79,22 +58,24 @@ export async function getStaticProps({ params }) {
       };
 
       return {
-        props: { post: postData },
-        revalidate: 60,
+        props: { post: postData }, // Pass post data to the page component as props
+        revalidate: 60, // Revalidate every 60 seconds
       };
     } else {
       return {
-        notFound: true,
+        notFound: true, // If post not found, return 404
       };
     }
   } catch (error) {
     console.error('Error fetching post:', error);
-    return { notFound: true };
+    return { notFound: true }; // Return 404 if there is an error
   }
 }
 
 const WritingPage = ({ post, themeUse, theme }) => {
   const router = useRouter();
+
+  // Show loading state if path is not yet pre-rendered
   if (router.isFallback) {
     return <p>Loading...</p>;
   }
@@ -102,16 +83,16 @@ const WritingPage = ({ post, themeUse, theme }) => {
   if (!post) {
     const desc = {
       title: "Page not found",
-      desc: "Sorry, the post you are looking for is not found!",
-      url: `https://khoanguyen.codes/writing/${router.query.slug}`,
-      img: "https://khoanguyen.codes/favicon/wall.png",
+      desc: "Sorry, your post looking for is not found!",
+      url: `https://khoanguyen.codes/writing/${post.slug}`,
+      img: "https://khoanguyen.codes/favicon/wall.png"
     };
-    return (
+    return ( 
       <Template description={desc} height="100%">
         <article>
           <Title color={themeUse.primary}>Post not found!</Title>
           <Spacer theme={theme} length="200px" />
-          <Para color={themeUse.secondary}>Sorry, the post you are looking for is not found!</Para>
+          <Para color={themeUse.secondary}>Sorry, your post looking for is not found!</Para>
           <Spacer theme={theme} length="150px" />
           <Link href="/writing" passHref>
             <Div m={{ t: '1em' }} textColor={themeUse.secondary} hoverTextColor={themeUse.hover} transition>
@@ -125,35 +106,40 @@ const WritingPage = ({ post, themeUse, theme }) => {
   }
 
   function truncateHtml(htmlString, maxLength) {
+    // Chuyển đổi HTML thành văn bản thuần
     const text = htmlToText(htmlString, {
-      wordwrap: false,
+      wordwrap: false
     });
-
+  
+    // Cắt ngắn văn bản và thêm ba dấu chấm
     if (text.length > maxLength) {
       return text.slice(0, maxLength) + '...';
     }
-
+  
     return text;
   }
-
+  const src = post.Image;
+  
   const desc = {
     title: post.Title,
-    desc: truncateHtml(post.Body, 100),
+    desc: truncateHtml(post.Body, 100), // Cắt ngắn với chiều dài 100 ký tự
     url: `https://khoanguyen.codes/writing/${post.slug}`,
-    img: post.Image,
+    img: "https://khoanguyen.codes/favicon/wall.png"
   };
 
   return (
     <Template description={desc} height="100%">
       <article>
         <Title color={themeUse.primary}>{post.Title}</Title>
-        <Para color={themeUse.secondary}>{"Publish Date: " + formatDate(post.createdAt)}</Para>
+        <Para color={themeUse.secondary}>
+          {"Publish Date: " + formatDate(post.createdAt)}
+        </Para>
         <Spacer theme={theme} length="200px" />
         <Para color={themeUse.secondary}>Author: Khoa Nguyễn</Para>
         <Para color={themeUse.secondary}>{"P/s: " + post.Desc}</Para>
         <Spacer theme={theme} length="150px" />
         <Div
-          bgImg={post.Image}
+          bgImg={src}
           bgSize="cover"
           bgPos="center"
           h="300px"
