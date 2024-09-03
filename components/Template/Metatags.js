@@ -37,6 +37,7 @@ export default function Metatags({description}) {
             <meta name="msapplication-TileImage" content="/image/ms-icon-144x144.png" />
             <meta name="theme-color" content="#000000" />
             {/* <!-- Open Graph / Facebook --> */}
+            <meta property="og:site_name" content="Khoa Nguyen"></meta>
             <meta property="og:type" content="website" />
             <meta property="og:url" content={description.url || "https://khoanguyen.codes"} />
             <meta property="og:title" content={description.title} />
