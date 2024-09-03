@@ -54,6 +54,7 @@ export async function getStaticProps({ params }) {
         createdAt: item.sys.createdAt,
         Body: bodyHtml,
         Desc: item.fields.description,
+        slug: item.fields.slug,
       };
 
       return {
@@ -124,6 +125,8 @@ const WritingPage = ({ post, themeUse, theme }) => {
     url: `https://khoanguyen.codes/writing/${post.slug}`,
     img: post.Image
   };
+  console.log(post)
+  console.log(desc)
   
   const src = post.Image;
   return (
