@@ -72,7 +72,7 @@ const Bar = ({setTheme, theme, setThemeUse, themeProvider}) => {
             <div className="Bar">
                 <div className="Bar--section">
                 <Link href="/" passHref>
-                  <a className="Bar--section">
+                  <div className="Bar--section">
                   <Icon
                         icon="HomeSolid2"
                         name="Home"
@@ -82,14 +82,14 @@ const Bar = ({setTheme, theme, setThemeUse, themeProvider}) => {
                         theme={theme}
                     >
                     </Icon>
-                  </a>
+                  </div>
                 </Link>
                 </div>
         <Spacer theme={theme}/>
         <div className="Bar--section ">
           {BarNavigate.map((item) => (
              <Link href={item.url} passHref key={item.id}>
-              <a className="Bar--section">
+              <div className="Bar--section">
                 <Icon
                   icon={item.icon}
                   name={item.name}
@@ -98,7 +98,7 @@ const Bar = ({setTheme, theme, setThemeUse, themeProvider}) => {
                   url={item.url}
                   theme={theme}
                 />
-              </a>
+              </div>
             </Link>
           ))}
         </div>
