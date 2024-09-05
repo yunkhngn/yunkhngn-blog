@@ -1,7 +1,9 @@
-User-agent: Googlebot
-Disallow: /nogooglebot/
-
+# *
 User-agent: *
 Allow: /
 
-Sitemap: https://www.khoanguyen.dev/sitemap.xml
+# Host
+Host: https://www.khoanguyen.codes
+
+# Sitemaps
+Sitemap: https://www.khoanguyen.codes/sitemap.xml
