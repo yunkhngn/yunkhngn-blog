@@ -5,7 +5,7 @@ import {desc} from '../lib'
 import Head from 'next/head'
 export default function Home({theme, themeUse}) {
   const content = {
-    Description: "Xin chào, tớ là Khoa Nguyễn. Tớ đang là sinh viên tại Đại học FPT, chuyên ngành Công nghệ thông tin. Hiện tại tớ cũng đang là freelancer thiết kế đồ hoạ và phát triển một số dự án cá nhân liên quan tới chuyên ngành của mình.",
+    Description: "Xin chào, tớ là Khoa Nguyễn. Tớ đang là sinh viên chuyên ngành Công nghệ thông tin tại Đại học FPT. Hiện tại tớ cũng đang là freelancer thiết kế đồ hoạ và phát triển một số dự án cá nhân liên quan tới chuyên ngành của mình.",
   }
   return (
     <Template description={desc.home} height="100%">
