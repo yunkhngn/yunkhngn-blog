@@ -8,6 +8,18 @@ body {
   scroll-behavior: smooth
 }
 
+.shortcut {
+  font-family: monospace; /* Font giống như trên bàn phím */
+  font-size: 1em; /* Kích thước chữ */
+  padding: 0.2em 0.4em; /* Padding để tạo khoảng cách */
+  border: 1px solid #ccc; /* Đường viền */
+  border-radius: 3px; /* Bo góc */
+  background-color: #f5f5f5; /* Màu nền */
+  color: #333; /* Màu chữ */
+  display: inline-block; /* Hiển thị inline */
+  margin: 0 0.2em; /* Khoảng cách giữa các phím */
+}
+
 html.light-theme {
   background-color: #ffffff; /* Màu nền cho theme sáng */
 }

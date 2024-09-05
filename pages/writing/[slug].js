@@ -86,13 +86,13 @@ const WritingPage = ({ post, themeUse, theme }) => {
     return ( 
       <Template description={desc} height="100%">
         <article>
-          <Title color={themeUse.primary}>Post not found!</Title>
+          <Title color={themeUse.primary}>Không có post nào ở đây!</Title>
           <Spacer theme={theme} length="200px" />
-          <Para color={themeUse.secondary}>Sorry, your post looking for is not found!</Para>
+          <Para color={themeUse.secondary}>Post bạn tìm hiện không thấy!</Para>
           <Spacer theme={theme} length="150px" />
           <Link href="/writing" passHref>
             <Div m={{ t: '1em' }} textColor={themeUse.secondary} hoverTextColor={themeUse.hover} transition>
-              Go back...
+              Quay lại...
             </Div>
           </Link>
           <ElementSpace space="12em" />
@@ -128,11 +128,11 @@ const WritingPage = ({ post, themeUse, theme }) => {
       <article>
         <Title color={themeUse.primary}>{post.Title}</Title>
         <Para color={themeUse.secondary}>
-          {"Publish Date: " + formatDate(post.createdAt)}
+          {"Ngày đăng: " + formatDate(post.createdAt)}
         </Para>
         <Spacer theme={theme} length="200px" />
-        <Para color={themeUse.secondary}>Author: Khoa Nguyễn</Para>
-        <Para color={themeUse.secondary}>{"P/s: " + post.Desc}</Para>
+        <Para color={themeUse.secondary}>Tác giả: Khoa Nguyễn</Para>
+        <Para color={themeUse.secondary}>{"Phân loại: " + post.Desc}</Para>
         <Spacer theme={theme} length="150px" />
         <Div
           bgImg={src}
@@ -146,11 +146,13 @@ const WritingPage = ({ post, themeUse, theme }) => {
         />
         <div dangerouslySetInnerHTML={{ __html: post.Body }} />
         <br />
+
+        <Spacer theme={theme} length="200px" />
         <h3>Khoa Nguyễn</h3>
         <p>&copy; 2024 Khoa Nguyễn. All rights reserved.</p>
         <Link href="/writing" passHref>
           <Div m={{ t: '1em' }} textColor={themeUse.secondary} hoverTextColor={themeUse.hover} transition>
-            Go back...
+            Quay lại...
           </Div>
         </Link>
         <ElementSpace space="12em" />

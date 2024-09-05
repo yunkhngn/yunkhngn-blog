@@ -32,25 +32,25 @@ const SocialMedia = [
 const BarNavigate = [
     {
     id: 1,
-    name: "About",
+    name: "Giới thiệu",
     icon: "UserCircle",
     url: "/about",
     },
     {
     id: 2,
-    name: "Project",
+    name: "Dự án",
     icon: "Draft",
     url: "/project",
     },
     {
     id: 3,
-    name: "Library",
+    name: "Thư viện",
     icon: "Bulk",
     url: "/library",
     },
     {
     id: 4,
-    name: "Writing",
+    name: "Viết linh tinh",
     icon: "EditSolid",
     url: "/writing",
     }

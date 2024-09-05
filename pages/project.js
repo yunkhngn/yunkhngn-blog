@@ -5,7 +5,7 @@ import {desc} from '../lib'
 const projects = ({themeUse,theme,prj}) => {
     return (
         <Template description={desc.projects} height="100%">
-            <Title color={themeUse.primary}>Project</Title>
+            <Title color={themeUse.primary}>Dự án</Title>
             <Project prj={prj} themeUse={themeUse} theme={theme}/>
         </Template>
     );
@@ -21,7 +21,7 @@ export async function getStaticProps() {
       }
       return b.stargazers_count - a.stargazers_count; // Sắp xếp theo số sao giảm dần
     })
-    .slice(0, 5) // Chỉ lấy 5 repository đầu tiên
+    .slice(0, 10) // Chỉ lấy 5 repository đầu tiên
     .map(repo => ({
       ...repo,
       name: formatRepoName(repo.name), // Chuyển đổi tên repo

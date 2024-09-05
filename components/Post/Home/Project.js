@@ -5,12 +5,12 @@ import ElementSpace from '../ElementSpace';
 const Project = ({ theme, themeUse, prj }) => {
   return (
     <article>
-      <Para color={themeUse.secondary}>My latest incredible things built with React, Next.js,...from my Github.</Para>
+      <Para color={themeUse.secondary}>Những dự án cá nhân của tớ từ Github.</Para>
       <Div m={{ b: '1.7em' }} />
       <hr className={'hr' + theme} />
       <Div>
         {prj.length === 0 ? (
-          <Para color={themeUse.secondary}>No project posted yet.</Para>
+          <Para color={themeUse.secondary}>Chưa có project nào ở đây.</Para>
         ) : (
           prj.map((item) => (
             <div key={item.id}>
@@ -45,7 +45,7 @@ const Project = ({ theme, themeUse, prj }) => {
 
       <a target="_blank" rel="noreferrer" href="https://github.com/yunkhngn">
         <Div m={{ t: '1em' }} textColor={themeUse.secondary} hoverTextColor={themeUse.hover} transition>
-          View all my projects...
+          Xem Github của tớ...
         </Div>
       </a>
       <ElementSpace space="12em" />

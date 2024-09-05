@@ -13,12 +13,12 @@ const formatDate = (dateString) => {
 const Write = ({ theme, themeUse, content }) => {
   return (
     <article>
-      <Para color={themeUse.secondary}>A collection of my (un)organized musings.</Para>
+      <Para color={themeUse.secondary}>Những cảm xúc không thể bao biện, hoặc chỉ đơn giản là viết.</Para>
       <Div m={{ b: '1.7em' }} />
       <hr className={'hr' + theme} />
       <Div>
         {content.length === 0 ? (
-          <Para color={themeUse.secondary}>No writing posted yet.</Para>
+          <Para color={themeUse.secondary}>Chưa có post nào ở đây.</Para>
         ) : (
           content.map((item) => (
             <div key={item.id}>

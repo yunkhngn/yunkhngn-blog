@@ -13,7 +13,7 @@ const client = contentful.createClient({
 const writings = ({themeUse,theme, data}) => {
     return (
         <Template description={desc.pics} height="100%">
-            <Title color={themeUse.primary}>Library</Title>
+            <Title color={themeUse.primary}>Thư viện</Title>
             <Blog data={data} themeUse={themeUse} theme={theme}/>
         </Template>
     );

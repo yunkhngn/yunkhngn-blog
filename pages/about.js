@@ -9,7 +9,7 @@ const about = ({themeUse,theme}) => {
       }
     return (
         <Template description={desc.about} height="100%">
-            <Title color={themeUse.primary}>About me</Title>
+            <Title color={themeUse.primary}>Giới thiệu</Title>
             <About content={content} themeUse={themeUse} theme={theme}/>
             <ElementSpace/>
             &nbsp;

@@ -11,12 +11,12 @@ const Blog = ({ theme, themeUse, data}) => {
 
   return (
     <article>
-      <Para color={themeUse.secondary}>A collection of my graphic design from Behance.</Para>
+      <Para color={themeUse.secondary}>Các thiết kế của tớ được đăng trên Behance.</Para>
       <Div m={{ b: '1.7em' }} />
       <hr className={'hr' + theme} />
       <Div p={{ b: '1em' }}>
         {data.length === 0 ? (
-          <Para color={themeUse.secondary}>There are no posts yet...</Para>
+          <Para color={themeUse.secondary}>Chưa có post nào ở đây.</Para>
         ) : (
           data.map((item) => (
             <div key={item.id}>
@@ -85,7 +85,7 @@ const Blog = ({ theme, themeUse, data}) => {
       </Div>
       <a target="_blank" rel="noreferrer" href="https://www.behance.net/yunkhngn_">
         <Div textColor={themeUse.secondary} hoverTextColor={themeUse.hover} transition>
-          View all my Behance...
+          Xem Behance của tớ...
         </Div>
       </a>
       <ElementSpace space="12em" />
