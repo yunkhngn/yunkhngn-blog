@@ -27,8 +27,11 @@ const About = ({ theme, themeUse, content }) => {
       <ReactMarkdown>{content.Description}</ReactMarkdown>
       <br />
       <ReactMarkdown>{content.Content}</ReactMarkdown>
+      <br />
+      <p><i>Viết bởi tớ</i></p>
+      <p><strong>Khoa Nguyễn</strong></p>
       <Spacer theme={theme} length="80px" />
-      <a target="_blank" rel="noreferrer" href="https://facebook.com/yun.khngn"><Div m={{t:"1em"}} textColor={themeUse.secondary} hoverTextColor={themeUse.hover} transition>Follow me for more...</Div></a>
+      <a target="_blank" rel="noreferrer" href="https://facebook.com/yun.khngn"><Div m={{t:"1em"}} textColor={themeUse.secondary} hoverTextColor={themeUse.hover} transition>Theo dõi tớ để biết thêm nhiều điều hay...</Div></a>
     </article>
   );
 };

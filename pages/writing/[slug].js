@@ -20,7 +20,7 @@ const formatDate = (dateString) => {
   const day = String(date.getDate()).padStart(2, '0');
   const month = String(date.getMonth() + 1).padStart(2, '0');
   const year = date.getFullYear();
-  return `${day}/${month}/${year}`;
+  return `${day} tháng ${month} năm ${year}.`;
 };
 
 export async function getStaticPaths() {
@@ -128,7 +128,7 @@ const WritingPage = ({ post, themeUse, theme }) => {
       <article>
         <Title color={themeUse.primary}>{post.Title}</Title>
         <Para color={themeUse.secondary}>
-          {"Ngày đăng: " + formatDate(post.createdAt)}
+          {"Hà Nội, ngày " + formatDate(post.createdAt)}
         </Para>
         <Spacer theme={theme} length="200px" />
         <Para color={themeUse.secondary}>Tác giả: Khoa Nguyễn</Para>
@@ -148,6 +148,7 @@ const WritingPage = ({ post, themeUse, theme }) => {
         <br />
 
         <Spacer theme={theme} length="200px" />
+        <p><i>Viết bởi tớ</i></p>
         <h3>Khoa Nguyễn</h3>
         <p>&copy; 2024 Khoa Nguyễn. All rights reserved.</p>
         <Link href="/writing" passHref>

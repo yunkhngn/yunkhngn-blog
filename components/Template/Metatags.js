@@ -6,14 +6,14 @@ export default function Metatags({description}) {
             <meta charset="utf-8" />
             <title>{description.title}</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <meta name="description" content={(description.desc) ? description.desc : "Khoa Nguyễn is a software engineer in Hanoi, Vietnam. He enjoys building software with Reactjs and dealing with algorithms and data structures."}/>
+            <meta name="description" content={(description.desc) ? description.desc : "Tớ là Khoa Nguyễn. Tớ đang là sinh viên tại Đại học FPT, chuyên ngành Công nghệ thông tin. Hiện tại tớ cũng đang là freelancer thiết kế đồ hoạ và phát triển một số dự án cá nhân liên quan tới chuyên ngành của mình."}/>
             <meta name="keywords" content="Blog, Khoa Nguyen, Khoa Nguyễn, Khoa Nguyen, Khoa Nguyn, Nguyễn Đăng Khoa, Post , React, Nextjs, Next JS, Typescript, Cpp, Coding, Language, JavaScript, Reactjs, Khoa Nguyen Blog, Khoa Nguyen, Software Development, Software Engineer, Frontend Developer, Frontend Engineer, Web Developer, KhoaNguyen, Khoa Nguyen Dev, Graphic Designer, Nodejs, Nguyễn Đăng Khoa, Khoa Nguyễn"/>
-            <meta name="author" content="Khoa Nguyen" />
+            <meta name="author" content="Khoa Nguyễn" />
             <meta name="robots" content="index, follow" />
             <meta name="revisit-after" content="1 days" />
-            <meta name="language" content="en" />
+            <meta name="language" content="vi" />
             <meta name="copyright" content="Khoa Nguyen" />
-            <meta name="application-name" content="Khoa Nguyen Website" />
+            <meta name="application-name" content="Khoa Nguyen" />
             <meta name="theme-color" content="#000000" />
             <meta name="msapplication-TileColor" content="#000000" />
             <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png" />
@@ -47,7 +47,7 @@ export default function Metatags({description}) {
             <meta property="og:type" content="website" />
             <meta property="og:url" content={description.url || "https://khoanguyen.codes"} />
             <meta property="og:title" content={description.title} />
-            <meta property="og:description" content={description.desc || "Khoa Nguyễn is a software engineer in Hanoi, Vietnam. He enjoys building software with Reactjs and dealing with algorithms and data structures."} />
+            <meta property="og:description" content={description.desc || "Tớ là Khoa Nguyễn. Tớ đang là sinh viên tại Đại học FPT, chuyên ngành Công nghệ thông tin. Hiện tại tớ cũng đang là freelancer thiết kế đồ hoạ và phát triển một số dự án cá nhân liên quan tới chuyên ngành của mình."} />
             <meta property="og:image" content={description.img} />
             <meta property="og:image:alt" content="Khoa Nguyen" />
             <meta property="og:image:width" content="1200" />
@@ -56,7 +56,7 @@ export default function Metatags({description}) {
             <meta property="twitter:card" content="summary_large_image"/>
             <meta property="twitter:url" content={description.url}/>
             <meta property="twitter:title" content={description.title}/>
-            <meta property="twitter:description" content={(description.desc) ? description.desc : "Khoa Nguyễn is a software engineer in Hanoi, Vietnam. He enjoys building software with Reactjs and dealing with algorithms and data structures."}/>
+            <meta property="twitter:description" content={(description.desc) ? description.desc : "Tớ là Khoa Nguyễn. Tớ đang là sinh viên tại Đại học FPT, chuyên ngành Công nghệ thông tin. Hiện tại tớ cũng đang là freelancer thiết kế đồ hoạ và phát triển một số dự án cá nhân liên quan tới chuyên ngành của mình."}/>
             <meta property="twitter:image" content={description.img}/>
             <meta property="twitter:image:alt" content="Khoa Nguyen"/>
             <meta property="twitter:image:width" content="1200"/>

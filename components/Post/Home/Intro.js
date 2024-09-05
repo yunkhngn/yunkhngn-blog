@@ -1,6 +1,5 @@
 import {SocialLink, Spacer} from '../../Hooks'
 import {Para} from '../../Template'
-import {Button} from 'atomize'
 import ReactMarkdown from 'react-markdown'
 
 const Intro = ({theme,themeUse, content}) => {
@@ -10,7 +9,7 @@ const Intro = ({theme,themeUse, content}) => {
             <Spacer theme={theme} length={{xs:"100%", md:"200px"}} />
             <ReactMarkdown>{content.Description}</ReactMarkdown>
             <br/>
-            <i><span>&#8984;</span> + <span><kbd>k</kbd></span> để khám phá...</i>
+            <i><span>&#8984;</span> + <span><kbd>K</kbd></span> để khám phá...</i>
             <Spacer theme={theme} length="120px"/>
             <SocialLink theme={theme}/>
 
