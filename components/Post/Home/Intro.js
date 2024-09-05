@@ -7,7 +7,7 @@ const Intro = ({theme,themeUse, content}) => {
     return (
         <article>
             <Para color={themeUse.secondary}>Graphic Designer / Software Engineer</Para>
-            <Spacer theme={theme} length="200px"/>
+            <Spacer theme={theme} length={{xs:"100%", md:"200px"}} />
             <ReactMarkdown>{content.Description}</ReactMarkdown>
             <br/>
             <i>{content.Content}</i>

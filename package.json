@@ -15,7 +15,6 @@
     "@vercel/speed-insights": "^1.0.12",
     "atomize": "^1.0.28",
     "contentful": "^10.15.0",
-    "dotenv": "^16.4.5",
     "framer-motion": "^6.3.3",
     "html-to-text": "^9.0.5",
     "isomorphic-unfetch": "^3.1.0",

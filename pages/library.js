@@ -4,8 +4,6 @@ import {desc} from '../lib'
 
 // Lấy content từ api
 const contentful = require('contentful');
-import dotenv from 'dotenv';
-dotenv.config();
 const client = contentful.createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
   environment: process.env.CONTENTFUL_ENVIRONMENT,

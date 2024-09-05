@@ -2,13 +2,14 @@ import { SocialLink, Spacer } from "../../Hooks";
 import { Para } from "../../Template";
 import { Div, Image } from "atomize";
 import ReactMarkdown from "react-markdown"; 
+
 const About = ({ theme, themeUse, content }) => {
   return (
     <article>
       <Para color={themeUse.secondary}>
         Graphic Designer / Software Engineer
       </Para>
-      <Spacer theme={theme} length="170px" />
+      <Spacer theme={theme} length={{xs:"100%", md:"170px"}} />
       <Image
         src="/image/self.svg"
         width={200}

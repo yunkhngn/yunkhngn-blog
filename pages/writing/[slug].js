@@ -8,8 +8,6 @@ import Link from 'next/link';
 import { htmlToText } from 'html-to-text';
 
 const contentful = require('contentful');
-import dotenv from 'dotenv';
-dotenv.config();
 
 const client = contentful.createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
