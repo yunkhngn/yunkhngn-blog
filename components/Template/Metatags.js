@@ -29,9 +29,15 @@ export default function Metatags({description}) {
             <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png" />
             <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png" />
             <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png" />
-            <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+            <link rel="icon" type="image/png" sizes="36x36" href="/favicon/favicon-36x36.png" />
+            <link rel="icon" type="image/png" sizes="48x48" href="/favicon/favicon-48x48.png" />
+            <link rel="icon" type="image/png" sizes="72x72" href="/favicon/favicon-72x72.png" />
             <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png" />
-            <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+            <link rel="icon" type="image/png" sizes="144x144" href="/favicon/favicon-144x144.png" />
+            <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png" />
+            <link rel="icon" href="/favicon/favicon-16x16.png" sizes="16x16" type="image/png"/>
+            <link rel="icon" href="/favicon/favicon-32x32.png" sizes="32x32" type="image/png"/>
+            <link rel="icon" href="/favicon/favicon-96x96.png" sizes="96x96" type="image/png"/>
             <link rel="manifest" href="/manifest.json" />
             <meta name="msapplication-TileColor" content="#000000" />
             <meta name="msapplication-TileImage" content="/image/ms-icon-144x144.png" />
