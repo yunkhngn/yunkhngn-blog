@@ -29,7 +29,6 @@ const social = [
 ];
 
 const SocialLink = ({ theme }) => {
-  console.log(theme);
   return (
     <footer>
       <Div justify="left" align="center" d="flex">
