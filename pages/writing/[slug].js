@@ -31,7 +31,7 @@ export async function getStaticPaths() {
     params: { slug: item.fields.slug },
   }));
 
-  return { paths, fallback: false }; // Pre-render only these paths at build time, other routes will return 404
+  return { paths, fallback: true }; // Pre-render only these paths at build time, other routes will return 404
 }
 
 export async function getStaticProps({ params }) {

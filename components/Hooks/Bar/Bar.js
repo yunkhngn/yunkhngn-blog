@@ -94,7 +94,7 @@ const Bar = ({ setTheme, theme, setThemeUse, themeProvider }) => {
             <Link href={item.url} passHref key={item.id} scroll={true}>
               <div
                 className="Bar--section"
-                role="link"
+                role="navigation"
                 aria-label={item.name}
                 tabIndex={0}
               >
