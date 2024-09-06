@@ -4,6 +4,7 @@ import { Div, Image } from "atomize";
 import ReactMarkdown from "react-markdown"; 
 
 const About = ({ theme, themeUse, content }) => {
+  console.log(themeUse)
   return (
     <article>
       <Para color={themeUse.secondary}>
