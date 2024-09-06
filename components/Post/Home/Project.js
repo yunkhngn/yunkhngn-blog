@@ -1,5 +1,5 @@
 import { Para } from "../../Template";
-import { Div, Button } from "atomize"; // Import Button từ Atomize
+import { Div } from "atomize"; // Import Button từ Atomize
 import ElementSpace from "../ElementSpace";
 
 const Project = ({ theme, themeUse, prj }) => {
@@ -76,6 +76,7 @@ const Project = ({ theme, themeUse, prj }) => {
         </Div>
       </a>
       <ElementSpace space="12em" />
+    
     </article>
   );
 };
