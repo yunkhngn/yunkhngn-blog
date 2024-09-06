@@ -2,6 +2,13 @@ import {Template, Title} from '../components/Template'
 import {Project} from '../components/Post'
 import {desc} from '../lib'
 
+const formatRepoName = (name) => {
+  return name
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' '); 
+  };
+
 const projects = ({themeUse,theme,prj}) => {
     return (
         <Template description={desc.projects} height="100%">
@@ -15,32 +22,24 @@ export async function getStaticProps() {
   const res = await fetch('https://api.github.com/users/yunkhngn/repos');
   const prj = await res.json();
   const filteredRepos = prj
+    .filter(repo => !repo.fork)
     .sort((a, b) => {
       if (a.stargazers_count === b.stargazers_count) {
-        return new Date(b.created_at) - new Date(a.created_at); // Sắp xếp theo ngày tạo nếu số sao bằng nhau
+        return new Date(b.created_at) - new Date(a.created_at); 
       }
-      return b.stargazers_count - a.stargazers_count; // Sắp xếp theo số sao giảm dần
+      return b.stargazers_count - a.stargazers_count;
     })
-    .slice(0, 10) // Chỉ lấy 5 repository đầu tiên
+    .slice(0, 10)
     .map(repo => ({
       ...repo,
-      name: formatRepoName(repo.name), // Chuyển đổi tên repo
+      name: formatRepoName(repo.name), 
     }));
 
   return {
     props: {
       prj: filteredRepos,
     },
-    revalidate: 60 // ISR sau mỗi 60 giây
+    revalidate: 60 
   };
 }
-
-// Hàm để chuyển đổi tên repo
-const formatRepoName = (name) => {
-return name
-  .split('-') // Tách chuỗi bằng dấu gạch
-  .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Viết hoa chữ cái đầu
-  .join(' '); // Ghép các từ lại với nhau bằng dấu cách
-};
-
 export default projects;
