@@ -1,6 +1,7 @@
 import { Para } from '../../Template';
 import { Div } from 'atomize';
 import Link from 'next/link';
+import ElementSpace from '../ElementSpace';
 
 const formatDate = (dateString) => {
   const date = new Date(dateString);
@@ -49,6 +50,7 @@ const Write = ({ theme, themeUse, content }) => {
           ))
         )}
       </Div>
+      <ElementSpace space="12em" />
     </article>
   );
 };
