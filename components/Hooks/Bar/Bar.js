@@ -130,18 +130,6 @@ const Bar = ({ setTheme, theme, setThemeUse, themeProvider }) => {
         <Spacer theme={theme} />
         <div className="Bar--section ">
           <Icon
-            icon="UserCircle"
-            name="Admin"
-            alt="Admin"
-            changeColor={theme === "light" ? true : false}
-            clickHandler={() =>
-              window.open("https://app.contentful.com/spaces/", "_self")
-            }
-            theme={theme}
-          />
-        </div>
-        <div className="Bar--section ">
-          <Icon
             icon="SettingsSolid"
             name="Change Theme"
             alt="Change Theme"
@@ -150,7 +138,6 @@ const Bar = ({ setTheme, theme, setThemeUse, themeProvider }) => {
             theme={theme}
           />
         </div>
-        <Spacer theme={theme} />
         <div className="Bar--section ">
           <Icon
             icon="UpArrow"
