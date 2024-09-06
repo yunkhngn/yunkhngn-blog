@@ -55,18 +55,20 @@ const BarNavigate = [
     url: "/writing",
     }
 ]
-  
-const openURL = (url) => {
-setTimeout(() => {
-    window.open(url, "_blank");
-}, 750);
-};
 
 const Bar = ({setTheme, theme, setThemeUse, themeProvider}) => {
   const changeTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
     setThemeUse(theme === 'light' ? themeProvider[1] : themeProvider[0]);
   };
+  const openURL = (url) => {
+    setTimeout(() => {
+        window.open(url, "_blank");
+    }, 750);
+    };
+    const scrollToTop = () => {
+        window.scrollTo(0, 0);
+    }
     return (
         <nav className={"Bar--container Bar--"+theme}>
             <div className="Bar">
@@ -86,6 +88,7 @@ const Bar = ({setTheme, theme, setThemeUse, themeProvider}) => {
                 </Link>
                 </div>
         <Spacer theme={theme}/>
+        
         <div className="Bar--section ">
           {BarNavigate.map((item) => (
              <Link href={item.url} passHref key={item.id}>
@@ -147,7 +150,7 @@ const Bar = ({setTheme, theme, setThemeUse, themeProvider}) => {
             name="Scroll up"
             alt="Scroll up"
             changeColor={theme === 'light' ? true : false}
-            clickHandler={() => window.scrollTo(0, 0)}
+            clickHandler={scrollToTop}
             theme={theme}
           />
         </div>
