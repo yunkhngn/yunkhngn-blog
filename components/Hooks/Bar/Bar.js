@@ -74,7 +74,7 @@ const Bar = ({ setTheme, theme, setThemeUse, themeProvider }) => {
       <div className="Bar">
         <div className="Bar--section">
           <Link href="/" passHref>
-            <div className="Bar--section">
+            <div className="Bar--section" aria-label="Home" role="navigation">
               <Icon
                 icon="HomeSolid2"
                 name="Home"

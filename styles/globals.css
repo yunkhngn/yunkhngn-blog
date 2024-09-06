@@ -95,6 +95,9 @@ hr{
   margin-top:1em;
   margin-bottom:1em;
   flex: 1 1 0%;
+  width: 100%; /* Đảm bảo chiếm đủ chiều rộng */
+  flex-shrink: 0; /* Ngăn việc co lại */
+  
 }
 
 .hrlight{
