@@ -54,7 +54,7 @@ const SocialLink = ({ theme }) => {
           h="25px"
           border={{ r: "1.9px solid" }}
           rounded="xs"
-          m={{ t: "1em", r: "1em", l: "1em" }}
+          m={{ t: "1em", r: "1em", l: "1.5em" }}
           borderColor={
             theme === "light"
               ? "hsl(0 0% 0% / 0.071)"
