@@ -29,7 +29,6 @@ export async function getStaticProps() {
       }
       return b.stargazers_count - a.stargazers_count;
     })
-    .slice(0, 10)
     .map(repo => ({
       ...repo,
       name: formatRepoName(repo.name), 
