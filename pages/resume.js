@@ -18,6 +18,7 @@ const resume = ({ themeUse, theme }) => {
         allow="autoplay"
         allowFullScreen="true"
         lazy="true"
+        title="resume"
       ></iframe>
       <Link href="/" passHref scroll={true}>
         <Div
