@@ -14,7 +14,7 @@ const Custom404 = ({themeUse, theme}) =>{
             <Title color={themeUse.primary} size="display1">Oops!</Title>
             <Para color={themeUse.secondary}>Có vẻ như trang bạn tìm không có!<br/>Hãy quay trở lại trang chủ! <br/> <strong>Error code: 404</strong></Para>
             <Spacer theme={theme} length="80px"/>
-            <Link href="/"><Div textColor={themeUse.secondary} hoverTextColor={themeUse.hover} transition>Quay lại...</Div></Link>
+            <Link passHref href="/"><Div textColor={themeUse.secondary} hoverTextColor={themeUse.hover} transition>Quay lại...</Div></Link>
         </Template> 
     )
 }
