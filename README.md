@@ -23,7 +23,7 @@ Website portfolio cá nhân của Khoa Nguyễn được phát triển nhằm m�
 
 2. **Clone dự án**:
 ```bash
-git clone https://github.com/your-username/next-project.git
+git clone https://github.com/yunkhngn/next-project.git
 cd next-project
 ```
 3. **Cài đặt các package**
