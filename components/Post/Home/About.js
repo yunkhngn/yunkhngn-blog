@@ -3,11 +3,11 @@ import { Para } from "../../Template";
 import { Div, Image } from "atomize";
 import ReactMarkdown from "react-markdown"; 
 
-const About = ({ theme, themeUse, content }) => {
+const About = ({desc, theme, themeUse, content }) => {
   console.log(themeUse)
   return (
     <article><Para color={themeUse.secondary}>
-    Giới thiệu chút về bản thân mình nhé.
+    {desc.desc}
   </Para>
   <Div m={{ b: "1.7em" }} />
   <hr className={"hr" + theme} />

@@ -12,8 +12,8 @@ const formatRepoName = (name) => {
 const projects = ({themeUse,theme,prj}) => {
     return (
         <Template description={desc.projects} height="100%">
-            <Title color={themeUse.primary}>Dự án</Title>
-            <Project prj={prj} themeUse={themeUse} theme={theme}/>
+            <Title color={themeUse.primary}>{desc.projects.heading}</Title>
+            <Project desc={desc.projects} prj={prj} themeUse={themeUse} theme={theme}/>
         </Template>
     );
 }

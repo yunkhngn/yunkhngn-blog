@@ -2,7 +2,7 @@ import { Para } from "../../Template";
 import { Div, Image } from "atomize";
 import ElementSpace from "../ElementSpace";
 
-const Blog = ({ theme, themeUse, data }) => {
+const Blog = ({desc, theme, themeUse, data }) => {
   const dateFormer = (date) => {
     let dateArr = date.split("T")[0].split("-");
     return `${dateArr[2]}/${dateArr[1]}/${dateArr[0]}`;
@@ -11,7 +11,7 @@ const Blog = ({ theme, themeUse, data }) => {
   return (
     <article>
       <Para color={themeUse.secondary}>
-        Các thiết kế của tớ được đăng trên Behance.
+        {desc.desc}
       </Para>
       <Div m={{ b: "1.7em" }} />
       <hr className={"hr" + theme} />

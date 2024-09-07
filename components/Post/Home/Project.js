@@ -2,7 +2,7 @@ import { Para } from "../../Template";
 import { Div } from "atomize"; // Import Button từ Atomize
 import ElementSpace from "../ElementSpace";
 
-const Project = ({ theme, themeUse, prj }) => {
+const Project = ({desc ,theme, themeUse, prj }) => {
   const dateFormer = (date) => {
     let dateArr = date.split("T")[0].split("-");
     return `${dateArr[2]}/${dateArr[1]}/${dateArr[0]}`;
@@ -10,7 +10,7 @@ const Project = ({ theme, themeUse, prj }) => {
   return (
     <article>
       <Para color={themeUse.secondary}>
-        Những dự án cá nhân của tớ từ Github.
+        {desc.desc}
       </Para>
       <Div m={{ b: "1.7em" }} />
       <hr className={"hr" + theme} />

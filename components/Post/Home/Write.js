@@ -11,10 +11,10 @@ const formatDate = (dateString) => {
   return `${day}/${month}/${year}`;
 };
 
-const Write = ({ theme, themeUse, content }) => {
+const Write = ({desc, theme, themeUse, content }) => {
   return (
     <article>
-      <Para color={themeUse.secondary}>Những cảm xúc không thể bao biện, hoặc chỉ đơn giản là viết.</Para>
+      <Para color={themeUse.secondary}>{desc.desc}</Para>
       <Div m={{ b: '1.7em' }} />
       <hr className={'hr' + theme} />
       <Div>

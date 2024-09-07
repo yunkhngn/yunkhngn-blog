@@ -8,9 +8,9 @@ import { Div } from "atomize";
 const resume = ({ themeUse, theme }) => {
   return (
     <Template description={desc.resume} height="100%">
-      <Title color={themeUse.primary}>Resume</Title>
+      <Title color={themeUse.primary}>{desc.resume.heading}</Title>
       <Para color={themeUse.secondary}>
-        Resume cá nhân của tớ cho các nhà tuyển dụng.
+        {desc.resume.desc}
       </Para>
       <hr className={"hr" + theme} />
       <iframe
