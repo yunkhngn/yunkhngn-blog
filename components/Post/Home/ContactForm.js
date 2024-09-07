@@ -15,19 +15,23 @@ const ContactForm = ({ theme, themeUse, desc }) => {
     title: "",
     message: "",
   });
-
+  const checkMailFormat = (email) => {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  }
   const handleSubmit = () => {
     if (
-      data.name !== "" &&
-      data.email !== "" &&
-      data.title !== "" &&
-      data.message !== "" &&
+      data.name.length > 1 &&
+      data.email.length > 4 &&
+      data.title.length > 4 &&
+      data.message.length > 5 &&
+      checkMailFormat(data.email) &&
       authenticated
-    ) {
+    ){
       submitForm();
       setSubmited(true);
     } else {
-      alert("Cậu chưa điền đủ thông tin hoặc chưa xác nhận captcha");
+      alert("Cậu chưa điền đủ/sai thông tin hoặc chưa xác nhận captcha");
     }
   };
   const [authenticated, setAuthenticated] = useState(
