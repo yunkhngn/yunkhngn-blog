@@ -2,12 +2,49 @@ import React from "react";
 import { Para } from "../../Template";
 import { Div, Textarea, Input, Button, Text, Icon } from "atomize";
 import ElementSpace from "../ElementSpace";
+import emailjs from "@emailjs/browser";
+import { useState } from "react";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 const ContactForm = ({ theme, themeUse, desc }) => {
-  const handleForm = (e) => {
-    e.preventDefault();
-    console.log("Form submitted");
-  }
+  const onDevelopmentEnv = process.env.NODE_ENV === "development";
+  const [data, setData] = React.useState({
+    name: "",
+    email: "",
+    title: "",
+    message: "",
+  });
+  const handleSubmit = () => {
+    if (
+      data.name !== "" &&
+      data.email !== "" &&
+      data.title !== "" &&
+      data.message !== "" &&
+      authenticated
+    ) {
+      submitForm();
+    } else {
+      alert("Cậu chưa điền đủ thông tin hoặc chưa xác nhận captcha");
+    }
+  };
+
+  const [authenticated, setAuthenticated] = useState(onDevelopmentEnv ? true : false);
+  const submitForm = (event) => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (!onDevelopmentEnv) {
+      emailjs.send(
+        process.env.SERVICE_ID,
+        process.env.TEMPLATE_ID,
+        {
+          title: data.title,
+          from_name: data.name,
+          message: data.message,
+          email: data.email,
+        },
+        process.env.PUBLIC_KEY
+      );
+    }
+  };
   return (
     <form>
       <Para color={themeUse.secondary}>{desc.desc}</Para>
@@ -30,6 +67,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
           borderColor={theme === "light" ? "#f9f9f9" : "#171717"}
           focusBorderColor="none"
           textColor={theme === "light" ? "#333" : "#858585"}
+          onChange={(e) => setData({ ...data, name: e.target.value })}
           />
         <Text
           tag="section"
@@ -47,6 +85,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
         borderColor={theme === "light" ? "#f9f9f9" : "#171717"}
         focusBorderColor="none"
         textColor={theme === "light" ? "#333" : "#858585"}
+        onChange={(e) => setData({ ...data, email: e.target.value })}
         />
         <Text tag="section" textSize="paragraph" m={{ b: "0.5em" }}>
           example@abc.com
@@ -67,6 +106,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
         borderColor={theme === "light" ? "#f9f9f9" : "#171717"}
         focusBorderColor="none"
         textColor={theme === "light" ? "#333" : "#858585"}
+        onChange={(e) => setData({ ...data, title: e.target.value })}
         />
         <Text
           tag="section"
@@ -84,13 +124,21 @@ const ContactForm = ({ theme, themeUse, desc }) => {
         borderColor={theme === "light" ? "#f9f9f9" : "#171717"}
         focusBorderColor="none"
         textColor={theme === "light" ? "#333" : "#858585"}
+        onChange={(e) => setData({ ...data, message: e.target.value })}
         />
+        {!onDevelopmentEnv && <HCaptcha
+                sitekey="31677f64-0983-4d5f-afcf-bcb06e4a6bc6"
+                onVerify={(token, ekey) => {
+                  setAuthenticated(true);
+                }}
+                theme={theme === "light" ? "light" : "dark"}
+              ></HCaptcha>}
         <Button
         textColor={theme === "light" ? "#ededed" : "#171717"}
         bg={theme === "light" ? "#171717" : "#ededed"}
         hoverBg={theme === "light" ? "black700" : "gray500"}
         w="100%"
-        onClick={handleForm}
+        onClick={handleSubmit}
         suffix={
           <Icon
             name="RightArrow"
