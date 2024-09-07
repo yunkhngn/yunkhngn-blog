@@ -14,6 +14,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
     title: "",
     message: "",
   });
+
   const handleSubmit = () => {
     if (
       data.name !== "" &&
@@ -29,24 +30,26 @@ const ContactForm = ({ theme, themeUse, desc }) => {
   };
 
   const [authenticated, setAuthenticated] = useState(onDevelopmentEnv ? true : false);
+  console.log(authenticated);
   const submitForm = (event) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     if (!onDevelopmentEnv) {
-      emailjs.send(
-        process.env.SERVICE_ID,
-        process.env.TEMPLATE_ID,
-        {
-          title: data.title,
-          from_name: data.name,
-          message: data.message,
-          email: data.email,
+      emailjs.send(process.env.SERVICE_ID,process.env.TEMPLATE_ID,{
+        email: data.email,
+        from_name: data.name,
+        message: data.message,
+        title: data.title,
         },
         process.env.PUBLIC_KEY
       );
+      alert("Cảm ơn cậu đã liên hệ với tớ, tớ sẽ trả lời cậu sớm nhất có thể");
+    }
+    else {
+      alert("Đã gửi r nhé");
     }
   };
   return (
-    <form>
+    <article>
       <Para color={themeUse.secondary}>{desc.desc}</Para>
       <Div m={{ b: "1.7em" }} />
       <hr className={"hr" + theme} />
@@ -150,7 +153,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
         >Gửi cho tớ</Button>
       </Div>
       <ElementSpace space="12em" />
-    </form>
+    </article>
   );
 };
 
