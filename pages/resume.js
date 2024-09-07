@@ -14,7 +14,7 @@ const resume = ({ themeUse, theme }) => {
       </Para>
       <hr className={"hr" + theme} />
       <iframe
-        src="https://drive.google.com/file/d/1bAccojOEH2PSSLP0w70FOxs8DxosggqY/preview"
+        src="https://drive.google.com/file/d/1txe3dBjcTY7ARsiRj6dUTdzMfyJrEFUW/preview"
         allow="autoplay"
         allowFullScreen="true"
         lazy="true"
