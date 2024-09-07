@@ -2,7 +2,7 @@ import { Para } from "../../Template";
 import { Div, Image } from "atomize";
 import ElementSpace from "../ElementSpace";
 
-const Blog = ({desc, theme, themeUse, data }) => {
+const Pics = ({desc, theme, themeUse, data }) => {
   const dateFormer = (date) => {
     let dateArr = date.split("T")[0].split("-");
     return `${dateArr[2]}/${dateArr[1]}/${dateArr[0]}`;
@@ -102,4 +102,4 @@ const Blog = ({desc, theme, themeUse, data }) => {
   );
 };
 
-export default Blog;
+export default Pics;

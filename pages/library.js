@@ -1,5 +1,5 @@
 import {Template, Title} from '../components/Template'
-import {Blog} from '../components/Post'
+import {Pics} from '../components/Post'
 import {desc} from '../lib'
 
 // Lấy content từ api
@@ -14,7 +14,7 @@ const writings = ({themeUse,theme, data}) => {
     return (
         <Template description={desc.pics} height="100%">
             <Title color={themeUse.primary}>{desc.pics.heading}</Title>
-            <Blog desc={desc.pics} data={data} themeUse={themeUse} theme={theme}/>
+            <Pics desc={desc.pics} data={data} themeUse={themeUse} theme={theme}/>
         </Template>
     );
 }

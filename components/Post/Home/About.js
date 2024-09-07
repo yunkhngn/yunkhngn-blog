@@ -2,6 +2,7 @@ import { SocialLink, Spacer } from "../../Hooks";
 import { Para } from "../../Template";
 import { Div, Image } from "atomize";
 import ReactMarkdown from "react-markdown"; 
+import { ElementSpace } from "../";
 
 const About = ({desc, theme, themeUse, content }) => {
   console.log(themeUse)
@@ -42,6 +43,7 @@ const About = ({desc, theme, themeUse, content }) => {
       <p><strong>Khoa Nguyễn</strong></p>
       <Spacer theme={theme} length="80px" />
       <a target="_blank" rel="noreferrer" href="https://facebook.com/yun.khngn"><Div m={{t:"1em"}} textColor={themeUse.secondary} hoverTextColor={themeUse.hover} transition>Theo dõi tớ để biết thêm nhiều điều hay...</Div></a>
+      <ElementSpace space="12em" />
     </article>
   );
 };

@@ -7,7 +7,7 @@ const Intro = ({theme,themeUse, content}) => {
         <article>
             <Para color={themeUse.secondary}>Graphic Designer / Software Engineer</Para>
             <Spacer theme={theme} length={{xs:"100%", md:"200px"}} />
-            <ReactMarkdown>{content.Description}</ReactMarkdown>
+            <ReactMarkdown>{content}</ReactMarkdown>
             <br/>
             <i><span>&#8984;</span> + <span><kbd>K</kbd></span> để khám phá...</i>
             <Spacer theme={theme} length="120px"/>
