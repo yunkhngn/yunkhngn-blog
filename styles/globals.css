@@ -36,7 +36,7 @@ a {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 20vh; /* Chiều cao của phần cần mờ, điều chỉnh theo ý muốn */
+  height: 90px; /* Chiều cao của phần cần mờ, điều chỉnh theo ý muốn */
   mask: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0) 10%,
