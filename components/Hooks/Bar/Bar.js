@@ -54,6 +54,12 @@ const BarNavigate = [
     icon: "EditSolid",
     url: "/writing",
   },
+  {
+    id: 5,
+    name: "Liên hệ",
+    icon: "MessageSolid",
+    url: "/contact",
+  },
 ];
 
 const Bar = ({ setTheme, theme, setThemeUse, themeProvider }) => {
