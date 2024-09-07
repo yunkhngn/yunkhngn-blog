@@ -6,3 +6,4 @@ export {default as About} from './Home/About';
 export {default as Skeleton} from './Skeleton';
 export {default as ContactForm} from './Home/ContactForm';
 export {default as ElementSpace} from './ElementSpace';
+export {default as WarnBeforeUnload} from './WarnBeforeUnload';

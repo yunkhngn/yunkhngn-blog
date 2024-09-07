@@ -5,6 +5,7 @@ import ElementSpace from "../ElementSpace";
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
+import Warnbeforeunload from "../WarnBeforeUnload";
 
 const ContactForm = ({ theme, themeUse, desc }) => {
   const onDevelopmentEnv = process.env.NODE_ENV === "development";
@@ -53,7 +54,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
       );
       alert("Cảm ơn cậu đã liên hệ với tớ, tớ sẽ trả lời cậu sớm nhất có thể");
     } else {
-      alert("Đã gửi r nhé");
+      alert("Đã gửi r nhé | Development mode");
     }
   };
   return (
@@ -139,7 +140,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
           placeholder="Nội dung"
           fontFamily="primary"
         />
-        {onDevelopmentEnv && (
+        {!onDevelopmentEnv && (
           <Div m={{ t: "1em" }}>
             <Text tag="section" textSize="paragraph" m={{ b: "0.5em" }}>
               Lưu ý: điền captcha trước khi submit nhé!
@@ -166,6 +167,13 @@ const ContactForm = ({ theme, themeUse, desc }) => {
         </Button>
       </Div>
       <ElementSpace space="12em" />
+      {
+        data.name.length > 1 ||
+        data.email.length > 1 ||
+        data.title.length > 1 ||
+        data.message.length > 1 
+        && <Warnbeforeunload />
+      }
     </article>
   );
 };
