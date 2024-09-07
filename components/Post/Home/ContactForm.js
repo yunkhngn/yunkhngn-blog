@@ -168,11 +168,11 @@ const ContactForm = ({ theme, themeUse, desc }) => {
       </Div>
       <ElementSpace space="12em" />
       {
-        data.name.length > 1 ||
+        (data.name.length > 1 ||
         data.email.length > 1 ||
         data.title.length > 1 ||
-        data.message.length > 1 
-        && <Warnbeforeunload />
+        data.message.length > 1) &&
+        <Warnbeforeunload/>
       }
     </article>
   );
