@@ -1,5 +1,7 @@
 # Khoa Nguyễn personal website
 
+![image](https://www.khoanguyen.codes/favicon/wall.png)
+
 Đây là mã nguồn cho trang web portfolio cá nhân của Khoa Nguyễn, được xây dựng để hiển thị thông tin về các dự án, blog, và hoạt động cá nhân. Website này được phát triển sử dụng Nextjs nhằm tối ưu hóa hiệu suất và SEO.
 
 ## Mục lục
