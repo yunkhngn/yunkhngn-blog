@@ -1,66 +1,7 @@
 import Icon from "./BarIcon";
 import Link from "next/link";
 import Spacer from "./Spacer";
-
-const SocialMedia = [
-  {
-    id: 4,
-    name: "Facebook",
-    icon: "Facebook",
-    link: "https://www.facebook.com/yun.khngn",
-  },
-  {
-    id: 5,
-    name: "Instagram",
-    icon: "Instagram",
-    link: "https://instagram.com/yun.khngn",
-  },
-  {
-    id: 6,
-    name: "Github",
-    icon: "Github",
-    link: "https://github.com/yunkhngn",
-  },
-  {
-    id: 7,
-    name: "Behance",
-    icon: "Behance",
-    link: "https://www.behance.net/yunkhngn_",
-  },
-];
-
-const BarNavigate = [
-  {
-    id: 1,
-    name: "Giới thiệu",
-    icon: "UserCircle",
-    url: "/about",
-  },
-  {
-    id: 2,
-    name: "Dự án",
-    icon: "Draft",
-    url: "/project",
-  },
-  {
-    id: 3,
-    name: "Thư viện",
-    icon: "Bulk",
-    url: "/library",
-  },
-  {
-    id: 4,
-    name: "Viết linh tinh",
-    icon: "EditSolid",
-    url: "/writing",
-  },
-  {
-    id: 5,
-    name: "Liên hệ",
-    icon: "MessageSolid",
-    url: "/contact",
-  },
-];
+import { barList } from "../../../lib";
 
 const Bar = ({ setTheme, theme, setThemeUse, themeProvider }) => {
   const changeTheme = () => {
@@ -95,8 +36,7 @@ const Bar = ({ setTheme, theme, setThemeUse, themeProvider }) => {
         <Spacer theme={theme} />
 
         <div className="Bar--section ">
-          {BarNavigate.map((item) => (
-            
+          {barList.navigate.map((item) => (
             <Link href={item.url} passHref key={item.id} scroll={true}>
               <div
                 className="Bar--section"
@@ -116,11 +56,9 @@ const Bar = ({ setTheme, theme, setThemeUse, themeProvider }) => {
             </Link>
           ))}
         </div>
-
         <Spacer theme={theme} />
-
         <div className="Bar--section ">
-          {SocialMedia.map((item) => (
+          {barList.social.map((item) => (
             <Icon
               icon={item.icon}
               name={item.name}
@@ -132,7 +70,6 @@ const Bar = ({ setTheme, theme, setThemeUse, themeProvider }) => {
             />
           ))}
         </div>
-
         <Spacer theme={theme} />
         <div className="Bar--section ">
           <Icon
