@@ -78,7 +78,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
           bg={theme === "light" ? "#f9f9f9" : "rgba(20,20,20)"}
           borderColor={theme === "light" ? "#f9f9f9" : "#171717"}
           focusBorderColor="none"
-          textColor={theme === "light" ? "#333" : "#858585"}
+          textColor={theme === "light" ? "#171717" : "#ededed"}
           onChange={(e) => setData({ ...data, name: e.target.value })}
           placeholder="Họ và tên của bạn"
         />
@@ -97,7 +97,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
           bg={theme === "light" ? "#f9f9f9" : "rgba(20,20,20)"}
           borderColor={theme === "light" ? "#f9f9f9" : "#171717"}
           focusBorderColor="none"
-          textColor={theme === "light" ? "#333" : "#858585"}
+          textColor={theme === "light" ? "#171717" : "#ededed"}
           onChange={(e) => setData({ ...data, email: e.target.value })}
           placeholder="example@abc.com"
         />
@@ -116,7 +116,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
           bg={theme === "light" ? "#f9f9f9" : "rgba(20,20,20)"}
           borderColor={theme === "light" ? "#f9f9f9" : "#171717"}
           focusBorderColor="none"
-          textColor={theme === "light" ? "#333" : "#858585"}
+          textColor={theme === "light" ? "#171717" : "#ededed"}
           onChange={(e) => setData({ ...data, title: e.target.value })}
           placeholder="Tiêu đề"
         />
@@ -135,7 +135,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
           bg={theme === "light" ? "#f9f9f9" : "rgba(20,20,20)"}
           borderColor={theme === "light" ? "#f9f9f9" : "#171717"}
           focusBorderColor="none"
-          textColor={theme === "light" ? "#333" : "#858585"}
+          textColor={theme === "light" ? "#171717" : "#ededed"}
           onChange={(e) => setData({ ...data, message: e.target.value })}
           placeholder="Nội dung của bạn..."
           fontFamily="primary"
