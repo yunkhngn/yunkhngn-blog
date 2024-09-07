@@ -145,8 +145,6 @@ const WritingPage = ({ post, themeUse, theme }) => {
           m={{ b: '1.5em' }}
         />
         <div dangerouslySetInnerHTML={{ __html: post.Body }} />
-        <br />
-
         <Spacer theme={theme} length="200px" />
         <p><i>Viết bởi tớ</i></p>
         <h3>Khoa Nguyễn</h3>

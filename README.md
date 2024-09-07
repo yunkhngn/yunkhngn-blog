@@ -1,17 +1,69 @@
-# Khoa Nguyễn website
+# Khoa Nguyễn personal website
 
-Website portfolio cá nhân
+Đây là mã nguồn cho trang web portfolio cá nhân của Khoa Nguyễn, được xây dựng để hiển thị thông tin về các dự án, blog, và hoạt động cá nhân. Website này được phát triển sử dụng Nextjs nhằm tối ưu hóa hiệu suất và SEO.
 
-### Bug:
-> NOTE: Updating thêm
-- [X] Cải thiện SEO và loading trang web.
-- [X] Fix getStaticProps ở các trang
-- [ ] Fix darkmode có lưu vào
+## Mục lục
 
-### Feature:
+- [Giới thiệu](#giới-thiệu)
+- [Cài đặt](#cài-đặt)
+- [Cách sử dụng](#cách-sử-dụng)
+- [Các tính năng](#các-tính-năng)
+- [Cải thiện và Sửa lỗi](#cải-thiện-và-sửa-lỗi)
+- [Đóng góp](#đóng-góp)
+
+## Giới thiệu
+
+Website portfolio cá nhân của Khoa Nguyễn được phát triển nhằm mục đích giới thiệu bản thân, công việc và các dự án đã thực hiện. Trang web này bao gồm một blog, danh sách các dự án, thông tin liên hệ và các bài viết liên quan đến công nghệ và thiết kế.
+
+## Cài đặt
+
+1. **Yêu cầu**:
+   - Node.js >= 14.x
+   - NPM hoặc Yarn
+
+2. **Clone dự án**:
+```bash
+git clone https://github.com/your-username/next-project.git
+cd next-project
+```
+3. **Cài đặt các package**
+```bash
+npm install
+# hoặc sử dụng yarn
+yarn install
+```
+4. **Chạy web**
+```bash
+npm run dev
+# hoặc sử dụng yarn
+yarn dev
+```
+5. **Build ứng dụng**
+```bash
+npm run build
+# hoặc sử dụng yarn
+yarn build
+```
+## Cách sử dụng
+
+- Chạy development: Truy cập http://localhost:3000.
+
+- Deloy: Sử dụng các nền tảng như Vercel, Netlify, hoặc các dịch vụ cloud khác để triển khai website.
+
+
+## Các tính năng
 > NOTE: Các feature đang và sẽ được xây dựng.
 - [ ] Làm Navigation.
 - [ ] Skeleton cho ảnh
 - [ ] Tạo genre và làm search
 
-Thế thôi, không có gì nhiều lắm, có gì mình hoàn thiện!
+## Cải thiện và sửa lỗi
+> NOTE: Updating thêm
+- [X] Cải thiện SEO và loading trang web.
+- [X] Fix getStaticProps ở các trang
+- [ ] Fix darkmode có lưu vào
+- [ ] Xử lí lại cái content từ API có thể trích xuất hình ảnh
+
+## Đóng góp
+@yunkhngn
+
