@@ -9,6 +9,7 @@
 - [Giới thiệu](#giới-thiệu)
 - [Cài đặt](#cài-đặt)
 - [Cách sử dụng](#cách-sử-dụng)
+- [Thư mục dự án](#thư-mục-dự-án)
 - [Các tính năng](#các-tính-năng)
 - [Cải thiện và Sửa lỗi](#cải-thiện-và-sửa-lỗi)
 - [Đóng góp](#đóng-góp)
@@ -52,6 +53,20 @@ yarn build
 
 - Deloy: Sử dụng các nền tảng như Vercel, Netlify, hoặc các dịch vụ cloud khác để triển khai website.
 
+## Thư mục dự án
+> Dùng cho mục đích bảo trì.
+
+- `/components/Hooks`: Chứa các tags để dùng
+
+- `/components/Post`: Chứa các element con trong trang
+
+- `/lib`: Chứa content của dự án
+
+- `/pages`: Chứa các page route
+
+- `/public`: Chứa các file static và ảnh
+
+- `/styles`: Chứa các file css
 
 ## Các tính năng
 > NOTE: Các feature đang và sẽ được xây dựng.
