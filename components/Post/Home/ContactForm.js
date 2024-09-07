@@ -68,7 +68,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
           textSize="title"
           textWeight="600"
           m={{ b: "0.5em" }}
-          textColor={theme === "light" ? "#333" : "#858585"}
+          textColor={theme === "light" ? "#171717" : "#ededed"}
         >
           Họ và tên
         </Text>
@@ -87,7 +87,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
           textSize="title"
           textWeight="600"
           m={{ b: "0.5em" }}
-          textColor={theme === "light" ? "#333" : "#858585"}
+          textColor={theme === "light" ? "#171717" : "#ededed"}
         >
           Email
         </Text>
@@ -106,7 +106,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
           textSize="title"
           textWeight="600"
           m={{ b: "0.5em" }}
-          textColor={theme === "light" ? "#333" : "#858585"}
+          textColor={theme === "light" ? "#171717" : "#ededed"}
         >
           Tiêu đề
         </Text>
@@ -125,7 +125,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
           textSize="title"
           textWeight="600"
           m={{ b: "0.5em" }}
-          textColor={theme === "light" ? "#333" : "#858585"}
+          textColor={theme === "light" ? "#171717" : "#ededed"}
         >
           Nội dung
         </Text>
@@ -137,7 +137,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
           focusBorderColor="none"
           textColor={theme === "light" ? "#333" : "#858585"}
           onChange={(e) => setData({ ...data, message: e.target.value })}
-          placeholder="Nội dung"
+          placeholder="Nội dung của bạn..."
           fontFamily="primary"
         />
         {!onDevelopmentEnv && (
