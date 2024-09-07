@@ -1,6 +1,7 @@
-import { Div, Button } from "atomize";
+import { Div, Button, Icon } from "atomize";
 import SocialIcon from "./SocialIcon";
 import Link from "next/link";
+import {useState} from 'react'
 const social = [
   {
     id: 4,
@@ -32,37 +33,42 @@ const SocialLink = ({ theme }) => {
   return (
     <footer>
       <Div justify="left" align="center" d="flex">
-        <Div m={{ t: "1em" }}>
-        <Link href='/resume' passHref scroll={true} >
-          <Button
-            h="2rem"
-            p={{ x: "0.75rem" }}
-            textSize="caption"
-            textColor={theme === "light" ? "#6f6f6f" : "#a0a0a0"}
-            hoverTextColor={theme === "light" ? "#000" : "#fff"}
-            bg="transparent"
-            border="1px solid"
-            borderColor={theme === "light" ? "#6f6f6f" : "#a0a0a0"}
-            hoverBorderColor={theme === "light" ? "#000" : "#fff"}
-          >
+        <Div d="flex">
+          <Link href="/resume" passHref scroll={true}>
+            <Button
+              h="2rem"
+              p={{ x: "0.75rem" }}
+              textSize="caption"
+              textColor={theme === "light" ? "#858585" : "#a0a0a0"}
+              hoverTextColor={theme === "light" ? "#171717" : "#ededed"}
+              bg="transparent"
+              border="1px solid"
+              borderColor={theme === "light" ? "#858585" : "#a0a0a0"}
+              hoverBorderColor={theme === "light" ? "#171717" : "#ededed"}
+            >
               Resume
-          </Button>
+            </Button>
           </Link>
         </Div>
         <Div
           h="25px"
           border={{ r: "1.9px solid" }}
           rounded="xs"
-          m={{ t: "1em", r: "1em", l: "1.5em" }}
+          m={{ r: "1em", l: "1.5em" }}
           borderColor={
             theme === "light"
               ? "hsl(0 0% 0% / 0.071)"
               : "hsl(0 0% 100% / 0.077)"
           }
         />
-        <Div justify="space-between" d="flex" w="170px" m={{ t: "1em" }}>
+        <Div justify="space-between" d="flex" w="170px">
           {social.map((item) => (
-            <SocialIcon key={item.id} icon={item.icon} link={item.link} />
+            <SocialIcon
+              key={item.id}
+              icon={item.icon}
+              link={item.link}
+              theme={theme}
+            />
           ))}
         </Div>
       </Div>

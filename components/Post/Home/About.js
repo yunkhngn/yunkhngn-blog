@@ -6,21 +6,30 @@ import ReactMarkdown from "react-markdown";
 const About = ({ theme, themeUse, content }) => {
   console.log(themeUse)
   return (
-    <article>
-      <Para color={themeUse.secondary}>
-        Graphic Designer / Software Engineer
-      </Para>
-      <Spacer theme={theme} length={{xs:"100%", md:"170px"}} />
+    <article><Para color={themeUse.secondary}>
+    Giới thiệu chút về bản thân mình nhé.
+  </Para>
+  <Div m={{ b: "1.7em" }} />
+  <hr className={"hr" + theme} />
+  <Div m={{ b: "1.7em" }} />
       <Image
         src="/image/self.svg"
         width={200}
         height={200}
         alt="Picture of the author"
+        m={{ b: "1em" }}
       />
+      <div className="titleGroup">
+      <p className="titleName">Khoa Nguyễn</p>
+      <Para color={themeUse.secondary}>
+        Graphic Designer / Software Engineer
+      </Para>
+      </div>
       <Div
       justify="center"
       align="center"
       d="flex"
+      m="auto"
       >
       <SocialLink theme={theme} />
       </Div>
