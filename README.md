@@ -73,6 +73,7 @@ yarn build
 - [ ] Làm Navigation.
 - [ ] Skeleton cho ảnh
 - [ ] Tạo genre và làm search
+- [ ] Tạo preview page cho contentful
 
 ## Cải thiện và sửa lỗi
 > NOTE: Updating thêm
