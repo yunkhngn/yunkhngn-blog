@@ -7,6 +7,8 @@ const Bar = ({ setTheme, theme, setThemeUse, themeProvider }) => {
   const changeTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
     setThemeUse(theme === "light" ? themeProvider[1] : themeProvider[0]);
+    localStorage.setItem("userTheme", theme === "light" ? "dark" : "light");
+
   };
   const openURL = (url) => {
     setTimeout(() => {
