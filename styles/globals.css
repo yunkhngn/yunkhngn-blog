@@ -78,19 +78,6 @@ a {
   color: #161616;
 }
 
-.selectiondark{
-  background-color: #161616;
-  width: 100%;
-  height: 100%;
-  min-height: 100vh;
-}
-.selectionlight{
-  background-color: #ffffff;
-  width: 100%;
-  height: 100%;
-  min-height: 100vh;
-}
-
 hr{
   border:none;
   margin-top:1em;

@@ -82,6 +82,9 @@ yarn build
 - [X] Fix darkmode có lưu vào
 - [X] Move favicon ra ngoài
 - [ ] Xử lí lại cái content từ API có thể trích xuất hình ảnh
+- [ ] Redesign lại trang ảnh
+- [ ] Cải thiện thêm trang github
+- [ ] Sửa lại trang about
 
 ## Đóng góp
 @yunkhngn
