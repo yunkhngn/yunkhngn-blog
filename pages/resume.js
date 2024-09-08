@@ -16,7 +16,7 @@ const resume = ({ themeUse, theme }) => {
       <iframe
         src="https://drive.google.com/file/d/1txe3dBjcTY7ARsiRj6dUTdzMfyJrEFUW/preview"
         allow="autoplay"
-        allowFullScreen="true"
+        allowFullScreen={true}
         lazy="true"
         title="resume"
       ></iframe>
