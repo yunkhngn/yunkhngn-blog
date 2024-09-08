@@ -64,10 +64,6 @@ a {
   text-decoration: none;
 }
 
-.webkit{
-  height: 100%;
-}
-
 .selectionlight ::selection {
   background-color: #ff9a9e;
   color: #ffffff;

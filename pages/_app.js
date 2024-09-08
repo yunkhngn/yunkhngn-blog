@@ -38,7 +38,7 @@ function MyApp({ Component, pageProps }) {
           actions={barList.actions}
           setTheme={setTheme}
         >
-          <div className={"webkit selection" + theme}>
+          <div className={"selection" + theme}>
             <CmdBar theme={theme} />
             <StyleReset />
             <AnimatePresence exitBeforeEnter>
