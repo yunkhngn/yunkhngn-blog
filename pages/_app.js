@@ -15,6 +15,7 @@ import { KBarProvider } from "kbar";
 import { AnimatePresence } from "framer-motion";
 import { Div } from "atomize";
 import { Analytics } from "@vercel/analytics/react";
+import { themeProvider } from "../lib";
 
 injectSpeedInsights();
 
@@ -28,6 +29,7 @@ function MyApp({ Component, pageProps }) {
         theme={theme}
         setTheme={setTheme}
         setThemeUse={setThemeUse}
+        themeProvider={themeProvider}
       />
       <StyletronProvider value={styletron}>
         <KBarProvider

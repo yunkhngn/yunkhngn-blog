@@ -1,9 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { useEffect } from "react";
-import { themeProvider } from '../../lib';
-
-const ThemeLoader = ({theme, setTheme, setThemeUse}) => {
+const ThemeLoader = ({theme, setTheme, setThemeUse, themeProvider}) => {
   useEffect(() => {
     const isFirstTimeOnPage = !localStorage.getItem('userTheme');
 
@@ -62,7 +60,7 @@ const ThemeLoader = ({theme, setTheme, setThemeUse}) => {
             html {
               background-color: var(--background-color-light);
               color: var(--text-color-light);
-              transition: background-color 0.2s ease-out, color 0.2s ease-out;
+              transition: background-color 0.1s ease-out, color 0.1s ease-out;
             }
           `}
         </style>
