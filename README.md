@@ -78,7 +78,8 @@ yarn build
 > NOTE: Updating thêm
 - [X] Cải thiện SEO và loading trang web.
 - [X] Fix getStaticProps ở các trang
-- [ ] Fix darkmode có lưu vào
+- [X] Fix darkmode có lưu vào
+- [ ] Move favicon ra ngoafi
 - [ ] Xử lí lại cái content từ API có thể trích xuất hình ảnh
 
 ## Đóng góp
