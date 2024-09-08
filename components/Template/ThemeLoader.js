@@ -28,7 +28,7 @@ const ThemeLoader = ({theme, setTheme, setThemeUse, themeProvider}) => {
     return () => {
       window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', themeChangeListener);
     };
-  }, []);
+  }, [setTheme, setThemeUse, themeProvider]);
 
   useEffect(() => {
     document.documentElement.className = theme === 'light' ? 'light-theme' : 'dark-theme';
