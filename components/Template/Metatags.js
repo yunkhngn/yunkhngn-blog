@@ -3,8 +3,8 @@ import Head from 'next/head'
 export default function Metatags({description}) {
     return (
         <Head>
-            <meta charset="utf-8" />
-            <title>{description.title}</title>
+            <meta charSet="utf-8" />
+            <title>{(description.title) ? description.title : "Khoa Nguyễn"}</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <meta name="description" content={(description.desc) ? description.desc : "Xin chào, tớ là Khoa Nguyễn. Tớ là sinh viên chuyên ngành Công nghệ thông tin tại Đại học FPT. Hiện tại tớ cũng đang là freelancer thiết kế đồ hoạ và phát triển một số dự án cá nhân liên quan tới chuyên ngành."}/>
             <meta name="keywords" content="Blog, Khoa Nguyen, Khoa Nguyễn, Khoa Nguyen, Khoa Nguyn, Nguyễn Đăng Khoa, Post , React, Nextjs, Next JS, Typescript, Cpp, Coding, Language, JavaScript, Reactjs, Khoa Nguyen Blog, Khoa Nguyen, Software Development, Software Engineer, Frontend Developer, Frontend Engineer, Web Developer, KhoaNguyen, Khoa Nguyen Dev, Graphic Designer, Nodejs, Nguyễn Đăng Khoa, Khoa Nguyễn"/>
@@ -14,7 +14,6 @@ export default function Metatags({description}) {
             <meta name="language" content="vi" />
             <meta name="copyright" content="Khoa Nguyen" />
             <meta name="application-name" content="Khoa Nguyen" />
-            <meta name="theme-color" content="#000000" />
             <meta name="msapplication-TileColor" content="#000000" />
             <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
             <meta name="msapplication-config" content="/browserconfig.xml" />
@@ -41,7 +40,6 @@ export default function Metatags({description}) {
             <link rel="manifest" href="/manifest.json" />
             <meta name="msapplication-TileColor" content="#000000" />
             <meta name="msapplication-TileImage" content="/image/ms-icon-144x144.png" />
-            <meta name="theme-color" content="#000000" />
             {/* <!-- Open Graph / Facebook --> */}
             <meta property="og:site_name" content="Khoa Nguyen"></meta>
             <meta property="og:type" content="website" />
