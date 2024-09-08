@@ -118,7 +118,7 @@ const WritingPage = ({ post, themeUse, theme }) => {
   const src = post.Image;
   
   const desc = {
-    title: post.Title + post.Desc,
+    title: `${post.Title} - ${post.Desc}`,
     desc: truncateHtml(post.Body, 100), // Cắt ngắn với chiều dài 100 ký tự
     url: `https://khoanguyen.codes/writing/${post.slug}`,
     img: src,
