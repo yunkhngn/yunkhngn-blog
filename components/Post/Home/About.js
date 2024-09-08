@@ -5,7 +5,6 @@ import ReactMarkdown from "react-markdown";
 import { ElementSpace } from "../";
 
 const About = ({desc, theme, themeUse, content }) => {
-  console.log(themeUse)
   return (
     <article><Para color={themeUse.secondary}>
     {desc.desc}
