@@ -34,7 +34,6 @@ const ThemeLoader = ({theme, setTheme, setThemeUse, themeProvider}) => {
     document.documentElement.className = theme === 'light' ? 'light-theme' : 'dark-theme';
   }, [theme]);
   return (
-    <>
       <Head>
         {/* Đoạn style để thiết lập theme ngay lập tức */}
         <style>
@@ -80,7 +79,6 @@ const ThemeLoader = ({theme, setTheme, setThemeUse, themeProvider}) => {
           }}
         />
       </Head>
-    </>
   );
 };
 

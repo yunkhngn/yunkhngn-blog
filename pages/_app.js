@@ -24,14 +24,13 @@ function MyApp({ Component, pageProps }) {
   const [themeUse, setThemeUse] = useState(themeProvider[0]);
   const router = useRouter();
   return (
-    <>
-      <ThemeLoader
-        theme={theme}
-        setTheme={setTheme}
-        setThemeUse={setThemeUse}
-        themeProvider={themeProvider}
-      />
       <StyletronProvider value={styletron}>
+        <ThemeLoader
+          theme={theme}
+          setTheme={setTheme}
+          setThemeUse={setThemeUse}
+          themeProvider={themeProvider}
+        />
         <KBarProvider
           options={{
             enableHistory: true,
@@ -64,7 +63,6 @@ function MyApp({ Component, pageProps }) {
         </KBarProvider>
         <Analytics />
       </StyletronProvider>
-    </>
   );
 }
 

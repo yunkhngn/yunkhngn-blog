@@ -1,4 +1,4 @@
-import { Div, Button, Icon } from "atomize";
+import { Div, Button } from "atomize";
 import SocialIcon from "./SocialIcon";
 import Link from "next/link";
 import { barList } from "../../../lib";
