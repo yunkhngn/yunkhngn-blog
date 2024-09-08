@@ -37,10 +37,10 @@ const Pics = ({desc, theme, themeUse, data }) => {
                   <Image
                     src={item.attributes.Image}
                     alt={item.attributes.Title}
-                    h={{ xs: "70px", sm: "100px" }}
-                    w={{ xs: "70px", sm: "100px" }}
+                    h={{ xs: "70px", md: "150px" }}
+                    w={{ xs: "70px", md: "150px" }}
                     rounded={{ xs: "12px", sm: "16px" }}
-                    m={{ r: "1em" }}
+                    m={{ xs: "0 16px 0 0", md: "0 1.5em 0 0" }}
                   />
                   <Div>
                     <Para
@@ -49,6 +49,7 @@ const Pics = ({desc, theme, themeUse, data }) => {
                       color={theme === "light" ? "#171717" : "#ededed"}
                       d={{ xs: "block", sm: "flex" }}
                       textAlign={{ xs: "center", sm: "left" }}
+                      textSize={{ xs: "paragraph", md: "heading" }}
                     >
                       <strong>{item.attributes.Title}</strong>
                     </Para>
@@ -58,6 +59,7 @@ const Pics = ({desc, theme, themeUse, data }) => {
                       color={theme === "light" ? "#171717" : "#ededed"}
                       d={{ xs: "block", sm: "flex" }}
                       textAlign={{ xs: "center", sm: "left" }}
+                      textSize={{ xs: "paragraph", md: "subheader" }}
                     >
                       {item.attributes.desc}
                     </Para>
