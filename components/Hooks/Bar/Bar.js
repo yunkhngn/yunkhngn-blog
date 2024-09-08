@@ -37,7 +37,7 @@ const Bar = ({ setTheme, theme, setThemeUse, themeProvider }) => {
         </div>
         <Spacer theme={theme} />
 
-        <div className="Bar--section ">
+        <div className="Bar--section">
           {barList.navigate.map((item) => (
             <Link href={item.url} passHref key={item.id} scroll={true}>
               <div
@@ -59,7 +59,7 @@ const Bar = ({ setTheme, theme, setThemeUse, themeProvider }) => {
           ))}
         </div>
         <Spacer theme={theme} />
-        <div className="Bar--section ">
+        <div className="Bar--section">
           {barList.social.map((item) => (
             <Icon
               icon={item.icon}
@@ -73,7 +73,7 @@ const Bar = ({ setTheme, theme, setThemeUse, themeProvider }) => {
           ))}
         </div>
         <Spacer theme={theme} />
-        <div className="Bar--section ">
+        <div className="Bar--section">
           <Icon
             icon="SettingsSolid"
             name="Change Theme"
@@ -83,7 +83,7 @@ const Bar = ({ setTheme, theme, setThemeUse, themeProvider }) => {
             theme={theme}
           />
         </div>
-        <div className="Bar--section ">
+        <div className="Bar--section">
           <Icon
             icon="UpArrow"
             name="Scroll up"
