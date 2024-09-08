@@ -19,6 +19,7 @@ export default function Metatags({description}) {
             <meta name="msapplication-config" content="/browserconfig.xml" />
             <meta name="theme-color" content="#000000" />
             <link rel="canonical" href="https://www.khoanguyen.codes"/>
+            <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
             <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
             <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
             <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
