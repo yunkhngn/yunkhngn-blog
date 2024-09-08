@@ -85,6 +85,7 @@ yarn build
 - [ ] Redesign lại trang ảnh
 - [ ] Cải thiện thêm trang github
 - [ ] Sửa lại trang about
+- [ ] Sửa tối ưu lại source
 
 ## Đóng góp
 @yunkhngn
