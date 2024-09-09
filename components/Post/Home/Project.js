@@ -23,23 +23,27 @@ const Project = ({ desc, theme, themeUse, prj }) => {
       <Para color={themeUse.secondary}>{desc.desc}</Para>
       <Div m={{ b: "1.7em" }} />
       <hr className={"hr" + theme} />
-      <Input
-        placeholder="Tìm kiếm project..."
-        m={{ t: "1em", b:"1em" }}
-        w="100%"
-        textSize="subheader"
-        textColor={themeUse.secondary}
-        rounded="12px"
-        focusBorderColor={themeUse.primary}
-        transition
-        onChange={searchRepo}
-        border="1px solid"
-        borderColor="gray400"
-      />
+      <Para textSize="subheader" color={themeUse.primary}>
+        Repository search
+      </Para>
       <Para color={themeUse.secondary} m={{ b:"1em" }}>
         Các pet project/public repository sử dụng Node.js, React...
       </Para>
-
+      <Input
+        placeholder="Tìm kiếm project..."
+        m={{ t: "1em", b:"1.5em" }}
+        w="100%"
+        h="3.5em"
+        textSize="subheader"
+        textColor={themeUse.secondary}
+        rounded="12px"
+        focusBorderColor={theme === "light" ? "gray300" : "dark"}
+        transition
+        onChange={searchRepo}
+        border="1px solid"
+        bg={theme === "light" ? "#f9f9f9" : "rgba(20,20,20)"}
+        borderColor={theme === "light" ? "gray300" : "#171717"}
+      />
       <Spacer length="100%" theme={theme} />
       <Div>
         {prj.length === 0 ? (
