@@ -81,10 +81,9 @@ yarn build
 - [X] Fix getStaticProps ở các trang
 - [X] Fix darkmode có lưu vào
 - [X] Move favicon ra ngoài
+- [X] Redesign lại trang ảnh
 - [ ] Fix google console k hiển thị favicon
 - [ ] Xử lí lại cái content từ API có thể trích xuất hình ảnh
-- [ ] Redesign lại trang ảnh
-> làm grid 2 cái 1 dòng theo ô
 - [ ] Cải thiện thêm trang github
 > làm giống github repo
 - [ ] Sửa lại trang about

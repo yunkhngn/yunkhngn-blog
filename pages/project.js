@@ -10,6 +10,7 @@ const formatRepoName = (name) => {
   };
 
 const projects = ({themeUse,theme,prj}) => {
+  console.log(prj)
     return (
         <Template description={desc.projects} height="100%">
             <Title color={themeUse.primary}>{desc.projects.heading}</Title>

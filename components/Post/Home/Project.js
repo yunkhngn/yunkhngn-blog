@@ -1,25 +1,52 @@
 import { Para } from "../../Template";
-import { Div } from "atomize"; // Import Button từ Atomize
+import { Div, Input } from "atomize"; // Import Button từ Atomize
 import ElementSpace from "../ElementSpace";
+import { Spacer } from "../../Hooks";
 
-const Project = ({desc ,theme, themeUse, prj }) => {
+const Project = ({ desc, theme, themeUse, prj }) => {
   const dateFormer = (date) => {
     let dateArr = date.split("T")[0].split("-");
     return `${dateArr[2]}/${dateArr[1]}/${dateArr[0]}`;
   };
+  const searchRepo = (e) => {
+    const repos = document.querySelectorAll(".repo");
+    repos.forEach((repo) => {
+      if (repo.innerText.toLowerCase().includes(e.target.value.toLowerCase())) {
+        repo.style.display = "block";
+      } else {
+        repo.style.display = "none";
+      }
+    });
+  }
   return (
     <article>
-      <Para color={themeUse.secondary}>
-        {desc.desc}
-      </Para>
+      <Para color={themeUse.secondary}>{desc.desc}</Para>
       <Div m={{ b: "1.7em" }} />
       <hr className={"hr" + theme} />
+      <Input
+        placeholder="Tìm kiếm project..."
+        m={{ t: "1em", b:"1em" }}
+        w="100%"
+        textSize="subheader"
+        textColor={themeUse.secondary}
+        rounded="12px"
+        focusBorderColor={themeUse.primary}
+        transition
+        onChange={searchRepo}
+        border="1px solid"
+        borderColor="gray400"
+      />
+      <Para color={themeUse.secondary} m={{ b:"1em" }}>
+        Các pet project/public repository sử dụng Node.js, React...
+      </Para>
+
+      <Spacer length="100%" theme={theme} />
       <Div>
         {prj.length === 0 ? (
           <Para color={themeUse.secondary}>Chưa có project nào ở đây.</Para>
         ) : (
           prj.map((item) => (
-            <div key={item.id}>
+            <div className="repo" key={item.id}>
               <a target="_blank" rel="noreferrer" href={item.html_url}>
                 <Div
                   hoverBg={theme === "light" ? "gray200" : "#222222"}
@@ -33,6 +60,7 @@ const Project = ({desc ,theme, themeUse, prj }) => {
                       margin="true"
                       which="right"
                       color={theme === "light" ? "#171717" : "#ededed"}
+                      textSize="subheader"
                     >
                       <strong>{item.name}</strong>
                     </Para>
@@ -42,14 +70,16 @@ const Project = ({desc ,theme, themeUse, prj }) => {
                     </Para>
                   </Div>
                   <Div
-                    justify="flex-start" align="center" d="flex"
-                    m={{ t: "1em" }}
+                    justify="flex-start"
+                    align="center"
+                    d="flex"
+                    m={{ t: "0.5em" }}
                   >
                     <Para
                       margin="true"
                       which="right"
                       color={theme === "light" ? "#171717" : "#ededed"}
-                      w={{xs: "50%", md: "100%"}}
+                      w={{ xs: "50%", md: "100%" }}
                     >
                       {item.description || "No description"}
                     </Para>
@@ -60,6 +90,7 @@ const Project = ({desc ,theme, themeUse, prj }) => {
                   </Div>
                 </Div>
               </a>
+              <Spacer length="100%" theme={theme} />
             </div>
           ))
         )}
@@ -76,7 +107,6 @@ const Project = ({desc ,theme, themeUse, prj }) => {
         </Div>
       </a>
       <ElementSpace space="12em" />
-    
     </article>
   );
 };
