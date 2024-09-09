@@ -125,3 +125,15 @@ iframe {
   font-weight: bold;
   margin-bottom: 5px;
 }
+
+.gallery{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media screen and (max-width: 650px) {
+  .gallery{
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
