@@ -24,7 +24,7 @@ const Project = ({ desc, theme, themeUse, prj }) => {
       <Div m={{ b: "1.7em" }} />
       <hr className={"hr" + theme} />
       <Para textSize="subheader" color={themeUse.primary}>
-        Repository search
+        Tìm kiếm repository Github
       </Para>
       <Para color={themeUse.secondary} m={{ b:"1em" }}>
         Các pet project/public repository sử dụng Node.js, React...
