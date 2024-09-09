@@ -1,5 +1,5 @@
 import { Para } from "../../Template";
-import { Div, Input } from "atomize"; // Import Button từ Atomize
+import { Div, Input, Tag } from "atomize"; // Import Button từ Atomize
 import ElementSpace from "../ElementSpace";
 import { Spacer } from "../../Hooks";
 
@@ -17,7 +17,7 @@ const Project = ({ desc, theme, themeUse, prj }) => {
         repo.style.display = "none";
       }
     });
-  }
+  };
   return (
     <article>
       <Para color={themeUse.secondary}>{desc.desc}</Para>
@@ -26,12 +26,12 @@ const Project = ({ desc, theme, themeUse, prj }) => {
       <Para textSize="subheader" color={themeUse.primary}>
         Tìm kiếm repository Github
       </Para>
-      <Para color={themeUse.secondary} m={{ b:"1em" }}>
+      <Para color={themeUse.secondary} m={{ b: "1em" }}>
         Các pet project/public repository sử dụng Node.js, React...
       </Para>
       <Input
         placeholder="Tìm kiếm project..."
-        m={{ t: "1em", b:"1.5em" }}
+        m={{ t: "1em", b: "1.5em" }}
         w="100%"
         h="3.5em"
         textSize="subheader"
@@ -58,38 +58,63 @@ const Project = ({ desc, theme, themeUse, prj }) => {
                   p="16px"
                   transition
                   m={{ r: "-16px", l: "-16px" }}
+                  d="flex"
+                  justify="space-between"
                 >
-                  <Div justify="flex-start" align="center" d="flex">
-                    <Para
-                      margin="true"
-                      which="right"
-                      color={theme === "light" ? "#171717" : "#ededed"}
-                      textSize="subheader"
-                    >
+                  <Div w="80%">
+                    <Para textSize="title" color={themeUse.primary}>
                       <strong>{item.name}</strong>
                     </Para>
-                    <hr className={"hr" + theme} />
-                    <Para margin="true" which="left" color={themeUse.secondary}>
-                      <strong>Stars:</strong> {item.stargazers_count}
-                    </Para>
-                  </Div>
-                  <Div
-                    justify="flex-start"
-                    align="center"
-                    d="flex"
-                    m={{ t: "0.5em" }}
-                  >
                     <Para
+                      textSize="paragraph"
+                      color={themeUse.secondary}
+                      which="bottom"
                       margin="true"
-                      which="right"
-                      color={theme === "light" ? "#171717" : "#ededed"}
-                      w={{ xs: "50%", md: "100%" }}
                     >
-                      {item.description || "No description"}
+                      {item.description ? item.description : "Không có mô tả"}
                     </Para>
-                    <hr className={"hr" + theme} />
-                    <Para margin="true" which="left" color={themeUse.secondary}>
-                      {dateFormer(item.created_at)}
+                    <Div>
+                      <Tag 
+                        m={{ r: "0.5em", b: "0.5em" }}
+                        bg="transparent"
+                        border="1px solid"
+                        borderColor={theme === "light" ? "success500" : "success400"}
+                        textColor={theme === "light" ? "success600" : "success500"}
+                        >
+                        {item.language || "None"}
+                      </Tag>
+                      <Tag
+                        d={item.forks_count === 0 ? "none" : "inline-block"}
+                        m={{ r: "0.5em", b: "0.5em" }}
+                        bg="transparent"
+                        border="1px solid"
+                        borderColor={theme === "light" ? "brand500" : "brand400"}
+                        textColor={theme === "light" ? "brand600" : "brand500"}
+                      >
+                        {item.forks_count} Fork
+                      </Tag>
+                      <Tag
+                        d={item.license ? "inline-block" : "none"}
+                        m={{ r: "0.5em", b: "0.5em" }}
+                        bg={theme === "light" ? "warning300" : "warning200"}
+                        border="1px solid"
+                        borderColor={theme === "light" ? "warning500" : "warning600"}
+                        textColor={theme === "light" ? "warning600" : "warning800"}
+                      >
+                        {item.license ? item.license.name : ""}
+                      </Tag>
+                      <Tag m={{ r: "0.5em", b: "0.5em" }}
+                      bg={theme === "light" ? "gray200" : "gray500"}
+                      textColor={theme === "light" ? "gray900" : "black700"}
+
+                      >
+                        Cập nhật lúc {dateFormer(item.updated_at)}
+                      </Tag>
+                    </Div>
+                  </Div>
+                  <Div d="flex" align="center" justify="space-between">
+                    <Para color={themeUse.primary} textSize="paragraph">
+                      <strong>Star:</strong> {item.stargazers_count}
                     </Para>
                   </Div>
                 </Div>
