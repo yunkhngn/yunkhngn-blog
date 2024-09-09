@@ -82,10 +82,9 @@ yarn build
 - [X] Fix darkmode có lưu vào
 - [X] Move favicon ra ngoài
 - [X] Redesign lại trang ảnh
+- [X] Cải thiện thêm trang github
 - [ ] Fix google console k hiển thị favicon
 - [ ] Xử lí lại cái content từ API có thể trích xuất hình ảnh
-- [ ] Cải thiện thêm trang github
-> làm giống github repo
 - [ ] Sửa lại trang about
 - [ ] Sửa tối ưu lại source
 
