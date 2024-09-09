@@ -38,7 +38,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
   const [authenticated, setAuthenticated] = useState(
     onDevelopmentEnv ? true : false
   );
-  const submitForm = (event) => {
+  const submitForm = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     if (!onDevelopmentEnv) {
       emailjs.send(

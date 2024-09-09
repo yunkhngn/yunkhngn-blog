@@ -37,8 +37,7 @@ const Project = ({ desc, theme, themeUse, prj }) => {
         textSize="subheader"
         textColor={themeUse.secondary}
         rounded="12px"
-        focusBorderColor={theme === "light" ? "gray300" : "dark"}
-        transition
+        focusBorderColor={theme === "light" ? "gray300" : "#171717"}
         onChange={searchRepo}
         border="1px solid"
         bg={theme === "light" ? "#f9f9f9" : "rgba(20,20,20)"}
@@ -55,7 +54,7 @@ const Project = ({ desc, theme, themeUse, prj }) => {
                 <Div
                   hoverBg={theme === "light" ? "gray200" : "#222222"}
                   rounded="12px"
-                  p="16px"
+                  p={{t: "24px", b: "24px", l: "16px", r: "16px"}}
                   transition
                   m={{ r: "-16px", l: "-16px" }}
                   d="flex"
