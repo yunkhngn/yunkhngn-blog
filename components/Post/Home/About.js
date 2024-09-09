@@ -5,21 +5,26 @@ import ReactMarkdown from "react-markdown";
 import { ElementSpace } from "../";
 
 const About = ({desc, theme, themeUse, content }) => {
+  const isOnDevelopment = process.env.NODE_ENV === "development";
+  console.log("About.js: ", isOnDevelopment);
   return (
     <article><Para color={themeUse.secondary}>
     {desc.desc}
   </Para>
   <Div m={{ b: "1.7em" }} />
   <hr className={"hr" + theme} />
-  <Div m={{ b: "1.7em" }} />
+  <Div m={{ b: "1.7em" }}/>
+      <div className="titleGroup">
       <Image
-        src="/image/self.svg"
-        width={200}
-        height={200}
+        src={process.env.NODE_ENV === "development" ? "/image/dvp.jpeg" : "/image/self.svg"}
+        w="230px"
+        h="230px"
         alt="Picture of the author"
+        rounded="circle"
+        align="center"
+        justify="center"
         m={{ b: "1em" }}
       />
-      <div className="titleGroup">
       <p className="titleName">Khoa Nguyễn</p>
       <Para color={themeUse.secondary}>
         Graphic Designer / Software Engineer
