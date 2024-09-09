@@ -5,8 +5,6 @@ import ReactMarkdown from "react-markdown";
 import { ElementSpace } from "../";
 
 const About = ({desc, theme, themeUse, content }) => {
-  const isOnDevelopment = process.env.NODE_ENV === "development";
-  console.log("About.js: ", isOnDevelopment);
   return (
     <article><Para color={themeUse.secondary}>
     {desc.desc}
@@ -16,7 +14,7 @@ const About = ({desc, theme, themeUse, content }) => {
   <Div m={{ b: "1.7em" }}/>
       <div className="titleGroup">
       <Image
-        src={process.env.NODE_ENV === "development" ? "/image/dvp.jpeg" : "/image/self.svg"}
+        src="image/me.jpeg"
         w="230px"
         h="230px"
         alt="Picture of the author"
