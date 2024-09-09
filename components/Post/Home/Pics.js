@@ -25,15 +25,15 @@ const Pics = ({ desc, theme, themeUse, data }) => {
                   hoverBg={theme === "light" ? "gray200" : "#222222"}
                   rounded={{ xs: "26px", sm: "24px" }}
                   w="100%"
-                  p={{ xs: "16px", md: "16px" }}
+                  p={{ t: "1em", b: "1.5em", l: "1em", r: "1em" }}
                   transition
                   textAlign="center"
-                  m={{ b: "1.5em" }}
                 >
                   <Image
                     src={item.attributes.Image}
                     alt={item.attributes.Title}
                     rounded={{ xs: "12px", sm: "16px" }}
+                    m={{ b: "1em" }}
                   />
 
                   <Para
@@ -69,8 +69,9 @@ const Pics = ({ desc, theme, themeUse, data }) => {
           hoverTextColor={themeUse.hover}
           transition
           textAlign="center"
+          m={{ t: "1em" }}
         >
-          Xem Behance của tớ...
+          Xem các project Behance của tớ...
         </Div>
       </a>
       <ElementSpace space="12em" />
