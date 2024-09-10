@@ -74,6 +74,7 @@ yarn build
 - [ ] Skeleton cho ảnh
 - [ ] Tạo genre và làm search
 - [ ] Tạo preview page cho contentful
+- [ ] Tạo trang ảnh
 
 ## Cải thiện và sửa lỗi
 > NOTE: Updating thêm
@@ -83,6 +84,7 @@ yarn build
 - [X] Move favicon ra ngoài
 - [X] Redesign lại trang ảnh
 - [X] Cải thiện thêm trang github
+- [ ] Tối ưu load ảnh
 - [ ] Fix google console k hiển thị favicon
 - [ ] Xử lí lại cái content từ API có thể trích xuất hình ảnh
 - [ ] Sửa lại trang about
