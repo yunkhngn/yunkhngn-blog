@@ -150,8 +150,9 @@ iframe {
   overflow: hidden;
   border-radius: 8px;
   cursor: pointer;
-  margin: 0.5em;
+  margin: 0.1em;
 }
+
 .photo:hover{
   filter: brightness(0.85);
   transition: ease-in-out 0.3s;
@@ -159,4 +160,19 @@ iframe {
 .photo:not(:hover){
   filter: brightness(1);
   transition: ease-in-out 0.3s;
+}
+
+.behancePhoto{
+  position: relative;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.writingPhoto{
+  position: relative;
+  aspect-ratio: 16/7;
+  overflow: hidden;
+  cursor: pointer;
+  margin-bottom: 1em;
 }

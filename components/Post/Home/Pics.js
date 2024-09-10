@@ -31,14 +31,7 @@ const Pics = ({ desc, theme, themeUse, data }) => {
                   transition
                   textAlign="center"
                 >
-                  <div
-                  style={{
-                    position: "relative",
-                    aspectRatio: "1/1",
-                    overflow: "hidden",
-                    cursor: "pointer",
-                  }}
-                  >
+                  <div className="behancePhoto">
                   <Image
                     fill={true}
                     src={"https:" + item.attributes.Image}

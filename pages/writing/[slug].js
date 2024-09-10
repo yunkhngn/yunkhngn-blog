@@ -6,6 +6,7 @@ import {ElementSpace} from '../../components/Post/';
 import { Div } from 'atomize';
 import Link from 'next/link';
 import { htmlToText } from 'html-to-text';
+import Image from 'next/image';
 
 const contentful = require('contentful');
 
@@ -134,16 +135,19 @@ const WritingPage = ({ post, themeUse, theme }) => {
         <Para color={themeUse.secondary}>Tác giả: Khoa Nguyễn</Para>
         <Para color={themeUse.secondary}>{"Phân loại: " + post.Desc}</Para>
         <Spacer theme={theme} length="150px" />
-        <Div
-          bgImg={src}
-          bgSize="cover"
-          bgPos="center"
-          h="300px"
-          w="100%"
-          cursor="pointer"
-          rounded="lg"
-          m={{ b: '1.5em' }}
-        />
+        <div
+        className="writingPhoto"
+        >
+          <Image
+            src={src}
+            alt={post.Title}
+            fill={true}
+            style={{
+              objectFit: "cover",
+              borderRadius: "12px",
+            }}
+          />
+        </div>
         <div dangerouslySetInnerHTML={{ __html: post.Body }} />
         <Spacer theme={theme} length="200px" />
         <p><i>Viết bởi tớ</i></p>
