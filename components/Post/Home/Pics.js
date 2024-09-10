@@ -1,12 +1,14 @@
 import { Para } from "../../Template";
-import { Div, Image } from "atomize";
+import { Div } from "atomize";
 import ElementSpace from "../ElementSpace";
+import Image from "next/image";
 
 const Pics = ({ desc, theme, themeUse, data }) => {
   const dateFormer = (date) => {
     let dateArr = date.split("T")[0].split("-");
     return `${dateArr[2]}/${dateArr[1]}/${dateArr[0]}`;
   };
+  console.log(data);
   return (
     <article>
       <Para color={themeUse.secondary}>{desc.desc}</Para>
@@ -29,13 +31,24 @@ const Pics = ({ desc, theme, themeUse, data }) => {
                   transition
                   textAlign="center"
                 >
+                  <div
+                  style={{
+                    position: "relative",
+                    aspectRatio: "1/1",
+                    overflow: "hidden",
+                    cursor: "pointer",
+                  }}
+                  >
                   <Image
-                    src={item.attributes.Image}
+                    fill={true}
+                    src={"https:" + item.attributes.Image}
                     alt={item.attributes.Title}
-                    rounded={{ xs: "12px", sm: "16px" }}
-                    m={{ b: "1em" }}
+                    style={{
+                      objectFit: "cover",
+                      borderRadius: "12px",
+                    }}
                   />
-
+                  </div>
                   <Para
                     color={theme === "light" ? "#171717" : "#ededed"}
                     textSize="heading"

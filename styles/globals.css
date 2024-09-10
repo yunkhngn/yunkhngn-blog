@@ -142,6 +142,21 @@ iframe {
 .photography{
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
-
+.photo{
+  position: relative;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0.5em;
+}
+.photo:hover{
+  filter: brightness(0.85);
+  transition: ease-in-out 0.3s;
+}
+.photo:not(:hover){
+  filter: brightness(1);
+  transition: ease-in-out 0.3s;
+}

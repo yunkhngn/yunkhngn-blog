@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
-import { Image } from 'atomize';
+import Image from 'next/image';
 
-const SkeletonImage = ({ src, alt, h, w, rounded, m }) => {
-    const [isLoading, setIsLoading] = useState(true);
-
+const SkeletonImage = ({ src, alt, h, w }) => {
+    const isLoading = true
+    console.log(src)
     return (
-        <div>
+            <>
             <Image
-                src={src}
+                fill={true}
+                src={"https:" + src}
                 alt={alt}
-                h={h}
-                w={w}
-                rounded={rounded}
-                m={m}
-                onLoad={() => setIsLoading(false)}
-                d="block"
+                style={{
+                    objectFit: 'cover',   
+                }}
+                // onLoad={() => setIsLoading(false)}
             />
             {isLoading && <Skeleton height={h} width={w} />}
-        </div>
+            </>
     );
 };
 

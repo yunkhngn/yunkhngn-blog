@@ -95,9 +95,9 @@ const Project = ({ desc, theme, themeUse, prj }) => {
                       <Tag
                         d={item.license ? "inline-block" : "none"}
                         m={{ r: "0.5em", b: "0.5em" }}
-                        bg={theme === "light" ? "warning300" : "warning200"}
+                        bg={theme === "light" ? "warning300" : "warning300"}
                         border="1px solid"
-                        borderColor={theme === "light" ? "warning500" : "warning600"}
+                        borderColor={theme === "light" ? "warning500" : "warning700"}
                         textColor={theme === "light" ? "warning600" : "warning800"}
                       >
                         {item.license ? item.license.name : ""}
