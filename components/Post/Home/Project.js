@@ -1,4 +1,4 @@
-import { Para, ElementAnimate } from "../../Template";
+import { Para } from "../../Template";
 import { Div, Input, Tag } from "atomize"; // Import Button từ Atomize
 import ElementSpace from "../ElementSpace";
 import { Spacer } from "../../Hooks";

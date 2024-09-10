@@ -12,8 +12,7 @@ const Gallery = ({ desc, theme, themeUse, data }) => {
       <Div m={{ b: "1.7em" }} />
       <hr className={"hr" + theme} />
       <div className="photography">
-        {data.length > 0 &&
-          data.map((item) => (
+        {(data.length > 0) ? data.map((item) => (
             <Link passHref href={`/photo/${item.slug}`} key={item.id}>
               <div className="photo">
                 <Image
@@ -27,7 +26,10 @@ const Gallery = ({ desc, theme, themeUse, data }) => {
                 />
               </div>
             </Link>
-          ))}
+          )) : (
+            <Para color={themeUse.secondary}>Chưa có ảnh được đăng cả.</Para>
+          )
+          }
       </div>
       <a
         target="_blank"
