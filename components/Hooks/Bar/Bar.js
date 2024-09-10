@@ -71,6 +71,23 @@ const Bar = ({ setTheme, theme, setThemeUse, themeProvider }) => {
               theme={theme}
             />
           ))}
+          <Link href="/contact" passHref>
+              <div
+                className="Bar--section"
+                role="navigation"
+                aria-label="Contact"
+                tabIndex={0}
+              >
+                <Icon
+                  icon="Attachment"
+                  name="Contact"
+                  alt="Contact"
+                  changeColor={theme === "light" ? true : false}
+                  url="/contact"
+                  theme={theme}
+                />
+              </div>
+            </Link>
         </div>
         <Spacer theme={theme} />
         <div className="Bar--section">
