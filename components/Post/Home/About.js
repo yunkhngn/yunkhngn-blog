@@ -1,8 +1,9 @@
 import { SocialLink, Spacer } from "../../Hooks";
 import { Para } from "../../Template";
-import { Div, Image } from "atomize";
+import { Div } from "atomize";
 import ReactMarkdown from "react-markdown"; 
 import { ElementSpace } from "../";
+import Image from "next/image";
 
 const About = ({desc, theme, themeUse, content }) => {
   return (
@@ -14,14 +15,14 @@ const About = ({desc, theme, themeUse, content }) => {
   <Div m={{ b: "1.7em" }}/>
       <div className="titleGroup">
       <Image
-        src="image/me.jpeg"
-        w="230px"
-        h="230px"
+        src="/me.jpeg"
+        width="230"
+        height="230"
         alt="Picture of the author"
-        rounded="circle"
-        align="center"
-        justify="center"
-        m={{ b: "1em" }}
+        style={{ 
+          borderRadius: "50%",
+          marginBottom: "1em",
+        }}
       />
       <p className="titleName">Khoa Nguyễn</p>
       <Para color={themeUse.secondary}>
