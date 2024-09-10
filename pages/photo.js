@@ -44,6 +44,7 @@ export async function getStaticProps() {
     props: {
       data: transformedData,
     },
+    revalidate: 60
   };
 }
 export default photo
