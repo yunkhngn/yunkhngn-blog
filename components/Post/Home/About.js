@@ -1,51 +1,65 @@
 import { SocialLink, Spacer } from "../../Hooks";
 import { Para } from "../../Template";
 import { Div } from "atomize";
-import ReactMarkdown from "react-markdown"; 
+import ReactMarkdown from "react-markdown";
 import { ElementSpace } from "../";
 import Image from "next/image";
 
-const About = ({desc, theme, themeUse, content }) => {
+const About = ({ desc, theme, themeUse, content }) => {
   return (
-    <article><Para color={themeUse.secondary}>
-    {desc.desc}
-  </Para>
-  <Div m={{ b: "1.7em" }} />
-  <hr className={"hr" + theme} />
-  <Div m={{ b: "1.7em" }}/>
+    <article>
+      <Para color={themeUse.secondary}>{desc.desc}</Para>
+      <Div m={{ b: "1.7em" }} />
+      <hr className={"hr" + theme} />
+      <Div m={{ b: "1.7em" }} />
       <div className="titleGroup">
-      <Image
-        src="/me.jpeg"
-        width="230"
-        height="230"
-        alt="Picture of the author"
-        style={{ 
-          borderRadius: "50%",
-          marginBottom: "1em",
-        }}
-      />
-      <p className="titleName">Khoa Nguyễn</p>
-      <Para color={themeUse.secondary}>
-        Graphic Designer / Software Engineer
-      </Para>
+        <Image
+          src="/me.jpeg"
+          width="230"
+          height="230"
+          alt="Picture of the author"
+          style={{
+            borderRadius: "50%",
+            marginBottom: "1em",
+          }}
+        />
+        <p className="titleName">Khoa Nguyễn</p>
+        <Para color={themeUse.secondary}>
+          Graphic Designer / Software Engineer
+        </Para>
       </div>
+      <Div justify="center" align="center" d="flex" m="auto">
+        <SocialLink theme={theme} />
+      </Div>
+      <Spacer theme={theme} length="100%" />
       <Div
       justify="center"
       align="center"
-      d="flex"
-      m="auto"
       >
-      <SocialLink theme={theme} />
-      </Div>
-      <Spacer theme={theme} length="100%" />
       <ReactMarkdown>{content.Description}</ReactMarkdown>
+      <br />
+      <blockquote>"{content.Quote}"</blockquote>
       <br />
       <ReactMarkdown>{content.Content}</ReactMarkdown>
       <br />
-      <p><i>Viết bởi tớ</i></p>
-      <p><strong>Khoa Nguyễn</strong></p>
+      <p>
+        <i>Viết bởi tớ</i>
+      </p>
+      <p>
+        <strong>Khoa Nguyễn</strong>
+      </p>
+      </Div>
       <Spacer theme={theme} length="80px" />
-      <a target="_blank" rel="noreferrer" href="https://facebook.com/yun.khngn"><Div m={{t:"1em"}} textColor={themeUse.secondary} hoverTextColor={themeUse.hover} transition>Theo dõi tớ để biết thêm nhiều điều hay...</Div></a>
+      <a target="_blank" rel="noreferrer" href="https://facebook.com/yun.khngn">
+        <Div
+          m={{ t: "1em" }}
+          textColor={themeUse.secondary}
+          hoverTextColor={themeUse.hover}
+          transition
+        >
+          Theo dõi tớ để biết thêm nhiều điều hay...
+        </Div>
+      </a>
       <ElementSpace space="12em" />
     </article>
   );

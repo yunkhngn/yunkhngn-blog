@@ -183,3 +183,13 @@ iframe {
   cursor: pointer;
   margin-bottom: 1em;
 }
+
+blockquote{
+  font-style: italic;
+  margin: auto;
+  padding-left: 1em;
+  border-left: 3px solid #ccc;
+  word-break: break-word;
+  width: 80%;
+
+}
