@@ -2,13 +2,6 @@ import {Template, Title} from '../components/Template'
 import {Project} from '../components/Post'
 import {desc} from '../lib'
 
-const formatRepoName = (name) => {
-  return name
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' '); 
-  };
-
 const projects = ({themeUse,theme,prj}) => {
   console.log(prj[12])
     return (
@@ -24,16 +17,13 @@ export async function getStaticProps() {
   const prj = await res.json();
   const filteredRepos = prj
     .filter(repo => !repo.fork)
+    .filter(repo => repo.name !== 'yunkhngn')
     .sort((a, b) => {
-      if (a.stargazers_count === b.stargazers_count) {
-        return new Date(b.created_at) - new Date(a.created_at); 
+      if (a.updated_at === b.updated_at) {
+        return b.stargazers_count - a.stargazers_count;
       }
-      return b.stargazers_count - a.stargazers_count;
+      return new Date(b.updated_at) - new Date(a.updated_at);
     })
-    .map(repo => ({
-      ...repo,
-      name: formatRepoName(repo.name), 
-    }));
 
   return {
     props: {
