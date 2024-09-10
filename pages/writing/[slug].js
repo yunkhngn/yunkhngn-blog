@@ -76,32 +76,6 @@ const WritingPage = ({ post, themeUse, theme }) => {
   if (router.isFallback) {
     return <p>Loading...</p>;
   }
-
-  if (!post) {
-    const desc = {
-      title: "Page not found",
-      desc: "Sorry, your post looking for is not found!",
-      url: `https://khoanguyen.codes/writing/${post.slug}`,
-      img: "https://khoanguyen.codes/favicon/wall.png"
-    };
-    return ( 
-      <Template description={desc} height="100%">
-        <article>
-          <Title color={themeUse.primary}>Không có post nào ở đây!</Title>
-          <Spacer theme={theme} length="200px" />
-          <Para color={themeUse.secondary}>Post bạn tìm hiện không thấy!</Para>
-          <Spacer theme={theme} length="150px" />
-          <Link href="/writing" passHref>
-            <Div m={{ t: '1em' }} textColor={themeUse.secondary} hoverTextColor={themeUse.hover} transition>
-              Quay lại...
-            </Div>
-          </Link>
-          <ElementSpace space="12em" />
-        </article>
-      </Template>
-    );
-  }
-
   function truncateHtml(htmlString, maxLength) {
     // Chuyển đổi HTML thành văn bản thuần
     const text = htmlToText(htmlString, {

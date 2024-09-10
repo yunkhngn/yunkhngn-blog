@@ -21,6 +21,7 @@ const Gallery = ({ desc, theme, themeUse, data }) => {
                   fill={true}
                   src={"https:" + item.images[0].url}
                   alt={item.title}
+                  quality={50}
                   style={{
                     objectFit: 'cover',
                   }}

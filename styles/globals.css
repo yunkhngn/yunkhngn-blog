@@ -176,3 +176,10 @@ iframe {
   cursor: pointer;
   margin-bottom: 1em;
 }
+.photoPost{
+  position: relative;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  cursor: pointer;
+  margin-bottom: 1em;
+}
