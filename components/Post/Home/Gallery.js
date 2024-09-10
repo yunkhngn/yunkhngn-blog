@@ -6,7 +6,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 const Gallery = ({ desc, theme, themeUse, data }) => {
-  console.log(data);
   return (
     <article>
       <Para color={themeUse.secondary}>{desc.desc}</Para>

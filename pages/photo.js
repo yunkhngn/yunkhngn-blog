@@ -11,7 +11,6 @@ const client = contentful.createClient({
 });
 
 const photo = ({themeUse,theme, data}) => {
-  console.log(data)
   return (
       <Template description={desc.photo} height="100%">
           <Title color={themeUse.primary}>{desc.photo.heading}</Title>

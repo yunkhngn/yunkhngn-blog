@@ -14,7 +14,6 @@ const client = contentful.createClient({
 });
 
 const PhotoDisplay = ({ data, themeUse, theme }) => {
-  console.log(data)
   const router = useRouter();
   if (router.isFallback) {
     return <div>Loading...</div>;
@@ -30,7 +29,7 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
     title: data.title,
     desc: data.description,
     url: `https://khoanguyen.codes/photo/${data.slug}`,
-    img: "/image/wall.png",
+    img: `https:${data.images[0].fields.file.url}`,
   };
   const images = data.images.map((img) => ({
     id: img.sys.id,
@@ -38,7 +37,6 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
     title: img.fields.title || "",
     description: img.fields.description || "",
   }));
-  console.log(images);
   return (
     <Template description={desc} height="100%">
       <article>
@@ -69,7 +67,7 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
         </div>
         <Div m={{ b: "1.7em" }} />
         <hr className={"hr" + theme} />
-        <p><i>Viết bởi tớ</i></p>
+        <p><i>Ảnh chụp bởi tớ</i></p>
         <h3>Khoa Nguyễn</h3>
         <p>&copy; 2024 Khoa Nguyễn. All rights reserved.</p>
         <Link href="/photo" passHref>

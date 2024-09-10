@@ -84,7 +84,8 @@ yarn build
 - [X] Move favicon ra ngoài
 - [X] Redesign lại trang ảnh
 - [X] Cải thiện thêm trang github
-- [ ] Tối ưu load ảnh
+- [X] Tối ưu load ảnh
+- [ ] Tạo hover hiển thị cho từng cái nút trên bar 
 - [ ] Fix google console k hiển thị favicon
 - [ ] Xử lí lại cái content từ API có thể trích xuất hình ảnh
 - [ ] Sửa lại trang about
