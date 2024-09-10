@@ -6,10 +6,8 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
-}
-
-body::-webkit-scrollbar {
-  display: none;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
 }
 .shortcut {
   font-family: monospace; /* Font giống như trên bàn phím */
@@ -140,3 +138,10 @@ iframe {
     grid-template-columns: repeat(1, 1fr);
   }
 }
+
+.photography{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
