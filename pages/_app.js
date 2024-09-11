@@ -16,7 +16,7 @@ import { AnimatePresence } from "framer-motion";
 import { Div } from "atomize";
 import { Analytics } from "@vercel/analytics/react";
 import { themeProvider } from "../lib";
-
+import React from 'react'
 injectSpeedInsights();
 
 function MyApp({ Component, pageProps }) {
@@ -24,6 +24,7 @@ function MyApp({ Component, pageProps }) {
   const [themeUse, setThemeUse] = useState(themeProvider[0]);
   const router = useRouter();
   return (
+    <React.StrictMode>
       <StyletronProvider value={styletron}>
         <ThemeLoader
           theme={theme}
@@ -63,6 +64,7 @@ function MyApp({ Component, pageProps }) {
         </KBarProvider>
         <Analytics />
       </StyletronProvider>
+      </React.StrictMode>
   );
 }
 

@@ -38,6 +38,7 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
     title: img.fields.title || "",
     description: img.fields.description || "",
   }));
+  console.log(images);
   return (
     <Template description={desc} height="100%">
       <article>
@@ -56,7 +57,7 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
                 <Image
                   fill={true}
                   src={"https:" + img.url}
-                  alt={img.title}
+                  alt="img"
                   sizes="100%"
                   priority={true}
                   style={{
