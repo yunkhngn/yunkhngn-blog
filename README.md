@@ -86,11 +86,9 @@ yarn build
 - [X] Cải thiện thêm trang github
 - [X] Tối ưu load ảnh
 - [X] Sửa lại trang about
-- [ ] Fix phần hiển thị description của photo
 - [ ] Fix meta tag image nhiều lúc k hiển thị ở photo
 - [ ] Tạo hover hiển thị cho từng cái nút trên bar 
 - [ ] Fix google console k hiển thị favicon
-- [ ] Xử lí lại cái content từ API có thể trích xuất hình ảnh
 - [ ] Sửa tối ưu lại source
 
 ## Đóng góp

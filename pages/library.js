@@ -34,7 +34,7 @@ export const getStaticProps = async () => {
           url: item.fields.url,
           desc: item.fields.desc
         }
-      })).sort((a, b) => new Date(b.attributes.createdAt) - new Date(a.attributes.createdAt));
+      }));
   
       console.log('Sorted data:', sortedData); // Log để kiểm tra dữ liệu sau khi xử lý
   
