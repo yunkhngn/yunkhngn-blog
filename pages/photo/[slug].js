@@ -37,7 +37,6 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
     title: img.fields.title || "",
     description: img.fields.description || "",
   }));
-  console.log(data);
   return (
     <Template description={desc} height="100%">
       <article>
@@ -45,7 +44,7 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
         <Para color={themeUse.secondary}>
           {"Hà Nội, ngày " + formatDate(data.createdAt)}
         </Para>
-          <ReactMarkdown>{data.description}</ReactMarkdown>
+        <ReactMarkdown>{data.description}</ReactMarkdown>
         <Div m={{ b: "1.7em" }} />
         <hr className={"hr" + theme} />
         <Div m={{ b: "1.7em" }} />
@@ -56,6 +55,8 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
                   fill={true}
                   src={"https:" + img.url}
                   alt={img.title}
+                  sizes="100%"
+                  priority={true}
                   style={{
                     objectFit: 'cover',
                     borderRadius: '10px',
