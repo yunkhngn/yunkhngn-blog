@@ -45,14 +45,14 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
           {"Hà Nội, ngày " + formatDate(data.createdAt)}
         </Para>
         <Spacer theme={theme} length="10em" />
-        <ReactMarkdown>{data.description}</ReactMarkdown>
+        {/* <ReactMarkdown>{data.description}</ReactMarkdown> */}
         <Div m={{ b: "1.7em" }} />
         <hr className={"hr" + theme} />
         <Div m={{ b: "1.7em" }} />
        <div>
         {images.map((img) => (
             <div className="photoPost" key={img.id}>
-                {/* <Image
+                <Image
                   fill={true}
                   src={"https:" + img.url}
                   alt="img"
@@ -63,7 +63,7 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
                     borderRadius: '10px',
                   }
                 }
-                /> */}
+                />
             </div>
         ))}
         </div>
