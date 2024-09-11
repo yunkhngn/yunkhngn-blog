@@ -26,17 +26,20 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
     const year = date.getFullYear();
     return `${day} tháng ${month} năm ${year}.`;
   };
+
   const desc = {
     title: data.title + " - Ảnh chụp",
     desc: data.description,
     url: `https://khoanguyen.codes/photo/${data.slug}`,
     img: `https:${data.images[0].fields.file.url}`,
   };
+
   const images = data.images.map((img) => ({
     id: img.sys.id,
     url: img.fields.file.url,
     title: img.fields.title || "",
   }));
+  
   return (
     <Template description={desc} height="100%">
       <article>
