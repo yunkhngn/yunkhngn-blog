@@ -17,7 +17,10 @@ const About = ({ desc, theme, themeUse, content }) => {
           src="/me.jpeg"
           width="230"
           height="230"
-          alt="Picture of the author"
+          alt="Picture of Khoa Nguyen"
+          sizes="100%"
+          priority={true}
+          quality={75}
           style={{
             borderRadius: "50%",
             marginBottom: "1em",
