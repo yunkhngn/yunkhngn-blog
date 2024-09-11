@@ -45,7 +45,7 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
           {"Hà Nội, ngày " + formatDate(data.createdAt)}
         </Para>
         <Spacer theme={theme} length="10em" />
-        {/* <ReactMarkdown>{data.description}</ReactMarkdown> */}
+        <ReactMarkdown>{data.description}</ReactMarkdown>
         <Div m={{ b: "1.7em" }} />
         <hr className={"hr" + theme} />
         <Div m={{ b: "1.7em" }} />
@@ -56,6 +56,7 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
                   fill={true}
                   src={"https:" + img.url}
                   alt="img"
+                  sizes="100%"
                   priority={true}
                   style={{
                     objectFit: 'cover',
