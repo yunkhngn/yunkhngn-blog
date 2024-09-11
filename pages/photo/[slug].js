@@ -52,18 +52,17 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
        <div>
         {images.map((img) => (
             <div className="photoPost" key={img.id}>
-                {/* <Image
+                <Image
                   fill={true}
                   src={"https:" + img.url}
                   alt="img"
-                  sizes="100%"
                   priority={true}
                   style={{
                     objectFit: 'cover',
                     borderRadius: '10px',
                   }
                 }
-                /> */}
+                />
             </div>
         ))}
         </div>
