@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ReactMarkdown from "react-markdown";
 import { Title, Para, Template } from "../../components/Template";
+import {Spacer} from '../../components/Hooks';
 
 const client = contentful.createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -44,6 +45,7 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
         <Para color={themeUse.secondary}>
           {"Hà Nội, ngày " + formatDate(data.createdAt)}
         </Para>
+        <Spacer theme={theme} length="10em" />
         <ReactMarkdown>{data.description}</ReactMarkdown>
         <Div m={{ b: "1.7em" }} />
         <hr className={"hr" + theme} />
