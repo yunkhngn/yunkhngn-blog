@@ -70,7 +70,7 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
         <Div m={{ b: "1.7em" }} />
         <hr className={"hr" + theme} />
         <p><i>Ảnh chụp bởi tớ</i></p>
-        <h3>Khoa Nguyễn</h3>
+        <p><strong>Khoa Nguyễn</strong></p>
         <p>&copy; 2024 Khoa Nguyễn. All rights reserved.</p>
         <Link href="/photo" passHref>
           <Div m={{ t: '1em' }} textColor={themeUse.secondary} hoverTextColor={themeUse.hover} transition>
