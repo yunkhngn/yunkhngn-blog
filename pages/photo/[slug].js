@@ -38,7 +38,6 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
     title: img.fields.title || "",
     description: img.fields.description || "",
   }));
-  console.log(images);
   return (
     <Template description={desc} height="100%">
       <article>
@@ -54,7 +53,7 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
        <div>
         {images.map((img) => (
             <div className="photoPost" key={img.id}>
-                <Image
+                {/* <Image
                   fill={true}
                   src={"https:" + img.url}
                   alt="img"
@@ -65,7 +64,9 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
                     borderRadius: '10px',
                   }
                 }
-                />
+                /> */}
+                <p>{img.title}</p>
+                <br/>
             </div>
         ))}
         </div>
