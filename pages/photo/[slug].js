@@ -52,7 +52,7 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
        <div>
         {images.map((img) => (
             <div className="photoPost" key={img.id}>
-                <Image
+                {/* <Image
                   fill={true}
                   src={"https:" + img.url}
                   alt="img"
@@ -63,7 +63,7 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
                     borderRadius: '10px',
                   }
                 }
-                />
+                /> */}
             </div>
         ))}
         </div>
