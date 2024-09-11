@@ -39,7 +39,7 @@ export async function getStaticProps() {
       updatedAt: item.sys.updatedAt,
     };
   });
-
+  transformedData.sort((a, b) => {return new Date(b.createdAt) - new Date(a.createdAt);});
   return {
     props: {
       data: transformedData,
