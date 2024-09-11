@@ -20,7 +20,6 @@ const Gallery = ({ desc, theme, themeUse, data }) => {
                   src={"https:" + item.images[0].url}
                   alt={item.title}
                   quality={50}
-                  sizes="100%"
                   priority={true}
                   style={{
                     objectFit: 'cover',

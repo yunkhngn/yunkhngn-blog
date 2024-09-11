@@ -18,7 +18,6 @@ const About = ({ desc, theme, themeUse, content }) => {
           width="230"
           height="230"
           alt="Picture of Khoa Nguyen"
-          sizes="100%"
           priority={true}
           quality={75}
           style={{

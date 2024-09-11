@@ -59,7 +59,6 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
                   fill={true}
                   src={"https:" + img.url}
                   alt="img"
-                  sizes="100%"
                   priority={true}
                   style={{
                     objectFit: 'cover',

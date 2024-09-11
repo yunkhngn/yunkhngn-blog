@@ -35,7 +35,6 @@ const Pics = ({ desc, theme, themeUse, data }) => {
                     fill={true}
                     src={"https:" + item.attributes.Image}
                     alt={item.attributes.Title}
-                    sizes="100%"
                     quality={70}
                     priority={true}
                     style={{
