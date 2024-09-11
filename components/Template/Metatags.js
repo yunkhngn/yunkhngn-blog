@@ -7,7 +7,7 @@ export default function Metatags({description}) {
             <title>{(description.title) ? description.title : "Khoa Nguyễn"}</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <meta name="description" content={(description.desc) ? description.desc : "Xin chào, tớ là Khoa Nguyễn. Tớ là sinh viên chuyên ngành Công nghệ thông tin tại Đại học FPT. Hiện tại tớ cũng đang là freelancer thiết kế đồ hoạ và phát triển một số dự án cá nhân liên quan tới chuyên ngành."}/>
-            <meta name="keywords" content="Blog, Khoa Nguyen, Khoa Nguyễn, Khoa Nguyen, Khoa Nguyn, Nguyễn Đăng Khoa, Post , React, Nextjs, Next JS, Typescript, Cpp, Coding, Language, JavaScript, Reactjs, Khoa Nguyen Blog, Khoa Nguyen, Software Development, Software Engineer, Frontend Developer, Frontend Engineer, Web Developer, KhoaNguyen, Khoa Nguyen Dev, Graphic Designer, Nodejs, Nguyễn Đăng Khoa, Khoa Nguyễn"/>
+            <meta name="keywords" content="Blog, Khoa Nguyen, Khoa Nguyễn, Khoa Nguyn, Nguyễn Đăng Khoa, Post , React, Nextjs, Next JS, Typescript, Cpp, Coding, Language, JavaScript, Reactjs, Khoa Nguyen Blog, Software Development, Software Engineer, Frontend Developer, Frontend Engineer, Web Developer, KhoaNguyen, Khoa Nguyen Dev, Graphic Designer, Nodejs, Khoa Nguyen Codes"/>
             <meta name="author" content="Khoa Nguyễn" />
             <meta name="robots" content="index, follow" />
             <meta name="revisit-after" content="1 days" />
