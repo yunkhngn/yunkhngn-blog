@@ -36,6 +36,9 @@ const Pics = ({ desc, theme, themeUse, data }) => {
                     fill={true}
                     src={"https:" + item.attributes.Image}
                     alt={item.attributes.Title}
+                    sizes="100%"
+                    quality={70}
+                    priority={true}
                     style={{
                       objectFit: "cover",
                       borderRadius: "12px",
@@ -45,6 +48,8 @@ const Pics = ({ desc, theme, themeUse, data }) => {
                   <Para
                     color={theme === "light" ? "#171717" : "#ededed"}
                     textSize="heading"
+                    margin="true"
+                    which="top"
                   >
                     <strong>{item.attributes.Title}</strong>
                   </Para>
