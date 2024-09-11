@@ -20,7 +20,7 @@
 }
 
 .Icon--bounce {
-    animation: clicked 0.75s infinite;
+    animation: clicked 1s ease-out;
     overflow: visible;
 }
 
@@ -36,13 +36,19 @@
 
 @keyframes clicked {
     0% {
-    transform: translateY(0) ease-in;
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(-30px);
     }
     50% {
-    transform: translateY(-40px);
+        transform: translateY(5px);
+    }
+    70% {
+        transform: translateY(-2px);
     }
     100% {
-    transform: translateY(0) ease-out;
+        transform: translateY(0);
     }
 }
 

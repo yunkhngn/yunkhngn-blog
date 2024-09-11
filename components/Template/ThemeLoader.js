@@ -1,43 +1,53 @@
 import React from "react";
 import Head from "next/head";
 import { useEffect } from "react";
-const ThemeLoader = ({theme, setTheme, setThemeUse, themeProvider}) => {
+const ThemeLoader = ({ theme, setTheme, setThemeUse, themeProvider }) => {
   useEffect(() => {
-    const isFirstTimeOnPage = !localStorage.getItem('userTheme');
+    const isFirstTimeOnPage = !localStorage.getItem("userTheme");
 
     if (isFirstTimeOnPage) {
-      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+        .matches
+        ? "dark"
+        : "light";
       setTheme(systemTheme);
-      localStorage.setItem('userTheme', systemTheme);
-      setThemeUse(systemTheme === 'light' ? themeProvider[0] : themeProvider[1]);
+      localStorage.setItem("userTheme", systemTheme);
+      setThemeUse(
+        systemTheme === "light" ? themeProvider[0] : themeProvider[1]
+      );
     } else {
-      const savedTheme = localStorage.getItem('userTheme');
+      const savedTheme = localStorage.getItem("userTheme");
       setTheme(savedTheme);
-      setThemeUse(savedTheme === 'light' ? themeProvider[0] : themeProvider[1]);
+      setThemeUse(savedTheme === "light" ? themeProvider[0] : themeProvider[1]);
     }
 
     const themeChangeListener = (e) => {
-      const newTheme = e.matches ? 'dark' : 'light';
+      const newTheme = e.matches ? "dark" : "light";
       setTheme(newTheme);
-      setThemeUse(newTheme === 'light' ? themeProvider[0] : themeProvider[1]);
-      localStorage.setItem('userTheme', newTheme);
+      setThemeUse(newTheme === "light" ? themeProvider[0] : themeProvider[1]);
+      localStorage.setItem("userTheme", newTheme);
     };
 
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', themeChangeListener);
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", themeChangeListener);
 
     return () => {
-      window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', themeChangeListener);
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .removeEventListener("change", themeChangeListener);
     };
   }, [setTheme, setThemeUse, themeProvider]);
 
   useEffect(() => {
-    document.documentElement.className = theme === 'light' ? 'light-theme' : 'dark-theme';
+    document.documentElement.className =
+      theme === "light" ? "light-theme" : "dark-theme";
   }, [theme]);
   return (
-      <Head>
-        {/* Đoạn style để thiết lập theme ngay lập tức */}
-        <style>
-          {`
+    <Head>
+      {/* Đoạn style để thiết lập theme ngay lập tức */}
+      <style>
+        {`
             :root {
               --background-color-light: #ffffff;
               --background-color-dark: #000000;
@@ -61,11 +71,43 @@ const ThemeLoader = ({theme, setTheme, setThemeUse, themeProvider}) => {
               color: var(--text-color-light);
               transition: background-color 0.1s ease-out, color 0.1s ease-out;
             }
+            .Iconlight {
+              background-image: linear-gradient( 45deg, hsl(0 0% 97.3%), hsl(0 0% 90.9%), hsl(0 0% 97.3%), hsl(0 0% 90.9%));
+              background-size: 200% 100%;
+              border-radius: 11px;
+              height: 46px;
+              width: 46px;
+              margin: 7px 5px 0px 5px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+
+            .Icondark {
+                background-image: linear-gradient( 45deg, hsl(0 0% 11.0%), hsl(0 0% 13.6%), hsl(0 0% 11.0%), hsl(0 0% 13.6%));
+                background-size: 200% 100%;
+                border-radius: 11px;
+                height: 46px;
+                width: 46px;
+                margin: 7px 5px 0px 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .Bar--dark{
+                background: rgba(22, 22, 22, 1);
+                border: 1px solid hsl(0 0% 100% / 0.077);
+            }
+
+            .Bar--light{
+                background: #fefefe;
+                border: 1px solid rgb(0, 0, 0, 0.1);
+            }
           `}
-        </style>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
+      </style>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
               (function() {
                 var userTheme = localStorage.getItem('userTheme');
                 if (userTheme) {
@@ -76,9 +118,9 @@ const ThemeLoader = ({theme, setTheme, setThemeUse, themeProvider}) => {
                 }
               })();
             `,
-          }}
-        />
-      </Head>
+        }}
+      />
+    </Head>
   );
 };
 
