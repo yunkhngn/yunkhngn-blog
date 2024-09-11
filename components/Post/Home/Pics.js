@@ -8,7 +8,6 @@ const Pics = ({ desc, theme, themeUse, data }) => {
     let dateArr = date.split("T")[0].split("-");
     return `${dateArr[2]}/${dateArr[1]}/${dateArr[0]}`;
   };
-  console.log(data);
   return (
     <article>
       <Para color={themeUse.secondary}>{desc.desc}</Para>
