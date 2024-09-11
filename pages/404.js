@@ -5,7 +5,7 @@ import {useRouter} from 'next/router'
 
 const description = {
     title: '404 Not found | Khoa Nguyễn',
-    url: 'https://www.khoanguyen.codes/',
+    url: 'https://khoanguyen.codes/',
 }
 
 const Custom404 = ({themeUse, theme}) =>{

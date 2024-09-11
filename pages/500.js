@@ -3,7 +3,7 @@ import {Spacer} from '../components/Hooks/'
 
 const description = {
     title: 'Server-side error occurred - Khoa Nguyễn',
-    url: 'https://www.khoanguyen.dev/',
+    url: 'https://khoanguyen.dev/',
 }
 
 const Custom404 = ({themeUse, theme}) =>{
