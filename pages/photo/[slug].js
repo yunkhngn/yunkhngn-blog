@@ -62,7 +62,8 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
                   style={{
                     objectFit: 'cover',
                     borderRadius: '10px',
-                  }}
+                  }
+                }
                 />
             </div>
         ))}
