@@ -4,7 +4,7 @@ import {ElementSpace} from '../../components/Post/';
 import { Div } from 'atomize';
 import Image from 'next/image';
 import Link from 'next/link';
-
+import ReactMarkdown from "react-markdown";
 import { Title, Para, Template } from "../../components/Template";
 
 const client = contentful.createClient({
@@ -37,6 +37,7 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
     title: img.fields.title || "",
     description: img.fields.description || "",
   }));
+  console.log(data);
   return (
     <Template description={desc} height="100%">
       <article>
@@ -44,9 +45,7 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
         <Para color={themeUse.secondary}>
           {"Hà Nội, ngày " + formatDate(data.createdAt)}
         </Para>
-        <Para color={themeUse.secondary}>
-          P/s: {data.description}
-        </Para>
+          <ReactMarkdown>{data.description}</ReactMarkdown>
         <Div m={{ b: "1.7em" }} />
         <hr className={"hr" + theme} />
         <Div m={{ b: "1.7em" }} />
