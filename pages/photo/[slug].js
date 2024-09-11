@@ -64,8 +64,8 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
                   style={{
                     objectFit: 'cover',
                     borderRadius: '10px',
-                  }
-                }
+                  }}
+                  onDragStart={(e) => e.preventDefault()}
                 />
             </div>
         ))}

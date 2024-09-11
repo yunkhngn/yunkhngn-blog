@@ -25,6 +25,7 @@ const Gallery = ({ desc, theme, themeUse, data }) => {
                   style={{
                     objectFit: 'cover',
                   }}
+                  onDragStart={(e) => e.preventDefault()}
                 />
               </div>
             </Link>

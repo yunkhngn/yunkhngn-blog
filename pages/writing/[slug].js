@@ -120,6 +120,7 @@ const WritingPage = ({ post, themeUse, theme }) => {
               objectFit: "cover",
               borderRadius: "12px",
             }}
+            onDragStart={(e) => e.preventDefault()}
           />
         </div>
         <div dangerouslySetInnerHTML={{ __html: post.Body }} />

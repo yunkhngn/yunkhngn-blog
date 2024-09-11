@@ -24,7 +24,9 @@ const About = ({ desc, theme, themeUse, content }) => {
           style={{
             borderRadius: "50%",
             marginBottom: "1em",
+            
           }}
+          onDragStart={(e) => e.preventDefault()}
         />
         <p className="titleName">Khoa Nguyễn</p>
         <Para color={themeUse.secondary}>

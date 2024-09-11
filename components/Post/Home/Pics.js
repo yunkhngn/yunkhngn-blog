@@ -42,6 +42,7 @@ const Pics = ({ desc, theme, themeUse, data }) => {
                       objectFit: "cover",
                       borderRadius: "12px",
                     }}
+                    onDragStart={(e) => e.preventDefault()}
                   />
                   </div>
                   <Para
