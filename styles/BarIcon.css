@@ -1,13 +1,13 @@
 .Icon {
     font-size: 20px;
-    transition: transform 0.2s, margin 200ms, translateY 0.5s, background-image 0.3s ease-out, color 0.3s ease-out;
+    transition: transform 0.2s, margin 200ms, translateY 0.5s, background-image 0.25s ease-out, color 0.25s ease-out;
   }
 
 .Icon--container {
     display: flex;
     flex-direction: column;
     align-self: start;
-        transition: transform 0.2s, margin 200ms, translateY 0.5s, background-image 0.3s ease-out, color 0.3s ease-out;
+        transition: transform 0.2s, margin 200ms, translateY 0.5s, background-image 0.25s ease-out, color 0.25s ease-out;
 }
 
 .Icon:hover {
@@ -62,7 +62,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s, margin 200ms, translateY 0.5s, background-image 0.3s ease-out, color 0.3s ease-out;
+    transition: transform 0.2s, margin 200ms, translateY 0.5s, background-image 0.25s ease-out, color 0.25s ease-out;
 }
 
 .Icondark {
@@ -75,5 +75,5 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s, margin 200ms, translateY 0.5s, background-image 0.3s ease-out, color 0.3s ease-out;
+    transition: transform 0.2s, margin 200ms, translateY 0.5s, background-image 0.25s ease-out, color 0.25s ease-out;
 }

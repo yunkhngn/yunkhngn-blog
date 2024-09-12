@@ -82,7 +82,7 @@ hr{
   flex: 1 1 0%;
   width: 100%; /* Đảm bảo chiếm đủ chiều rộng */
   flex-shrink: 0; /* Ngăn việc co lại */
-  transition: border-bottom 0.3s ease-out; /* Hiệu ứng chuyển đổi */
+  transition: border-bottom 0.25s ease-out; /* Hiệu ứng chuyển đổi */
 }
 
 .hrlight{
@@ -101,11 +101,11 @@ h1{
 }
 .dark{
   color: #171717;
-  transition: color 0.3s ease-out;
+  transition: color 0.25s ease-out;
 }
 .light{
   color: #ededed;
-  transition: color 0.3s ease-out;
+  transition: color 0.25s ease-out;
 }
 .essay{
   word-break: normal;
@@ -157,11 +157,11 @@ iframe {
 
 .photo:hover{
   filter: brightness(0.85);
-  transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.25s;
 }
 .photo:not(:hover){
   filter: brightness(1);
-  transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.25s;
 }
 
 .behancePhoto{
@@ -196,5 +196,5 @@ blockquote{
 
 }
 html, input, textarea, button, p{
-  transition: all 0.3s ease-out !important; 
+  transition: all 0.25s ease-out !important; 
 }

@@ -16,7 +16,7 @@ const animation = {
   }
 
 const transition = {
-    duration: 0.3,
+    duration: 0.25,
     ease: [0.43, 0.13, 0.5, 0.96],
     type: "easeInOut",
 }
