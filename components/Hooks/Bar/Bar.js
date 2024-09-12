@@ -5,10 +5,18 @@ import { barList } from "../../../lib";
 
 const Bar = ({ setTheme, theme, setThemeUse, themeProvider }) => {
   const changeTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-    setThemeUse(theme === "light" ? themeProvider[1] : themeProvider[0]);
-    localStorage.setItem("userTheme", theme === "light" ? "dark" : "light");
-
+     // Lấy phần tử có id "bar"
+     const barElement = document.getElementById("bar");
+     const iconElement = document.getElementById("icon");
+     if (barElement && iconElement) {
+       barElement.style.transition = "background 0.25s ease-out, color 0.25s ease-out, border 0.25s ease-out";
+        iconElement.style.transition = "background-image 0.25s ease-out, color 0.25s ease-out, border 0.25s ease-out !important";
+     }
+     
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    setThemeUse(newTheme === "light" ? themeProvider[0] : themeProvider[1]);
+    localStorage.setItem("userTheme", newTheme);
   };
   const openURL = (url) => {
     setTimeout(() => {

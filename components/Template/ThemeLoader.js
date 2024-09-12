@@ -69,32 +69,7 @@ const ThemeLoader = ({ theme, setTheme, setThemeUse, themeProvider }) => {
             html {
               background-color: var(--background-color-light);
               color: var(--text-color-light);
-              transition: background-color 0.25s ease-out, color 0.25s ease-out;
-            }
-            .Bar--container{
-                background: #fefefe;
-                border: 1px solid rgb(0, 0, 0, 0.1);
-
-            .Bar--dark{
-                background: rgba(22, 22, 22, 1);
-                border: 1px solid hsl(0 0% 100% / 0.077);
-                transition: background 0.25s ease-out, color 0.25s ease-out;
-
-            }
-
-            .Bar--light{
-                background: #fefefe;
-                border: 1px solid rgb(0, 0, 0, 0.1);
-                transition: background 0.25s ease-out, color 0.25s ease-out;
-            }
-            .Iconlight {
-                background-image: linear-gradient( 45deg, hsl(0 0% 97.3%), hsl(0 0% 90.9%), hsl(0 0% 97.3%), hsl(0 0% 90.9%));
-                transition: background-image 0.25s ease-out, color 0.25s ease-out;
-            }
-
-            .Icondark {
-                background-image: linear-gradient( 45deg, hsl(0 0% 11.0%), hsl(0 0% 13.6%), hsl(0 0% 11.0%), hsl(0 0% 13.6%));
-                transition: background-image 0.25s ease-out, color 0.25s ease-out;
+              transition: background-color 0.1s ease-out, color 0.1s ease-out;
             }
           `}
       </style>
@@ -103,10 +78,12 @@ const ThemeLoader = ({ theme, setTheme, setThemeUse, themeProvider }) => {
           __html: `
               (function() {
                 var userTheme = localStorage.getItem('userTheme');
-                document.getElementById("bar").className = "Bar--container Bar--" + (localStorage.getItem('userTheme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
-                document.getElementById("icon").className = "Icon Icon" + (localStorage.getItem('userTheme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
-                document.documentElement.className = (localStorage.getItem('userTheme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')) + '-theme';
-                
+                if (userTheme) {
+                  document.documentElement.className = userTheme === 'dark' ? 'dark-theme' : 'light-theme';
+                } else {
+                  var systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                  document.documentElement.className = systemTheme === 'dark' ? 'dark-theme' : 'light-theme';
+                }
               })();
             `,
         }}

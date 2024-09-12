@@ -10,7 +10,7 @@
     object-fit: contain;
     align-items: flex-end;
     transform: translate(-50%, 0);
-    transition: background 0.25s ease-out, color 0.25s ease-out;
+    animation: smoothIn 0.25s ease-in-out;
     border-radius: 16px;
     box-shadow:  0 30px 60px rgba(0, 0, 0, 0.12);
     -webkit-box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
@@ -22,13 +22,14 @@
     z-index: 1000;
 }
 .Bar--dark{
-    background: rgba(22, 22, 22, 1);
+    background: #161616;
     border: 1px solid hsl(0 0% 100% / 0.077);
 }
 
 .Bar--light{
     background: #fefefe;
     border: 1px solid rgb(0, 0, 0, 0.1);
+    
 }
 
 .Bar {
@@ -38,7 +39,6 @@
     padding-bottom: 5px;
     width: 100%;
     align-items: flex-end;
-    transition: background 0.25s ease-out, color 0.25s ease-out;
 }
 
 .Bar--section {
