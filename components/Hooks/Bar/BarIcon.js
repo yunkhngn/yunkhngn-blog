@@ -8,7 +8,7 @@ const BarIcon = ({icon, name, url, clickHandler, changeColor, theme}) => {
         setBounce(true);
         setTimeout(() => {
         setBounce(false);
-        }, 750);
+        }, 550);
     };
 
     const location = useRouter();

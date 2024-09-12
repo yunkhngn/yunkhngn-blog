@@ -20,7 +20,7 @@
 }
 
 .Icon--bounce {
-    animation: clicked 0.5s ease-out;
+    animation: clicked 0.8s ease-out;
     overflow: visible;
 }
 

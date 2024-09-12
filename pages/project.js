@@ -12,9 +12,16 @@ const projects = ({themeUse,theme,prj}) => {
 }
 
 export async function getStaticProps() {
-  const res = await fetch('https://api.github.com/users/yunkhngn/repos');
-  const prj = await res.json();
-  const filteredRepos = prj
+  try {
+    const token = process.env.GITHUB_TOKEN; 
+    const res = await fetch('https://api.github.com/users/yunkhngn/repos', {
+      headers: {
+        'Authorization': `token ${token}`, // Include the access token in the header
+        'Accept': 'application/vnd.github.v3+json' // Optional: specifies the GitHub API version
+      }
+    });
+    const prj = await res.json();
+    const filteredRepos = prj
     .filter(repo => !repo.fork)
     .filter(repo => repo.name !== 'yunkhngn')
     .sort((a, b) => {
@@ -23,12 +30,20 @@ export async function getStaticProps() {
       }
       return new Date(b.updated_at) - new Date(a.updated_at);
     })
-
-  return {
-    props: {
-      prj: filteredRepos,
-    },
-    revalidate: 60 
-  };
+    return {
+      props: {
+        prj: filteredRepos,
+      },
+      revalidate: 60 
+    };
+  }
+  catch (error) {
+    console.error(error);
+    return {
+      props: {
+        prj: [],
+      },
+    };
+  }
 }
 export default projects;
