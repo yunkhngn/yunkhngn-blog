@@ -19,7 +19,7 @@ const Bar = ({ setTheme, theme, setThemeUse, themeProvider }) => {
     window.scrollTo(0, 0);
   };
   return (
-    <nav className={"Bar--container Bar--" + theme}>
+    <nav id="bar" className={"Bar--container Bar--" + theme}>
       <div className="Bar">
         <div className="Bar--section">
           <Link href="/" passHref>

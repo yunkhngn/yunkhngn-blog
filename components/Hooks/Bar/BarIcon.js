@@ -21,6 +21,7 @@ const BarIcon = ({icon, name, url, clickHandler, changeColor, theme}) => {
                 className={bounce ? "Icon--bounce icon2" : "icon2"}
             >
                 <span
+                id="icon"
                 className={"Icon Icon" + theme}
                 onClick={() => {
                     changeHandler();
