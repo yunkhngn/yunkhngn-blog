@@ -1,13 +1,13 @@
 .Icon {
     font-size: 20px;
-    transition: transform 0.2s, margin 200ms, translateY 0.2s, color 0.5s,
-      background 0.2s;
+    transition: transform 0.2s, margin 200ms, translateY 0.5s, background-image 0.3s ease-out, color 0.3s ease-out;
   }
 
 .Icon--container {
     display: flex;
     flex-direction: column;
     align-self: start;
+    transition: background-image 0.3s ease-out, color 0.3s ease-out;
 }
 
 .Icon:hover {

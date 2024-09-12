@@ -69,7 +69,7 @@ const ThemeLoader = ({ theme, setTheme, setThemeUse, themeProvider }) => {
             html {
               background-color: var(--background-color-light);
               color: var(--text-color-light);
-              transition: background-color 0.1s ease-out, color 0.1s ease-out;
+              transition: background-color 0.3s ease-out, color 0.3s ease-out;
             }
             .Iconlight {
               background-image: linear-gradient( 45deg, hsl(0 0% 97.3%), hsl(0 0% 90.9%), hsl(0 0% 97.3%), hsl(0 0% 90.9%));

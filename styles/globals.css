@@ -193,3 +193,6 @@ blockquote{
   width: 80%;
 
 }
+html, input, textarea, button{
+  transition: all 0.3s ease-out !important; 
+}

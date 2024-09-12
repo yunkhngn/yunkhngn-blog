@@ -87,6 +87,7 @@ yarn build
 - [X] Tối ưu load ảnh
 - [X] Sửa lại trang about
 - [X] Bỏ www ở domain 
+- [ ] Chuyển icon sang react-icon
 - [ ] Fix meta tag image nhiều lúc k hiển thị ở photo
 - [ ] Tạo hover hiển thị cho từng cái nút trên bar 
 - [ ] Fix google console k hiển thị favicon
