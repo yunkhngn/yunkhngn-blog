@@ -7,6 +7,10 @@ const SocialIcon = ({ icon, link, theme }) => {
   onClick={open} 
   name={icon} 
   color={theme === "light" ? "#858585" : "#a0a0a0"}
+  hoverColor={theme === "light" ? "dark" : "info200"}
+  transition
+  cursor="pointer"
+  alt={icon}
   />;
 };
 
