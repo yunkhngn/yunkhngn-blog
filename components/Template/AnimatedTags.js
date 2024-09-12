@@ -3,7 +3,7 @@ import { motion} from 'framer-motion'
 const animation = {
     initial: {
       opacity: 0,
-      y : -20,
+      y : -50,
     },
     animate: {
       opacity: 1,
@@ -11,13 +11,13 @@ const animation = {
     },
     exit: {
       opacity: 0,
-      y : -20,
+      y : -50,
     }
   }
 
-const transition = {
-    duration: 0.25,
-    ease: [0.43, 0.13, 0.5, 0.96],
+  const transition = {
+    duration: 0.5,
+    ease: [0.25, 0.1, 0.25, 1], // cubic-bezier for smooth transitions
     type: "easeInOut",
 }
 
