@@ -198,3 +198,16 @@ blockquote{
 html, input, textarea, button, p{
   transition: all 0.25s ease-out !important; 
 }
+
+.keyboard{
+  padding: 3px 5px 3px 5px;
+  border-radius: 3px;
+  margin-right:6px;
+}
+.kblight{
+  border: 1px solid #818181;
+  color: #818181;
+}
+.kbdark{
+  border: 1px solid rgb(160, 160, 160);
+}
