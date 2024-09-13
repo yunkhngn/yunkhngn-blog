@@ -90,6 +90,7 @@ yarn build
 - [X] Sửa lại trang about
 - [X] Bỏ www ở domain 
 - [X] Fix google console k hiển thị favicon
+- [ ] Làm change log cho website
 - [ ] Làm tooltip cho các icon
 - [ ] Chuyển icon sang react-icon
 - [ ] Fix meta tag image nhiều lúc k hiển thị ở photo
