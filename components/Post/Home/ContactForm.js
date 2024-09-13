@@ -8,7 +8,6 @@ import {
   Text,
   Modal,
   Icon,
-  Notification,
 } from "atomize";
 import ElementSpace from "../ElementSpace";
 import emailjs from "@emailjs/browser";
@@ -50,7 +49,10 @@ const ContactForm = ({ theme, themeUse, desc }) => {
       handleModal(true);
     } else {
       if (!checkMailFormat(data.email)) {
-        setError("Email không hợp lệ");
+        setError("Email không hợp lệ!");
+        setState(true);
+      } else if (authenticated === false) {
+        setError("Cậu chưa điền captcha!");
         setState(true);
       } else {
         setError("Có vẻ như còn thiếu thông tin, hãy kiểm tra lại nhé!");
