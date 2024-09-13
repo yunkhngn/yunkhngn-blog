@@ -188,7 +188,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
                 setAuthenticated(true);
               }}
               onError={() => {
-                setError("Captcha không hợp lệ");
+                setError("Captcha không hợp lệ!");
                 setState(true);
               }}
               theme={theme === "light" ? "light" : "dark"}
