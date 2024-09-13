@@ -1,6 +1,15 @@
 import React from "react";
 import { Para, Noti } from "../../Template";
-import { Div, Textarea, Input, Button, Text, Modal, Icon, Notification } from "atomize";
+import {
+  Div,
+  Textarea,
+  Input,
+  Button,
+  Text,
+  Modal,
+  Icon,
+  Notification,
+} from "atomize";
 import ElementSpace from "../ElementSpace";
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
@@ -12,12 +21,12 @@ const ContactForm = ({ theme, themeUse, desc }) => {
   const [submitted, setSubmitted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [error, setError] = useState("");
-  const [showNotification, setState] = React.useState(false)
+  const [showNotification, setState] = React.useState(false);
 
   const handleModal = (check) => {
     setIsOpen(check);
     document.body.style.overflow = { check } ? "hidden" : "auto";
-  }
+  };
 
   const [data, setData] = React.useState({
     name: "",
@@ -28,7 +37,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
   const checkMailFormat = (email) => {
     const re = /\S+@\S+\.\S+/;
     return re.test(email);
-  }
+  };
   const handleSubmit = () => {
     if (
       data.name.length > 1 &&
@@ -37,19 +46,19 @@ const ContactForm = ({ theme, themeUse, desc }) => {
       data.message.length > 5 &&
       checkMailFormat(data.email) &&
       authenticated
-    ){
+    ) {
       handleModal(true);
     } else {
       if (!checkMailFormat(data.email)) {
         setError("Email không hợp lệ");
-        setState(true)
+        setState(true);
       } else {
         setError("Có vẻ như còn thiếu thông tin, hãy kiểm tra lại nhé!");
-        setState(true)
+        setState(true);
       }
     }
   };
-  
+
   const [authenticated, setAuthenticated] = useState(
     onDevelopmentEnv ? true : false
   );
@@ -71,10 +80,10 @@ const ContactForm = ({ theme, themeUse, desc }) => {
         process.env.PUBLIC_KEY
       );
       setError("Cảm ơn cậu đã gửi mail cho tớ!");
-      setState(true)
+      setState(true);
     } else {
       setError("Cảm ơn cậu đã gửi mail cho tớ!");
-      setState(true)
+      setState(true);
     }
   };
   return (
@@ -82,10 +91,12 @@ const ContactForm = ({ theme, themeUse, desc }) => {
       <Para color={themeUse.secondary}>{desc.desc}</Para>
       <Div m={{ b: "1.7em" }} />
       <hr className={"hr" + theme} />
-      <Noti message={error} 
-            showNotification={showNotification} 
-            setState={setState} 
-            theme={theme}/>
+      <Noti
+        message={error}
+        showNotification={showNotification}
+        setState={setState}
+        theme={theme}
+      />
       <Div>
         <Text
           tag="section"
@@ -170,13 +181,17 @@ const ContactForm = ({ theme, themeUse, desc }) => {
               Lưu ý: điền captcha trước khi submit nhé!
             </Text>
             <HCaptcha
-            sitekey="31677f64-0983-4d5f-afcf-bcb06e4a6bc6"
-            onVerify={() => {
-              setAuthenticated(true);
-            }}
-            theme={theme === "light" ? "light" : "dark"}
+              sitekey="31677f64-0983-4d5f-afcf-bcb06e4a6bc6"
+              onVerify={() => {
+                setAuthenticated(true);
+              }}
+              onError={() => {
+                setError("Captcha không hợp lệ");
+                setState(true);
+              }}
+              theme={theme === "light" ? "light" : "dark"}
             ></HCaptcha>
-        </Div>
+          </Div>
         )}
         <Button
           textColor={theme === "light" ? "#ededed" : "#171717"}
@@ -191,12 +206,12 @@ const ContactForm = ({ theme, themeUse, desc }) => {
         </Button>
       </Div>
       <Modal
-      isOpen={isOpen}
-      m={{ y: "4rem", x: { xs: "1rem", lg: "auto" } }}
-      rounded="md"
-      align="center"
+        isOpen={isOpen}
+        m={{ y: "4rem", x: { xs: "1rem", lg: "auto" } }}
+        rounded="md"
+        align="center"
       >
-       <Icon
+        <Icon
           name="Cross"
           pos="absolute"
           top="1rem"
@@ -221,21 +236,14 @@ const ContactForm = ({ theme, themeUse, desc }) => {
           >
             Không
           </Button>
-          <Button
-            onClick={submitForm}
-          >
-            Có, gửi ngay
-          </Button>
+          <Button onClick={submitForm}>Có, gửi ngay</Button>
         </Div>
       </Modal>
       <ElementSpace space="12em" />
-      {
-        (data.name.length > 1 ||
+      {(data.name.length > 1 ||
         data.email.length > 1 ||
         data.title.length > 1 ||
-        data.message.length > 1) &&
-        <Warnbeforeunload/>
-      }
+        data.message.length > 1) && <Warnbeforeunload />}
     </article>
   );
 };
