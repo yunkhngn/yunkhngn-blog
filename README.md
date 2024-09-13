@@ -1,8 +1,8 @@
 # Khoa Nguyễn personal website
 
-![image](https://www.khoanguyen.codes/favicon/wall.png)
+![Thumbnail](https://khoanguyen.codes/image/wall.png)
 
-Đây là mã nguồn cho trang web portfolio cá nhân của Khoa Nguyễn, được xây dựng để hiển thị thông tin về các dự án, blog, và hoạt động cá nhân. Website này được phát triển sử dụng Nextjs nhằm tối ưu hóa hiệu suất và SEO.
+Đây là source cho trang web cá nhân của Khoa Nguyễn. Website này được phát triển sử dụng Nextjs nhằm tối ưu hóa hiệu suất và SEO.
 
 ## Mục lục
 
@@ -16,7 +16,7 @@
 
 ## Giới thiệu
 
-Website portfolio cá nhân của Khoa Nguyễn được phát triển nhằm mục đích giới thiệu bản thân, công việc và các dự án đã thực hiện. Trang web này bao gồm một blog, danh sách các dự án, thông tin liên hệ và các bài viết liên quan đến công nghệ và thiết kế.
+Website cá nhân của Khoa Nguyễn được phát triển nhằm mục đích giới thiệu bản thân, công việc và các dự án đã thực hiện. Trang web này bao gồm một blog, danh sách các dự án, thông tin liên hệ, ảnh và các bài viết.
 
 ## Cài đặt
 
@@ -90,6 +90,7 @@ yarn build
 - [X] Sửa lại trang about
 - [X] Bỏ www ở domain 
 - [X] Fix google console k hiển thị favicon
+- [ ] Sửa lại màu của project tags
 - [ ] Làm change log cho website
 - [ ] Làm tooltip cho các icon
 - [ ] Chuyển icon sang react-icon
