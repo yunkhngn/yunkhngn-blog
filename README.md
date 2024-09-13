@@ -77,6 +77,7 @@ yarn build
 - [ ] Skeleton cho ảnh
 - [ ] Tạo genre và làm search
 - [ ] Tạo preview page cho contentful
+- [ ] Tạo change log
 
 
 ## Cải thiện và sửa lỗi
