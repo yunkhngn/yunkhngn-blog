@@ -6,7 +6,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
-  overflow-y: auto;
+  
   scrollbar-gutter: stable;
 }
 .shortcut {
@@ -47,7 +47,7 @@ a {
     rgba(0, 0, 0, 1) 100%
   );
   backdrop-filter: blur(10px); /* Độ mờ, điều chỉnh theo ý muốn */
-  z-index: 999; /* Đặt thấp hơn thanh điều hướng */
+  z-index: 998; /* Đặt thấp hơn thanh điều hướng */
 }
 * {
   box-sizing: border-box;

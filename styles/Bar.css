@@ -19,7 +19,7 @@
     -ms-box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
     padding-left: 5px;
     padding-right: 5px;
-    z-index: 1000;
+    z-index: 999;
 }
 .Bar--dark{
     background: #161616;

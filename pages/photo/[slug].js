@@ -7,6 +7,7 @@ import Link from 'next/link';
 import ReactMarkdown from "react-markdown";
 import { Title, Para, Template } from "../../components/Template";
 import {Spacer} from '../../components/Hooks';
+import { ImageModal } from "../../components/Post";
 
 const client = contentful.createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -39,7 +40,6 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
     url: img.fields.file.url,
     title: img.fields.title || "",
   }));
-  
   return (
     <Template description={desc} height="100%">
       <article>
@@ -55,17 +55,7 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
        <div>
         {images.map((img) => (
             <div className="photoPost" key={img.id}>
-                <Image
-                  fill={true}
-                  src={"https:" + img.url}
-                  alt="img"
-                  priority={true}
-                  style={{
-                    objectFit: 'cover',
-                    borderRadius: '10px',
-                  }}
-                  onDragStart={(e) => e.preventDefault()}
-                />
+            <ImageModal key={img.id} id={img.id} theme={theme} themeUse={themeUse} url={img.url} />
             </div>
         ))}
         </div>

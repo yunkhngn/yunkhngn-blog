@@ -8,3 +8,4 @@ export {default as ContactForm} from './Home/ContactForm';
 export {default as ElementSpace} from './ElementSpace';
 export {default as WarnBeforeUnload} from './WarnBeforeUnload';
 export {default as Gallery} from './Home/Gallery';
+export {default as ImageModal} from './Home/ImageModal';

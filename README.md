@@ -70,11 +70,13 @@ yarn build
 
 ## Các tính năng
 > NOTE: Các feature đang và sẽ được xây dựng.
+- [X] Tạo trang ảnh
 - [ ] Làm Navigation.
 - [ ] Skeleton cho ảnh
 - [ ] Tạo genre và làm search
 - [ ] Tạo preview page cho contentful
-- [ ] Tạo trang ảnh
+- [ ] Làm modal khi click vào ảnh trong photo
+
 
 ## Cải thiện và sửa lỗi
 > NOTE: Updating thêm
