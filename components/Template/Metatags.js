@@ -6,7 +6,7 @@ export default function Metatags({description}) {
             <meta charSet="utf-8" />
             <title>{(description.title) ? description.title : "Khoa Nguyễn"}</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <meta name="description" content={(description.desc) ? description.desc : "Xin chào, tớ là Khoa Nguyễn. Tớ là sinh viên chuyên ngành Công nghệ thông tin tại Đại học FPT. Hiện tại tớ cũng đang là freelancer thiết kế đồ hoạ và phát triển một số dự án cá nhân liên quan tới chuyên ngành."}/>
+            <meta name="description" content={(description.desc) ? description.desc : "Xin chào, tớ là Khoa Nguyễn. Tớ là sinh viên chuyên ngành Kỹ thuật phần mềm tại Đại học FPT. Hiện tại tớ cũng đang là freelancer thiết kế đồ hoạ và phát triển một số dự án cá nhân liên quan tới chuyên ngành."}/>
             <meta name="keywords" content="Blog, Khoa Nguyen, Khoa Nguyễn, Khoa Nguyn, Nguyễn Đăng Khoa, Post , React, Nextjs, Next JS, Typescript, Cpp, Coding, Language, JavaScript, Reactjs, Khoa Nguyen Blog, Software Development, Software Engineer, Frontend Developer, Frontend Engineer, Web Developer, KhoaNguyen, Khoa Nguyen Dev, Graphic Designer, Nodejs, Khoa Nguyen Codes"/>
             <meta name="author" content="Khoa Nguyễn" />
             <meta name="robots" content="index, follow" />
@@ -45,7 +45,7 @@ export default function Metatags({description}) {
             <meta property="og:type" content="website" />
             <meta property="og:url" content={description.url || "https://khoanguyen.codes"} />
             <meta property="og:title" content={description.title} />
-            <meta property="og:description" content={description.desc || "Xin chào, tớ là Khoa Nguyễn. Tớ là sinh viên chuyên ngành Công nghệ thông tin tại Đại học FPT. Hiện tại tớ cũng đang là freelancer thiết kế đồ hoạ và phát triển một số dự án cá nhân liên quan tới chuyên ngành."} />
+            <meta property="og:description" content={description.desc || "Xin chào, tớ là Khoa Nguyễn. Tớ là sinh viên chuyên ngành Kỹ thuật phần mềm tại Đại học FPT. Hiện tại tớ cũng đang là freelancer thiết kế đồ hoạ và phát triển một số dự án cá nhân liên quan tới chuyên ngành."} />
             <meta property="og:image" content={description.img} />
             <meta property="og:image:alt" content="Khoa Nguyen" />
             <meta property="og:image:width" content="1200" />
@@ -54,7 +54,7 @@ export default function Metatags({description}) {
             <meta property="twitter:card" content="summary_large_image"/>
             <meta property="twitter:url" content={description.url || "https://khoanguyen.codes"} />
             <meta property="twitter:title" content={description.title}/>
-            <meta property="twitter:description" content={(description.desc) ? description.desc : "Xin chào, tớ là Khoa Nguyễn. Tớ là sinh viên chuyên ngành Công nghệ thông tin tại Đại học FPT. Hiện tại tớ cũng đang là freelancer thiết kế đồ hoạ và phát triển một số dự án cá nhân liên quan tới chuyên ngành của mình."}/>
+            <meta property="twitter:description" content={(description.desc) ? description.desc : "Xin chào, tớ là Khoa Nguyễn. Tớ là sinh viên chuyên ngành Kỹ thuật phần mềm tại Đại học FPT. Hiện tại tớ cũng đang là freelancer thiết kế đồ hoạ và phát triển một số dự án cá nhân liên quan tới chuyên ngành của mình."}/>
             <meta property="twitter:image" content={description.img}/>
             <meta property="twitter:image:alt" content="Khoa Nguyen"/>
             <meta property="twitter:image:width" content="1200"/>
