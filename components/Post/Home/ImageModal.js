@@ -10,10 +10,8 @@ const ImageModal = ({ theme, themeUse, url }) => {
     //set body overflow hidden
     document.body.style.overflow = { check } ? "hidden" : "auto";
   }
-  
-
   return (
-    <div className="modal">
+    <div>
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
@@ -21,7 +19,7 @@ const ImageModal = ({ theme, themeUse, url }) => {
         maxW="100vw"
         m="0"
         h="100vh"
-        bg={themeUse.bg}
+        bg="rgba(0, 0, 0, 0.6)"
       >
         <Image
           fill={true}
@@ -33,23 +31,8 @@ const ImageModal = ({ theme, themeUse, url }) => {
             borderRadius: "0",
           }}
           onDragStart={(e) => e.preventDefault()}
+          onClick={() => setIsModalOpen(false)}
         />
-        <Button
-        pos="absolute"
-        top="20px"
-        right="20px"
-        h="3em"
-        w="3em"
-        bg={themeUse.bgButton}
-        hoverBg={themeUse.bgButtonHover}
-        shadow="2"
-        hoverShadow="4"
-        borderColor={themeUse.border}
-        textColor={theme === "light" ? "white" : "dark"}
-        onClick={() => setIsModalOpen(false)}
-        >
-        <Icon name="Cross" size="20px" color={theme === "light" ? "white" : "dark"} />
-        </Button>
       </Modal>
       <Image
         fill={true}
