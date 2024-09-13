@@ -9,7 +9,7 @@ import Warnbeforeunload from "../WarnBeforeUnload";
 
 const ContactForm = ({ theme, themeUse, desc }) => {
   const onDevelopmentEnv = process.env.NODE_ENV === "development";
-  const [submited, setSubmited] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [error, setError] = useState("");
   const [showNotification, setState] = React.useState(false)
@@ -57,7 +57,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
   const submitForm = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     handleModal(false);
-    setSubmited(true);
+    setSubmitted(true);
     if (!onDevelopmentEnv) {
       emailjs.send(
         process.env.SERVICE_ID,
@@ -184,7 +184,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
           hoverBg={theme === "light" ? "black700" : "gray500"}
           w="100%"
           onClick={handleSubmit}
-          disabled={submited}
+          disabled={submitted}
           m={{ t: "1em" }}
         >
           Gửi cho tớ
