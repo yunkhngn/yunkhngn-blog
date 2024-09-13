@@ -1,6 +1,6 @@
 import React from "react";
 import { Para } from "../../Template";
-import { Div, Textarea, Input, Button, Text, Icon } from "atomize";
+import { Div, Textarea, Input, Button, Text, Modal, Icon } from "atomize";
 import ElementSpace from "../ElementSpace";
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
@@ -10,6 +10,13 @@ import Warnbeforeunload from "../WarnBeforeUnload";
 const ContactForm = ({ theme, themeUse, desc }) => {
   const onDevelopmentEnv = process.env.NODE_ENV === "development";
   const [submited, setSubmited] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleModal = (check) => {
+    setIsOpen(check);
+    document.body.style.overflow = { check } ? "hidden" : "auto";
+  }
+
   const [data, setData] = React.useState({
     name: "",
     email: "",
@@ -29,17 +36,20 @@ const ContactForm = ({ theme, themeUse, desc }) => {
       checkMailFormat(data.email) &&
       authenticated
     ){
-      submitForm();
-      setSubmited(true);
+      handleModal(true);
     } else {
       alert("Cậu chưa điền đủ/sai thông tin hoặc chưa xác nhận captcha");
     }
   };
+  
   const [authenticated, setAuthenticated] = useState(
     onDevelopmentEnv ? true : false
   );
+
   const submitForm = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+    handleModal(false);
+    setSubmited(true);
     if (!onDevelopmentEnv) {
       emailjs.send(
         process.env.SERVICE_ID,
@@ -54,7 +64,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
       );
       alert("Cảm ơn cậu đã liên hệ với tớ, tớ sẽ trả lời cậu sớm nhất có thể");
     } else {
-      alert("Đã gửi r nhé | Development mode");
+      console.log("Đã gửi");
     }
   };
   return (
@@ -166,6 +176,44 @@ const ContactForm = ({ theme, themeUse, desc }) => {
           Gửi cho tớ
         </Button>
       </Div>
+      <Modal
+      isOpen={isOpen}
+      m={{ y: "4rem", x: { xs: "1rem", lg: "auto" } }}
+      rounded="md"
+      align="center"
+      >
+       <Icon
+          name="Cross"
+          pos="absolute"
+          top="1rem"
+          right="1rem"
+          size="16px"
+          onClick={() => handleModal(false)}
+          cursor="pointer"
+        />
+        <Text
+          p={{ l: "0.5rem", t: "0.25rem" }}
+          textSize="subheader"
+          m={{ b: "2rem" }}
+        >
+          Cậu có muốn gửi mail bây giờ không?
+        </Text>
+        <Div d="flex" justify="flex-end">
+          <Button
+            onClick={() => handleModal(false)}
+            bg="gray200"
+            textColor="medium"
+            m={{ r: "1rem" }}
+          >
+            Không
+          </Button>
+          <Button
+            onClick={submitForm}
+          >
+            Có, gửi ngay
+          </Button>
+        </Div>
+      </Modal>
       <ElementSpace space="12em" />
       {
         (data.name.length > 1 ||
