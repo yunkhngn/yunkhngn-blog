@@ -1,6 +1,6 @@
 import React from "react";
-import { Para } from "../../Template";
-import { Div, Textarea, Input, Button, Text, Modal, Icon } from "atomize";
+import { Para, Noti } from "../../Template";
+import { Div, Textarea, Input, Button, Text, Modal, Icon, Notification } from "atomize";
 import ElementSpace from "../ElementSpace";
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
@@ -11,6 +11,8 @@ const ContactForm = ({ theme, themeUse, desc }) => {
   const onDevelopmentEnv = process.env.NODE_ENV === "development";
   const [submited, setSubmited] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [error, setError] = useState("");
+  const [showNotification, setState] = React.useState(false)
 
   const handleModal = (check) => {
     setIsOpen(check);
@@ -38,7 +40,13 @@ const ContactForm = ({ theme, themeUse, desc }) => {
     ){
       handleModal(true);
     } else {
-      alert("Cậu chưa điền đủ/sai thông tin hoặc chưa xác nhận captcha");
+      if (!checkMailFormat(data.email)) {
+        setError("Email không hợp lệ");
+        setState(true)
+      } else {
+        setError("Có vẻ như còn thiếu thông tin, hãy kiểm tra lại nhéaaaaaaaaaaaaaaaaaaa");
+        setState(true)
+      }
     }
   };
   
@@ -72,6 +80,10 @@ const ContactForm = ({ theme, themeUse, desc }) => {
       <Para color={themeUse.secondary}>{desc.desc}</Para>
       <Div m={{ b: "1.7em" }} />
       <hr className={"hr" + theme} />
+      <Noti message={error} 
+            showNotification={showNotification} 
+            setState={setState} 
+            theme={theme}/>
       <Div>
         <Text
           tag="section"
