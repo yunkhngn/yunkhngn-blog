@@ -42,8 +42,6 @@ const Project = ({ desc, theme, themeUse, prj }) => {
         border="1px solid"
         bg={theme === "light" ? "#f9f9f9" : "rgba(20,20,20)"}
         borderColor={theme === "light" ? "gray300" : "#171717"}
-        //transition 0.3s
-        
       />
       <Spacer length="100%" theme={theme} />
       <Div>

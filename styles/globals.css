@@ -212,3 +212,7 @@ html, input, textarea, button, p{
 .kbdark{
   border: 1px solid rgb(160, 160, 160);
 }
+
+.list{
+  word-break: break-word;
+}
