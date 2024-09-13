@@ -94,6 +94,7 @@ yarn build
 - [ ] Chuyển icon sang react-icon
 - [ ] Fix meta tag image nhiều lúc k hiển thị ở photo
 - [ ] Sửa tối ưu lại source
+- [ ] Cải thiện hiệu suất
 
 ## Đóng góp
 @yunkhngn
