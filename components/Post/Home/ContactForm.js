@@ -44,7 +44,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
         setError("Email không hợp lệ");
         setState(true)
       } else {
-        setError("Có vẻ như còn thiếu thông tin, hãy kiểm tra lại nhéaaaaaaaaaaaaaaaaaaa");
+        setError("Có vẻ như còn thiếu thông tin, hãy kiểm tra lại nhé!");
         setState(true)
       }
     }
@@ -70,9 +70,11 @@ const ContactForm = ({ theme, themeUse, desc }) => {
         },
         process.env.PUBLIC_KEY
       );
-      alert("Cảm ơn cậu đã liên hệ với tớ, tớ sẽ trả lời cậu sớm nhất có thể");
+      setError("Cảm ơn cậu đã gửi mail cho tớ!");
+      setState(true)
     } else {
-      console.log("Đã gửi");
+      setError("Cảm ơn cậu đã gửi mail cho tớ!");
+      setState(true)
     }
   };
   return (
