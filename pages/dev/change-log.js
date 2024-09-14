@@ -4,7 +4,7 @@ const desc = {
     title: 'Change log | Khoa Nguyễn',
     heading: 'Change log',
     url: 'https://khoanguyen.codes/change-log',
-    desc: "Change log của website của tớ.",
+    desc: "Các features sẽ được update và thông báo ở đây.",
     img: 'https://khoanguyen.codes/image/wall.png',
 }
 
@@ -30,7 +30,7 @@ export async function getServerSideProps() {
       .slice(0, 5)
       .map(commit => ({
           id: commit.sha, 
-          message: commit.commit.message, 
+          message: commit.commit.message.replace(/\[Change log\]/g, ''),
           author: commit.commit.author.name,
           date: commit.commit.author.date
       }));
