@@ -75,7 +75,7 @@ yarn build
 - [X] Làm search cho writing
 - [X] Tạo change log
 - [X] Add thêm nội dung cho trang chủ
-- [ ] Làm tooltip cho các icon
+- [X] Làm tooltip cho các icon
 - [ ] Làm Navigation
 - [ ] Skeleton cho ảnh
 - [ ] Tạo genre và làm search

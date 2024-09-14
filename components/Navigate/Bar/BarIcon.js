@@ -18,10 +18,7 @@ const BarIcon = ({ icon, name, url, clickHandler, changeColor, theme }) => {
   const displayNav = path === url;
 
   const handleClick = () => {
-    // Đặt trạng thái hover về false ngay lập tức
     setHover(false);
-
-    // Thực hiện các hành động khác sau một khoảng thời gian ngắn
     setTimeout(() => {
       changeHandler();
       if (clickHandler) {
@@ -43,13 +40,13 @@ const BarIcon = ({ icon, name, url, clickHandler, changeColor, theme }) => {
           borderColor={changeColor ? "#dbdbdb" : "#3e3e3e"}
           textColor={changeColor ? "#858585" : "#7e7e7e"}
           transition="0.3s"
-          zIndex="9999" 
+          zIndex="9999"
         >
           {name}
         </Tag>
         <span
           id="icon"
-          className={"Icon Icon" + theme + " Icon--" + hover}
+          className={"Icon Icon" + theme}
           onClick={handleClick}
           onTouchEnd={handleClick} // Đảm bảo xử lý nhấp chuột trên thiết bị di động
           onMouseEnter={() => setHover(true)}
