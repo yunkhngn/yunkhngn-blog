@@ -48,7 +48,6 @@ const BarIcon = ({ icon, name, url, clickHandler, changeColor, theme }) => {
           id="icon"
           className={"Icon Icon" + theme}
           onClick={handleClick}
-          onTouchEnd={handleClick} // Đảm bảo xử lý nhấp chuột trên thiết bị di động
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
         >
