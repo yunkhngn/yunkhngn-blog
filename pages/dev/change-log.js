@@ -1,18 +1,12 @@
 import { Template, Title } from "../../components/Template";
-import { ChangeLog } from "../../components/Post";
-const desc = {
-    title: 'Change log | Khoa Nguyễn',
-    heading: 'Change log',
-    url: 'https://khoanguyen.codes/change-log',
-    desc: "Các features sẽ được update và thông báo ở đây.",
-    img: 'https://khoanguyen.codes/image/wall.png',
-}
+import { ChangeLog } from "../../components/Content";
+import { desc } from "../../components/lib";
 
 const changeLog = ({theme,themeUse,log}) => {
   return (
-    <Template description={desc} height="100%">
-        <Title color={themeUse.primary}>{desc.heading}</Title>
-        <ChangeLog desc={desc} theme={theme} themeUse={themeUse} log={log}/>
+    <Template description={desc.changeLog} height="100%">
+        <Title color={themeUse.primary}>{desc.changeLog.heading}</Title>
+        <ChangeLog desc={desc.changeLog} theme={theme} themeUse={themeUse} log={log}/>
   </Template>
   )
 }

@@ -1,7 +1,7 @@
 
 import {Template, Title} from '../components/Template/'
 import {desc} from '../components/lib'
-import { ContactForm } from '../components/Post'
+import { ContactForm } from '../components/Content'
 const contact = ({theme, themeUse}) => {
   return (
     <Template description={desc.contact} height="100%">

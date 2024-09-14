@@ -1,6 +1,6 @@
 import {Template, Title} from '../components/Template/'
 import {desc} from '../components/lib'
-import {About} from '../components/Post'
+import {About} from '../components/Content'
 
 const about = ({themeUse,theme}) => {
     return (

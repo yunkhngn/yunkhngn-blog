@@ -1,5 +1,5 @@
 import {Template, Title} from '../components/Template'
-import {Project} from '../components/Post'
+import {Project} from '../components/Content'
 import {desc} from '../components/lib'
 
 const projects = ({themeUse,theme,prj}) => {

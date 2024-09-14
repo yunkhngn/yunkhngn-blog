@@ -1,5 +1,5 @@
 import {Template, Title} from '../components/Template'
-import {Gallery} from '../components/Post'
+import {Gallery} from '../components/Content'
 import {desc} from '../components/lib'
 
 // Lấy content từ api

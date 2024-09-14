@@ -47,13 +47,6 @@ const desc = {
         desc: "Những cảm xúc không thể bao biện, hoặc chỉ đơn giản là viết.",
         img: 'https://khoanguyen.codes/image/wall.png',
     },
-    resume: {
-        title: 'Resume | Khoa Nguyễn',
-        heading: 'Resume',
-        url: 'https://khoanguyen.codes/resume',
-        desc: "Resume cá nhân của tớ cho các nhà tuyển dụng.",
-        img: 'https://khoanguyen.codes/image/wall.png',
-    },
     contact: {
         title: 'Liên hệ | Khoa Nguyễn',
         heading: 'Liên hệ',
@@ -61,6 +54,20 @@ const desc = {
         desc: "Mọi người liên hệ công việc với tớ qua form này nhé.",
         img: 'https://khoanguyen.codes/image/wall.png',
     },
+    resume: {
+        title: 'Resume | Khoa Nguyễn',
+        heading: 'Resume',
+        url: 'https://khoanguyen.codes/resume',
+        desc: "Resume cá nhân của tớ cho các nhà tuyển dụng.",
+        img: 'https://khoanguyen.codes/image/wall.png',
+    },
+    changeLog: {
+        title: 'Change log | Khoa Nguyễn',
+        heading: 'Change log',
+        url: 'https://khoanguyen.codes/change-log',
+        desc: "Các features sẽ được update và thông báo ở đây.",
+        img: 'https://khoanguyen.codes/image/wall.png',
+    }
 }
 
 export default desc

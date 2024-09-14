@@ -1,5 +1,5 @@
 import { Template, Title, Para } from "../../components/Template";
-import { Cv } from "../../components/Post/";
+import { Cv } from "../../components/Content/";
 import { desc } from "../../components/lib";
 
 const resume = ({ themeUse, theme }) => {

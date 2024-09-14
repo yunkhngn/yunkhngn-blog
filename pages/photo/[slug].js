@@ -4,7 +4,7 @@ import { Div } from 'atomize';
 import Link from 'next/link';
 import ReactMarkdown from "react-markdown";
 import { Title, Para, Template, ElementSpace, Spacer } from "../../components/Template";
-import { ImageModal } from "../../components/Post";
+import { ImageModal } from "../../components/Content";
 
 const client = contentful.createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
