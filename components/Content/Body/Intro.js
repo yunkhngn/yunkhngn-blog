@@ -1,4 +1,4 @@
-import {Para, SocialLink, Spacer, Snake, ElementSpace} from '../../Template'
+import {Para, SocialLink, Spacer, Snake, ElementSpace, Footer} from '../../Template'
 import ReactMarkdown from 'react-markdown'
 import Link from 'next/link'
 import {Div} from 'atomize'
@@ -17,10 +17,7 @@ const Intro = ({theme,themeUse, content}) => {
             <blockquote className="snake--quote">Mr. Snake eating my contributions.</blockquote>
             <Snake theme={theme}/>
             <Spacer theme={theme} length="60px"/>
-            <p><i>Dùng máy tính để có trải nghiệm tốt nhất.</i></p>
-            <br/>
-            <p><strong>Khoa Nguyễn</strong></p>
-            <p>&copy; 2024 Khoa Nguyễn. All rights reserved.</p>
+            <Footer content="Dùng máy tính để có trải nghiệm tốt nhất."/>
             <Link href="/dev/change-log" passHref scroll={true}>
                 <Div
                     textColor={themeUse.secondary}

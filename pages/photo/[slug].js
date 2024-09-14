@@ -3,7 +3,7 @@ const contentful = require("contentful");
 import { Div } from 'atomize';
 import Link from 'next/link';
 import ReactMarkdown from "react-markdown";
-import { Title, Para, Template, ElementSpace, Spacer } from "../../components/Template";
+import { Title, Para, Template, ElementSpace, Spacer, Footer } from "../../components/Template";
 import { ImageModal } from "../../components/Content";
 
 const client = contentful.createClient({
@@ -58,10 +58,7 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
         </div>
         <Div m={{ b: "1.7em" }} />
         <hr className={"hr" + theme} />
-        <p><i>Ảnh chụp bởi tớ!</i></p>
-        <br/>
-        <p><strong>Khoa Nguyễn</strong></p>
-        <p>&copy; 2024 Khoa Nguyễn. All rights reserved.</p>
+        <Footer content="Ảnh chụp qua lăng kính của tớ." />
         <Link href="/photo" passHref>
           <Div m={{ t: '1em' }} textColor={themeUse.secondary} hoverTextColor={themeUse.hover} transition>
             Quay lại...

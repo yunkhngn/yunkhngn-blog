@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { Title, Para, Template, ElementSpace, Spacer } from '../../components/Template';
+import { Title, Para, Template, ElementSpace, Spacer, Footer } from '../../components/Template';
 import { Div } from 'atomize';
 import Link from 'next/link';
 import { htmlToText } from 'html-to-text';
@@ -162,10 +162,7 @@ const WritingPage = ({ post, themeUse, theme }) => {
         </div>
         <div>{documentToReactComponents(post.Body, options)}</div>
         <Spacer theme={theme} length="200px" />
-        <p><i>Viết bởi tớ!</i></p>
-        <br />
-        <p><strong>Khoa Nguyễn</strong></p>
-        <p>&copy; 2024 Khoa Nguyễn. All rights reserved.</p>
+        <Footer content="Viết vài dòng bởi tớ!" />
         <Link href="/writing" passHref>
           <Div m={{ t: '1em' }} textColor={themeUse.secondary} hoverTextColor={themeUse.hover} transition>
             Quay lại...

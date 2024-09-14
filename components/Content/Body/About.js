@@ -1,4 +1,4 @@
-import { Para, ElementSpace, SocialLink, Spacer } from "../../Template";
+import { Para, ElementSpace, SocialLink, Spacer, Footer } from "../../Template";
 import { Div } from "atomize";
 import ReactMarkdown from "react-markdown";
 import Image from "next/image";
@@ -44,12 +44,7 @@ const About = ({ desc, theme, themeUse, content }) => {
       <br />
       <ReactMarkdown>{content.Content}</ReactMarkdown>
       <br />
-      <p>
-        <i>Viết bởi tớ</i>
-      </p>
-      <p>
-        <strong>Khoa Nguyễn</strong>
-      </p>
+      <Footer content="Vài dòng thư tay viết vội." />
       </Div>
       <Spacer theme={theme} length="80px" />
       <a target="_blank" rel="noreferrer" href="https://facebook.com/yun.khngn">
