@@ -17,11 +17,16 @@ const Intro = ({theme,themeUse, content}) => {
             <blockquote className="snake--quote">Mr. Snake eating my contributions.</blockquote>
             <Snake theme={theme}/>
             <Spacer theme={theme} length="60px"/>
+            <p><i>Dùng máy tính để có trải nghiệm tốt nhất.</i></p>
+            <br/>
+            <p><strong>Khoa Nguyễn</strong></p>
+            <p>&copy; 2024 Khoa Nguyễn. All rights reserved.</p>
             <Link href="/dev/change-log" passHref scroll={true}>
                 <Div
                     textColor={themeUse.secondary}
                     hoverTextColor={themeUse.hover}
                     transition
+                    m={{ t: "1em" }}
                     >
                     Change log...
                 </Div>

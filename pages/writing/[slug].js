@@ -162,7 +162,8 @@ const WritingPage = ({ post, themeUse, theme }) => {
         </div>
         <div>{documentToReactComponents(post.Body, options)}</div>
         <Spacer theme={theme} length="200px" />
-        <p><i>Viết bởi tớ</i></p>
+        <p><i>Viết bởi tớ!</i></p>
+        <br />
         <p><strong>Khoa Nguyễn</strong></p>
         <p>&copy; 2024 Khoa Nguyễn. All rights reserved.</p>
         <Link href="/writing" passHref>

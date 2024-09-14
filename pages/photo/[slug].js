@@ -58,7 +58,8 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
         </div>
         <Div m={{ b: "1.7em" }} />
         <hr className={"hr" + theme} />
-        <p><i>Ảnh chụp bởi tớ</i></p>
+        <p><i>Ảnh chụp bởi tớ!</i></p>
+        <br/>
         <p><strong>Khoa Nguyễn</strong></p>
         <p>&copy; 2024 Khoa Nguyễn. All rights reserved.</p>
         <Link href="/photo" passHref>
