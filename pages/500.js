@@ -1,5 +1,4 @@
-import {Title, Para, Template} from '../components/Template/'
-import {Spacer} from '../components/Hooks/'
+import {Title, Para, Template, Spacer} from '../components/Template/'
 
 const description = {
     title: 'Server-side error occurred - Khoa Nguyễn',

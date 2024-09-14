@@ -1,7 +1,7 @@
 import { Div, Button } from "atomize";
 import SocialIcon from "./SocialIcon";
 import Link from "next/link";
-import { barList } from "../../../lib";
+import { barList } from "../../lib";
 
 
 const SocialLink = ({ theme }) => {

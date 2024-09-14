@@ -10,12 +10,12 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { AnimatedTags, ThemeLoader } from "../components/Template";
 import { injectSpeedInsights } from "@vercel/speed-insights";
-import { barList } from "../lib";
+import { barList } from "../components/lib";
 import { KBarProvider } from "kbar";
 import { AnimatePresence } from "framer-motion";
 import { Div } from "atomize";
 import { Analytics } from "@vercel/analytics/react";
-import { themeProvider } from "../lib";
+import { themeProvider } from "../components/lib";
 
 injectSpeedInsights();
 

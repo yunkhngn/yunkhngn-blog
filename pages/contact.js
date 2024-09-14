@@ -1,6 +1,6 @@
 
 import {Template, Title} from '../components/Template/'
-import {desc} from '../lib'
+import {desc} from '../components/lib'
 import { ContactForm } from '../components/Post'
 const contact = ({theme, themeUse}) => {
   return (

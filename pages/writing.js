@@ -1,6 +1,6 @@
 import {Template, Title} from '../components/Template/'
 import {Write} from '../components/Post/'
-import {desc} from '../lib'
+import {desc} from '../components/lib'
 
 const contentful = require('contentful');
 

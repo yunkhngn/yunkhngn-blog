@@ -1,5 +1,4 @@
-import {Title, Para, Template} from '../components/Template/'
-import {Spacer} from '../components/Hooks/'
+import {Title, Para, Template, Spacer} from '../components/Template/'
 import {Div} from 'atomize'
 import {useRouter} from 'next/router'
 

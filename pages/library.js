@@ -1,6 +1,6 @@
 import {Template, Title} from '../components/Template'
 import {Pics} from '../components/Post'
-import {desc} from '../lib'
+import {desc} from '../components/lib'
 
 // Lấy content từ api
 const contentful = require('contentful');

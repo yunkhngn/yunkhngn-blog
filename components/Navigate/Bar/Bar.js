@@ -1,7 +1,7 @@
 import Icon from "./BarIcon";
 import Link from "next/link";
 import Spacer from "./Spacer";
-import { barList } from "../../../lib";
+import { barList } from "../../lib";
 
 const Bar = ({ setTheme, theme, setThemeUse, themeProvider }) => {
   const changeTheme = () => {

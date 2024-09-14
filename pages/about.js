@@ -1,5 +1,5 @@
 import {Template, Title} from '../components/Template/'
-import {desc} from '../lib'
+import {desc} from '../components/lib'
 import {About} from '../components/Post'
 
 const about = ({themeUse,theme}) => {
