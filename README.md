@@ -78,6 +78,7 @@ yarn build
 - [ ] Tạo genre và làm search
 - [ ] Tạo preview page cho contentful
 - [ ] Tạo change log
+- [ ] Add thêm nội dung cho trang chủ
 
 
 ## Cải thiện và sửa lỗi

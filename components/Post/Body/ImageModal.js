@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, Button, Icon } from "atomize";
+import { Modal } from "atomize";
 import Image from "next/image";
 
 const ImageModal = ({ theme, themeUse, url }) => {

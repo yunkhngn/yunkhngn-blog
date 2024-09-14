@@ -1,11 +1,9 @@
 import { useRouter } from "next/router";
 const contentful = require("contentful");
-import {ElementSpace} from '../../components/Post/';
 import { Div } from 'atomize';
-import Image from 'next/image';
 import Link from 'next/link';
 import ReactMarkdown from "react-markdown";
-import { Title, Para, Template } from "../../components/Template";
+import { Title, Para, Template, ElementSpace } from "../../components/Template";
 import {Spacer} from '../../components/Hooks';
 import { ImageModal } from "../../components/Post";
 

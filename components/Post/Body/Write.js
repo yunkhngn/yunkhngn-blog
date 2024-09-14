@@ -1,7 +1,6 @@
-import { Para } from '../../Template';
+import { Para,ElementSpace } from '../../Template';
 import { Div, Input } from 'atomize';
 import Link from 'next/link';
-import ElementSpace from '../ElementSpace';
 import { Spacer } from "../../Hooks";
 
 const formatDate = (dateString) => {

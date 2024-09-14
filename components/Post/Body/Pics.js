@@ -1,6 +1,5 @@
-import { Para } from "../../Template";
+import { Para, ElementSpace } from "../../Template";
 import { Div } from "atomize";
-import ElementSpace from "../ElementSpace";
 import Image from "next/image";
 
 const Pics = ({ desc, theme, themeUse, data }) => {

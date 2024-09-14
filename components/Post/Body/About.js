@@ -1,8 +1,7 @@
 import { SocialLink, Spacer } from "../../Hooks";
-import { Para } from "../../Template";
+import { Para, ElementSpace } from "../../Template";
 import { Div } from "atomize";
 import ReactMarkdown from "react-markdown";
-import { ElementSpace } from "../";
 import Image from "next/image";
 
 const About = ({ desc, theme, themeUse, content }) => {

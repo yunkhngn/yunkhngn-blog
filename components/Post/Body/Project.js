@@ -1,6 +1,5 @@
-import { Para } from "../../Template";
-import { Div, Input, Tag } from "atomize"; // Import Button từ Atomize
-import ElementSpace from "../ElementSpace";
+import { Para, ElementSpace } from "../../Template";
+import { Div, Input, Tag } from "atomize";
 import { Spacer } from "../../Hooks";
 
 const Project = ({ desc, theme, themeUse, prj }) => {

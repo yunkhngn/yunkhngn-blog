@@ -1,5 +1,5 @@
 import React from "react";
-import { Para, Noti } from "../../Template";
+import { Para, Noti, ElementSpace } from "../../Template";
 import {
   Div,
   Textarea,
@@ -9,11 +9,10 @@ import {
   Modal,
   Icon,
 } from "atomize";
-import ElementSpace from "../ElementSpace";
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
-import Warnbeforeunload from "../WarnBeforeUnload";
+import WarnBeforeUnload from "../WarnBeforeUnload";
 
 const ContactForm = ({ theme, themeUse, desc }) => {
   const onDevelopmentEnv = process.env.NODE_ENV === "development";
@@ -245,7 +244,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
       {(data.name.length > 1 ||
         data.email.length > 1 ||
         data.title.length > 1 ||
-        data.message.length > 1) && <Warnbeforeunload />}
+        data.message.length > 1) && <WarnBeforeUnload/>}
     </article>
   );
 };

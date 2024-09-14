@@ -1,8 +1,7 @@
 import { useRouter } from 'next/router';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { Title, Para, Template } from '../../components/Template';
+import { Title, Para, Template, ElementSpace } from '../../components/Template';
 import { Spacer } from '../../components/Hooks';
-import {ElementSpace} from '../../components/Post/';
 import { Div } from 'atomize';
 import Link from 'next/link';
 import { htmlToText } from 'html-to-text';
