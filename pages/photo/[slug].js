@@ -37,9 +37,6 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
     url: img.fields.file.url,
     title: img.fields.title || "",
   }));
-
-  console.log(data.description);
-
   return (
     <Template description={desc} height="100%">
       <article>
