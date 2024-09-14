@@ -31,7 +31,7 @@ const BarIcon = ({ icon, name, url, clickHandler, changeColor, theme }) => {
   return (
     <div className="Icon--container" alt={name} style={{ position: "relative" }}>
        <Tag
-          pos="fixed"
+          pos="absolute"
           top={{ xs: "-30px", md: "-40px" }}
           w="auto"
           d={hover ? "block" : "none"}
