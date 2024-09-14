@@ -1,4 +1,4 @@
-import {Para, SocialLink, Spacer} from '../../Template'
+import {Para, SocialLink, Spacer, Snake} from '../../../Template'
 import ReactMarkdown from 'react-markdown'
 import Link from 'next/link'
 import {Div} from 'atomize'
@@ -14,6 +14,7 @@ const Intro = ({theme,themeUse, content}) => {
             <Spacer theme={theme} length="120px"/>
             <SocialLink theme={theme}/>
             <Spacer theme={theme} length="60px"/>
+            <Snake theme={theme}/>
             <Link href="/dev/change-log" passHref scroll={true}>
                 <Div
                     m={{ t: "1em" }}

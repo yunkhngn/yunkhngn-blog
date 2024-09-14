@@ -72,12 +72,12 @@ yarn build
 > NOTE: Các feature đang và sẽ được xây dựng.
 - [X] Tạo trang ảnh
 - [X] Làm modal khi click vào ảnh trong photo
-- [ ] Làm search cho writing
+- [X] Làm search cho writing
+- [X] Tạo change log
 - [ ] Làm Navigation.
 - [ ] Skeleton cho ảnh
 - [ ] Tạo genre và làm search
 - [ ] Tạo preview page cho contentful
-- [ ] Tạo change log
 - [ ] Add thêm nội dung cho trang chủ
 
 

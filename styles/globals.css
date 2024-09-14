@@ -189,6 +189,12 @@ iframe {
   margin-bottom: 1em;
 }
 
+.snake{
+  position: relative;
+  aspect-ratio: 880/192;
+  overflow: hidden;
+}
+
 blockquote{
   font-style: italic;
   margin: auto;
