@@ -10,14 +10,28 @@ const BarIcon = ({ icon, name, url, clickHandler, changeColor, theme }) => {
     setBounce(true);
     setTimeout(() => {
       setBounce(false);
-      setHover(false);
     }, 500);
   };
+
   const location = useRouter();
   const path = location.pathname;
   const displayNav = path === url;
+
+  const handleClick = () => {
+    // Đặt trạng thái hover về false ngay lập tức
+    setHover(false);
+
+    // Thực hiện các hành động khác sau một khoảng thời gian ngắn
+    setTimeout(() => {
+      changeHandler();
+      if (clickHandler) {
+        clickHandler();
+      }
+    }, 50);
+  };
+
   return (
-    <div className="Icon--container" alt={name}>
+    <div className="Icon--container" alt={name} style={{ position: "relative" }}>
       <div className={bounce ? "Icon--bounce icon2" : "icon2"}>
         <Tag
           pos="fixed"
@@ -29,26 +43,17 @@ const BarIcon = ({ icon, name, url, clickHandler, changeColor, theme }) => {
           borderColor={changeColor ? "#dbdbdb" : "#3e3e3e"}
           textColor={changeColor ? "#858585" : "#7e7e7e"}
           transition="0.3s"
+          zIndex="9999" 
         >
           {name}
         </Tag>
         <span
           id="icon"
           className={"Icon Icon" + theme + " Icon--" + hover}
-          onClick={() => {
-              setTimeout(() => {
-                changeHandler();
-              if (clickHandler) {
-                clickHandler();
-              }
-              }, 50);
-          }}
-          onMouseEnter={() => 
-            setHover(true)
-          }
-          onMouseLeave={() => {
-            setHover(false);
-          }}
+          onClick={handleClick}
+          onTouchEnd={handleClick} // Đảm bảo xử lý nhấp chuột trên thiết bị di động
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
         >
           <Icon
             name={bounce ? "Loading" : icon}
