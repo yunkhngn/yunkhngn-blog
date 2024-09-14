@@ -11,10 +11,11 @@ const Intro = ({theme,themeUse, content}) => {
             <ReactMarkdown>{content}</ReactMarkdown>
             <br/>
             <i><span className={"keyboard kb--"+theme}>&#8984;</span><span className={"keyboard kb--"+theme}>k</span>để khám phá...</i>
-            <Spacer theme={theme} length="120px"/>
+            <Spacer theme={theme} length="160px"/>
             <SocialLink theme={theme}/>
-            <Spacer theme={theme} length="60px"/>
+            <Spacer theme={theme} length="100px"/>
             <Snake theme={theme}/>
+            <Spacer theme={theme} length="60px"/>
             <Link href="/dev/change-log" passHref scroll={true}>
                 <Div
                     m={{ t: "1em" }}
