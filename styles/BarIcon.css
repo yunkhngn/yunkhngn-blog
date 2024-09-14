@@ -16,6 +16,7 @@
     align-self: start;
     justify-content: center;
     align-items: center;
+    pointer-events: auto; 
 }
 
 @media screen and (min-width: 930px) {

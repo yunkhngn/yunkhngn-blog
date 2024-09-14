@@ -20,6 +20,7 @@
     padding-left: 5px;
     padding-right: 5px;
     z-index: 999;
+    pointer-events: none; /* Vô hiệu hóa sự kiện click cho toàn thanh bar */
 }
 .Bar--dark{
     background: #161616;
@@ -39,6 +40,7 @@
     padding-bottom: 5px;
     width: 100%;
     align-items: flex-end;
+    pointer-events: none; 
 }
 
 .Bar--section {
@@ -48,7 +50,6 @@
     align-items: center;
     padding-top:3px;
     padding-bottom:3px;
-
 }
 
 @media screen and (max-width: 720px) {
