@@ -75,7 +75,8 @@ yarn build
 - [X] Làm search cho writing
 - [X] Tạo change log
 - [X] Add thêm nội dung cho trang chủ
-- [ ] Làm Navigation.
+- [ ] Làm tooltip cho các icon
+- [ ] Làm Navigation
 - [ ] Skeleton cho ảnh
 - [ ] Tạo genre và làm search
 - [ ] Tạo preview page cho contentful
@@ -93,13 +94,10 @@ yarn build
 - [X] Sửa lại trang about
 - [X] Bỏ www ở domain 
 - [X] Fix google console k hiển thị favicon
-- [ ] Sửa lại màu của project tags
-- [ ] Làm change log cho website
-- [ ] Làm tooltip cho các icon
-- [ ] Chuyển icon sang react-icon
-- [ ] Fix meta tag image nhiều lúc k hiển thị ở photo
-- [ ] Sửa tối ưu lại source
-- [ ] Cải thiện hiệu suất
+- [X] Sửa lại màu của project tags
+- [X] Fix meta tag image nhiều lúc k hiển thị ở photo
+- [X] Sửa tối ưu lại source
+- [X] Cải thiện hiệu suất
 
 ## Đóng góp
 @yunkhngn

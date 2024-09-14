@@ -101,8 +101,8 @@ const Project = ({ desc, theme, themeUse, prj }) => {
                         {item.license ? item.license.name : ""}
                       </Tag>
                       <Tag m={{ r: "0.5em", b: "0.5em" }}
-                      bg={theme === "light" ? "gray200" : "gray400"}
-                      textColor={theme === "light" ? "gray900" : "black700"}
+                      bg={theme === "light" ? "gray200" : "gray900"}
+                      textColor={theme === "light" ? "gray900" : "gray300"}
                       >
                         Cập nhật lúc {dateFormer(item.updated_at)}
                       </Tag>
