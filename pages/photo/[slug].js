@@ -3,8 +3,7 @@ const contentful = require("contentful");
 import { Div } from 'atomize';
 import Link from 'next/link';
 import ReactMarkdown from "react-markdown";
-import { Title, Para, Template, ElementSpace } from "../../components/Template";
-import {Spacer} from '../../components/Hooks';
+import { Title, Para, Template, ElementSpace, Spacer } from "../../components/Template";
 import { ImageModal } from "../../components/Post";
 
 const client = contentful.createClient({

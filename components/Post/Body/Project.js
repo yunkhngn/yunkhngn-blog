@@ -1,6 +1,5 @@
-import { Para, ElementSpace } from "../../Template";
+import { Para, ElementSpace, Spacer } from "../../Template";
 import { Div, Input, Tag } from "atomize";
-import { Spacer } from "../../Hooks";
 
 const Project = ({ desc, theme, themeUse, prj }) => {
   const dateFormer = (date) => {

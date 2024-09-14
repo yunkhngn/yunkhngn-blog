@@ -1,5 +1,4 @@
-import {SocialLink, Spacer} from '../../Hooks'
-import {Para} from '../../Template'
+import {Para, SocialLink, Spacer} from '../../Template'
 import ReactMarkdown from 'react-markdown'
 
 const Intro = ({theme,themeUse, content}) => {

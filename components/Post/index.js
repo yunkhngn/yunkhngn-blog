@@ -4,6 +4,5 @@ export {default as Project} from './Body/Project';
 export {default as Write} from './Body/Write';
 export {default as About} from './Body/About';
 export {default as ContactForm} from './Body/ContactForm';
-export {default as WarnBeforeUnload} from './WarnBeforeUnload';
 export {default as Gallery} from './Body/Gallery';
 export {default as ImageModal} from './Body/ImageModal';

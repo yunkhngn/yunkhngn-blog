@@ -1,5 +1,5 @@
 import React from "react";
-import { Para, Noti, ElementSpace } from "../../Template";
+import { Para, Noti, ElementSpace, WarnBeforeUnload } from "../../Template";
 import {
   Div,
   Textarea,
@@ -12,7 +12,6 @@ import {
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
-import WarnBeforeUnload from "../WarnBeforeUnload";
 
 const ContactForm = ({ theme, themeUse, desc }) => {
   const onDevelopmentEnv = process.env.NODE_ENV === "development";

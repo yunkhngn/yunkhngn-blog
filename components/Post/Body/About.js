@@ -1,5 +1,4 @@
-import { SocialLink, Spacer } from "../../Hooks";
-import { Para, ElementSpace } from "../../Template";
+import { Para, ElementSpace, SocialLink, Spacer } from "../../Template";
 import { Div } from "atomize";
 import ReactMarkdown from "react-markdown";
 import Image from "next/image";

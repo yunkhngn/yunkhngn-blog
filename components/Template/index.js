@@ -6,3 +6,6 @@ export {default as Metatags} from './Metatags';
 export {default as ThemeLoader} from './ThemeLoader';
 export {default as Noti} from './Noti';
 export {default as ElementSpace} from './ElementSpace';
+export {default as WarnBeforeUnload} from './WarnBeforeUnload';
+export {default as SocialLink} from './SocialLink/SocialLink'
+export {default as Spacer} from './Spacer'

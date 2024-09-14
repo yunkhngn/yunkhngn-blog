@@ -2,7 +2,7 @@ import "../styles/globals.css";
 import "../styles/Bar.css";
 import "../styles/BarIcon.css";
 
-import { Bar, CmdBar } from "../components/Hooks";
+import { Bar, CmdBar } from "../components/Navigate";
 import { styletron } from "../styletron";
 import { Provider as StyletronProvider } from "styletron-react";
 import { StyleReset } from "atomize";
