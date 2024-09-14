@@ -29,8 +29,9 @@ html.dark-theme {
   background-color: #161616; /* Màu nền cho theme tối */
 }
 a {
-  color: inherit !important;
-  text-decoration: none;
+  color: #0070f3 !important;
+  font-weight: 500;
+  text-decoration: none !important;
   transition: color 0.25s ease-out;
 }
 .blur-overlay {
@@ -197,6 +198,13 @@ iframe {
   margin-top: 1em;
 }
 
+.resume{
+  position: relative;
+  aspect-ratio: 210/297;
+  overflow: hidden;
+  margin-bottom: 1em;
+}
+
 .snake{
   position: relative;
   aspect-ratio: 880/192;
@@ -242,9 +250,14 @@ html, input, textarea, button, p{
   word-break: break-word;
 }
 
-.richText a{
-  color: #0070f3 !important;
-  font-weight: 500;
-  text-decoration: none !important;
-  transition: color 0.25s ease-out;
+.tooltip {
+  animation: fadeIn 0.5s;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

@@ -39,7 +39,8 @@ const BarIcon = ({ icon, name, url, clickHandler, changeColor, theme }) => {
           border="0.5px solid"
           borderColor={changeColor ? "#dbdbdb" : "#3e3e3e"}
           textColor={changeColor ? "#858585" : "#7e7e7e"}
-          transition="0.3s"
+          transition
+          className="tooltip"
         >
           {name}
         </Tag>

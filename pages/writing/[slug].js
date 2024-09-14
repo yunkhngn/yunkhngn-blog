@@ -160,7 +160,7 @@ const WritingPage = ({ post, themeUse, theme }) => {
             onDragStart={(e) => e.preventDefault()}
           />
         </div>
-        <div className="richText">{documentToReactComponents(post.Body, options)}</div>
+        <div>{documentToReactComponents(post.Body, options)}</div>
         <Spacer theme={theme} length="200px" />
         <p><i>Viết bởi tớ</i></p>
         <p><strong>Khoa Nguyễn</strong></p>

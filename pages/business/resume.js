@@ -1,34 +1,14 @@
-import { Template, Title, Para, ElementSpace } from "../../components/Template";
+import { Template, Title, Para } from "../../components/Template";
+import { Cv } from "../../components/Post/";
 import { desc } from "../../components/lib";
-import Link from "next/link";
-import { Div } from "atomize";
 
 const resume = ({ themeUse, theme }) => {
   return (
     <Template description={desc.resume} height="100%">
       <Title color={themeUse.primary}>{desc.resume.heading}</Title>
-      <Para color={themeUse.secondary}>
-        {desc.resume.desc}
-      </Para>
+      <Para color={themeUse.secondary}>{desc.resume.desc}</Para>
       <hr className={"hr" + theme} />
-      <iframe
-        src="https://drive.google.com/file/d/1txe3dBjcTY7ARsiRj6dUTdzMfyJrEFUW/preview"
-        allow="autoplay"
-        allowFullScreen={true}
-        lazy="true"
-        title="resume"
-      ></iframe>
-      <Link href="/" passHref scroll={true}>
-        <Div
-          m={{ t: "1em" }}
-          textColor={themeUse.secondary}
-          hoverTextColor={themeUse.hover}
-          transition
-        >
-          Quay lại trang chủ...
-        </Div>
-      </Link>
-      <ElementSpace space="12em" />
+      <Cv themeUse={themeUse} />
     </Template>
   );
 };
