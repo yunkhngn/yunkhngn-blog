@@ -8,9 +8,9 @@ const ChangeLog = ({ theme, themeUse, desc, log }) => {
     const day = d.getDate();
     const month = d.getMonth() + 1;
     const year = d.getFullYear();
-    const hour = d.getHours();
-    const minute = d.getMinutes();
-    const second = d.getSeconds();
+    const hour = d.getHours() < 10 ? "0" + d.getHours() : d.getHours();
+    const minute = d.getMinutes() < 10 ? "0" + d.getMinutes() : d.getMinutes();
+    const second = d.getSeconds() < 10 ? "0" + d.getSeconds() : d.getSeconds();
     return `${hour}:${minute}:${second} ${day}/${month}/${year}`;
   }
   return (
