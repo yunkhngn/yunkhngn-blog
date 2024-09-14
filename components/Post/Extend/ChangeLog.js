@@ -12,7 +12,7 @@ const ChangeLog = ({ theme, themeUse, desc, log }) => {
     const minute = d.getMinutes() < 10 ? "0" + d.getMinutes() : d.getMinutes();
     const second = d.getSeconds() < 10 ? "0" + d.getSeconds() : d.getSeconds();
     return `${hour}:${minute}:${second} ${day}/${month}/${year}`;
-  }
+  };
   return (
     <article>
       <Para color={themeUse.secondary}>{desc.desc}</Para>
@@ -24,48 +24,55 @@ const ChangeLog = ({ theme, themeUse, desc, log }) => {
         ) : (
           log.map((item) => (
             <div className="post" key={item.id}>
-                <Div
-                  justify="flex-start"
-                  align="center"
-                  d="flex"
-                  hoverBg={theme === "light" ? "gray200" : "#222222"}
-                  rounded="12px"
-                  p="16px"
-                  transition
-                  m={{ r: "-16px", l: "-16px" }}
+              <Div
+                justify="flex-start"
+                align="center"
+                d="flex"
+                hoverBg={theme === "light" ? "gray200" : "#222222"}
+                rounded="12px"
+                p={{xs : "0.5em", md: "16px"}}
+                transition
+                m={{xs : "0 -0.5em 0 -0.5em", md: "0 -16px 0 -16px"}}
+              >
+                <Para
+                  margin="true"
+                  which="right"
+                  color={theme === "light" ? "#171717" : "#ededed"}
+                  textSize={{ xs: "caption", md: "paragraph" }}
                 >
-                  <Para
-                    margin="true"
-                    which="right"
-                    color={theme === "light" ? "#171717" : "#ededed"}
-                  >
-                    <strong>{item.author}</strong>
-                  </Para>
-                  <Para
-                    w={{ xs: "170px", md: "350px" }}
-                    margin="true"
-                    which="right"
-                    color={theme === "light" ? "#171717" : "#ededed"}
-                  >
-                    {item.message}
-                  </Para>
-                  <hr className={"hr" + theme} />
-                  <Para margin="true" which="left" color={themeUse.secondary}>
-                    {FormattedDate(item.date)}
-                  </Para>
-                </Div>
+                  <strong>{item.author}</strong>
+                </Para>
+                <Para
+                  w={{ xs: "170px", md: "350px" }}
+                  margin="true"
+                  which="right"
+                  color={theme === "light" ? "#171717" : "#ededed"}
+                  textSize={{ xs: "caption", md: "paragraph" }}
+                >
+                  {item.message}
+                </Para>
+                <hr className={"hr" + theme} />
+                <Para
+                  margin="true"
+                  which="left"
+                  color={themeUse.secondary}
+                  textSize={{ xs: "caption", md: "paragraph" }}
+                >
+                  {FormattedDate(item.date)}
+                </Para>
+              </Div>
             </div>
           ))
         )}
       </Div>
       <Link href="/" passHref scroll={true}>
         <Div
-                m={{ t: "0.5em" }}
-                textColor={themeUse.secondary}
-                hoverTextColor={themeUse.hover}
-                transition
-                >
-                Quay lại...
+          m={{ t: "0.5em" }}
+          textColor={themeUse.secondary}
+          hoverTextColor={themeUse.hover}
+          transition
+        >
+          Quay lại...
         </Div>
       </Link>
       <ElementSpace space="12em" />
