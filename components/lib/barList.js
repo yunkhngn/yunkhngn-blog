@@ -4,31 +4,31 @@ const barList ={
     navigate: [
         {
             id: 1,
-            name: "Giới thiệu",
+            name: "About",
             icon: "UserCircle",
             url: "/about",
           },
           {
             id: 2,
-            name: "Dự án",
+            name: "Project",
             icon: "Draft",
             url: "/project",
           },
           {
             id: 3,
-            name: "Thư viện",
+            name: "Library",
             icon: "Bulk",
             url: "/library",
           },
           {
             id: 4,
-            name: "Ảnh chụp",
+            name: "Photo",
             icon: "History",
             url: "/photo",
           },
           {
             id: 5,
-            name: "Viết linh tinh",
+            name: "Writing",
             icon: "EditSolid",
             url: "/writing",
           },

@@ -24,6 +24,11 @@
     transform: scale(1);
 }
 
+.icon2{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
 
 .Icon--seperate {
     margin: 40px;

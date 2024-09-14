@@ -101,7 +101,7 @@ const Bar = ({ setTheme, theme, setThemeUse, themeProvider }) => {
         <div className="Bar--section">
           <Icon
             icon="SettingsSolid"
-            name="Change Theme"
+            name="Theme"
             alt="Change Theme"
             changeColor={theme === "light" ? true : false}
             clickHandler={changeTheme}
@@ -111,7 +111,7 @@ const Bar = ({ setTheme, theme, setThemeUse, themeProvider }) => {
         <div className="Bar--section">
           <Icon
             icon="UpArrow"
-            name="Scroll up"
+            name="Scroll"
             alt="Scroll up"
             changeColor={theme === "light" ? true : false}
             clickHandler={scrollToTop}
