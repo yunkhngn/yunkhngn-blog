@@ -16,12 +16,12 @@
     align-self: start;
 }
 
-.Icon:hover {
+.Icon--true{
     transform: scale(1.4) translateY(-15px) ;
     margin: 20px 15px 0px 15px;
 }
-.Icon:not(:hover){
-    transform: scale(1);
+.Icon--false{
+    transform: scale(1) ;
 }
 
 .icon2{

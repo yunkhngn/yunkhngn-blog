@@ -10,7 +10,8 @@ const BarIcon = ({ icon, name, url, clickHandler, changeColor, theme }) => {
     setBounce(true);
     setTimeout(() => {
       setBounce(false);
-    }, 550);
+      setHover(false);
+    }, 500);
   };
   const location = useRouter();
   const path = location.pathname;
@@ -19,8 +20,8 @@ const BarIcon = ({ icon, name, url, clickHandler, changeColor, theme }) => {
     <div className="Icon--container" alt={name}>
       <div className={bounce ? "Icon--bounce icon2" : "icon2"}>
         <Tag
-          pos="absolute"
-          top="-40px"
+          pos="fixed"
+          top={{ xs: "-37px", md: "-40px" }}
           w="auto"
           d={hover ? "block" : "none"}
           bg={changeColor ? "#fefefe" : "#161616"}
@@ -33,15 +34,21 @@ const BarIcon = ({ icon, name, url, clickHandler, changeColor, theme }) => {
         </Tag>
         <span
           id="icon"
-          className={"Icon Icon" + theme}
+          className={"Icon Icon" + theme + " Icon--" + hover}
           onClick={() => {
-              changeHandler();
+              setTimeout(() => {
+                changeHandler();
               if (clickHandler) {
                 clickHandler();
               }
+              }, 50);
           }}
-          onMouseEnter={() => setHover(true)}
-          onMouseLeave={() => setHover(false)}
+          onMouseEnter={() => 
+            setHover(true)
+          }
+          onMouseLeave={() => {
+            setHover(false);
+          }}
         >
           <Icon
             name={bounce ? "Loading" : icon}
