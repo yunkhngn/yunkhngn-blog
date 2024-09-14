@@ -30,8 +30,9 @@ html.dark-theme {
   background-color: #161616; /* Màu nền cho theme tối */
 }
 a {
-  color: inherit;
+  color: inherit !important;
   text-decoration: none;
+  transition: color 0.25s ease-out;
 }
 .blur-overlay {
   position: fixed;
