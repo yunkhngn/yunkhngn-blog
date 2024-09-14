@@ -1,4 +1,6 @@
 import { useRouter } from 'next/router';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { Title, Para, Template, ElementSpace, Spacer } from '../../components/Template';
 import { Div } from 'atomize';
@@ -13,6 +15,57 @@ const client = contentful.createClient({
   environment: process.env.CONTENTFUL_ENVIRONMENT,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 });
+
+const options = {
+  renderNode: {
+    // Xử lý assets như trước
+    [BLOCKS.EMBEDDED_ASSET]: (node) => {
+      const { file, title } = node.data.target.fields;
+      if (file.contentType.startsWith('image/')) {
+        const imageUrl = `https:${file.url}`;
+        return (
+          <div className="embedPhoto">
+            <Image
+              src={imageUrl}
+              alt={title || 'Embedded Image'}
+              fill
+              style={{
+                objectFit: "cover",
+                borderRadius: "12px",
+              }}
+              onDragStart={(e) => e.preventDefault()}
+            />
+          </div>
+        );
+      }
+      return null;
+    },
+
+    // Xử lý inline hyperlink
+    [INLINES.HYPERLINK]: (node, children) => {
+      const { uri } = node.data;
+      return (
+        <a href={uri} target="_blank" rel="noopener noreferrer" style={{ color: 'blue', textDecoration: 'underline' }}>
+          {children}
+        </a>
+      );
+    },
+
+    // Xử lý inline embedded entry (ví dụ nhúng một entry khác trong nội dung)
+    [INLINES.EMBEDDED_ENTRY]: (node) => {
+      const { fields } = node.data.target;
+      if (fields) {
+        return (
+          <div style={{ border: '1px solid #ccc', padding: '10px', margin: '10px 0' }}>
+            <h3>{fields.title}</h3>
+            <p>{fields.description}</p>
+          </div>
+        );
+      }
+      return null;
+    },
+  },
+};
 
 const formatDate = (dateString) => {
   const date = new Date(dateString);
@@ -30,7 +83,7 @@ export async function getStaticPaths() {
     params: { slug: item.fields.slug },
   }));
 
-  return { paths, fallback: true }; // Pre-render only these paths at build time, other routes will return 404
+  return { paths, fallback: true }; 
 }
 
 export async function getStaticProps({ params }) {
@@ -42,45 +95,39 @@ export async function getStaticProps({ params }) {
 
     if (response.items.length > 0) {
       const item = response.items[0];
-      const bodyHtml = documentToHtmlString(item.fields.body);
       const postData = {
         id: item.sys.id,
         Title: item.fields.title,
         Image: `https:${item.fields.image.fields.file.url}`,
         createdAt: item.sys.createdAt,
-        Body: bodyHtml,
+        Body: item.fields.body,  
         Desc: item.fields.description,
         slug: item.fields.slug,
       };
       return {
-        props: { post: postData }, // Pass post data to the page component as props
-        revalidate: 60, // Revalidate every 60 seconds
+        props: { post: postData }, 
+        revalidate: 60, 
       };
     } else {
       return {
-        notFound: true, // If post not found, return 404
+        notFound: true, 
       };
     }
   } catch (error) {
     console.error('Error fetching post:', error);
-    return { notFound: true }; // Return 404 if there is an error
+    return { notFound: true };
   }
 }
 
 const WritingPage = ({ post, themeUse, theme }) => {
   const router = useRouter();
-
-  // Show loading state if path is not yet pre-rendered
   if (router.isFallback) {
     return <p>Loading...</p>;
   }
   function truncateHtml(htmlString, maxLength) {
-    // Chuyển đổi HTML thành văn bản thuần
-    const text = htmlToText(htmlString, {
+    const text = htmlToText(documentToHtmlString(htmlString), {
       wordwrap: false
     });
-  
-    // Cắt ngắn văn bản và thêm ba dấu chấm
     if (text.length > maxLength) {
       return text.slice(0, maxLength) + '...';
     }
@@ -89,13 +136,13 @@ const WritingPage = ({ post, themeUse, theme }) => {
   }
 
   const src = post.Image;
-  
   const desc = {
     title: `${post.Title} - ${post.Desc}`,
-    desc: truncateHtml(post.Body, 100), // Cắt ngắn với chiều dài 100 ký tự
+    desc: truncateHtml(post.Body, 100),
     url: `https://khoanguyen.codes/writing/${post.slug}`,
     img: src,
   };
+
   return (
     <Template description={desc} height="100%">
       <article>
@@ -108,12 +155,12 @@ const WritingPage = ({ post, themeUse, theme }) => {
         <Para color={themeUse.secondary}>{"Phân loại: " + post.Desc}</Para>
         <Spacer theme={theme} length="150px" />
         <div
-        className="writingPhoto"
+          className="writingPhoto"
         >
           <Image
             src={src}
             alt={post.Title}
-            fill={true}
+            fill
             style={{
               objectFit: "cover",
               borderRadius: "12px",
@@ -121,7 +168,7 @@ const WritingPage = ({ post, themeUse, theme }) => {
             onDragStart={(e) => e.preventDefault()}
           />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: post.Body }} />
+        <div className="richText">{documentToReactComponents(post.Body, options)}</div>
         <Spacer theme={theme} length="200px" />
         <p><i>Viết bởi tớ</i></p>
         <p><strong>Khoa Nguyễn</strong></p>

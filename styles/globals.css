@@ -188,6 +188,15 @@ iframe {
   margin-bottom: 1em;
 }
 
+.embedPhoto{
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  cursor: pointer;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
 .snake{
   position: relative;
   aspect-ratio: 880/192;
@@ -231,4 +240,11 @@ html, input, textarea, button, p{
 
 .list{
   word-break: break-word;
+}
+
+.richText a{
+  color: #0070f3 !important;
+  font-weight: 500;
+  text-decoration: none !important;
+  transition: color 0.25s ease-out;
 }
