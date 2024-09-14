@@ -30,8 +30,7 @@ const BarIcon = ({ icon, name, url, clickHandler, changeColor, theme }) => {
 
   return (
     <div className="Icon--container" alt={name} style={{ position: "relative" }}>
-      <div className={bounce ? "Icon--bounce icon2" : "icon2"}>
-        <Tag
+       <Tag
           pos="fixed"
           top={{ xs: "-30px", md: "-40px" }}
           w="auto"
@@ -41,10 +40,10 @@ const BarIcon = ({ icon, name, url, clickHandler, changeColor, theme }) => {
           borderColor={changeColor ? "#dbdbdb" : "#3e3e3e"}
           textColor={changeColor ? "#858585" : "#7e7e7e"}
           transition="0.3s"
-          zIndex="9999"
         >
           {name}
         </Tag>
+      <div className={bounce ? "Icon--bounce icon2" : "icon2"}>
         <span
           id="icon"
           className={"Icon Icon" + theme}
