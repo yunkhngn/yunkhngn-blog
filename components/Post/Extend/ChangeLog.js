@@ -1,5 +1,6 @@
-import { Para, ElementSpace, Spacer } from "../../Template";
+import { Para, ElementSpace } from "../../Template";
 import { Div } from "atomize";
+import Link from "next/link";
 
 const ChangeLog = ({ theme, themeUse, desc, log }) => {
   const FormattedDate = (date) => {
@@ -57,7 +58,17 @@ const ChangeLog = ({ theme, themeUse, desc, log }) => {
           ))
         )}
       </Div>
-      <ElementSpace />
+      <Link href="/" passHref scroll={true}>
+        <Div
+                m={{ t: "0.5em" }}
+                textColor={themeUse.secondary}
+                hoverTextColor={themeUse.hover}
+                transition
+                >
+                Quay lại...
+        </Div>
+      </Link>
+      <ElementSpace space="12em" />
     </article>
   );
 };

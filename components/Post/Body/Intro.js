@@ -15,14 +15,14 @@ const Intro = ({theme,themeUse, content}) => {
             <SocialLink theme={theme}/>
             <Spacer theme={theme} length="60px"/>
             <Link href="/dev/change-log" passHref scroll={true}>
-            <Div
-                m={{ t: "1em" }}
-                textColor={themeUse.secondary}
-                hoverTextColor={themeUse.hover}
-                transition
-                >
-                Change log...
-            </Div>
+                <Div
+                    m={{ t: "1em" }}
+                    textColor={themeUse.secondary}
+                    hoverTextColor={themeUse.hover}
+                    transition
+                    >
+                    Change log...
+                </Div>
             </Link>
         </article>
     );
