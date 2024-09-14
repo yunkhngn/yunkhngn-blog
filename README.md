@@ -98,6 +98,7 @@ yarn build
 - [X] Fix meta tag image nhiều lúc k hiển thị ở photo
 - [X] Sửa tối ưu lại source
 - [X] Cải thiện hiệu suất
+- [X] Add ảnh vào post
 - [ ] Fix bar che mất cái nút quay lại k click dc 
 
 ## Đóng góp
