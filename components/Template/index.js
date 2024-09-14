@@ -10,3 +10,4 @@ export {default as WarnBeforeUnload} from './WarnBeforeUnload';
 export {default as SocialLink} from './SocialLink/SocialLink'
 export {default as Spacer} from './Spacer'
 export {default as Snake} from './Snake'
+export {default as ImagePreview} from './ImagePreview'

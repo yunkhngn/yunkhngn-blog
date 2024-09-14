@@ -1,38 +1,15 @@
 import Link from "next/link"
-import { Div, Modal } from "atomize"
+import { Div } from "atomize"
 import React from "react"
 import Image from "next/image"
-import { ElementSpace } from "../../Template"
+import { ElementSpace, ImagePreview } from "../../Template"
 
 
 const Cv = ({themeUse}) => {
   const [isOpen, setIsOpen] = React.useState(false)
-
   return (
     <article>
-      <Modal
-        isOpen={isOpen}
-        align="center"
-        onClose={() => setIsOpen(false)}
-        rounded="0"
-        maxW="100vw"
-        m="0"
-        h="100vh"
-        bg="rgba(0, 0, 0, 0.6)"
-      >
-        <Image
-          src="/image/cv.svg"
-          alt="resume"
-          fill={true}
-          priority={true}
-          quality={100}
-          onClick={() => setIsOpen(false)}
-          style={{
-            objectFit: "contain",
-          }}
-          onDragStart={(e) => e.preventDefault()}
-        />
-      </Modal>
+    <ImagePreview img="/image/cv.svg" alt="resume" isOpen={isOpen} setIsOpen={setIsOpen} />
     <div className="resume">
         <Image
           src="/image/cv.svg"

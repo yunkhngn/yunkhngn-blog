@@ -10,11 +10,11 @@ const client = contentful.createClient({
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 });
 
-const photo = ({themeUse,theme, data}) => {
+const photo = ({themeUse, data}) => {
   return (
       <Template description={desc.photo} height="100%">
           <Title color={themeUse.primary}>{desc.photo.heading}</Title>
-          <Gallery desc={desc.photo} data={data} themeUse={themeUse} theme={theme}/>
+          <Gallery desc={desc.photo} data={data}/>
       </Template>
   )
 }
