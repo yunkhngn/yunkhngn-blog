@@ -40,7 +40,6 @@
     padding-bottom: 5px;
     width: 100%;
     align-items: flex-end;
-    pointer-events: none; 
 }
 
 .Bar--section {
@@ -50,6 +49,7 @@
     align-items: center;
     padding-top:3px;
     padding-bottom:3px;
+
 }
 
 @media screen and (max-width: 720px) {
