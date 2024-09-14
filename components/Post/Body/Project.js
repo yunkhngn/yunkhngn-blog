@@ -35,11 +35,11 @@ const Project = ({ desc, theme, themeUse, prj }) => {
         textSize="subheader"
         textColor={themeUse.secondary}
         rounded="12px"
-        focusBorderColor={theme === "light" ? "gray300" : "#171717"}
+        focusBorderColor={theme === "light" ? "gray200" : "#171717"}
         onChange={searchRepo}
         border="1px solid"
         bg={theme === "light" ? "#f9f9f9" : "rgba(20,20,20)"}
-        borderColor={theme === "light" ? "gray300" : "#171717"}
+        borderColor={theme === "light" ? "gray200" : "#171717"}
       />
       <Spacer length="100%" theme={theme} />
       <Div>
@@ -101,8 +101,8 @@ const Project = ({ desc, theme, themeUse, prj }) => {
                         {item.license ? item.license.name : ""}
                       </Tag>
                       <Tag m={{ r: "0.5em", b: "0.5em" }}
-                      bg={theme === "light" ? "gray200" : "gray900"}
-                      textColor={theme === "light" ? "gray900" : "gray300"}
+                      bg={theme === "light" ? "gray300" : "white"}
+                      textColor={theme === "light" ? "gray900" : "dark"}
                       >
                         Cập nhật lúc {dateFormer(item.updated_at)}
                       </Tag>
