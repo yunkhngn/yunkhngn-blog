@@ -54,7 +54,7 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
         <Div m={{ b: "1.7em" }} />
        <div>
         {images.map((img) => (
-            <div className="photoPost" key={img.id}>
+            <div key={img.id}>
             <ImageModal key={img.id} id={img.id} theme={theme} themeUse={themeUse} url={img.url} />
             </div>
         ))}

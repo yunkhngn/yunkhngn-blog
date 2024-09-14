@@ -29,6 +29,9 @@ const options = {
               src={imageUrl}
               alt={title || 'Embedded Image'}
               fill
+              priority={true}
+              quality={75}
+              sizes="100%"
               style={{
                 objectFit: "cover",
                 borderRadius: "12px",
@@ -147,6 +150,9 @@ const WritingPage = ({ post, themeUse, theme }) => {
             src={src}
             alt={post.Title}
             fill
+            priority={true}
+            quality={75}
+            sizes= "100%"
             style={{
               objectFit: "cover",
               borderRadius: "12px",

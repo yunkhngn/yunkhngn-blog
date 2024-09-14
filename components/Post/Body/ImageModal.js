@@ -11,7 +11,7 @@ const ImageModal = ({ theme, themeUse, url }) => {
     document.body.style.overflow = { check } ? "hidden" : "auto";
   }
   return (
-    <div>
+    <div className="photoPost">
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
@@ -26,6 +26,7 @@ const ImageModal = ({ theme, themeUse, url }) => {
           src={"https:" + url}
           alt="img"
           priority={true}
+          sizes="100%"
           style={{
             objectFit: "contain",
             borderRadius: "0",
@@ -39,6 +40,7 @@ const ImageModal = ({ theme, themeUse, url }) => {
         src={"https:" + url}
         alt="img"
         priority={true}
+        sizes="100%"
         style={{
           objectFit: "cover",
           borderRadius: "10px",

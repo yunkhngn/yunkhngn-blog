@@ -36,6 +36,7 @@ const Pics = ({ desc, theme, themeUse, data }) => {
                     alt={item.attributes.Title}
                     quality={70}
                     priority={true}
+                    sizes="100%"
                     style={{
                       objectFit: "cover",
                       borderRadius: "12px",
