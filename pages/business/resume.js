@@ -1,5 +1,5 @@
-import { Template, Title, Para, ElementSpace } from "../components/Template/";
-import { desc } from "../components/lib";
+import { Template, Title, Para, ElementSpace } from "../../components/Template";
+import { desc } from "../../components/lib";
 import Link from "next/link";
 import { Div } from "atomize";
 

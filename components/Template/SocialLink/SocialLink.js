@@ -9,7 +9,7 @@ const SocialLink = ({ theme }) => {
     <footer>
       <Div justify="left" align="center" d="flex">
         <Div d="flex">
-          <Link href="/resume" passHref scroll={true}>
+          <Link href="/business/resume" passHref scroll={true}>
             <Button
               h="2rem"
               p={{ x: "0.75rem" }}
