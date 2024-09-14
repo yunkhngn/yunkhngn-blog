@@ -45,24 +45,10 @@ const options = {
     [INLINES.HYPERLINK]: (node, children) => {
       const { uri } = node.data;
       return (
-        <a href={uri} target="_blank" rel="noopener noreferrer" style={{ color: 'blue', textDecoration: 'underline' }}>
+        <a href={uri} target="_blank" rel="noopener noreferrer" style={{ color: 'blue', textDecoration: 'none' }}>
           {children}
         </a>
       );
-    },
-
-    // Xử lý inline embedded entry (ví dụ nhúng một entry khác trong nội dung)
-    [INLINES.EMBEDDED_ENTRY]: (node) => {
-      const { fields } = node.data.target;
-      if (fields) {
-        return (
-          <div style={{ border: '1px solid #ccc', padding: '10px', margin: '10px 0' }}>
-            <h3>{fields.title}</h3>
-            <p>{fields.description}</p>
-          </div>
-        );
-      }
-      return null;
     },
   },
 };

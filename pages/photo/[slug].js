@@ -37,6 +37,9 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
     url: img.fields.file.url,
     title: img.fields.title || "",
   }));
+
+  console.log(data.description);
+
   return (
     <Template description={desc} height="100%">
       <article>
@@ -45,7 +48,7 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
           {"Hà Nội, ngày " + formatDate(data.createdAt)}
         </Para>
         <Spacer theme={theme} length="10em" />
-        <ReactMarkdown>{data.description}</ReactMarkdown>
+        <ReactMarkdown className="richText">{data.description}</ReactMarkdown>
         <Div m={{ b: "1.7em" }} />
         <hr className={"hr" + theme} />
         <Div m={{ b: "1.7em" }} />
