@@ -65,12 +65,12 @@ a {
   text-decoration: none;
 }
 
-.selectionlight ::selection {
+.selection--light ::selection {
   background-color: #ff9a9e;
   color: #ffffff;
 }
 
-.selectiondark ::selection {
+.selection--dark ::selection {
   background-color: #ff9a9e;
   color: #161616;
 }
@@ -107,6 +107,7 @@ h1{
   color: #ededed;
   transition: color 0.25s ease-out;
 }
+
 .essay{
   word-break: normal;
   white-space: pre-wrap
@@ -205,11 +206,11 @@ html, input, textarea, button, p{
   border-radius: 3px;
   margin-right:6px;
 }
-.kblight{
+.kb--light{
   border: 1px solid #818181;
   color: #818181;
 }
-.kbdark{
+.kb--dark{
   border: 1px solid rgb(160, 160, 160);
 }
 

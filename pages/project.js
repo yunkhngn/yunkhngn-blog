@@ -16,8 +16,8 @@ export async function getStaticProps() {
     const token = process.env.GITHUB_TOKEN; 
     const res = await fetch('https://api.github.com/users/yunkhngn/repos', {
       headers: {
-        'Authorization': `token ${token}`, // Include the access token in the header
-        'Accept': 'application/vnd.github.v3+json' // Optional: specifies the GitHub API version
+        'Authorization': `token ${token}`, 
+        'Accept': 'application/vnd.github.v3+json' 
       }
     });
     const prj = await res.json();
