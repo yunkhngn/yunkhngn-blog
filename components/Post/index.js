@@ -1,5 +1,5 @@
 //Main post
-export {default as Intro} from './Body/Intro/Intro';
+export {default as Intro} from './Body/Intro';
 export {default as Pics} from './Body/Pics';
 export {default as Project} from './Body/Project';
 export {default as Write} from './Body/Write';

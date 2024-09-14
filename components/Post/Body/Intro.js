@@ -1,4 +1,4 @@
-import {Para, SocialLink, Spacer, Snake, ElementSpace} from '../../../Template'
+import {Para, SocialLink, Spacer, Snake, ElementSpace} from '../../Template'
 import ReactMarkdown from 'react-markdown'
 import Link from 'next/link'
 import {Div} from 'atomize'

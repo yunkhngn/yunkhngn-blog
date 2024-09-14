@@ -75,8 +75,8 @@ const Project = ({ desc, theme, themeUse, prj }) => {
                         m={{ r: "0.5em", b: "0.5em" }}
                         bg="transparent"
                         border="1px solid"
-                        borderColor={theme === "light" ? "success500" : "success400"}
-                        textColor={theme === "light" ? "success600" : "success500"}
+                        borderColor={theme === "light" ? "success500" : "success700"}
+                        textColor={theme === "light" ? "success600" : "success700"}
                         >
                         {item.language || "None"}
                       </Tag>
@@ -85,24 +85,24 @@ const Project = ({ desc, theme, themeUse, prj }) => {
                         m={{ r: "0.5em", b: "0.5em" }}
                         bg="transparent"
                         border="1px solid"
-                        borderColor={theme === "light" ? "brand500" : "brand400"}
-                        textColor={theme === "light" ? "brand600" : "brand500"}
+                        borderColor={theme === "light" ? "brand500" : "brand700"}
+                        textColor={theme === "light" ? "brand600" : "brand700"}
                       >
                         {item.forks_count} Fork
                       </Tag>
                       <Tag
                         d={item.license ? "inline-block" : "none"}
                         m={{ r: "0.5em", b: "0.5em" }}
-                        bg={theme === "light" ? "warning300" : "warning300"}
+                        bg="transparent"
                         border="1px solid"
                         borderColor={theme === "light" ? "warning500" : "warning700"}
-                        textColor={theme === "light" ? "warning600" : "warning800"}
+                        textColor={theme === "light" ? "warning600" : "warning600"}
                       >
                         {item.license ? item.license.name : ""}
                       </Tag>
                       <Tag m={{ r: "0.5em", b: "0.5em" }}
                       bg={theme === "light" ? "gray200" : "gray400"}
-                      textColor={theme === "light" ? "gray900" : "black900"}
+                      textColor={theme === "light" ? "gray900" : "black700"}
                       >
                         Cập nhật lúc {dateFormer(item.updated_at)}
                       </Tag>

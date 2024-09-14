@@ -74,11 +74,11 @@ yarn build
 - [X] Làm modal khi click vào ảnh trong photo
 - [X] Làm search cho writing
 - [X] Tạo change log
+- [X] Add thêm nội dung cho trang chủ
 - [ ] Làm Navigation.
 - [ ] Skeleton cho ảnh
 - [ ] Tạo genre và làm search
 - [ ] Tạo preview page cho contentful
-- [ ] Add thêm nội dung cho trang chủ
 
 
 ## Cải thiện và sửa lỗi

@@ -11,7 +11,6 @@ const SocialIcon = ({ icon, link, theme }) => {
   transition
   cursor="pointer"
   alt={icon}
-  
   />;
 };
 
