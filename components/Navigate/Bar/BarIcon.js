@@ -8,9 +8,11 @@ const BarIcon = ({ icon, name, url, clickHandler, changeColor, theme }) => {
 
   const changeHandler = () => {
     setBounce(true);
+    setHover(true);
     setTimeout(() => {
       setBounce(false);
-    }, 500);
+      setHover(false);
+    }, 700);
   };
 
   const location = useRouter();
@@ -18,13 +20,12 @@ const BarIcon = ({ icon, name, url, clickHandler, changeColor, theme }) => {
   const displayNav = path === url;
 
   const handleClick = () => {
-    setHover(false);
     setTimeout(() => {
       changeHandler();
       if (clickHandler) {
         clickHandler();
       }
-    }, 50);
+    }, 100);
   };
 
   return (
@@ -32,7 +33,7 @@ const BarIcon = ({ icon, name, url, clickHandler, changeColor, theme }) => {
       <div className={bounce ? "Icon--bounce icon2" : "icon2"}>
         <Tag
           pos="fixed"
-          top={{ xs: "-37px", md: "-40px" }}
+          top={{ xs: "-30px", md: "-40px" }}
           w="auto"
           d={hover ? "block" : "none"}
           bg={changeColor ? "#fefefe" : "#161616"}

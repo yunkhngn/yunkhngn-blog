@@ -16,13 +16,16 @@
     align-self: start;
 }
 
-.Icon:hover{
-    transform: scale(1.4) translateY(-15px) ;
-    margin: 20px 15px 0px 15px;
+@media screen and (min-width: 1200px) {
+    .Icon:hover{
+        transform: scale(1.4) translateY(-15px) ;
+        margin: 20px 15px 0px 15px;
+    }
+    .Icon:not(:hover){
+        transform: scale(1) ;
+    }
 }
-.Icon:not(:hover){
-    transform: scale(1) ;
-}
+
 
 .icon2{
     justify-content: center;
@@ -37,16 +40,6 @@
 .Icon--bounce {
     animation: clicked 0.7s ease-in-out;
     overflow: visible;
-}
-
-@media screen and (max-width: 650px) {
-    .Icon:hover{
-    transform: scale(1.2) translateY(-10px);
-    margin: 10px;
-    }
-    .Icon{
-    font-size: 20px;
-    }
 }
 
 @keyframes clicked {
