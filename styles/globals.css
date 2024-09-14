@@ -193,16 +193,25 @@ iframe {
   position: relative;
   aspect-ratio: 880/192;
   overflow: hidden;
+  transition: all 0.25s ease-out;
 }
 
-blockquote{
+.snake--quote{
+  font-style: italic;
+  margin: auto;
+  padding-left: 1em;
+  border-left: 3px solid #ccc;
+  word-break: break-word;
+  width: 95%;
+}
+
+.about--quote{
   font-style: italic;
   margin: auto;
   padding-left: 1em;
   border-left: 3px solid #ccc;
   word-break: break-word;
   width: 80%;
-
 }
 html, input, textarea, button, p{
   transition: all 0.25s ease-out !important; 

@@ -40,7 +40,7 @@ const About = ({ desc, theme, themeUse, content }) => {
       >
       <ReactMarkdown>{content.Description}</ReactMarkdown>
       <br />
-      <blockquote>"{content.Quote}"</blockquote>
+      <blockquote className="about--quote" >"{content.Quote}"</blockquote>
       <br />
       <ReactMarkdown>{content.Content}</ReactMarkdown>
       <br />

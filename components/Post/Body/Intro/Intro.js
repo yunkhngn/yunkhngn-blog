@@ -1,4 +1,4 @@
-import {Para, SocialLink, Spacer, Snake} from '../../../Template'
+import {Para, SocialLink, Spacer, Snake, ElementSpace} from '../../../Template'
 import ReactMarkdown from 'react-markdown'
 import Link from 'next/link'
 import {Div} from 'atomize'
@@ -14,11 +14,11 @@ const Intro = ({theme,themeUse, content}) => {
             <Spacer theme={theme} length="160px"/>
             <SocialLink theme={theme}/>
             <Spacer theme={theme} length="100px"/>
+            <blockquote className="snake--quote">Mr. Snake eating my contributions.</blockquote>
             <Snake theme={theme}/>
             <Spacer theme={theme} length="60px"/>
             <Link href="/dev/change-log" passHref scroll={true}>
                 <Div
-                    m={{ t: "1em" }}
                     textColor={themeUse.secondary}
                     hoverTextColor={themeUse.hover}
                     transition
@@ -26,6 +26,7 @@ const Intro = ({theme,themeUse, content}) => {
                     Change log...
                 </Div>
             </Link>
+            <ElementSpace space="12em" />
         </article>
     );
 }
