@@ -43,6 +43,7 @@ export default function Metatags({description}) {
             {/* <!-- Open Graph / Facebook --> */}
             <meta property="og:site_name" content="Khoa Nguyen"></meta>
             <meta property="og:type" content="website" />
+            <meta property="fb:app_id" content="1881282985689458" />
             <meta property="og:url" content={description.url || "https://khoanguyen.codes"} />
             <meta property="og:title" content={description.title} />
             <meta property="og:description" content={description.desc || "Xin chào, tớ là Khoa Nguyễn. Tớ là sinh viên chuyên ngành Kỹ thuật phần mềm tại Đại học FPT. Hiện tại tớ cũng đang là freelancer thiết kế đồ hoạ và phát triển một số dự án cá nhân liên quan tới chuyên ngành."} />
