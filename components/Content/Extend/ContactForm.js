@@ -1,13 +1,11 @@
 import React from "react";
-import { Para, Noti, ElementSpace, WarnBeforeUnload } from "../../Template";
+import { Para, Noti, ElementSpace, WarnBeforeUnload, ModalAsk } from "../../Template";
 import {
   Div,
   Textarea,
   Input,
   Button,
   Text,
-  Modal,
-  Icon,
 } from "atomize";
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
@@ -205,40 +203,12 @@ const ContactForm = ({ theme, themeUse, desc }) => {
           Gửi cho tớ
         </Button>
       </Div>
-      <Modal
+      <ModalAsk
         isOpen={isOpen}
-        m={{ y: "4rem", x: { xs: "1rem", lg: "auto" } }}
-        rounded="md"
-        align="center"
-      >
-        <Icon
-          name="Cross"
-          pos="absolute"
-          top="1rem"
-          right="1rem"
-          size="16px"
-          onClick={() => handleModal(false)}
-          cursor="pointer"
-        />
-        <Text
-          p={{ l: "0.5rem", t: "0.25rem" }}
-          textSize="subheader"
-          m={{ b: "2rem" }}
-        >
-          Cậu có muốn gửi mail bây giờ không?
-        </Text>
-        <Div d="flex" justify="flex-end">
-          <Button
-            onClick={() => handleModal(false)}
-            bg="gray200"
-            textColor="medium"
-            m={{ r: "1rem" }}
-          >
-            Không
-          </Button>
-          <Button onClick={submitForm}>Có, gửi ngay</Button>
-        </Div>
-      </Modal>
+        question="Cậu chắc chắn muốn gửi mail này chứ?"
+        action={submitForm}
+        handleModal={handleModal}
+      />
       <ElementSpace space="12em" />
       {(data.name.length > 1 ||
         data.email.length > 1 ||
