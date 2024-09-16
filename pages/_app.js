@@ -18,12 +18,12 @@ import { themeProvider } from "../components/lib";
 import ReactGA from "react-ga4";
 
 injectSpeedInsights();
+ReactGA.initialize("G-69GQK6C535");
 
 function MyApp({ Component, pageProps }) {
   const [theme, setTheme] = useState("light");
   const [themeUse, setThemeUse] = useState(themeProvider[0]);
   const router = useRouter();
-  ReactGA.initialize("G-69GQK6C535")
   return (
       <StyletronProvider value={styletron}>
         <ThemeLoader
