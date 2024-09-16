@@ -128,6 +128,7 @@ const WritingPage = ({ post, themeUse, theme }) => {
     desc: truncateHtml(post.Body, 100),
     url: `https://khoanguyen.codes/writing/${post.slug}`,
     img: src,
+    route: `/writing/${post.slug}`,
   };
 
   return (

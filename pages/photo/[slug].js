@@ -29,6 +29,7 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
     desc: data.description,
     url: `https://khoanguyen.codes/photo/${data.slug}`,
     img: `https:${data.images[0].fields.file.url}`,
+    route: "/photo/" + data.slug,
   };
 
   const images = data.images.map((img) => ({

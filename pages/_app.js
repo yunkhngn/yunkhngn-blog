@@ -22,13 +22,16 @@ function MyApp({ Component, pageProps }) {
   const [theme, setTheme] = useState("light");
   const [themeUse, setThemeUse] = useState(themeProvider[0]);
   const router = useRouter();
-  
+  const isOnDevelopment = process.env.NODE_ENV === "development";
+
   useEffect(() => {
+    if (!isOnDevelopment) {
     ReactGA.initialize(process.env.TRACKING_ID);
     ReactGA.send({ hitType: "pageview", page: "/", title: "Khoa Nguyễn" });
+    }
     injectSpeedInsights();
   }, [])
-
+  
   return (
       <StyletronProvider value={styletron}>
         <ThemeLoader
