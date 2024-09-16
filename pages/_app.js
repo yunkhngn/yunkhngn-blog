@@ -18,19 +18,14 @@ import { themeProvider } from "../components/lib";
 import ReactGA from "react-ga4";
 import { useEffect } from "react";
 
+ReactGA.initialize(process.env.TRACKING_ID);
+injectSpeedInsights();
+
 function MyApp({ Component, pageProps }) {
   const [theme, setTheme] = useState("light");
   const [themeUse, setThemeUse] = useState(themeProvider[0]);
   const router = useRouter();
   const isOnDevelopment = process.env.NODE_ENV === "development";
-
-  useEffect(() => {
-    // if (!isOnDevelopment) {
-    ReactGA.initialize(process.env.TRACKING_ID);
-    // }
-    injectSpeedInsights();
-  }, [])
-  
   return (
       <StyletronProvider value={styletron}>
         <ThemeLoader
