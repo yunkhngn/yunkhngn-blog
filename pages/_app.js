@@ -16,7 +16,6 @@ import { AnimatePresence } from "framer-motion";
 import { Div } from "atomize";
 import { themeProvider } from "../components/lib";
 import ReactGA from "react-ga4";
-import { useEffect } from "react";
 
 ReactGA.initialize(process.env.TRACKING_ID);
 injectSpeedInsights();
