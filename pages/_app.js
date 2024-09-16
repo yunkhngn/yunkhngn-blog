@@ -16,14 +16,18 @@ import { AnimatePresence } from "framer-motion";
 import { Div } from "atomize";
 import { themeProvider } from "../components/lib";
 import ReactGA from "react-ga4";
+import { useEffect } from "react";
 
 injectSpeedInsights();
-ReactGA.initialize("G-69GQK6C535");
 
 function MyApp({ Component, pageProps }) {
   const [theme, setTheme] = useState("light");
   const [themeUse, setThemeUse] = useState(themeProvider[0]);
   const router = useRouter();
+  useEffect(() => {
+    ReactGA.initialize(process.env.TRACKING_ID);
+    ReactGA.send({ hitType: "pageview", page: "/", title: "Khoa Nguyễn" });
+  }, [])
   return (
       <StyletronProvider value={styletron}>
         <ThemeLoader

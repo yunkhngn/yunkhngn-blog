@@ -13,6 +13,7 @@ const nextConfig = {
     TEMPLATE_ID: process.env.TEMPLATE_ID,
     PUBLIC_KEY: process.env.PUBLIC_KEY,
     GITHUB_TOKEN: process.env.GITHUB_TOKEN,
+    TRACKING_ID: process.env.TRACKING_ID,
   },
   images: {
     remotePatterns: [
