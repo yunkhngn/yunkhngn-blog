@@ -10,4 +10,4 @@ export {default as ImageModal} from './Body/ImageModal';
 //Extend post
 export {default as ChangeLog} from './Extend/ChangeLog';
 export {default as Cv} from './Extend/Cv';
-export {default as ContactForm} from './Extend/ContactForm';
+export {default as ContactForm} from './Extend/Contact/ContactForm';
