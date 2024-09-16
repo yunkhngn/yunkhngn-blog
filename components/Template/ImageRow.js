@@ -1,5 +1,5 @@
 import { Div } from "atomize";
-import { Para } from "../Template";
+import { Para, Spacer } from "../Template";
 import Image from "next/image";
 const ImageRow = ({ title, theme, themeUse, description, date, image, short }) => {
   const FormattedDate = (date) => {
@@ -21,7 +21,7 @@ const ImageRow = ({ title, theme, themeUse, description, date, image, short }) =
       transition
       m={{ xs: "0 -10px 0 -10px", md: "0 -16px 0 -16px" }}
     >
-    <div className="writingPhoto">
+    <div className="writePhoto">
       <Image
             src={image}
             fill={true}
@@ -41,6 +41,7 @@ const ImageRow = ({ title, theme, themeUse, description, date, image, short }) =
       align="center"
       d="flex"
       w="100%"
+      m={{t: "5px"}}
       >
         <Div
         d={{ xs: "block", md: "flex" }}
@@ -99,6 +100,7 @@ const ImageRow = ({ title, theme, themeUse, description, date, image, short }) =
          <i>{short}</i>
         </Para>
       </Div>
+      <Spacer theme={theme} length="100%" />
     </Div>
   );
 };

@@ -18,7 +18,7 @@ const Paragraph = ({d, children, color, margin, which,w, textSize, align}) => {
         return {}
     }
     return (
-            <Text textAlign={align || "center"} maxW={w} d={d} m={marginText()} textWeight="450" textSize={textSize || "paragraph"} fontFamily='Magnat Text, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue' textColor={color}>
+            <Text textAlign={align || "left"} maxW={w} d={d} m={marginText()} textWeight="450" textSize={textSize || "paragraph"} fontFamily='Magnat Text, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue' textColor={color}>
             {children}
             </Text>
     );

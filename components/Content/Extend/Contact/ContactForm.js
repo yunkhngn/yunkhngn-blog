@@ -1,5 +1,5 @@
 import React from "react";
-import { Para, Noti, ElementSpace, WarnBeforeUnload, ModalAsk } from "../../../Template";
+import { Para, Noti, WarnBeforeUnload, ModalAsk } from "../../../Template";
 import {
   Div,
 } from "atomize";
@@ -111,7 +111,6 @@ const ContactForm = ({ theme, themeUse, desc }) => {
         action={submitForm}
         handleModal={handleModal}
       />
-      <ElementSpace space="12em" />
       {(data.name.length > 1 ||
         data.email.length > 1 ||
         data.title.length > 1 ||

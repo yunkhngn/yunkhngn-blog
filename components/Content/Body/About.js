@@ -26,7 +26,7 @@ const About = ({ desc, theme, themeUse, content }) => {
           onDragStart={(e) => e.preventDefault()}
         />
         <p className="titleName">Khoa Nguyễn</p>
-        <Para color={themeUse.secondary}>
+        <Para align="center" color={themeUse.secondary}>
           Graphic Designer / Software Engineer
         </Para>
       </div>

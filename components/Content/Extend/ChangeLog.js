@@ -1,4 +1,4 @@
-import { Para, ElementSpace, RowContent, Back} from "../../Template";
+import { Para, RowContent, Back} from "../../Template";
 import { Div } from "atomize";
 
 const ChangeLog = ({ theme, themeUse, desc, log }) => {
@@ -25,7 +25,6 @@ const ChangeLog = ({ theme, themeUse, desc, log }) => {
         )}
       </Div>
       <Back themeUse={themeUse} route="/" />
-      <ElementSpace space="12em" />
     </article>
   );
 };

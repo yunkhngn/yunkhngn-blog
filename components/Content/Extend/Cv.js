@@ -1,6 +1,6 @@
 import React from "react"
 import Image from "next/image"
-import { ElementSpace, ImagePreview, Back } from "../../Template"
+import { ImagePreview, Back } from "../../Template"
 
 
 const Cv = ({themeUse}) => {
@@ -30,7 +30,6 @@ const Cv = ({themeUse}) => {
       className="link"
       >Download CV?</a>
       <Back themeUse={themeUse} route="/"/>
-      <ElementSpace space="12em" />
       </article>
   )
 }

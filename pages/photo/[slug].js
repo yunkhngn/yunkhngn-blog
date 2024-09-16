@@ -41,7 +41,7 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
     <Template description={desc} height="100%">
       <article>
         <Title color={themeUse.primary}>{data.title}</Title>
-        <Para color={themeUse.secondary}>
+        <Para align="left" color={themeUse.secondary}>
           {"Hà Nội, ngày " + formatDate(data.createdAt)}
         </Para>
         <Spacer theme={theme} length="10em" />
