@@ -114,6 +114,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
           textColor={theme === "light" ? "#171717" : "#ededed"}
           onChange={(e) => setData({ ...data, name: e.target.value })}
           placeholder="Họ và tên của bạn"
+          rounded="12px"
         />
         <Text
           tag="section"
@@ -133,6 +134,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
           textColor={theme === "light" ? "#171717" : "#ededed"}
           onChange={(e) => setData({ ...data, email: e.target.value })}
           placeholder="example@abc.com"
+          rounded="12px"
         />
         <Text
           tag="section"
@@ -152,6 +154,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
           textColor={theme === "light" ? "#171717" : "#ededed"}
           onChange={(e) => setData({ ...data, title: e.target.value })}
           placeholder="Tiêu đề"
+          rounded="12px"
         />
         <Text
           tag="section"
@@ -172,6 +175,7 @@ const ContactForm = ({ theme, themeUse, desc }) => {
           onChange={(e) => setData({ ...data, message: e.target.value })}
           placeholder="Nội dung của bạn..."
           fontFamily="primary"
+          rounded="12px"
         />
         {!onDevelopmentEnv && (
           <Div m={{ t: "1em" }}>
@@ -194,11 +198,15 @@ const ContactForm = ({ theme, themeUse, desc }) => {
         <Button
           textColor={theme === "light" ? "#ededed" : "#171717"}
           bg={theme === "light" ? "#171717" : "#ededed"}
-          hoverBg={theme === "light" ? "black700" : "gray500"}
+          hoverBg="#ff9a9e"
+          hoverTextColor="white"
           w="100%"
+          transition
+          h="3.5em"
           onClick={handleSubmit}
           disabled={submitted}
           m={{ t: "1em" }}
+          rounded="12px"
         >
           Gửi cho tớ
         </Button>
