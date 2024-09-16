@@ -76,6 +76,7 @@ yarn build
 - [X] Tạo change log
 - [X] Add thêm nội dung cho trang chủ
 - [X] Làm tooltip cho các icon
+- [ ] Sửa lại trang writing list có ảnh
 - [ ] Làm Navigation
 - [ ] Skeleton cho ảnh
 - [ ] Tạo genre và làm search
