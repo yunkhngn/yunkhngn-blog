@@ -1,4 +1,4 @@
-import { Div, Text } from "atomize";
+import { Div } from "atomize";
 import { Para } from "../Template";
 import Image from "next/image";
 const ImageRow = ({ title, theme, themeUse, description, date, image, short }) => {
@@ -44,18 +44,9 @@ const ImageRow = ({ title, theme, themeUse, description, date, image, short }) =
       >
         <Div
         d={{ xs: "block", md: "flex" }}
+        justify="center"
+        align="center"
         >
-        <Para
-          margin="true"
-          which="right"
-          align="left"
-          color={theme === "light" ? "#171717" : "#ededed"}
-          p={{ xs: "10px", md: "16px" }}
-          transition
-          m={{ xs: "0 -10px 0 -10px", md: "0 -16px 0 -16px" }}
-        >
-          <strong>{title}</strong>
-        </Para>
         <Para
           w={{ xs: "170px", md: "350px" }}
           margin="true"
@@ -64,7 +55,19 @@ const ImageRow = ({ title, theme, themeUse, description, date, image, short }) =
           color={theme === "light" ? "#171717" : "#ededed"}
           p={{ xs: "10px", md: "16px" }}
           transition
-          m={{ xs: "0 -10px 0 -10px", md: "0 -16px 0 -16px" }}
+          textSize="subheader"
+        >
+          <strong>{title}</strong>
+        </Para>
+        <Para
+          w={{ xs: "170px", md: "350px" }}
+          margin="true"
+          which="right"
+          align="left"
+           textSize="subheader"
+          color={theme === "light" ? "#171717" : "#ededed"}
+          p={{ xs: "10px", md: "16px" }}
+          transition
         >
           {description}
         </Para>
@@ -77,7 +80,6 @@ const ImageRow = ({ title, theme, themeUse, description, date, image, short }) =
           align="left"
           which="left"
           transition
-          m={{ xs: "0 -10px 0 -10px", md: "0 -16px 0 -16px" }}
         >
          {FormattedDate(date)}
         </Para>
@@ -87,15 +89,14 @@ const ImageRow = ({ title, theme, themeUse, description, date, image, short }) =
         align="left"
         w="100%"
         d="flex"
-        m={{t: "10px",b:"10px"}}
+        m={{t: "5px",b:"5px"}}
       >
       <Para
          align="left"
           color={themeUse.secondary}
-          p={{ xs: "10px", md: "16px" }}
           transition
         >
-         {short}
+         <i>{short}</i>
         </Para>
       </Div>
     </Div>
