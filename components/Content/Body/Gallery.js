@@ -48,7 +48,6 @@ const Gallery = ({ desc, theme, themeUse, data }) => {
           Xem instagram của tớ...
         </Div>
       </a>
-      <ElementSpace space="12em" />
     </article>
   );
 };

@@ -6,16 +6,6 @@ const Project = ({ desc, theme, themeUse, prj }) => {
     let dateArr = date.split("T")[0].split("-");
     return `${dateArr[2]}/${dateArr[1]}/${dateArr[0]}`;
   };
-  const searchRepo = (e) => {
-    const repos = document.querySelectorAll(".repo");
-    repos.forEach((repo) => {
-      if (repo.innerText.toLowerCase().includes(e.target.value.toLowerCase())) {
-        repo.style.display = "block";
-      } else {
-        repo.style.display = "none";
-      }
-    });
-  };
   return (
     <article>
       <Para color={themeUse.secondary}>{desc.desc}</Para>

@@ -1,8 +1,6 @@
-import Link from "next/link"
-import { Div } from "atomize"
 import React from "react"
 import Image from "next/image"
-import { ElementSpace, ImagePreview } from "../../Template"
+import { ElementSpace, ImagePreview, Back } from "../../Template"
 
 
 const Cv = ({themeUse}) => {
@@ -31,16 +29,7 @@ const Cv = ({themeUse}) => {
       download
       className="link"
       >Download CV?</a>
-      <Link href="/" passHref scroll={true}>
-        <Div
-          m={{ t: "1em" }}
-          textColor={themeUse.secondary}
-          hoverTextColor={themeUse.hover}
-          transition
-        >
-          Quay lại trang chủ...
-        </Div>
-      </Link>
+      <Back themeUse={themeUse} route="/"/>
       <ElementSpace space="12em" />
       </article>
   )

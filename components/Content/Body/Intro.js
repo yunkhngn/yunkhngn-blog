@@ -28,7 +28,6 @@ const Intro = ({theme,themeUse, content}) => {
                     Change log...
                 </Div>
             </Link>
-            <ElementSpace space="12em" />
         </article>
     );
 }

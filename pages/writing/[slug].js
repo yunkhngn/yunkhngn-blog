@@ -2,9 +2,7 @@ import { useRouter } from 'next/router';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { Title, Para, Template, ElementSpace, Spacer, Footer } from '../../components/Template';
-import { Div } from 'atomize';
-import Link from 'next/link';
+import { Title, Para, Template, Spacer, Footer, Back } from '../../components/Template';
 import { htmlToText } from 'html-to-text';
 import Image from 'next/image';
 
@@ -163,12 +161,7 @@ const WritingPage = ({ post, themeUse, theme }) => {
         <div>{documentToReactComponents(post.Body, options)}</div>
         <Spacer theme={theme} length="200px" />
         <Footer content="Viết vài dòng bởi tớ!" />
-        <Link href="/writing" passHref>
-          <Div m={{ t: '1em' }} textColor={themeUse.secondary} hoverTextColor={themeUse.hover} transition>
-            Quay lại...
-          </Div>
-        </Link>
-        <ElementSpace space="12em" />
+        <Back themeUse={themeUse} route="/writing" />
       </article>
     </Template>
   );

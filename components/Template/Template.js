@@ -5,7 +5,7 @@ const Template = ({ children, description, height }) => {
   return (
     <Div
       maxW="720px"
-      m="auto"
+      m="0 auto 12em"
       justify="center"
       align="center"
       p={{ t: { xs: "70px", md: "100px" }, l: "16px", r: "16px" }}

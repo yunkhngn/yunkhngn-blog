@@ -1,18 +1,7 @@
-import { Para, ElementSpace } from "../../Template";
+import { Para, ElementSpace, RowContent, Back} from "../../Template";
 import { Div } from "atomize";
-import Link from "next/link";
 
 const ChangeLog = ({ theme, themeUse, desc, log }) => {
-  const FormattedDate = (date) => {
-    const d = new Date(date);
-    const day = d.getDate();
-    const month = d.getMonth() + 1;
-    const year = d.getFullYear();
-    const hour = d.getHours() < 10 ? "0" + d.getHours() : d.getHours();
-    const minute = d.getMinutes() < 10 ? "0" + d.getMinutes() : d.getMinutes();
-    const second = d.getSeconds() < 10 ? "0" + d.getSeconds() : d.getSeconds();
-    return `${hour}:${minute}:${second} ${day}/${month}/${year}`;
-  };
   return (
     <article>
       <Para color={themeUse.secondary}>{desc.desc}</Para>
@@ -24,57 +13,18 @@ const ChangeLog = ({ theme, themeUse, desc, log }) => {
         ) : (
           log.map((item) => (
             <div className="post" key={item.id}>
-              <Div
-                justify="flex-start"
-                align="center"
-                d="flex"
-                hoverBg={theme === "light" ? "gray200" : "#222222"}
-                rounded="12px"
-                p={{xs : "0.5em", md: "16px"}}
-                transition
-                m={{xs : "0 -0.5em 0 -0.5em", md: "0 -16px 0 -16px"}}
-              >
-                <Para
-                  margin="true"
-                  which="right"
-                  color={theme === "light" ? "#171717" : "#ededed"}
-                  textSize={{ xs: "caption", md: "paragraph" }}
-                >
-                  <strong>{item.author}</strong>
-                </Para>
-                <Para
-                  w={{ xs: "170px", md: "350px" }}
-                  margin="true"
-                  which="right"
-                  color={theme === "light" ? "#171717" : "#ededed"}
-                  textSize={{ xs: "caption", md: "paragraph" }}
-                >
-                  {item.message}
-                </Para>
-                <hr className={"hr" + theme} />
-                <Para
-                  margin="true"
-                  which="left"
-                  color={themeUse.secondary}
-                  textSize={{ xs: "caption", md: "paragraph" }}
-                >
-                  {FormattedDate(item.date)}
-                </Para>
-              </Div>
+              <RowContent
+                title={item.author}
+                description={item.message}
+                date={item.date}
+                theme={theme}
+                themeUse={themeUse}
+              />
             </div>
           ))
         )}
       </Div>
-      <Link href="/" passHref scroll={true}>
-        <Div
-          m={{ t: "0.5em" }}
-          textColor={themeUse.secondary}
-          hoverTextColor={themeUse.hover}
-          transition
-        >
-          Quay lại...
-        </Div>
-      </Link>
+      <Back themeUse={themeUse} route="/" />
       <ElementSpace space="12em" />
     </article>
   );

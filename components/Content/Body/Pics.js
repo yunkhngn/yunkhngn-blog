@@ -84,7 +84,6 @@ const Pics = ({ desc, theme, themeUse, data }) => {
           Xem các project Behance của tớ...
         </Div>
       </a>
-      <ElementSpace space="12em" />
     </article>
   );
 };

@@ -57,7 +57,6 @@ const About = ({ desc, theme, themeUse, content }) => {
           Theo dõi tớ để biết thêm nhiều điều hay...
         </Div>
       </a>
-      <ElementSpace space="12em" />
     </article>
   );
 };
