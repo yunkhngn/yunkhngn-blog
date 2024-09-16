@@ -27,7 +27,6 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     if (!isOnDevelopment) {
     ReactGA.initialize(process.env.TRACKING_ID);
-    ReactGA.send({ hitType: "pageview", page: "/", title: "Khoa Nguyễn" });
     }
     injectSpeedInsights();
   }, [])
