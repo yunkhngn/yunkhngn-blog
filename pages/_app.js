@@ -14,7 +14,6 @@ import { barList } from "../components/lib";
 import { KBarProvider } from "kbar";
 import { AnimatePresence } from "framer-motion";
 import { Div } from "atomize";
-import { Analytics } from "@vercel/analytics/react";
 import { themeProvider } from "../components/lib";
 
 injectSpeedInsights();
@@ -61,7 +60,6 @@ function MyApp({ Component, pageProps }) {
             <div className="blur-overlay" />
           </div>
         </KBarProvider>
-        <Analytics />
       </StyletronProvider>
   );
 }
