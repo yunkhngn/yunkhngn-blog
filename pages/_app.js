@@ -25,9 +25,9 @@ function MyApp({ Component, pageProps }) {
   const isOnDevelopment = process.env.NODE_ENV === "development";
 
   useEffect(() => {
-    if (!isOnDevelopment) {
+    // if (!isOnDevelopment) {
     ReactGA.initialize(process.env.TRACKING_ID);
-    }
+    // }
     injectSpeedInsights();
   }, [])
   
