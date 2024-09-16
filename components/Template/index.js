@@ -5,7 +5,6 @@ export {default as AnimatedTags} from './AnimatedTags';
 export {default as Metatags} from './Metatags';
 export {default as ThemeLoader} from './ThemeLoader';
 export {default as Noti} from './Noti';
-export {default as ElementSpace} from './ElementSpace';
 export {default as WarnBeforeUnload} from './WarnBeforeUnload';
 export {default as SocialLink} from './SocialLink/SocialLink'
 export {default as Spacer} from './Spacer'
@@ -16,3 +15,4 @@ export {default as ModalAsk} from './ModalAsk'
 export {default as Search} from './Search'
 export {default as RowContent} from './RowContent'
 export {default as Back} from './Back'
+export {default as ImageRow} from './ImageRow'

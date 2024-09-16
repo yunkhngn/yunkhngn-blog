@@ -1,4 +1,4 @@
-import { Para, ElementSpace } from "../../Template";
+import { Para } from "../../Template";
 import { Div } from "atomize";
 import Image from "next/image";
 

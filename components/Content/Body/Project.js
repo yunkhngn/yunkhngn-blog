@@ -1,4 +1,4 @@
-import { Para, ElementSpace, Spacer, Search } from "../../Template";
+import { Para, Spacer, Search } from "../../Template";
 import { Div, Tag } from "atomize";
 
 const Project = ({ desc, theme, themeUse, prj }) => {
@@ -108,7 +108,6 @@ const Project = ({ desc, theme, themeUse, prj }) => {
           Xem Github của tớ...
         </Div>
       </a>
-      <ElementSpace space="12em" />
     </article>
   );
 };

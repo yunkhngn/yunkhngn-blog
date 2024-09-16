@@ -1,8 +1,9 @@
-import { Para, ElementSpace, Search, RowContent } from "../../Template";
+import { Para, Search, ImageRow } from "../../Template";
 import { Div } from "atomize";
 import Link from "next/link";
 
 const Write = ({ desc, theme, themeUse, content }) => {
+  console.log(content)
   return (
     <article>
       <Para color={themeUse.secondary}>{desc.desc}</Para>
@@ -23,19 +24,20 @@ const Write = ({ desc, theme, themeUse, content }) => {
           content.map((item) => (
             <div className="post" key={item.id}>
               <Link href={`/writing/${item.attributes.Slug}`} passHref>
-                <RowContent
+                <ImageRow
                   title={item.attributes.Title}
                   theme={theme}
                   themeUse={themeUse}
                   description={item.attributes.Desc}
                   date={item.attributes.createdAt}
+                  image={item.attributes.Image}
+                  short={item.attributes.Short}
                 />
               </Link>
             </div>
           ))
         )}
       </Div>
-      <ElementSpace space="12em" />
     </article>
   );
 };

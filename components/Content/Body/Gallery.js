@@ -1,5 +1,5 @@
 import React from "react";
-import { Para, ElementSpace } from "../../Template";
+import { Para } from "../../Template";
 import { Div } from "atomize";
 import Link from "next/link";
 import Image from "next/image";
