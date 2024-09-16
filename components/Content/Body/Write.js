@@ -27,7 +27,7 @@ const Write = ({ desc, theme, themeUse, content }) => {
                   title={item.attributes.Title}
                   theme={theme}
                   themeUse={themeUse}
-                  description={item.attributes.Description}
+                  description={item.attributes.Desc}
                   date={item.attributes.createdAt}
                 />
               </Link>
