@@ -1,5 +1,5 @@
-import { Para, ElementSpace, Spacer } from "../../Template";
-import { Div, Input } from "atomize";
+import { Para, ElementSpace, Search } from "../../Template";
+import { Div } from "atomize";
 import Link from "next/link";
 
 const formatDate = (dateString) => {
@@ -10,44 +10,20 @@ const formatDate = (dateString) => {
   return `${day}/${month}/${year}`;
 };
 
-const searchPost = (e) => {
-  const posts = document.querySelectorAll(".post");
-  posts.forEach((post) => {
-    if (post.innerText.toLowerCase().includes(e.target.value.toLowerCase())) {
-      post.style.display = "block";
-    } else {
-      post.style.display = "none";
-    }
-  });
-};
-
 const Write = ({ desc, theme, themeUse, content }) => {
   return (
     <article>
       <Para color={themeUse.secondary}>{desc.desc}</Para>
       <Div m={{ b: "1.7em" }} />
       <hr className={"hr" + theme} />
-      <Para textSize="subheader" color={themeUse.primary}>
-        Tìm kiếm các bài viết của tớ
-      </Para>
-      <Para color={themeUse.secondary} m={{ b: "1em" }}>
-        Viết linh tinh về cuộc sống, lập trình, nghệ thuật,...
-      </Para>
-      <Input
+      <Search
+        title="Tìm kiếm các bài viết của tớ"
+        subtitle="Viết linh tinh về cuộc sống, lập trình, nghệ thuật,..."
         placeholder="Tìm kiếm post..."
-        m={{ t: "1em", b: "1.5em" }}
-        w="100%"
-        h="3.5em"
-        textSize="subheader"
-        textColor={themeUse.secondary}
-        rounded="12px"
-        focusBorderColor={theme === "light" ? "gray300" : "#171717"}
-        onChange={searchPost}
-        border="1px solid"
-        bg={theme === "light" ? "#f9f9f9" : "rgba(20,20,20)"}
-        borderColor={theme === "light" ? "gray300" : "#171717"}
+        theme={theme}
+        themeUse={themeUse}
+        postName="post"
       />
-      <Spacer length="100%" theme={theme} />
       <Div>
         {content.length === 0 ? (
           <Para color={themeUse.secondary}>Chưa có post nào ở đây.</Para>

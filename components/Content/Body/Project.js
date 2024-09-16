@@ -1,5 +1,5 @@
-import { Para, ElementSpace, Spacer } from "../../Template";
-import { Div, Input, Tag } from "atomize";
+import { Para, ElementSpace, Spacer, Search } from "../../Template";
+import { Div, Tag } from "atomize";
 
 const Project = ({ desc, theme, themeUse, prj }) => {
   const dateFormer = (date) => {
@@ -21,27 +21,14 @@ const Project = ({ desc, theme, themeUse, prj }) => {
       <Para color={themeUse.secondary}>{desc.desc}</Para>
       <Div m={{ b: "1.7em" }} />
       <hr className={"hr" + theme} />
-      <Para textSize="subheader" color={themeUse.primary}>
-        Tìm kiếm repository Github
-      </Para>
-      <Para color={themeUse.secondary} m={{ b: "1em" }}>
-        Các pet project/public repository sử dụng Node.js, React...
-      </Para>
-      <Input
-        placeholder="Tìm kiếm project..."
-        m={{ t: "1em", b: "1.5em" }}
-        w="100%"
-        h="3.5em"
-        textSize="subheader"
-        textColor={themeUse.secondary}
-        rounded="12px"
-        focusBorderColor={theme === "light" ? "gray200" : "#171717"}
-        onChange={searchRepo}
-        border="1px solid"
-        bg={theme === "light" ? "#f9f9f9" : "rgba(20,20,20)"}
-        borderColor={theme === "light" ? "gray200" : "#171717"}
+      <Search
+        title="Tìm kiếm repository Github"
+        subtitle="Các pet project/public repository sử dụng Node.js, React..."
+        placeholder="Tìm kiếm repository..."
+        theme={theme}
+        themeUse={themeUse}
+        postName="repo"
       />
-      <Spacer length="100%" theme={theme} />
       <Div>
         {prj.length === 0 ? (
           <Para color={themeUse.secondary}>Chưa có project nào ở đây.</Para>
