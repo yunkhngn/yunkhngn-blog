@@ -21,7 +21,7 @@ ReactGA.initialize(process.env.TRACKING_ID);
 injectSpeedInsights();
 
 function MyApp({ Component, pageProps }) {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("");
   const [themeUse, setThemeUse] = useState(themeProvider[0]);
   const router = useRouter();
   const isOnDevelopment = process.env.NODE_ENV === "development";
