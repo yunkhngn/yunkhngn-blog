@@ -8,7 +8,7 @@ const resume = ({ themeUse, theme }) => {
       <Title color={themeUse.primary}>{desc.resume.heading}</Title>
       <Para color={themeUse.secondary}>{desc.resume.desc}</Para>
       <hr className={"hr" + theme} />
-      <Cv themeUse={themeUse} />
+      <Cv themeUse={themeUse} theme={theme}/>
     </Template>
   );
 };

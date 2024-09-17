@@ -1,9 +1,14 @@
 import { Para, SocialLink, Spacer, Footer } from "../../Template";
 import { Div } from "atomize";
 import ReactMarkdown from "react-markdown";
+import { useState } from "react";
 import Image from "next/image";
 
 const About = ({ desc, theme, themeUse, content }) => {
+  const [loaded, setLoaded] = useState(false);
+  const handleImageLoad = () => {
+    setLoaded(true);
+  };
   return (
     <article>
       <Para color={themeUse.secondary}>{desc.desc}</Para>
@@ -11,20 +16,23 @@ const About = ({ desc, theme, themeUse, content }) => {
       <hr className={"hr" + theme} />
       <Div m={{ b: "1.7em" }} />
       <div className="titleGroup">
-        <Image
-          src="/me.jpeg"
-          width="230"
-          height="230"
-          alt="Picture of Khoa Nguyen"
-          priority={true}
-          quality={75}
-          style={{
-            borderRadius: "50%",
-            marginBottom: "1em",
-            
-          }}
-          onDragStart={(e) => e.preventDefault()}
-        />
+        <div className={"avatar" + (!loaded ? (" skeleton--"+theme) : "")}>
+          <Image
+            src="/me.jpeg"
+            width="230"
+            height="230"
+            alt="Picture of Khoa Nguyen"
+            priority={true}
+            onLoad={handleImageLoad}
+            quality={75}
+            style={{
+              borderRadius: "50%",
+              marginBottom: "1em",
+              
+            }}
+            onDragStart={(e) => e.preventDefault()}
+          />
+        </div>
         <p className="titleName">Khoa Nguyễn</p>
         <Para align="center" color={themeUse.secondary}>
           Graphic Designer / Software Engineer

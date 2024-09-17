@@ -3,12 +3,16 @@ import Image from "next/image"
 import { ImagePreview, Back } from "../../Template"
 
 
-const Cv = ({themeUse}) => {
+const Cv = ({themeUse, theme}) => {
   const [isOpen, setIsOpen] = React.useState(false)
+  const [loaded, setLoaded] = React.useState(false);
+  const handleImageLoad = () => {
+    setLoaded(true);
+  };
   return (
     <article>
     <ImagePreview img="/image/cv.svg" alt="resume" isOpen={isOpen} setIsOpen={setIsOpen} />
-    <div className="resume">
+    <div className={"resume" + (!loaded ? (" skeleton--"+theme) : "")}>
         <Image
           src="/image/cv.svg"
           alt="resume"
@@ -16,6 +20,7 @@ const Cv = ({themeUse}) => {
           priority={true}
           quality={100}
           sizes="100%"
+          onLoad={handleImageLoad}
           style={{
             objectFit: "contain",
             borderRadius: "10px",

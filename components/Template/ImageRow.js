@@ -1,6 +1,8 @@
 import { Div } from "atomize";
 import { Para, Spacer } from "../Template";
 import Image from "next/image";
+import { useState } from "react";
+
 const ImageRow = ({ title, theme, themeUse, description, date, image, short }) => {
   const FormattedDate = (date) => {
     const d = new Date(date);
@@ -8,6 +10,10 @@ const ImageRow = ({ title, theme, themeUse, description, date, image, short }) =
     const month = d.getMonth() + 1;
     const year = d.getFullYear();
     return `Ngày ${day}/${month}/${year}`;
+  };
+  const [loaded, setLoaded] = useState(false);
+  const handleImageLoad = () => {
+    setLoaded(true);
   };
   return (
     <Div
@@ -21,7 +27,7 @@ const ImageRow = ({ title, theme, themeUse, description, date, image, short }) =
       transition
       m={{ xs: "0 -10px 0 -10px", md: "0 -16px 0 -16px" }}
     >
-    <div className="writePhoto">
+     <div className={"writePhoto" + (!loaded ? (" skeleton--"+theme) : "")}>
       <Image
             src={image}
             fill={true}
@@ -29,9 +35,9 @@ const ImageRow = ({ title, theme, themeUse, description, date, image, short }) =
             priority={true}
             quality={75}
             sizes="100%"
+            onLoad={handleImageLoad}
             style={{
             objectFit: "cover",
-            borderRadius: "12px",
             }}
             onDragStart={(e) => e.preventDefault()}
       />

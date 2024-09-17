@@ -1,18 +1,28 @@
 import { Para } from "../../Template";
 import { Div } from "atomize";
 import Image from "next/image";
+import { useState } from "react";
 
 const Pics = ({ desc, theme, themeUse, data }) => {
   const dateFormer = (date) => {
     let dateArr = date.split("T")[0].split("-");
     return `${dateArr[2]}/${dateArr[1]}/${dateArr[0]}`;
   };
+  const [loaded, setLoaded] = useState({});
+
+  const handleImageLoad = (id) => {
+    setLoaded((prev) => ({
+      ...prev,
+      [id]: true,  // Đánh dấu ảnh đã tải
+    }));
+  };
+
   return (
     <article>
       <Para color={themeUse.secondary}>{desc.desc}</Para>
       <Div m={{ b: "1.7em" }} />
       <hr className={"hr" + theme} />
-      <div className="skeleton">
+      <div className="gallery">
         {data.length === 0 ? (
           <Para color={themeUse.secondary}>Chưa có post nào ở đây.</Para>
         ) : (
@@ -29,17 +39,17 @@ const Pics = ({ desc, theme, themeUse, data }) => {
                   transition
                   textAlign="center"
                 >
-                  <div className="behancePhoto">
+                  <div className={"behancePhoto" + (!loaded[item.id] ? " skeleton--" + theme : "")}>
                   <Image
                     fill={true}
                     src={"https:" + item.attributes.Image}
                     alt={item.attributes.Title}
                     quality={70}
                     priority={true}
+                    onLoad={() => handleImageLoad(item.id)} 
                     sizes="100%"
                     style={{
                       objectFit: "cover",
-                      borderRadius: "12px",
                     }}
                     onDragStart={(e) => e.preventDefault()}
                   />
@@ -49,17 +59,20 @@ const Pics = ({ desc, theme, themeUse, data }) => {
                     textSize="heading"
                     margin="true"
                     which="top"
+                    align="center"
                   >
                     <strong>{item.attributes.Title}</strong>
                   </Para>
                   <Para
                     color={theme === "light" ? "#171717" : "#ededed"}
                     textSize="subheader"
+                    align="center"
                   >
                     {item.attributes.desc}
                   </Para>
                   <Para
                     color={themeUse.secondary}
+                    align="center"
                   >
                     Date published: {dateFormer(item.attributes.createdAt)}
                   </Para>

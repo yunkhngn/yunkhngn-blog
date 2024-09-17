@@ -3,6 +3,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { Title, Para, Template, Spacer, Footer, Back } from '../../components/Template';
+import { PicWrite } from "../../components/Content";
 import { htmlToText } from 'html-to-text';
 import Image from 'next/image';
 
@@ -121,7 +122,6 @@ const WritingPage = ({ post, themeUse, theme }) => {
   
     return text;
   }
-
   const src = post.Image;
   const desc = {
     title: `${post.Title} - ${post.Desc}`,
@@ -142,23 +142,7 @@ const WritingPage = ({ post, themeUse, theme }) => {
         <Para color={themeUse.secondary}>Tác giả: Khoa Nguyễn</Para>
         <Para color={themeUse.secondary}>{"Phân loại: " + post.Desc}</Para>
         <Spacer theme={theme} length="150px" />
-        <div
-          className="writingPhoto"
-        >
-          <Image
-            src={src}
-            alt={post.Title}
-            fill
-            priority={true}
-            quality={75}
-            sizes= "100%"
-            style={{
-              objectFit: "cover",
-              borderRadius: "12px",
-            }}
-            onDragStart={(e) => e.preventDefault()}
-          />
-        </div>
+        <PicWrite src={src} theme={theme} themeUse={themeUse} title={post.Title} />
         <div>{documentToReactComponents(post.Body, options)}</div>
         <Spacer theme={theme} length="200px" />
         <Footer content="Viết vài dòng bởi tớ!" />

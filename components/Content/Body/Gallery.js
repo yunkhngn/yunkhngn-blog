@@ -24,7 +24,7 @@ const Gallery = ({ desc, theme, themeUse, data }) => {
         {data.length > 0 ? (
           data.map((item) => (
             <Link passHref href={`/photo/${item.slug}`} key={item.id}>
-              <div className={"photo" + (!loaded[item.id] ? " skeleton" : "")}>
+              <div className={"photo" + (!loaded[item.id] ? " skeleton--" + theme : "")}>
                 <Image
                   fill={true}
                   src={"https:" + item.images[0].url}

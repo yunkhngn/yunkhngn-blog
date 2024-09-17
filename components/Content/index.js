@@ -6,6 +6,7 @@ export {default as Write} from './Body/Write';
 export {default as About} from './Body/About';
 export {default as Gallery} from './Body/Gallery';
 export {default as ImageModal} from './Body/ImageModal';
+export {default as PicWrite} from './Body/PicWrite';
 
 //Extend post
 export {default as ChangeLog} from './Extend/ChangeLog';
