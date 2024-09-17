@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 const Gallery = ({ desc, theme, themeUse, data }) => {
+  const [loaded, setLoaded] = React.useState(false);
+
   return (
     <article>
       <Para color={themeUse.secondary}>{desc.desc}</Para>
@@ -13,13 +15,15 @@ const Gallery = ({ desc, theme, themeUse, data }) => {
       <div className="photography">
         {(data.length > 0) ? data.map((item) => (
             <Link passHref href={`/photo/${item.slug}`} key={item.id}>
-              <div className="photo">
+              <div className={"photo"+ (loaded ? " skeleton" : "")}>
                 <Image
                   fill={true}
                   src={"https:" + item.images[0].url}
                   alt={item.title}
                   quality={50}
                   sizes="100%"
+                  onLoad={() => setLoaded(true)}
+                  onLoadingComplete={() => setLoaded(false)}
                   priority={true}
                   style={{
                     objectFit: 'cover',

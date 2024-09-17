@@ -273,3 +273,25 @@ html, input, textarea, button, p{
     height: 200px;
   }
 }
+.skeleton {
+  position: relative; /* Để chứa vị trí của phần tử :after */
+  background: #ccc;
+  overflow: hidden; /* Đảm bảo animation không vượt ra khỏi phần tử */
+}
+
+.skeleton:after {
+  content: ''; /* Phải có content để hiển thị */
+  position: absolute;
+  top: 0;
+  left: -100px; /* Đặt phần tử bắt đầu bên ngoài phần tử .skeleton */
+  width: 100px; /* Chiều rộng của gradient */
+  height: 100%; /* Chiều cao của gradient bằng với chiều cao phần tử cha */
+  background: linear-gradient(to right, transparent, #ffffff2c, transparent);
+  animation: reflect 1500ms ease-out infinite;
+}
+
+@keyframes reflect {
+  to {
+    left: calc(100% + 100px); /* Di chuyển phần tử sang phải và ra ngoài phần tử cha */
+  }
+}

@@ -12,7 +12,7 @@ const Pics = ({ desc, theme, themeUse, data }) => {
       <Para color={themeUse.secondary}>{desc.desc}</Para>
       <Div m={{ b: "1.7em" }} />
       <hr className={"hr" + theme} />
-      <div className="gallery">
+      <div className="skeleton">
         {data.length === 0 ? (
           <Para color={themeUse.secondary}>Chưa có post nào ở đây.</Para>
         ) : (
