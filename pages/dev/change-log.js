@@ -11,7 +11,7 @@ const changeLog = ({theme,themeUse,log}) => {
   )
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const res = await fetch('https://api.github.com/repos/yunkhngn/next-project/commits', {
       headers: {
           Authorization: `token ${process.env.GITHUB_TOKEN}`
@@ -32,7 +32,8 @@ export async function getServerSideProps() {
   return {
       props: {
           log
-      }
+      },
+      revalidate: 60
   }
 }
 export default changeLog
