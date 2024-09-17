@@ -23,7 +23,6 @@ const Cv = ({themeUse, theme}) => {
           onLoad={handleImageLoad}
           style={{
             objectFit: "contain",
-            borderRadius: "10px",
           }}
           onClick={() => setIsOpen(true)}
           onDragStart={(e) => e.preventDefault()}

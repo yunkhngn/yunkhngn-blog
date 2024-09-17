@@ -218,6 +218,7 @@ iframe {
   aspect-ratio: 210/297;
   overflow: hidden;
   margin-bottom: 1em;
+  border-radius: 10px;
 }
 
 .snake{
