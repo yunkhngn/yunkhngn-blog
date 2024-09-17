@@ -36,12 +36,12 @@ const ImageRow = ({ title, theme, themeUse, description, date, image, short }) =
             onDragStart={(e) => e.preventDefault()}
       />
     </div>
+    <Spacer theme={theme} length="100%" />
       <Div
       justify="flex-start"
       align="center"
       d="flex"
       w="100%"
-      m={{t: "5px"}}
       >
         <Div
         d={{ xs: "block", md: "flex" }}
