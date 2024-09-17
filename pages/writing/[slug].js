@@ -33,7 +33,6 @@ const options = {
               sizes="100%"
               style={{
                 objectFit: "cover",
-                borderRadius: "12px",
               }}
               onDragStart={(e) => e.preventDefault()}
             />

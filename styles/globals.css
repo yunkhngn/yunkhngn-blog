@@ -193,6 +193,7 @@ iframe {
   cursor: pointer;
   margin-bottom: 1em;
   margin-top: 1em;
+  border-radius: 12px;
 }
 
 .writePhoto{
