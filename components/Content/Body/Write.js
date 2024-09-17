@@ -3,7 +3,6 @@ import { Div } from "atomize";
 import Link from "next/link";
 
 const Write = ({ desc, theme, themeUse, content }) => {
-  console.log(content)
   return (
     <article>
       <Para color={themeUse.secondary}>{desc.desc}</Para>
