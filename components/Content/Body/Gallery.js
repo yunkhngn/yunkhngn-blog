@@ -3,9 +3,17 @@ import { Para } from "../../Template";
 import { Div } from "atomize";
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 
 const Gallery = ({ desc, theme, themeUse, data }) => {
-  const [loaded, setLoaded] = React.useState(false);
+  const [loaded, setLoaded] = useState({});
+
+  const handleImageLoad = (id) => {
+    setLoaded((prev) => ({
+      ...prev,
+      [id]: true,  // Đánh dấu ảnh đã tải
+    }));
+  };
 
   return (
     <article>
@@ -13,17 +21,17 @@ const Gallery = ({ desc, theme, themeUse, data }) => {
       <Div m={{ b: "1.7em" }} />
       <hr className={"hr" + theme} />
       <div className="photography">
-        {(data.length > 0) ? data.map((item) => (
+        {data.length > 0 ? (
+          data.map((item) => (
             <Link passHref href={`/photo/${item.slug}`} key={item.id}>
-              <div className={"photo"+ (loaded ? " skeleton" : "")}>
+              <div className={"photo" + (!loaded[item.id] ? " skeleton" : "")}>
                 <Image
                   fill={true}
                   src={"https:" + item.images[0].url}
                   alt={item.title}
                   quality={50}
                   sizes="100%"
-                  onLoad={() => setLoaded(true)}
-                  onLoadingComplete={() => setLoaded(false)}
+                  onLoad={() => handleImageLoad(item.id)} 
                   priority={true}
                   style={{
                     objectFit: 'cover',
@@ -32,7 +40,8 @@ const Gallery = ({ desc, theme, themeUse, data }) => {
                 />
               </div>
             </Link>
-          )) : (
+          ))
+        ) : (
             <Para color={themeUse.secondary}>Chưa có ảnh được đăng cả.</Para>
           )
           }
