@@ -294,6 +294,10 @@ html, input, textarea, button, p{
   .writePhoto{
     height: 200px;
   }
+  .dog{
+    width: 100%;
+    height: 300px;
+  }
 }
 
 .skeleton--light {
@@ -334,4 +338,10 @@ html, input, textarea, button, p{
   to {
     left: calc(100% + 10px); 
   }
+}
+
+.dog{
+  width: 100%;
+  height: 300px;
+  margin-top:5em;
 }
