@@ -8,7 +8,6 @@ const BarIcon = ({ icon, name, url, clickHandler, changeColor, theme }) => {
 
   const changeHandler = () => {
     setBounce(true);
-    setHover(true);
     setTimeout(() => {
       setBounce(false);
       setHover(false);
@@ -21,6 +20,7 @@ const BarIcon = ({ icon, name, url, clickHandler, changeColor, theme }) => {
 
   const handleClick = () => {
     setTimeout(() => {
+      setHover(true);
       changeHandler();
       if (clickHandler) {
         clickHandler();
@@ -39,7 +39,6 @@ const BarIcon = ({ icon, name, url, clickHandler, changeColor, theme }) => {
           border="0.5px solid"
           borderColor={changeColor ? "#dbdbdb" : "#3e3e3e"}
           textColor={changeColor ? "#858585" : "#7e7e7e"}
-          transition
           className="tooltip"
         >
           {name}

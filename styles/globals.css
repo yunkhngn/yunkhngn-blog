@@ -76,6 +76,13 @@ a {
   color: #161616;
 }
 
+.selection--light{
+  color: #6f6f6f;
+}
+.selection--dark{
+  color: #A0A0A0;
+}
+
 hr{
   border:none;
   margin-top:1em;
@@ -269,6 +276,7 @@ html, input, textarea, button, p{
 
 .tooltip {
   animation: fadeIn 0.5s;
+  transition: all 0.25s ease-out;
 }
 @keyframes fadeIn {
   from {
