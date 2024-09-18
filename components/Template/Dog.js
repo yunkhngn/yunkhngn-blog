@@ -2,13 +2,29 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
 import { useRef } from 'react';
 import * as THREE from 'three';
+import { useState, useEffect } from 'react';
 
 const DogModel = () => {
   const modelRef = useRef();
+  const [speed, setSpeed] = useState(0.7); 
   const { scene } = useGLTF('/dog.glb', true); 
+  const [fixedSpeed, setFixedSpeed] = useState(false); 
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setFixedSpeed(true);
+    }, 3200); 
+
+    return () => clearTimeout(timer);
+  }, []);
+
   useFrame(() => {
     if (modelRef.current) {
-      modelRef.current.rotation.y += 0.005; 
+      const rotationSpeed = fixedSpeed ? 0.01 : speed;
+      modelRef.current.rotation.y += rotationSpeed;
+      if (!fixedSpeed) {
+        setSpeed(prev => Math.max(prev * 0.98, 0.01)); 
+      }
     }
   });
 
