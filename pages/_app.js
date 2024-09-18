@@ -17,8 +17,9 @@ import { themeProvider } from "../components/lib";
 import ReactGA from "react-ga4";
 import dynamic from "next/dynamic";
 
-const Bar = dynamic(() => import("../components/Navigate").then(mod => mod.Bar));
-const CmdBar = dynamic(() => import("../components/Navigate").then(mod => mod.CmdBar));
+const Bar = dynamic(() => import("../components/Navigate").then(mod => mod.Bar), { ssr: false });
+const CmdBar = dynamic(() => import("../components/Navigate").then(mod => mod.CmdBar), { ssr: false });
+const loadReactGA = () => import("react-ga4").then(mod => mod.default);
 
 function MyApp({ Component, pageProps }) {
   const [theme, setTheme] = useState("");
@@ -26,9 +27,12 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
-    ReactGA.initialize(process.env.TRACKING_ID);
+    loadReactGA().then(ReactGA => {
+      ReactGA.initialize(process.env.TRACKING_ID);
+    });
     injectSpeedInsights();
   }, []);
+
   return (
       <StyletronProvider value={styletron}>
         <ThemeLoader
