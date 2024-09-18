@@ -50,7 +50,7 @@ const Dog = ({theme}) => {
     gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping, outputEncoding: THREE.sRGBEncoding }}
     >
       {/* Ánh sáng */}
-      <ambientLight intensity={(theme === 'light' ? 3 : 1)} />
+      <ambientLight intensity={2} />
       <spotLight
         position={[5, 5, 5]}
         angle={0.3}
