@@ -5,7 +5,7 @@ import "../styles/BarIcon.css";
 import { styletron } from "../styletron";
 import { Provider as StyletronProvider } from "styletron-react";
 import { StyleReset } from "atomize";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { AnimatedTags, ThemeLoader } from "../components/Template";
 import { injectSpeedInsights } from "@vercel/speed-insights";
