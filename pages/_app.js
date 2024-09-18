@@ -14,7 +14,6 @@ import { barList } from "../components/lib";
 import { KBarProvider } from "kbar";
 import { AnimatePresence } from "framer-motion";
 import { themeProvider } from "../components/lib";
-import ReactGA from "react-ga4";
 import dynamic from "next/dynamic";
 
 const Bar = dynamic(() => import("../components/Navigate").then(mod => mod.Bar), { ssr: false });
