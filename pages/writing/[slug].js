@@ -17,7 +17,6 @@ const client = contentful.createClient({
 
 const options = {
   renderNode: {
-    // Xử lý assets như trước
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
       const { file, title } = node.data.target.fields;
       if (file.contentType.startsWith('image/')) {

@@ -5,7 +5,7 @@ const description = {
     url: 'https://khoanguyen.codes/',
 }
 
-const Custom404 = ({themeUse, theme}) =>{
+const Custom500 = ({themeUse, theme}) =>{
     return (
         <Template description={description} height="100%">
             <Title color={themeUse.primary} size="display1">Oops!</Title>
@@ -15,4 +15,4 @@ const Custom404 = ({themeUse, theme}) =>{
     )
 }
 
-export default Custom404;
+export default Custom500;

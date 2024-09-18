@@ -1,4 +1,4 @@
-import { Para } from "../../Template";
+import { Para, Search } from "../../Template";
 import { Div } from "atomize";
 import Image from "next/image";
 import { useState } from "react";
@@ -13,7 +13,7 @@ const Pics = ({ desc, theme, themeUse, data }) => {
   const handleImageLoad = (id) => {
     setLoaded((prev) => ({
       ...prev,
-      [id]: true,  // Đánh dấu ảnh đã tải
+      [id]: true,
     }));
   };
 
@@ -22,12 +22,20 @@ const Pics = ({ desc, theme, themeUse, data }) => {
       <Para color={themeUse.secondary}>{desc.desc}</Para>
       <Div m={{ b: "1.7em" }} />
       <hr className={"hr" + theme} />
+      <Search
+        title="Tìm kiếm các design của tớ"
+        subtitle="Các design mà tớ đã làm trên Behance."
+        placeholder="Tìm kiếm design..."
+        theme={theme}
+        themeUse={themeUse}
+        postName="behance"
+      />
       <div className="gallery">
         {data.length === 0 ? (
           <Para color={themeUse.secondary}>Chưa có post nào ở đây.</Para>
         ) : (
           data.map((item) => (
-            <div key={item.id}>
+            <div className="behance" key={item.id}>
               <a target="_blank" rel="noreferrer" href={item.attributes.url}>
                 <Div
                   justify="center"
