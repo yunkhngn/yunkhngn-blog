@@ -2,7 +2,7 @@ import "../styles/globals.css";
 import "../styles/Bar.css";
 import "../styles/BarIcon.css";
 
-import { Bar, CmdBar } from "../components/Navigate";
+// import { Bar, CmdBar } from "../components/Navigate";
 import { styletron } from "../styletron";
 import { Provider as StyletronProvider } from "styletron-react";
 import { StyleReset } from "atomize";
@@ -16,6 +16,12 @@ import { AnimatePresence } from "framer-motion";
 import { Div } from "atomize";
 import { themeProvider } from "../components/lib";
 import ReactGA from "react-ga4";
+
+import dynamic from "next/dynamic";
+
+const Bar = dynamic(() => import("../components/Navigate").then(mod => mod.Bar));
+const CmdBar = dynamic(() => import("../components/Navigate").then(mod => mod.CmdBar));
+
 
 ReactGA.initialize(process.env.TRACKING_ID);
 injectSpeedInsights();

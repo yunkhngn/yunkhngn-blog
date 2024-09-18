@@ -34,8 +34,10 @@
     "styletron-react": "^6.0.2"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^14.2.12",
     "eslint": "8.14.0",
-    "eslint-config-next": "12.1.5"
+    "eslint-config-next": "12.1.5",
+    "webpack-bundle-analyzer": "^4.10.2"
   },
   "engines": {
     "node": ">=18.x"

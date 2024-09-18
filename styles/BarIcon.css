@@ -2,12 +2,15 @@
     font-size: 20px;
     background-size: 200% 100%;
     border-radius: 11px;
+    visibility: visible;
+    opacity: 1;
     height: 46px;
     width: 46px;
     margin: 7px 5px 0px 5px;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.2s, margin 200ms, translateY 0.25s, background-image 0.25s ease-out, color 0.25s ease-out;
   }
 
 .Icon--container {
@@ -64,10 +67,8 @@
 
 .Iconlight {
     background-image: linear-gradient( 45deg, hsl(0 0% 97.3%), hsl(0 0% 90.9%), hsl(0 0% 97.3%), hsl(0 0% 90.9%));
-    transition: transform 0.2s, margin 200ms, translateY 0.25s, background-image 0.25s ease-out, color 0.25s ease-out;
 }
 
 .Icondark {
     background-image: linear-gradient( 45deg, hsl(0 0% 11.0%), hsl(0 0% 13.6%), hsl(0 0% 11.0%), hsl(0 0% 13.6%));
-    transition: transform 0.2s, margin 200ms, translateY 0.25s, background-image 0.25s ease-out, color 0.25s ease-out;
 }

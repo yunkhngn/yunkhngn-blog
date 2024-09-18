@@ -2,17 +2,10 @@ import Icon from "./BarIcon";
 import Link from "next/link";
 import Spacer from "./Spacer";
 import { barList } from "../../lib";
+import React from "react";
 
 const Bar = ({ setTheme, theme, setThemeUse, themeProvider }) => {
-  const changeTheme = () => {
-     // Lấy phần tử có id "bar"
-     const barElement = document.getElementById("bar");
-     const iconElement = document.getElementById("icon");
-     if (barElement && iconElement) {
-       barElement.style.transition = "background 0.25s ease-out, color 0.25s ease-out, border 0.25s ease-out";
-        iconElement.style.transition = "background-image 0.25s ease-out, color 0.25s ease-out, border 0.25s ease-out !important";
-     }
-     
+  const changeTheme = () => {  
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
     setThemeUse(newTheme === "light" ? themeProvider[0] : themeProvider[1]);
@@ -110,13 +103,13 @@ const Bar = ({ setTheme, theme, setThemeUse, themeProvider }) => {
         </div>
         <div className="Bar--section">
           <Icon
-            icon="UpArrow"
-            name="Scroll"
-            alt="Scroll up"
-            changeColor={theme === "light" ? true : false}
-            clickHandler={scrollToTop}
-            theme={theme}
-          />
+              icon="UpArrow"
+              name="Scroll"
+              alt="Scroll up"
+              changeColor={theme === "light" ? true : false}
+              clickHandler={scrollToTop}
+              theme={theme}
+            />
         </div>
       </div>
     </nav>
