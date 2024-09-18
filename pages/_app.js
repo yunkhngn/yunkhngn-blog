@@ -15,20 +15,20 @@ import { KBarProvider } from "kbar";
 import { AnimatePresence } from "framer-motion";
 import { themeProvider } from "../components/lib";
 import ReactGA from "react-ga4";
-
 import dynamic from "next/dynamic";
 
 const Bar = dynamic(() => import("../components/Navigate").then(mod => mod.Bar));
 const CmdBar = dynamic(() => import("../components/Navigate").then(mod => mod.CmdBar));
-
-ReactGA.initialize(process.env.TRACKING_ID);
-injectSpeedInsights();
 
 function MyApp({ Component, pageProps }) {
   const [theme, setTheme] = useState("");
   const [themeUse, setThemeUse] = useState(themeProvider[0]);
   const router = useRouter();
 
+  useEffect(() => {
+    ReactGA.initialize(process.env.TRACKING_ID);
+    injectSpeedInsights();
+  }, []);
   return (
       <StyletronProvider value={styletron}>
         <ThemeLoader
