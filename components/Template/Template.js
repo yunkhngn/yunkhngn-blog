@@ -14,7 +14,6 @@ const Template = ({ children, description, height }) => {
     >
       <RouteChange route={description.route} title={description.title}/>
       <MetaTags description={description} />
-
       {children}
     </Div>
   );
