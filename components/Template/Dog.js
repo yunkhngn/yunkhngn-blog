@@ -1,7 +1,7 @@
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
 import { useRef } from 'react';
-import { sRGBEncoding, ACESFilmicToneMapping } from 'three';
+import { sRGBAEncoding, ACESFilmicToneMapping } from 'three';
 import { useState, useEffect } from 'react';
 
 const DogModel = () => {
@@ -47,7 +47,7 @@ const Dog = () => {
     dpr={[1, 2]} 
     camera={{ position: [3, 3, 3], fov: 50 }} 
     style={{ width: '100%', height: '100%' }}
-    gl={{ antialias: true, toneMapping: ACESFilmicToneMapping, outputEncoding: sRGBEncoding }}
+    gl={{ antialias: true, toneMapping: ACESFilmicToneMapping, outputEncoding: sRGBAEncoding }}
     >
       {/* Ánh sáng */}
       <ambientLight intensity={2} />
