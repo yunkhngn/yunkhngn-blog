@@ -21,7 +21,6 @@ export async function getStaticProps() {
   let log = await res.json();
   log = log
       .filter(commit => commit.commit.message.includes('[Change log]'))
-      .slice(0, 5)
       .map(commit => ({
           id: commit.sha, 
           message: commit.commit.message.replace(/\[Change log\]/g, ''),

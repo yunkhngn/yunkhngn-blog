@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic'
 
 const Dog = dynamic(() => import('../../Template/Dog'), {
     ssr: false,
-    loading: () => <LoadingCanva/>
+    loading: () => <LoadingCanva/>,
   });
 
 const Intro = ({theme,themeUse, content}) => {

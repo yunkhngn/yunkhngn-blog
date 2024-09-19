@@ -40,7 +40,7 @@ const DogModel = () => {
   );
 };
 
-const Dog = ({theme}) => {
+const Dog = () => {
   return (
     <Canvas 
     shadows 
