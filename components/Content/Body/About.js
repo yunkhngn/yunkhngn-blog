@@ -45,6 +45,7 @@ const About = ({ desc, theme, themeUse, content }) => {
       <Div
       justify="center"
       align="center"
+      className="about--content"
       >
       <ReactMarkdown>{content.Description}</ReactMarkdown>
       <br />

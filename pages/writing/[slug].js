@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { BLOCKS, INLINES } from '@contentful/rich-text-types';
+import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { Title, Para, Template, Spacer, Footer, Back } from '../../components/Template';
 import { PicWrite } from "../../components/Content";
@@ -15,6 +15,12 @@ const client = contentful.createClient({
   environment: process.env.CONTENTFUL_ENVIRONMENT,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 });
+
+const getYouTubeEmbedUrl = (url) => {
+  const videoId = url.split('v=')[1];
+  const ampersandPosition = videoId.indexOf('&');
+  return `https://www.youtube.com/embed/${ampersandPosition === -1 ? videoId : videoId.substring(0, ampersandPosition)}`;
+};
 
 const options = {
   renderNode: {
@@ -47,7 +53,29 @@ const options = {
       }
       return null;
     },
-
+    'paragraph': (node) => {
+            const text = node.content[0].value;
+            const youTubeUrlPattern = /https?:\/\/(www\.)?youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/;
+            const match = text.match(youTubeUrlPattern);
+            if (match) {
+                const embedUrl = getYouTubeEmbedUrl(match[0]);
+                return (
+                    <div>
+                        <iframe
+                            // fit with video ratio
+                            style={{
+                                width: '100%',
+                                aspectRatio: '16 / 9',
+                            }}
+                            src={embedUrl}
+                            allowFullScreen
+                            title="YouTube Video"
+                        ></iframe>
+                    </div>
+                );
+            }
+            return <p>{text}</p>;
+        },
     // Xử lý inline hyperlink
     [INLINES.HYPERLINK]: (node, children) => {
       const { uri } = node.data;
@@ -57,6 +85,7 @@ const options = {
         </a>
       );
     },
+
   },
 };
 

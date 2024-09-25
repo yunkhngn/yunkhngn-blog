@@ -261,13 +261,18 @@ iframe {
 html, input, textarea, button, p{
   transition: all 0.25s ease-out !important; 
 }
-
+.about--content{
+  font-family: "Palatino", serif;
+  font-size: 1.2em;
+}
 .writingBody{
   margin-top: 1.5em;
 }
 .writingBody p{
   margin-bottom: 1em;
   line-height: 1.5;
+  font-size: 1.2em;
+  font-family: "Palatino", serif;
 }
 
 .keyboard{
