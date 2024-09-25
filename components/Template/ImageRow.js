@@ -9,7 +9,7 @@ const ImageRow = ({ title, theme, themeUse, description, date, image, short }) =
     const day = d.getDate();
     const month = d.getMonth() + 1;
     const year = d.getFullYear();
-    return `Ngày ${day}/${month}/${year}`;
+    return `${day}/${month}/${year}`;
   };
   const [loaded, setLoaded] = useState(false);
   const handleImageLoad = () => {
@@ -55,7 +55,7 @@ const ImageRow = ({ title, theme, themeUse, description, date, image, short }) =
         align="center"
         >
         <Para
-          w={{ xs: "170px", md: "350px" }}
+          w={{ xs: "300px", md: "350px" }}
           margin="true"
           which="right"
           align="left"
