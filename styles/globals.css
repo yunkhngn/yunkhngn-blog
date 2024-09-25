@@ -257,6 +257,14 @@ html, input, textarea, button, p{
   transition: all 0.25s ease-out !important; 
 }
 
+.writingBody{
+  text-indent: 1em;
+}
+.writingBody p{
+  margin-bottom: 1em;
+  line-height: 1.5;
+}
+
 .keyboard{
   padding: 3px 5px 3px 5px;
   border-radius: 3px;

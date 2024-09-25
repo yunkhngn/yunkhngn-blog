@@ -141,7 +141,7 @@ const WritingPage = ({ post, themeUse, theme }) => {
         <Para color={themeUse.secondary}>{"Phân loại: " + post.Desc}</Para>
         <Spacer theme={theme} length="150px" />
         <PicWrite src={src} theme={theme} themeUse={themeUse} title={post.Title} />
-        <div>{documentToReactComponents(post.Body, options)}</div>
+        <div className='writingBody'>{documentToReactComponents(post.Body, options)}</div>
         <Spacer theme={theme} length="200px" />
         <Footer content="Viết vài dòng bởi tớ!" />
         <Back themeUse={themeUse} route="/writing" />
