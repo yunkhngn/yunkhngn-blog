@@ -53,29 +53,24 @@ const options = {
       }
       return null;
     },
-    'paragraph': (node) => {
-            const text = node.content[0].value;
-            const youTubeUrlPattern = /https?:\/\/(www\.)?youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/;
-            const match = text.match(youTubeUrlPattern);
-            if (match) {
-                const embedUrl = getYouTubeEmbedUrl(match[0]);
-                return (
-                    <div>
-                        <iframe
-                            // fit with video ratio
-                            style={{
-                                width: '100%',
-                                aspectRatio: '16 / 9',
-                            }}
-                            src={embedUrl}
-                            allowFullScreen
-                            title="YouTube Video"
-                        ></iframe>
-                    </div>
-                );
-            }
-            return <p>{text}</p>;
-        },
+    'hyperlink': (node) => {
+      const { uri } = node.data;
+      const regex = /https?:\/\/(www\.)?youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/;
+
+      const match = uri.match(regex);
+      if (match) {
+        const videoId = match[2];
+        return (
+          <iframe
+            style={{ width: '100%', aspectRatio: '16 / 9' }}
+            src={`https://www.youtube.com/embed/${videoId}`}
+            allowFullScreen
+            title="YouTube Video"
+          ></iframe>
+        );
+      }
+      return <a href={uri}>{node.content[0].value}</a>;
+    },
   },
 };
 
