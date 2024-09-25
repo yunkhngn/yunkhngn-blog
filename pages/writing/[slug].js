@@ -64,38 +64,6 @@ const options = {
           ></iframe>
         );
       }
-
-      // Kiểm tra link Facebook
-      const facebookRegex = /https?:\/\/(www\.)?facebook\.com\/.*\/videos\/([0-9]+)/;
-      const facebookMatch = uri.match(facebookRegex);
-      if (facebookMatch) {
-        const videoId = facebookMatch[2];
-        return (
-          <iframe
-            width="560"
-            height="315"
-            src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(uri)}`}
-            style={{ border: 'none', overflow: 'hidden' }}
-            allowTransparency="true"
-            allow="encrypted-media"
-            title="Facebook Video"
-          ></iframe>
-        );
-      }
-      // Kiểm tra link Facebook Photo
-      const facebookPhotoRegex = /https?:\/\/(www\.)?facebook\.com\/photo\/\?fbid=([0-9]+)/;
-      const facebookPhotoMatch = uri.match(facebookPhotoRegex);
-      if (facebookPhotoMatch) {
-        return (
-          <iframe
-            src={`https://www.facebook.com/plugins/post.php?href=${encodeURIComponent(uri)}`}
-            style={{ border: 'none', overflow: 'hidden' }}
-            allowTransparency="true"
-            allow="encrypted-media"
-            title="Facebook Photo"
-          ></iframe>
-        );
-      }
       return <a href={uri}>{node.content[0].value}</a>;
     },
   },
