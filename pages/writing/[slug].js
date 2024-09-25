@@ -4,6 +4,7 @@ import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { Title, Para, Template, Spacer, Footer, Back } from '../../components/Template';
 import { PicWrite } from "../../components/Content";
+import { Text } from 'atomize';
 import { htmlToText } from 'html-to-text';
 import Image from 'next/image';
 
@@ -18,10 +19,11 @@ const client = contentful.createClient({
 const options = {
   renderNode: {
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
-      const { file, title } = node.data.target.fields;
+      const { file, title, description } = node.data.target.fields;
       if (file.contentType.startsWith('image/')) {
         const imageUrl = `https:${file.url}`;
         return (
+          <div className="embed">
           <div className="embedPhoto">
             <Image
               src={imageUrl}
@@ -35,6 +37,11 @@ const options = {
               }}
               onDragStart={(e) => e.preventDefault()}
             />
+          </div>
+            <Text
+            >
+              <i>P/s: {description || 'Embedded Image'}</i>
+            </Text>
           </div>
         );
       }
@@ -141,6 +148,7 @@ const WritingPage = ({ post, themeUse, theme }) => {
         <Para color={themeUse.secondary}>{"Phân loại: " + post.Desc}</Para>
         <Spacer theme={theme} length="150px" />
         <PicWrite src={src} theme={theme} themeUse={themeUse} title={post.Title} />
+        <hr className={"hr" + theme} />
         <div className='writingBody'>{documentToReactComponents(post.Body, options)}</div>
         <Spacer theme={theme} length="200px" />
         <Footer content="Viết vài dòng bởi tớ!" />
