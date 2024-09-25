@@ -16,12 +16,6 @@ const client = contentful.createClient({
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 });
 
-const getYouTubeEmbedUrl = (url) => {
-  const videoId = url.split('v=')[1];
-  const ampersandPosition = videoId.indexOf('&');
-  return `https://www.youtube.com/embed/${ampersandPosition === -1 ? videoId : videoId.substring(0, ampersandPosition)}`;
-};
-
 const options = {
   renderNode: {
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
@@ -55,17 +49,50 @@ const options = {
     },
     'hyperlink': (node) => {
       const { uri } = node.data;
-      const regex = /https?:\/\/(www\.)?youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/;
 
-      const match = uri.match(regex);
-      if (match) {
-        const videoId = match[2];
+      // Kiểm tra link YouTube
+      const youtubeRegex = /https?:\/\/(www\.)?youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/;
+      const youtubeMatch = uri.match(youtubeRegex);
+      if (youtubeMatch) {
+        const videoId = youtubeMatch[2];
         return (
           <iframe
-            style={{ width: '100%', aspectRatio: '16 / 9' }}
+            style={{ width: '100%', aspectRatio: '16/9' }}
             src={`https://www.youtube.com/embed/${videoId}`}
             allowFullScreen
             title="YouTube Video"
+          ></iframe>
+        );
+      }
+
+      // Kiểm tra link Facebook
+      const facebookRegex = /https?:\/\/(www\.)?facebook\.com\/.*\/videos\/([0-9]+)/;
+      const facebookMatch = uri.match(facebookRegex);
+      if (facebookMatch) {
+        const videoId = facebookMatch[2];
+        return (
+          <iframe
+            width="560"
+            height="315"
+            src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(uri)}`}
+            style={{ border: 'none', overflow: 'hidden' }}
+            allowTransparency="true"
+            allow="encrypted-media"
+            title="Facebook Video"
+          ></iframe>
+        );
+      }
+      // Kiểm tra link Facebook Photo
+      const facebookPhotoRegex = /https?:\/\/(www\.)?facebook\.com\/photo\/\?fbid=([0-9]+)/;
+      const facebookPhotoMatch = uri.match(facebookPhotoRegex);
+      if (facebookPhotoMatch) {
+        return (
+          <iframe
+            src={`https://www.facebook.com/plugins/post.php?href=${encodeURIComponent(uri)}`}
+            style={{ border: 'none', overflow: 'hidden' }}
+            allowTransparency="true"
+            allow="encrypted-media"
+            title="Facebook Photo"
           ></iframe>
         );
       }
