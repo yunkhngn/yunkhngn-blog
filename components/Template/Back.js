@@ -10,7 +10,7 @@ const Back = ({themeUse, route}) => {
           hoverTextColor={themeUse.hover}
           transition
         >
-          Quay lại...
+          ← Quay lại
         </Div>
       </Link>
   )
