@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
+import { BLOCKS } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { Title, Para, Template, Spacer, Footer, Back } from '../../components/Template';
+import { Title, Para, Template, Spacer, Footer, Back, SocialShare } from '../../components/Template';
 import { PicWrite } from "../../components/Content";
 import { Text } from 'atomize';
 import { htmlToText } from 'html-to-text';
@@ -162,10 +162,11 @@ const WritingPage = ({ post, themeUse, theme }) => {
         <Para color={themeUse.secondary}>
           {"Hà Nội, ngày " + formatDate(post.createdAt)}
         </Para>
-        <Spacer theme={theme} length="200px" />
+        <hr className={"hr" + theme} />
         <Para color={themeUse.secondary}>Tác giả: Khoa Nguyễn</Para>
         <Para color={themeUse.secondary}>{"Phân loại: " + post.Desc}</Para>
-        <Spacer theme={theme} length="150px" />
+        <SocialShare url={desc.url} theme={theme}/>
+        <Spacer theme={theme} length="120px" />
         <PicWrite src={src} theme={theme} themeUse={themeUse} title={post.Title} />
         <hr className={"hr" + theme} />
         <div className='writingBody'>{documentToReactComponents(post.Body, options)}</div>
