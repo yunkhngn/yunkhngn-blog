@@ -76,16 +76,6 @@ const options = {
             }
             return <p>{text}</p>;
         },
-    // Xử lý inline hyperlink
-    [INLINES.HYPERLINK]: (node, children) => {
-      const { uri } = node.data;
-      return (
-        <a href={uri} target="_blank" rel="noopener noreferrer" style={{ color: 'blue', textDecoration: 'none' }}>
-          {children}
-        </a>
-      );
-    },
-
   },
 };
 
