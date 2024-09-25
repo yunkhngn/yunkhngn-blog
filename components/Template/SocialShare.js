@@ -1,5 +1,6 @@
-import React from "react";
+import React from 'react';
 import { Div, Icon } from "atomize";
+
 const SocialShare = ({ url, theme }) => {
     const socialShare = [
     {
@@ -14,16 +15,17 @@ const SocialShare = ({ url, theme }) => {
       icon: "Linkedin",
       link: `https://www.linkedin.com/shareArticle?mini=true&url=${url}`,
     },
-    {
-      icon: "Mail",
-      link: `mailto:?subject=I wanted you to see this site&body=Check out this site ${url}`,
-    },
     ]
+    const linkToCopy = `https://khoanguyen.codes/writing/${url}`;
+    const copyLink = () => {
+      navigator.clipboard.writeText(linkToCopy)
+  };
+
   return (
     <Div 
     justify="space-between" 
     d="flex" 
-    w="170px"
+    w="150px"
     m={{ t: "1em", b: "1.5em" }}
     >
      {socialShare.map((item) => (
@@ -36,6 +38,13 @@ const SocialShare = ({ url, theme }) => {
           cursor="pointer"
           />
       ))}
+      <Icon name="Link" size="20px" 
+          onClick={copyLink}
+          color={theme === "light" ? "#858585" : "#a0a0a0"}
+          hoverColor={theme === "light" ? "dark" : "info200"}
+          transition
+          cursor="pointer"
+          />
     </Div>
   );
 };
