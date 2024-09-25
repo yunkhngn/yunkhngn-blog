@@ -79,6 +79,7 @@ yarn build
 - [X] Sửa lại trang writing list có ảnh
 - [X] Skeleton cho ảnh
 - [ ] Làm Navigation
+- [ ] Embed youtube
 - [ ] Tạo genre và làm search
 - [ ] Tạo preview page cho contentful
 
