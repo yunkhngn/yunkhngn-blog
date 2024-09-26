@@ -1,5 +1,6 @@
 import React from 'react';
 import { Div, Icon } from "atomize";
+import Noti from './Noti';
 
 const SocialShare = ({ url, theme }) => {
     const socialShare = [
@@ -20,7 +21,7 @@ const SocialShare = ({ url, theme }) => {
     const copyLink = () => {
       navigator.clipboard.writeText(linkToCopy)
   };
-
+  const [showNotification, setState] = React.useState(false);
   return (
     <Div 
     justify="space-between" 
@@ -28,6 +29,12 @@ const SocialShare = ({ url, theme }) => {
     w="150px"
     m={{ t: "1em", b: "1.5em" }}
     >
+       <Noti
+        message="Đã copy link vào clipboard!"
+        showNotification={showNotification}
+        setState={setState}
+        theme={theme}
+      />
      {socialShare.map((item) => (
           <Icon name={item.icon} size="20px" 
           key={item.icon}
@@ -39,7 +46,7 @@ const SocialShare = ({ url, theme }) => {
           />
       ))}
       <Icon name="Link" size="20px" 
-          onClick={copyLink}
+          onClick={() => {setState(true); copyLink}}
           color={theme === "light" ? "#858585" : "#a0a0a0"}
           hoverColor={theme === "light" ? "dark" : "info200"}
           transition
