@@ -8,7 +8,6 @@ import { StyleReset } from "atomize";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { AnimatedTags, ThemeLoader } from "../components/Template";
-import { injectSpeedInsights } from "@vercel/speed-insights";
 
 import { barList } from "../components/lib";
 import { KBarProvider } from "kbar";
@@ -29,7 +28,6 @@ function MyApp({ Component, pageProps }) {
     loadReactGA().then(ReactGA => {
       ReactGA.initialize(process.env.TRACKING_ID);
     });
-    injectSpeedInsights();
   }, []);
 
   return (

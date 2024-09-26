@@ -16,7 +16,6 @@
     "@hcaptcha/react-hcaptcha": "^1.11.0",
     "@react-three/drei": "^9.112.0",
     "@react-three/fiber": "^8.17.7",
-    "@vercel/speed-insights": "^1.0.12",
     "atomize": "^1.0.28",
     "contentful": "^10.15.0",
     "framer-motion": "^6.3.3",
