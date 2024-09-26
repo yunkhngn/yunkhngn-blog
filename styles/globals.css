@@ -122,7 +122,8 @@ h1{
 }
 iframe {
   width: 100%;
-  height: 690px;
+  border: none;
+  border-radius: 10px;
 }
 
 .titleGroup{
