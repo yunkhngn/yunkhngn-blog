@@ -125,7 +125,14 @@ iframe {
   border: none;
   border-radius: 10px;
 }
-
+.music--cover{
+  width: 50%;
+  position: relative;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+}
 .titleGroup{
   text-align: center;
   margin-bottom: 2em;

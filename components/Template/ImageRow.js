@@ -3,6 +3,7 @@ import { Para, Spacer } from "../Template";
 import Image from "next/image";
 import { useState } from "react";
 
+// For writing page
 const ImageRow = ({ title, theme, themeUse, description, date, image, short }) => {
   const FormattedDate = (date) => {
     const d = new Date(date);

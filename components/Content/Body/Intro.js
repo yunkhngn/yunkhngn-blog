@@ -1,4 +1,4 @@
-import {Para, SocialLink, Spacer, Snake, Footer, LoadingCanva} from '../../Template'
+import {Para, SocialLink, Spacer, Snake, Footer, LoadingCanva, MusicPlayer} from '../../Template'
 import ReactMarkdown from 'react-markdown'
 import Link from 'next/link'
 import {Div} from 'atomize'
@@ -24,6 +24,7 @@ const Intro = ({theme,themeUse, content}) => {
                 <Dog theme={theme} />
             </div>
             <Spacer theme={theme} length="100px"/>
+            <MusicPlayer theme={theme}/>
             <blockquote className="snake--quote">Mr. Snake eating my contributions.</blockquote>
             <Snake theme={theme}/>
             <Spacer theme={theme} length="60px"/>
