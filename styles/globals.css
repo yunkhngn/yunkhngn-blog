@@ -263,7 +263,7 @@ iframe {
   word-break: break-word;
   width: 80%;
 }
-html, input, textarea, button, p{
+html, input, textarea, button, p, div{
   transition: all 0.25s ease-out !important; 
 }
 .about--content{
@@ -307,19 +307,6 @@ html, input, textarea, button, p{
   }
   to {
     opacity: 1;
-  }
-}
-
-@media screen and (max-width: 650px) {
-  .gallery{
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .writePhoto{
-    height: 200px;
-  }
-  .dog{
-    width: 100%;
-    height: 300px;
   }
 }
 
@@ -367,4 +354,51 @@ html, input, textarea, button, p{
   width: 100%;
   height: 300px;
   margin-top:5em;
+}
+.music--slider{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 10px;
+  height: 0.5rem;
+}
+.music--slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  background: #ffffff;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid #cacaca;
+}
+
+.slider--dark{
+  background: #e9e9e9;
+}
+.slider--light{
+  background: rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 650px) {
+  .gallery{
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .writePhoto{
+    height: 200px;
+  }
+  .dog{
+    width: 100%;
+    height: 300px;
+  }
+  .music--slider{
+    height: 0.3em;
+  }
+  .music--slider::-webkit-slider-thumb {
+    width: 0.7rem;
+    height: 0.7rem;
+  }
 }
