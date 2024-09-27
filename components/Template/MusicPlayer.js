@@ -76,26 +76,27 @@ const MusicPlayer = ({ theme }) => {
       border="1px solid"
       borderColor={theme === "light" ? "gray300" : "hsl(0 0% 100% / 0.077)"}
       //blur
-      p={{ xs: "1em", md: "2em" }}
+      p={{ xs: "1em", md: "1.5em" }}
       rounded="30px"
       m={{ y: "2em" }}
       transition
     >
-      <div className="music--cover">
+      <div className={"music--cover play--"+isPlaying}>
         <Image
           src={song[songIndex].cover}
           alt="Spotify"
           fill
           style={{
-            borderRadius: "16px",
+            borderRadius: "14px",
             objectFit: "cover",
             filter: `brightness(${theme === "light" ? "1" : "0.9"})`,
           }}
+          onDragStart={(e) => e.preventDefault()}
         />
       </div>
       <Div
-        w="50%"
-        m={{ l: { xs: "1em", md: "2em" } }}
+        w={{ xs: "50%", md: "70%" }}
+        m={{ l: { xs: "1em", md: "1.5em" } }}
         d="flex"
         flexDir="column"
         justify="space-between"
@@ -104,7 +105,7 @@ const MusicPlayer = ({ theme }) => {
           <Text textSize={{ xs: "tiny", md: "paragraph" }}>iPhone</Text>
           <Text
             textColor={theme === "light" ? "black" : "white"}
-            textSize={{ xs: "paragraph", md: "heading" }}
+            textSize={{ xs: "paragraph", md: "title" }}
             textWeight="700"
           >
             {song[songIndex].title}
@@ -116,8 +117,8 @@ const MusicPlayer = ({ theme }) => {
           ></audio>
           <Text
             textColor={theme === "light" ? "black" : "white"}
-            textSize={{ xs: "body", md: "title" }}
-            m={{ b: { xs: "0.5em", md: "1em" } }}
+            textSize={{ xs: "caption", md: "subheader" }}
+            m={{ b: { xs: "0.5em", md: "0.7em" } }}
           >
             {song[songIndex].artist}
           </Text>
@@ -132,11 +133,11 @@ const MusicPlayer = ({ theme }) => {
             onChange={handleSliderChange}
             className={"music--slider slider--" + theme}
           />
-          <Div d="flex" justify="space-between" m={{b:{md:"1em"}}}>
-            <Text textSize={{ xs: "tiny", md: "subheader" }}>
+          <Div d="flex" justify="space-between">
+            <Text textSize={{ xs: "tiny", md: "body" }}>
               {formatTime(currentTime)}
             </Text>
-            <Text textSize={{ xs: "tiny", md: "subheader" }}>
+            <Text textSize={{ xs: "tiny", md: "body" }}>
               {formatTime(duration)}
             </Text>
           </Div>
@@ -145,11 +146,10 @@ const MusicPlayer = ({ theme }) => {
         
         d="flex" 
         justify="center"
-        m={{b:{md:"1em"}}}
         >
           <Icon
             name="PlayPrev"
-            size={{ xs: "30px", md: "60px" }}
+            size={{ xs: "30px", md: "50px" }}
             color={theme === "light" ? "gray500" : "disabled"}
             m={{ y: "auto" }}
             onClick={() => handleChangeSong("prev")}
@@ -157,13 +157,13 @@ const MusicPlayer = ({ theme }) => {
           <Icon
             name={isPlaying ? "Pause" : "Play"}
             onClick={handlePlayPause}
-            size={{ xs: "40px", md: "70px" }}
+            size={{ xs: "40px", md: "50px" }}
             color={theme === "light" ? "black500" : "white"}
             cursor="pointer"
           />
           <Icon
             name="PlayNext"
-            size={{ xs: "30px", md: "60px" }}
+            size={{ xs: "30px", md: "50px" }}
             m={{ y: "auto" }}
             color={theme === "light" ? "gray500" : "disabled"}
             onClick={() => handleChangeSong("next")}

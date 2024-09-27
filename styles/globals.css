@@ -126,7 +126,7 @@ iframe {
   border-radius: 10px;
 }
 .music--cover{
-  width: 50%;
+  width: 30%;
   position: relative;
   aspect-ratio: 1/1;
   overflow: hidden;
@@ -363,7 +363,7 @@ html, input, textarea, button, p, div{
   -webkit-appearance: none;
   appearance: none;
   border-radius: 10px;
-  height: 0.5rem;
+  height: 0.3rem;
 }
 .music--slider::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -382,7 +382,16 @@ html, input, textarea, button, p, div{
 .slider--light{
   background: rgba(0, 0, 0, 0.1);
 }
-
+.play--true{
+  border-radius: 50%;
+  animation: rotate 5s linear infinite;
+  transition: all 3s ease-out;
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
 @media screen and (max-width: 650px) {
   .gallery{
     grid-template-columns: repeat(1, 1fr);
@@ -400,5 +409,8 @@ html, input, textarea, button, p, div{
   .music--slider::-webkit-slider-thumb {
     width: 0.7rem;
     height: 0.7rem;
+  }
+  .music--cover{
+    width: 50%;
   }
 }
