@@ -372,6 +372,7 @@ html, input, textarea, button, p, div{
   appearance: none;
   border-radius: 10px;
   height: 0.3rem;
+  
 }
 
 .music--slider::-webkit-slider-thumb {
@@ -383,10 +384,11 @@ html, input, textarea, button, p, div{
   border-radius: 50%;
   cursor: pointer;
   border: 1px solid #cacaca;
+  
 }
-
 .slider--dark{
   background: #e9e9e9;
+  /* change color of range of slide */
 }
 .slider--light{
   background: rgba(0, 0, 0, 0.1);
@@ -397,7 +399,6 @@ html, input, textarea, button, p, div{
   animation: rotate 5s linear infinite;
   transition: all 3s ease-out;
 }
-
 
 @keyframes rotate {
   100% {

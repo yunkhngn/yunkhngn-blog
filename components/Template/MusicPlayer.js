@@ -102,7 +102,7 @@ const MusicPlayer = ({ theme }) => {
         justify="space-between"
       >
         <div>
-          <Text textSize="paragraph">iPhone</Text>
+          <Text textSize="body">iPhone</Text>
           <Text
             textColor={theme === "light" ? "black" : "white"}
             textSize="title"
@@ -149,24 +149,26 @@ const MusicPlayer = ({ theme }) => {
         >
           <Icon
             name="PlayPrev"
-            size={{ xs: "30px", md: "50px" }}
+            size="50px"
             color={theme === "light" ? "gray500" : "disabled"}
             m={{ y: "auto" }}
             onClick={() => handleChangeSong("prev")}
+            cursor="pointer"
           />
           <Icon
             name={isPlaying ? "Pause" : "Play"}
             onClick={handlePlayPause}
-            size={{ xs: "40px", md: "50px" }}
+            size="50px"
             color={theme === "light" ? "black500" : "white"}
             cursor="pointer"
           />
           <Icon
             name="PlayNext"
-            size={{ xs: "30px", md: "50px" }}
+            size="50px"
             m={{ y: "auto" }}
             color={theme === "light" ? "gray500" : "disabled"}
             onClick={() => handleChangeSong("next")}
+            cursor="pointer"
           />
         </Div>
       </Div>
