@@ -1,6 +1,4 @@
-import {Title, Para, Template, Spacer} from '../components/Template/'
-import {Div} from 'atomize'
-import {useRouter} from 'next/router'
+import {Title, Para, Template, Spacer, Back} from '../components/Template/'
 
 const description = {
     title: '404 Not found | Khoa Nguyễn',
@@ -8,13 +6,13 @@ const description = {
 }
 
 const Custom404 = ({themeUse, theme}) =>{
-    const router = useRouter();
     return (
         <Template description={description} height="100%">
             <Title color={themeUse.primary} size="display1">Oops!</Title>
-            <Para color={themeUse.secondary}>Có vẻ như trang bạn tìm không có!<br/>Hãy quay trở lại trang chủ! <br/> <strong>Error code: 404</strong></Para>
+            <Spacer theme={theme} length="60px"/>
+            <Para color={themeUse.secondary}>Có vẻ như trang cậu tìm không có!<br/>Hãy quay trở lại! <br/> <strong>Error code: 404</strong></Para>
             <Spacer theme={theme} length="80px"/>
-            <Div onClick={() => router.back()}  textColor={themeUse.secondary} hoverTextColor={themeUse.hover} transition>Quay lại...</Div>
+            <Back themeUse={themeUse}/>
         </Template> 
     )
 }

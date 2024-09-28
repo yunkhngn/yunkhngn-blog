@@ -59,7 +59,7 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
         <Div m={{ b: "1.7em" }} />
         <hr className={"hr" + theme} />
         <Footer content="Ảnh chụp qua lăng kính của tớ." />
-        <Back themeUse={themeUse} route="/photo" />
+        <Back themeUse={themeUse} />
       </article>
     </Template>
   );

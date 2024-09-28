@@ -162,7 +162,7 @@ const WritingPage = ({ post, themeUse, theme }) => {
         <div className='writingBody'>{documentToReactComponents(post.Body, options)}</div>
         <Spacer theme={theme} length="200px" />
         <Footer content="Viết vài dòng bởi tớ!" />
-        <Back themeUse={themeUse} route="/writing" />
+        <Back themeUse={themeUse} />
       </article>
     </Template>
   );

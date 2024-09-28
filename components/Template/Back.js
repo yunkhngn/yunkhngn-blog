@@ -1,18 +1,23 @@
-import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { Div } from 'atomize'
 
-const Back = ({themeUse, route}) => {
+const Back = ({themeUse}) => {
+  const router = useRouter();
+  const handleBack = () => {
+    router.back(); 
+  };
+
   return (
-    <Link href={route} passHref scroll={true}>
         <Div
+          onClick={handleBack}
           m={{ t: "0.5em" }}
           textColor={themeUse.secondary}
           hoverTextColor={themeUse.hover}
+          cursor="pointer"
           transition
         >
           ← Quay lại
         </Div>
-      </Link>
   )
 }
 
