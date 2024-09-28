@@ -85,6 +85,7 @@ const MusicPlayer = ({ theme }) => {
           src={song[songIndex].cover}
           alt="Spotify"
           fill
+          priority={true}
           style={{
             borderRadius: "14px",
             objectFit: "cover",
