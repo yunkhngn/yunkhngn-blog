@@ -74,7 +74,6 @@ const MusicPlayer = ({ theme }) => {
       d={{ xs: "block", md: "flex" }}
       border="1px solid"
       borderColor={theme === "light" ? "gray300" : "hsl(0 0% 100% / 0.077)"}
-      //blur
       p="2em"
       rounded="30px"
       m={{ y: "2em" }}
@@ -86,7 +85,6 @@ const MusicPlayer = ({ theme }) => {
           alt="Spotify"
           fill
           priority={true}
-          className={"avatar--"+ isPlaying}
           style={{
             borderRadius: "14px",
             objectFit: "cover",

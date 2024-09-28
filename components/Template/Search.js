@@ -31,6 +31,7 @@ const Search = ({title, subtitle, placeholder, theme, themeUse, postName}) => {
         rounded="12px"
         focusBorderColor={theme === "light" ? "gray300" : "#171717"}
         onChange={search}
+        transition
         border="1px solid"
         bg={theme === "light" ? "#f9f9f9" : "rgba(20,20,20)"}
         borderColor={theme === "light" ? "gray300" : "#171717"}
