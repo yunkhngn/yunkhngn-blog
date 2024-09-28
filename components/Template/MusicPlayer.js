@@ -77,7 +77,6 @@ const MusicPlayer = ({ theme }) => {
       //blur
       p="2em"
       rounded="30px"
-      shadow="4"
       m={{ y: "2em" }}
       transition
     >
