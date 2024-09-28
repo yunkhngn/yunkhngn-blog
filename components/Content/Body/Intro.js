@@ -28,9 +28,9 @@ const Intro = ({theme,themeUse, content}) => {
                 <Dog theme={theme} />
             </div>
             <Spacer theme={theme} length="100px"/>
-            <blockquote className="snake--quote">Lossless music player.</blockquote>
+            <blockquote className="blockQuote">Lossless music player.</blockquote>
             <MusicPlayer theme={theme}/>
-            <blockquote className="snake--quote">Mr. Snake eating my contributions.</blockquote>
+            <blockquote className="blockQuote">Mr. Snake eating my contributions.</blockquote>
             <Snake theme={theme}/>
             <Spacer theme={theme} length="60px"/>
             <Footer content="Dùng máy tính để có trải nghiệm tốt nhất."/>

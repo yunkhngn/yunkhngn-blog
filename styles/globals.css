@@ -254,7 +254,7 @@ iframe {
   transition: all 0.25s ease-out;
 }
 
-.snake--quote{
+.blockQuote{
   font-style: italic;
   margin: auto;
   padding-left: 1em;

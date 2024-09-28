@@ -74,7 +74,7 @@ const MusicPlayer = ({ theme }) => {
       d={{ xs: "block", md: "flex" }}
       border="1px solid"
       borderColor={theme === "light" ? "gray300" : "hsl(0 0% 100% / 0.077)"}
-      p="2em"
+      p="1.5em"
       rounded="30px"
       m={{ y: "2em" }}
       transition
