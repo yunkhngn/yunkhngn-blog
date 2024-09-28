@@ -384,7 +384,6 @@ html, input, textarea, button, p, div{
   border-radius: 50%;
   cursor: pointer;
   border: 1px solid #cacaca;
-  
 }
 .slider--dark{
   background: #e9e9e9;
@@ -399,6 +398,7 @@ html, input, textarea, button, p, div{
   animation: rotate 5s linear infinite;
   transition: all 3s ease-out;
 }
+
 
 @keyframes rotate {
   100% {

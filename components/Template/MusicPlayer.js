@@ -86,6 +86,7 @@ const MusicPlayer = ({ theme }) => {
           alt="Spotify"
           fill
           priority={true}
+          className={"avatar--"+ isPlaying}
           style={{
             borderRadius: "14px",
             objectFit: "cover",
