@@ -71,13 +71,13 @@ const MusicPlayer = ({ theme }) => {
 
   return (
     <Div
-      d="flex"
-      //transparent background about 0.7
+      d={{ xs: "block", md: "flex" }}
       border="1px solid"
       borderColor={theme === "light" ? "gray300" : "hsl(0 0% 100% / 0.077)"}
       //blur
-      p={{ xs: "1em", md: "1.5em" }}
+      p="2em"
       rounded="30px"
+      shadow="4"
       m={{ y: "2em" }}
       transition
     >
@@ -95,17 +95,17 @@ const MusicPlayer = ({ theme }) => {
         />
       </div>
       <Div
-        w={{ xs: "50%", md: "70%" }}
-        m={{ l: { xs: "1em", md: "1.5em" } }}
+        w={{ xs: "100%", md: "70%" }}
+        m={{ l: { xs: "0", md: "1.5em" }, t: { xs: "1em", md: "0" } }}
         d="flex"
         flexDir="column"
         justify="space-between"
       >
         <div>
-          <Text textSize={{ xs: "tiny", md: "paragraph" }}>iPhone</Text>
+          <Text textSize="paragraph">iPhone</Text>
           <Text
             textColor={theme === "light" ? "black" : "white"}
-            textSize={{ xs: "paragraph", md: "title" }}
+            textSize="title"
             textWeight="700"
           >
             {song[songIndex].title}
@@ -117,8 +117,8 @@ const MusicPlayer = ({ theme }) => {
           ></audio>
           <Text
             textColor={theme === "light" ? "black" : "white"}
-            textSize={{ xs: "caption", md: "subheader" }}
-            m={{ b: { xs: "0.5em", md: "0.7em" } }}
+            textSize="subheader"
+            m={{ b: "0.7em" }}
           >
             {song[songIndex].artist}
           </Text>
@@ -134,10 +134,10 @@ const MusicPlayer = ({ theme }) => {
             className={"music--slider slider--" + theme}
           />
           <Div d="flex" justify="space-between">
-            <Text textSize={{ xs: "tiny", md: "body" }}>
+            <Text textSize="paragraph">
               {formatTime(currentTime)}
             </Text>
-            <Text textSize={{ xs: "tiny", md: "body" }}>
+            <Text textSize="paragraph">
               {formatTime(duration)}
             </Text>
           </Div>
