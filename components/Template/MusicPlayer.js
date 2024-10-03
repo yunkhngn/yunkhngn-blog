@@ -69,6 +69,11 @@ const MusicPlayer = ({ theme }) => {
     return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
   };
 
+  const [loaded, setLoaded] = useState(false);
+  const handleImageLoad = () => {
+    setLoaded(true);
+  };
+
   return (
     <Div
       d={{ xs: "block", md: "flex" }}
@@ -79,12 +84,13 @@ const MusicPlayer = ({ theme }) => {
       m={{ y: "2em" }}
       transition
     >
-      <div className={"music--cover play--"+isPlaying}>
+      <div className={"music--cover play--"+isPlaying + (!loaded ? (" skeleton--"+theme) : "")}>
         <Image
           src={song[songIndex].cover}
           alt="Spotify"
           fill
           priority={true}
+          onLoad={handleImageLoad}
           style={{
             borderRadius: "14px",
             objectFit: "cover",
