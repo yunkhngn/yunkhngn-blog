@@ -78,7 +78,6 @@ const formatDate = (dateString) => {
 };
 
 export async function getStaticPaths() {
-  // Fetch all posts to get slugs for each post
   const response = await client.getEntries({ content_type: 'blogPage' });
 
   const paths = response.items.map((item) => ({
@@ -153,8 +152,8 @@ const WritingPage = ({ post, themeUse, theme }) => {
           {"Hà Nội, ngày " + formatDate(post.createdAt)}
         </Para>
         <hr className={"hr" + theme} />
-        <Para color={themeUse.secondary}>Tác giả: Khoa Nguyễn</Para>
-        <Para color={themeUse.secondary}>{"Phân loại: " + post.Desc}</Para>
+        <Para color={themeUse.secondary}><strong>Tác giả:</strong> @yun.khngn</Para>
+        <Para color={themeUse.secondary}><strong>Description: </strong>{post.Desc}</Para>
         <SocialShare url={desc.url} theme={theme}/>
         <Spacer theme={theme} length="120px" />
         <PicWrite src={src} theme={theme} themeUse={themeUse} title={post.Title} />

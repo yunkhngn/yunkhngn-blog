@@ -17,9 +17,10 @@ const SocialShare = ({ url, theme }) => {
       link: `https://www.linkedin.com/shareArticle?mini=true&url=${url}`,
     },
     ]
-    const linkToCopy = `https://khoanguyen.codes/writing/${url}`;
+    const linkToCopy = url;
     const copyLink = () => {
-      navigator.clipboard.writeText(linkToCopy)
+      navigator.clipboard.writeText(linkToCopy);
+      setState(true);
   };
   const [showNotification, setState] = React.useState(false);
   return (
@@ -46,7 +47,7 @@ const SocialShare = ({ url, theme }) => {
           />
       ))}
       <Icon name="Link" size="20px" 
-          onClick={() => {setState(true); copyLink}}
+          onClick={copyLink}
           color={theme === "light" ? "#858585" : "#a0a0a0"}
           hoverColor={theme === "light" ? "dark" : "info200"}
           transition
