@@ -28,30 +28,3 @@ const nextConfig = {
 }
 
 module.exports = nextConfig
-
-// const withBundleAnalyzer = require('@next/bundle-analyzer')({
-//   enabled: process.env.ANALYZE === 'true',
-// });
-
-// module.exports = withBundleAnalyzer({
-//   env: {
-//     CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID,
-//     CONTENTFUL_ENVIRONMENT: process.env.CONTENTFUL_ENVIRONMENT,
-//     CONTENTFUL_ACCESS_TOKEN: process.env.CONTENTFUL_ACCESS_TOKEN,
-//     SERVICE_ID: process.env.SERVICE_ID,
-//     TEMPLATE_ID: process.env.TEMPLATE_ID,
-//     PUBLIC_KEY: process.env.PUBLIC_KEY,
-//     GITHUB_TOKEN: process.env.GITHUB_TOKEN,
-//     TRACKING_ID: process.env.TRACKING_ID,
-//   },
-//   images: {
-//     remotePatterns: [
-//       {
-//         protocol: 'https',
-//         hostname: 'images.ctfassets.net',
-//         port: '',
-//         pathname: '**/**/**/**',
-//       },
-//     ],
-//   },
-// });

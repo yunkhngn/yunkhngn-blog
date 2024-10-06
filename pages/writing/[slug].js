@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router';
+import {useRouter } from 'next/router';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
@@ -75,8 +75,7 @@ const formatDate = (dateString) => {
   const month = String(date.getMonth() + 1).padStart(2, '0');
   const year = date.getFullYear();
   return `${day} tháng ${month} năm ${year}.`;
-};
-
+}
 export async function getStaticPaths() {
   const response = await client.getEntries({ content_type: 'blogPage' });
 
@@ -143,7 +142,6 @@ const WritingPage = ({ post, themeUse, theme }) => {
     img: src,
     route: `/writing/${post.slug}`,
   };
-
   return (
     <Template description={desc} height="100%">
       <article>
@@ -159,7 +157,7 @@ const WritingPage = ({ post, themeUse, theme }) => {
         <PicWrite src={src} theme={theme} themeUse={themeUse} title={post.Title} />
         <hr className={"hr" + theme} />
         <div className='writingBody'>{documentToReactComponents(post.Body, options)}</div>
-        <Spacer theme={theme} length="200px" />
+        <Spacer theme={theme} length="200px"/>
         <Footer content="Viết vài dòng bởi tớ!" />
         <Back themeUse={themeUse} />
       </article>

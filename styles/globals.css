@@ -375,6 +375,24 @@ html, input, textarea, button, p, div{
   height: 0.3rem;
   
 }
+code {
+  font-family: MyFancyCustomFont, monospace;
+  font-size: inherit;
+}
+
+/* Code in text */
+p > code,
+li > code,
+dd > code,
+td > code {
+  background: #ffeff0;
+  color:#161616;
+  font-size: 0.9em;
+  word-wrap: break-word;
+  box-decoration-break: clone;
+  padding: .1rem .3rem .2rem;
+  border-radius: .2rem;
+}
 
 .music--slider::-webkit-slider-thumb {
   -webkit-appearance: none;

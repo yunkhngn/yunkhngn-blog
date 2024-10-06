@@ -30,6 +30,7 @@
     "react-ga4": "^2.1.0",
     "react-loading-skeleton": "^3.4.0",
     "react-markdown": "^9.0.1",
+    "react-syntax-highlighter": "^15.5.0",
     "react-transition-group": "^4.4.2",
     "styletron-engine-atomic": "^1.4.8",
     "styletron-react": "^6.0.2",
