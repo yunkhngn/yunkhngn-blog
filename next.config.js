@@ -2,8 +2,8 @@
 const nextConfig = {
   reactStrictMode: false,
   i18n: {
-    locales: ["en"],
-    defaultLocale: "en",
+    locales: ["vi"],
+    defaultLocale: "vi",
   },
   env: {
     CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID,
