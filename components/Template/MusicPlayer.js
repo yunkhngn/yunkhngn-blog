@@ -49,6 +49,7 @@ const MusicPlayer = ({ theme }) => {
 
   const handlePlayPause = () => {
     const audio = audioRef.current;
+    audio.volume = 0.2;
     if (isPlaying) {
       audio.pause();
     } else {
@@ -134,6 +135,7 @@ const MusicPlayer = ({ theme }) => {
             min="0"
             max={duration}
             value={currentTime}
+            aria-label="Timer"
             step="1"
             onChange={handleSliderChange}
             className={"music--slider slider--" + theme}
