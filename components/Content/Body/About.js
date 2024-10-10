@@ -18,7 +18,7 @@ const About = ({ desc, theme, themeUse, content }) => {
       <div className="titleGroup">
         <div className={"avatar" + (!loaded ? (" skeleton--"+theme) : "")}>
           <Image
-            src="/me.jpeg"
+            src="/sins.jpeg"
             width="230"
             height="230"
             alt="Picture of Khoa Nguyen"

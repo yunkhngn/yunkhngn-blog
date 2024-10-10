@@ -15,11 +15,11 @@ const SocialLink = ({ theme }) => {
               p={{ x: "0.75rem" }}
               textSize="caption"
               textColor={theme === "light" ? "#858585" : "#a0a0a0"}
-              hoverTextColor={theme === "light" ? "#171717" : "#ededed"}
+              hoverTextColor={theme === "light" ? "dark" : "white"}
               bg="transparent"
               border="1px solid"
-              borderColor={theme === "light" ? "#858585" : "#a0a0a0"}
-              hoverBorderColor={theme === "light" ? "#171717" : "#ededed"}
+              borderColor={theme === "light" ? "hsl(0 0% 0% / 0.15)" : "hsl(0 0% 100% / 0.2)"}
+              hoverBorderColor={theme === "light" ? "dark" : "white"}
             >
               Resume
             </Button>
