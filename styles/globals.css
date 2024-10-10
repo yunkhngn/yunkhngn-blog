@@ -296,24 +296,20 @@ html, input, textarea, button, p, div{
 .kb--light:not(:hover){
   border: 1px solid hsl(0 0% 0% / 0.15);
   color: #858585;
-  transition: all 0.25s ease-in-out;
 }
 
 .kb--light:hover{
   border: 1px solid hsl(0 0% 0% / 0.25);
   color: #1f1f1f;
   cursor: pointer;
-  transition: all 0.25s ease-in-out;
 }
 
 .kb--dark:not(:hover){
   border: 1px solid hsl(0 0% 100% / 0.2);
-  transition: all 0.25s ease-in-out;
 }
 .kb--dark:hover{
   border: 1px solid hsl(0 0% 100% / 0.5);
   cursor: pointer;
-  transition: all 0.25s ease-in-out;
   color: #ffffff;
 }
 
