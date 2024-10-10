@@ -17,7 +17,7 @@ const Bar = ({ setTheme, theme, setThemeUse, themeProvider }) => {
     }, 750);
   };
   const scrollToTop = () => {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0, "smooth");
   };
   return (
     <nav id="bar" className={"Bar--container Bar--" + theme}>

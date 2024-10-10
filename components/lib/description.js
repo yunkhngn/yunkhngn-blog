@@ -4,9 +4,9 @@ const desc = {
         heading: 'Khoa Nguyễn',
         url: 'https://khoanguyen.codes',
         route: '/',
-        desc: "Xin chào, tớ là Khoa Nguyễn (yun.khngn), sinh viên chuyên ngành Kỹ thuật phần mềm tại Đại học FPT. Hiện tại tớ đang là freelancer thiết kế đồ hoạ và là một guitarist của ban nhạc Giấy Trắng. Tớ đang hướng tới trở thành một Fullstack Developer và thực hiện thêm nhiều ước mơ phía trước.",
+        desc: "Xin chào, tớ là Khoa Nguyễn (yun.khngn), sinh viên chuyên ngành Kỹ thuật phần mềm tại Đại học FPT.",
         img: 'https://khoanguyen.codes/image/wall.png',
-        content : "Xin chào, tớ là Khoa Nguyễn (yun.khngn), sinh viên chuyên ngành Kỹ thuật phần mềm tại Đại học FPT. Hiện tại tớ đang là freelancer thiết kế đồ hoạ và là một guitarist của ban nhạc Giấy Trắng. Tớ đang hướng tới trở thành một Fullstack Developer và thực hiện thêm nhiều ước mơ phía trước."
+        content : "Xin chào, tớ là Khoa Nguyễn (yun.khngn), sinh viên chuyên ngành Kỹ thuật phần mềm tại Đại học FPT."
     },
     about: {
         title: 'Giới thiệu | Khoa Nguyễn',

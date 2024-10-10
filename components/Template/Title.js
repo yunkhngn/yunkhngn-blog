@@ -1,6 +1,6 @@
 const Title = ({children, color}) => {
     return (
-        <header>
+        <header id="heading">
             <h1 className={color === '#171717' ? "dark" : 'light'}>
                 {children}
             </h1>
