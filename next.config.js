@@ -29,6 +29,10 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 60,
   },
+  webpack: (config) => {
+    config.optimization.minimize = true;
+    return config;
+  },
 }
 
 module.exports = nextConfig
