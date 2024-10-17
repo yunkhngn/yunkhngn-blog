@@ -46,7 +46,7 @@ export async function getStaticProps() {
         Slug: item.fields.slug,
         createdAt: item.sys.createdAt,
         Desc: item.fields.description,
-        Short: truncateHtml(item.fields.body,200),
+        Short: truncateHtml(item.fields.body,150),
       }
     })).sort((a, b) => new Date(b.attributes.createdAt) - new Date(a.attributes.createdAt));
   
