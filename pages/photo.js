@@ -19,7 +19,7 @@ const photo = ({themeUse, data,theme}) => {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const response = await client.getEntries({
     content_type: 'picture',
   });
@@ -44,7 +44,6 @@ export async function getStaticProps() {
     props: {
       data: transformedData,
     },
-    revalidate: 60
   };
 }
 export default photo
