@@ -32,8 +32,8 @@ const ImageRow = ({ title, theme, themeUse, description, date, image, short }) =
       <Image
             src={image}
             fill={true}
-            alt="Picture of Khoa Nguyen"
-            priority={true}
+            alt="Picture"
+            loading="lazy" 
             quality={75}
             onLoad={handleImageLoad}
             style={{
