@@ -78,8 +78,8 @@ yarn build
 - [X] Làm tooltip cho các icon
 - [X] Sửa lại trang writing list có ảnh
 - [X] Skeleton cho ảnh
+- [X] Embed youtube
 - [ ] Làm Navigation
-- [ ] Embed youtube
 - [ ] Tạo genre và làm search
 - [ ] Tạo preview page cho contentful
 
@@ -102,6 +102,7 @@ yarn build
 - [X] Cải thiện hiệu suất
 - [X] Add ảnh vào post
 - [X] Fix theme load
+- [ ] Optimize lại web
 - [ ] Fix bar che mất cái nút quay lại k click dc 
 
 ## Đóng góp
