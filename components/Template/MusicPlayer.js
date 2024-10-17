@@ -90,6 +90,7 @@ const MusicPlayer = ({ theme }) => {
           src={song[songIndex].cover}
           alt="Spotify"
           fill
+          quality={50}
           priority={true}
           onLoad={handleImageLoad}
           style={{

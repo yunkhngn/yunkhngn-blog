@@ -23,7 +23,7 @@ const Gallery = ({ desc, theme, themeUse, data }) => {
       <div className="photography">
         {data.length > 0 ? (
           data.map((item) => (
-            <Link passHref href={`/photo/${item.slug}`} key={item.id} prefetch={true}>
+            <Link passHref href={`/photo/${item.slug}`} key={item.id}>
               <div className={"photo" + (!loaded[item.id] ? " skeleton--" + theme : "")}>
                 <Image
                   fill={true}

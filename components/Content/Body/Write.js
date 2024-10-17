@@ -22,7 +22,7 @@ const Write = ({ desc, theme, themeUse, content }) => {
         ) : (
           content.map((item) => (
             <div className="post" key={item.id}>
-              <Link href={`/writing/${item.attributes.Slug}`} passHref prefetch={true}>
+              <Link href={`/writing/${item.attributes.Slug}`} passHref>
                 <ImageRow
                   title={item.attributes.Title}
                   theme={theme}

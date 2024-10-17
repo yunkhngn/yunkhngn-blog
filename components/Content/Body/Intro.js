@@ -34,7 +34,7 @@ const Intro = ({theme,themeUse, content}) => {
             <Snake theme={theme}/>
             <Spacer theme={theme} length="60px"/>
             <Footer content="Dùng máy tính để có trải nghiệm tốt nhất."/>
-            <Link href="/dev/change-log" passHref scroll={true} prefetch={true}>
+            <Link href="/dev/change-log" passHref scroll={true}>
                 <Div
                     textColor={themeUse.secondary}
                     hoverTextColor={themeUse.hover}
