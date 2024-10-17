@@ -16,6 +16,8 @@ const nextConfig = {
     TRACKING_ID: process.env.TRACKING_ID,
   },
   images: {
+    deviceSizes: [440, 540, 640, 828, 1080, 1280, 1400, 1536, 1700, 1920, 2560, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 320, 374],
     remotePatterns: [
       {
         protocol: 'https',
@@ -24,6 +26,8 @@ const nextConfig = {
         pathname: '**/**/**/**',
       },
     ],
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 60,
   },
 }
 
