@@ -31,7 +31,7 @@ const Gallery = ({ desc, theme, themeUse, data }) => {
                   alt={item.title}
                   quality={50}
                   onLoad={() => handleImageLoad(item.id)} 
-                  priority={true}
+                  loading="lazy" 
                   style={{
                     objectFit: 'cover',
                   }}
