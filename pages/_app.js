@@ -7,7 +7,7 @@ import { Provider as StyletronProvider } from "styletron-react";
 import { StyleReset } from "atomize";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { AnimatedTags, ThemeLoader } from "../components/Template";
+import { AnimatedTag, ThemeLoader } from "../components/Template";
 
 import { barList } from "../components/lib";
 import { KBarProvider } from "kbar";
@@ -51,13 +51,13 @@ function MyApp({ Component, pageProps }) {
             <CmdBar theme={theme} />
             <StyleReset />
             <AnimatePresence exitBeforeEnter>
-              <AnimatedTags key={router.pathname}>
+              <AnimatedTag key={router.pathname}>
                   <Component
                     themeUse={themeUse.styles}
                     theme={theme}
                     {...pageProps}
                   />
-              </AnimatedTags>
+              </AnimatedTag>
             </AnimatePresence>
             <Bar
               theme={theme}

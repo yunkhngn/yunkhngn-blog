@@ -1,5 +1,5 @@
 import { Div } from "atomize";
-import Metatags from "./Metatags";
+import Meta from "./Meta";
 import RouteChange from "./RouteChange";
 
 const Template = ({ children, description, height }) => {
@@ -13,7 +13,7 @@ const Template = ({ children, description, height }) => {
       h={height}
     >
       <RouteChange route={description.route} title={description.title}/>
-      <Metatags description={description} />
+      <Meta description={description} />
       {children}
     </Div>
   );

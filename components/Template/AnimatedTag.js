@@ -17,11 +17,11 @@ const animation = {
 
   const transition = {
     duration: 0.4,
-    ease: [0.25, 0.1, 0.25, 1], // cubic-bezier for smooth transitions
+    ease: [0.25, 0.1, 0.25, 1], 
     type: "easeInOut",
 }
 
-const AnimatedTags = ({children}) => {
+const AnimatedTag = ({children}) => {
   return (
     <motion.main
     variants={animation}
@@ -33,4 +33,4 @@ const AnimatedTags = ({children}) => {
   )
 }
 
-export default AnimatedTags
+export default AnimatedTag

@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export default function Metatags({description}) {
+export default function Meta({description}) {
     return (
         <Head>
             <meta charSet="utf-8" />
