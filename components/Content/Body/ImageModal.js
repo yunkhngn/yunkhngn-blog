@@ -24,7 +24,6 @@ const ImageModal = ({url, theme}) => {
         src={"https:" + url}
         alt="img"
         priority={true}
-        sizes="100%"
         onLoad={handleImageLoad}
         style={{
           objectFit: "cover",

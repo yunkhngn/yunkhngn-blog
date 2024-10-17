@@ -19,7 +19,7 @@ const ImagePreview = ({img,alt, isOpen, setIsOpen}) => {
       alt={alt}
       fill={true}
       priority={true}
-      quality={100}
+      quality={75}
       onClick={() => setIsOpen(false)}
       style={{
         objectFit: "contain",

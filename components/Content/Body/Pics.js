@@ -55,7 +55,6 @@ const Pics = ({ desc, theme, themeUse, data }) => {
                     quality={70}
                     priority={true}
                     onLoad={() => handleImageLoad(item.id)} 
-                    sizes="100%"
                     style={{
                       objectFit: "cover",
                     }}

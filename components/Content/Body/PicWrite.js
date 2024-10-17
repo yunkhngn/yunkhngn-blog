@@ -17,7 +17,6 @@ const PicWrite = ({src, theme, title}) => {
             priority={true}
             onLoad={handleImageLoad}
             quality={75}
-            sizes= "100%"
             style={{
               objectFit: "cover",
             }}

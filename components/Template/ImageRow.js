@@ -23,10 +23,10 @@ const ImageRow = ({ title, theme, themeUse, description, date, image, short }) =
       d="flex"
       flexDir="column"
       hoverBg={theme === "light" ? "gray200" : "#222222"}
-      rounded="12px"
-      p={{ xs: "10px", md: "16px" }}
+      rounded="16px"
+      p={{ xs: "10px", md: "20px" }}
       transition
-      m={{ xs: "0 -10px 0 -10px", md: "0 -16px 0 -16px" }}
+      m={{ xs: "0 -10px 0 -10px", md: "0 -20px 0 -20px" }}
     >
      <div className={"writePhoto" + (!loaded ? (" skeleton--"+theme) : "")}>
       <Image
@@ -35,7 +35,6 @@ const ImageRow = ({ title, theme, themeUse, description, date, image, short }) =
             alt="Picture of Khoa Nguyen"
             priority={true}
             quality={75}
-            sizes="100%"
             onLoad={handleImageLoad}
             style={{
             objectFit: "cover",
