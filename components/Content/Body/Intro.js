@@ -8,11 +8,7 @@ const Dog = dynamic(() => import('../../Template/Dog'), {
     ssr: false,
     loading: () => <LoadingCanva/>,
   });
-
-const MusicPlayer = dynamic(() => import('../../Template/MusicPlayer'), {
-    ssr: false,
-    loading: () => <LoadingCanva/>,});
-
+  
 const Intro = ({theme,themeUse, content}) => {
     return (
         <article>
@@ -28,8 +24,6 @@ const Intro = ({theme,themeUse, content}) => {
                 <Dog theme={theme} />
             </div>
             <Spacer theme={theme} length="100px"/>
-            <blockquote className="blockQuote">Lossless music player.</blockquote>
-            <MusicPlayer theme={theme}/>
             <blockquote className="blockQuote">Mr. Snake eating my contributions.</blockquote>
             <Snake theme={theme}/>
             <Spacer theme={theme} length="60px"/>
