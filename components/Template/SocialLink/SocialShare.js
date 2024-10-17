@@ -1,6 +1,6 @@
 import React from 'react';
 import { Div, Icon } from "atomize";
-import Noti from './Noti';
+import {Noti} from '../';
 
 const SocialShare = ({ url, theme }) => {
     const socialShare = [

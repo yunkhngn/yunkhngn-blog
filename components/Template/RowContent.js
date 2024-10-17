@@ -1,5 +1,5 @@
 import { Div } from "atomize";
-import { Para } from "../Template";
+import { Para } from "./";
 
 const RowContent = ({ title, theme, themeUse, description, date }) => {
   const FormattedDate = (date) => {

@@ -54,7 +54,7 @@ export async function getStaticProps() {
       props: {
         content
       },
-      revalidate: 60 // ISR sau mỗi 60 giây
+      revalidate: 60 
     };
   }
 

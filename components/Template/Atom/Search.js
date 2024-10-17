@@ -1,6 +1,6 @@
 import React from 'react'
 import { Input } from 'atomize'
-import {Para, Spacer} from './'
+import {Para, Spacer} from '../'
 
 const Search = ({title, subtitle, placeholder, theme, themeUse, postName}) => {
     const search = (e) => {

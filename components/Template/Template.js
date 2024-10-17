@@ -1,6 +1,6 @@
 import { Div } from "atomize";
-import Meta from "./Meta";
-import RouteChange from "./RouteChange";
+import Meta from "./Function/Meta";
+import RouteChange from "./Function/RouteChange";
 
 const Template = ({ children, description, height }) => {
   return (

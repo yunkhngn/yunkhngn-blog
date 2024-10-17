@@ -1,5 +1,5 @@
 import { Div } from "atomize";
-import { Para, Spacer } from "../Template";
+import { Para, Spacer } from "./";
 import Image from "next/image";
 import { useState } from "react";
 

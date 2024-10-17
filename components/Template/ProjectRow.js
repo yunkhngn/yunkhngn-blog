@@ -1,7 +1,6 @@
 import React from "react";
 import { Div, Tag } from "atomize";
-import Spacer from "./Spacer";
-import Para from "./Paragraph";
+import {Para, Spacer} from "./";
 
 const ProjectRow = ({theme,themeUse, item}) => {
     const dateFormer = (date) => {
