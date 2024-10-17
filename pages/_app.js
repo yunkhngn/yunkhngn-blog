@@ -5,7 +5,7 @@ import "../styles/BarIcon.css";
 import { styletron } from "../styletron";
 import { Provider as StyletronProvider } from "styletron-react";
 import { StyleReset } from "atomize";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import { AnimatedTag, ThemeLoader } from "../components/Template";
 
@@ -18,19 +18,12 @@ import { VercelToolbar } from '@vercel/toolbar/next';
 
 const Bar = dynamic(() => import("../components/Navigate").then(mod => mod.Bar), { ssr: false });
 const CmdBar = dynamic(() => import("../components/Navigate").then(mod => mod.CmdBar), { ssr: false });
-const loadReactGA = () => import("react-ga4").then(mod => mod.default);
 
 function MyApp({ Component, pageProps }) {
   const shouldInjectToolbar = process.env.NODE_ENV === 'development'
   const [theme, setTheme] = useState("");
   const [themeUse, setThemeUse] = useState(themeProvider[0]);
   const router = useRouter();
-
-  useEffect(() => {
-    loadReactGA().then(ReactGA => {
-      ReactGA.initialize(process.env.TRACKING_ID);
-    });
-  }, []);
 
   return (
       <StyletronProvider value={styletron}>

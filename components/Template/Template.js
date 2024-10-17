@@ -1,6 +1,5 @@
 import { Div } from "atomize";
 import Meta from "./Function/Meta";
-import RouteChange from "./Function/RouteChange";
 
 const Template = ({ children, description, height }) => {
   return (
@@ -12,7 +11,6 @@ const Template = ({ children, description, height }) => {
       p={{ t: { xs: "70px", md: "100px" }, l: "16px", r: "16px" }}
       h={height}
     >
-      <RouteChange route={description.route} title={description.title}/>
       <Meta description={description} />
       {children}
     </Div>
