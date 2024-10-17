@@ -5,7 +5,7 @@ const desc = {
         url: 'https://khoanguyen.codes',
         route: '/',
         desc: "Xin chào, tớ là Khoa Nguyễn (yun.khngn), sinh viên chuyên ngành Kỹ thuật phần mềm tại Đại học FPT.",
-        img: 'https://khoanguyen.codes/image/wall.png',
+        img: 'https://khoanguyen.codes/image/thumbnail.jpg',
         content : "Xin chào, tớ là Khoa Nguyễn (yun.khngn), sinh viên chuyên ngành Kỹ thuật phần mềm tại Đại học FPT. Tớ đang là freelancer thiết kế đồ hoạ và là một guitarist của ban nhạc Giấy Trắng. Tớ đang hướng tới trở thành một Fullstack Developer và thực hiện thêm nhiều ước mơ phía trước."
     },
     about: {
@@ -14,7 +14,7 @@ const desc = {
         url: 'https://khoanguyen.codes/about',
         route: '/about',
         desc: "Một chút điều thú vị về tớ và những điều lớn lao.",
-        img: 'https://khoanguyen.codes/image/wall.png',
+        img: 'https://khoanguyen.codes/image/thumbnail.jpg',
         content: {
             Description: "Xin chào, tớ là Khoa Nguyễn (yun.khngn), sinh viên chuyên ngành Kỹ thuật phần mềm tại Đại học FPT. Tớ đang là freelancer thiết kế đồ hoạ và là một guitarist của ban nhạc Giấy Trắng. Tớ đang hướng tới trở thành một Fullstack Developer và thực hiện thêm nhiều ước mơ phía trước.",
             Quote: "Tương lai thuộc về những người tin vào vẻ đẹp trong chính những giấc mơ, hoài bão to lớn của mình...",
@@ -27,7 +27,7 @@ const desc = {
         url: 'https://khoanguyen.codes/project',
         route: '/project',
         desc: "Những dự án lập trình cá nhân/pet projects của tớ từ Github.",
-        img: 'https://khoanguyen.codes/image/wall.png',
+        img: 'https://khoanguyen.codes/image/thumbnail.jpg',
     },
     pics: {
         title: 'Thư viện | Khoa Nguyễn',
@@ -35,7 +35,7 @@ const desc = {
         url: 'https://khoanguyen.codes/library',
         route: '/library',
         desc: "Các thiết kế của tớ đã được đăng trên Behance.",
-        img: 'https://khoanguyen.codes/image/wall.png',
+        img: 'https://khoanguyen.codes/image/thumbnail.jpg',
     },
     photo: {
         title: 'Ảnh chụp | Khoa Nguyễn',
@@ -43,7 +43,7 @@ const desc = {
         url: 'https://khoanguyen.codes/photo',
         route: '/photo',
         desc: "Những bức ảnh tớ chụp qua ống kính nhiệm màu, hoặc là đời sống thường ngày.",
-        img: 'https://khoanguyen.codes/image/wall.png',
+        img: 'https://khoanguyen.codes/image/thumbnail.jpg',
     },
     blog: {
         title: 'Viết linh tinh | Khoa Nguyễn',
@@ -51,7 +51,7 @@ const desc = {
         url: 'https://khoanguyen.codes/writing',
         route: '/writing',
         desc: "Những cảm xúc không thể bao biện, hoặc chỉ đơn giản là viết.",
-        img: 'https://khoanguyen.codes/image/wall.png',
+        img: 'https://khoanguyen.codes/image/thumbnail.jpg',
     },
     contact: {
         title: 'Liên hệ | Khoa Nguyễn',
@@ -59,7 +59,7 @@ const desc = {
         url: 'https://khoanguyen.codes/contact',
         route: '/contact',
         desc: "Mọi người liên hệ công việc với tớ qua form này nhé.",
-        img: 'https://khoanguyen.codes/image/wall.png',
+        img: 'https://khoanguyen.codes/image/thumbnail.jpg',
     },
     resume: {
         title: 'Resume | Khoa Nguyễn',
@@ -67,7 +67,7 @@ const desc = {
         url: 'https://khoanguyen.codes/business/resume',
         route: '/business/resume',
         desc: "Resume cá nhân của tớ cho các nhà tuyển dụng.",
-        img: 'https://khoanguyen.codes/image/wall.png',
+        img: 'https://khoanguyen.codes/image/thumbnail.jpg',
     },
     changeLog: {
         title: 'Change log | Khoa Nguyễn',
@@ -75,7 +75,7 @@ const desc = {
         url: 'https://khoanguyen.codes/change-log',
         route: '/dev/change-log',
         desc: "Các features sẽ được update và thông báo ở đây.",
-        img: 'https://khoanguyen.codes/image/wall.png',
+        img: 'https://khoanguyen.codes/image/thumbnail.jpg',
     }
 }
 
