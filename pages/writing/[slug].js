@@ -125,24 +125,44 @@ const WritingPage = ({ post, themeUse, theme }) => {
   if (router.isFallback) {
     return <p>Loading...</p>;
   }
-  function truncateHtml(htmlString, maxLength) {
+
+  const truncateHtml = (htmlString, maxLength) => {
     const text = htmlToText(documentToHtmlString(htmlString), {
-      wordwrap: false
+      wordwrap: false,
     });
-    if (text.length > maxLength) {
-      return text.slice(0, maxLength) + '...';
+    
+    // Tách chuỗi thành mảng các từ
+    const words = text.split(" ");
+    
+    // Biến để giữ kết quả đã nối và tính tổng độ dài
+    let truncatedText = "";
+    let currentLength = 0;
+  
+    // Lặp qua các từ và dừng khi đạt giới hạn maxLength
+    for (let word of words) {
+      // Kiểm tra nếu việc thêm từ tiếp theo sẽ vượt quá giới hạn
+      if (currentLength + word.length + 1 > maxLength) {
+        truncatedText += "...";
+        break;
+      }
+      // Thêm từ vào chuỗi kết quả và cập nhật tổng độ dài
+      truncatedText += word + " ";
+      currentLength += word.length + 1; // +1 để tính khoảng trắng
     }
   
-    return text;
-  }
+    return truncatedText.trim();
+  };
+
   const src = post.Image;
+  
   const desc = {
     title: `${post.Title} - ${post.Desc}`,
-    desc: truncateHtml(post.Body, 100),
+    desc: truncateHtml(post.Body, 200),
     url: `https://khoanguyen.codes/writing/${post.slug}`,
     img: src,
     route: `/writing/${post.slug}`,
   };
+
   return (
     <Template description={desc} height="100%">
       <article>
