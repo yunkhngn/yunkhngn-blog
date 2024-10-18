@@ -2,7 +2,6 @@ import {Template, Title} from '../components/Template'
 import {Gallery} from '../components/Content'
 import {desc} from '../components/lib'
 
-// Lấy content từ api
 const contentful = require('contentful');
 const client = contentful.createClient({
   space: process.env.CONTENTFUL_SPACE_ID,

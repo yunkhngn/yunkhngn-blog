@@ -12,16 +12,32 @@ const client = contentful.createClient({
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 });
 
-const truncateHtml = (htmlString, maxLength) =>{
+const truncateHtml = (htmlString, maxLength) => {
   const text = htmlToText(documentToHtmlString(htmlString), {
-    wordwrap: false
+    wordwrap: false,
   });
-  if (text.length > maxLength) {
-    return text.slice(0, maxLength) + '...';
+  
+  // Tách chuỗi thành mảng các từ
+  const words = text.split(" ");
+  
+  // Biến để giữ kết quả đã nối và tính tổng độ dài
+  let truncatedText = "";
+  let currentLength = 0;
+
+  // Lặp qua các từ và dừng khi đạt giới hạn maxLength
+  for (let word of words) {
+    // Kiểm tra nếu việc thêm từ tiếp theo sẽ vượt quá giới hạn
+    if (currentLength + word.length + 1 > maxLength) {
+      truncatedText += "...";
+      break;
+    }
+    // Thêm từ vào chuỗi kết quả và cập nhật tổng độ dài
+    truncatedText += word + " ";
+    currentLength += word.length + 1; // +1 để tính khoảng trắng
   }
 
-  return text;
-}
+  return truncatedText.trim();
+};
 
 const writing = ({themeUse,theme, content}) => {
   
@@ -46,7 +62,7 @@ export async function getStaticProps() {
         Slug: item.fields.slug,
         createdAt: item.sys.createdAt,
         Desc: item.fields.description,
-        Short: truncateHtml(item.fields.body,150),
+        Short: truncateHtml(item.fields.body,200),
       }
     })).sort((a, b) => new Date(b.attributes.createdAt) - new Date(a.attributes.createdAt));
   
