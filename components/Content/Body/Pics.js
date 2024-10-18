@@ -41,9 +41,9 @@ const Pics = ({ desc, theme, themeUse, data }) => {
                   justify="center"
                   aligt="center"
                   hoverBg={theme === "light" ? "gray200" : "#222222"}
-                  rounded={{ xs: "26px", sm: "24px" }}
+                  rounded={{ xs: "26px", md: "30px" }}
                   w="100%"
-                  p={{ t: "1em", b: "1.5em", l: "1em", r: "1em" }}
+                  p={{ xs: "26px", md: "30px" }}
                   transition
                   textAlign="center"
                 >

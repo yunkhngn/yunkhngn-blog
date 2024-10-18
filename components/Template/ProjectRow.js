@@ -12,10 +12,10 @@ const ProjectRow = ({theme,themeUse, item}) => {
     <a target="_blank" rel="noreferrer" href={item.html_url}>
       <Div
         hoverBg={theme === "light" ? "gray200" : "#222222"}
-        rounded="12px"
-        p={{t: "24px", b: "24px", l: "16px", r: "16px"}}
+        rounded="24px"
+        p={{t: "24px", b: "24px", l: "24px", r: "24px"}}
         transition
-        m={{ r: "-16px", l: "-16px" }}
+        m={{ r: "-24px", l: "-24px" }}
         d="flex"
         justify="space-between"
       >
