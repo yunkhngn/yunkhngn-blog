@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 const contentful = require("contentful");
 import { Div } from 'atomize';
 import ReactMarkdown from "react-markdown";
-import { Title, Para, Template, Spacer, Footer, Back } from "../../components/Template";
+import { Title, Para, Template, Spacer, Footer, Back, SocialShare } from "../../components/Template";
 import { ImageModal } from "../../components/Content";
 
 const client = contentful.createClient({
@@ -44,6 +44,7 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
         <Para align="left" color={themeUse.secondary}>
           {"Hà Nội, ngày " + formatDate(data.createdAt)}
         </Para>
+        <SocialShare url={desc.url} theme={theme}/>
         <Spacer theme={theme} length="10em" />
         <ReactMarkdown className="richText">{data.description}</ReactMarkdown>
         <Div m={{ b: "1.7em" }} />
