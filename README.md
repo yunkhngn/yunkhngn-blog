@@ -102,7 +102,7 @@ yarn build
 - [X] Cải thiện hiệu suất
 - [X] Add ảnh vào post
 - [X] Fix theme load
-- [ ] Optimize lại web
+- [ ] Optimize lại web hơn nữa, những cái trang có ảnh dễ bị khựng
 - [ ] Fix bar che mất cái nút quay lại k click dc 
 
 ## Đóng góp
