@@ -1,4 +1,4 @@
-import { Para, SocialLink, Spacer, Footer } from "../../Template";
+import { Para, SocialLink, Spacer, Footer, Snake } from "../../Template";
 import { Div } from "atomize";
 import ReactMarkdown from "react-markdown";
 import { useState } from "react";
@@ -55,6 +55,9 @@ const About = ({ desc, theme, themeUse, content }) => {
       <br />
       <Footer content="Vài dòng thư tay viết vội." />
       </Div>
+      <Spacer theme={theme} length="100px"/>
+            <blockquote className="blockQuote">Mr. Snake eating my contributions.</blockquote>
+            <Snake theme={theme}/>
       <Spacer theme={theme} length="80px" />
       <a target="_blank" rel="noreferrer" href="https://facebook.com/yun.khngn">
         <Div

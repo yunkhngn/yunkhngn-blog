@@ -23,7 +23,7 @@ const ImageRow = ({ title, theme, themeUse, description, date, image, short }) =
       d="flex"
       flexDir="column"
       hoverBg={theme === "light" ? "gray200" : "#222222"}
-      rounded="30px"
+      rounded={{ xs: "16px", md: "30px" }}
       p={{ xs: "10px", md: "25px" }}
       transition
       m={{ xs: "0 -10px 0 -10px", md: "0 -25px 0 -25px" }}

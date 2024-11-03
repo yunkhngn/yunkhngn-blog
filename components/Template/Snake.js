@@ -11,6 +11,7 @@ const Snake = ({theme}) => {
             fill='contain'
             alt='snake'
             priority={true}
+            quality={50}
             onDragStart={e => e.preventDefault()}
             />
     </div>
