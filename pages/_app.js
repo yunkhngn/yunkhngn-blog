@@ -43,15 +43,15 @@ function MyApp({ Component, pageProps }) {
           <div className={"selection--" + theme}>
             <CmdBar theme={theme} />
             <StyleReset />
-            <AnimatePresence exitBeforeEnter>
-              <AnimatedTag key={router.pathname}>
+            {/* <AnimatePresence exitBeforeEnter>
+              <AnimatedTag key={router.pathname}> */}
                   <Component
                     themeUse={themeUse.styles}
                     theme={theme}
                     {...pageProps}
                   />
-              </AnimatedTag>
-            </AnimatePresence>
+              {/* </AnimatedTag>
+            </AnimatePresence> */}
             <Bar
               theme={theme}
               setTheme={setTheme}
