@@ -38,10 +38,13 @@ const options = {
               onDragStart={(e) => e.preventDefault()}
             />
           </div>
+            {description && (
             <Text
             >
-              <i>P/s: {description || 'Embedded Image'}</i>
+              <i>P/s: {description}</i>
             </Text>
+            )  
+            }
           </div>
         );
       }
