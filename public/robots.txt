@@ -2,5 +2,8 @@
 User-agent: *
 Allow: /
 
+# Host
+Host: https://khoanguyen.codes
+
 # Sitemaps
 Sitemap: https://khoanguyen.codes/sitemap.xml

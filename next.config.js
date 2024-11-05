@@ -44,15 +44,14 @@ const nextConfig = {
   },
 }
 
-/** @type {import('next').NextConfig} */
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true', // Bật phân tích khi biến môi trường ANAYZE là true
-});
+// /** @type {import('next').NextConfig} */
+// const withBundleAnalyzer = require('@next/bundle-analyzer')({
+//   enabled: process.env.ANALYZE === 'true', // Bật phân tích khi biến môi trường ANAYZE là true
+// });
 
 
-module.exports = withBundleAnalyzer(nextConfig);
+// module.exports = withBundleAnalyzer(nextConfig);
 
-// module.exports = nextConfig
 
 const withVercelToolbar = require('@vercel/toolbar/plugins/next')();
 // Instead of module.exports = nextConfig, do this:
