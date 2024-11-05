@@ -30,6 +30,7 @@ const Gallery = ({ desc, theme, themeUse, data }) => {
                   src={"https:" + item.images[0].url}
                   alt={item.title}
                   quality={50}
+                  sizes="(max-width: 768px) calc(100vw / 3), (max-width: 1200px) calc(100vw / 3), 33vw"
                   onLoad={() => handleImageLoad(item.id)} 
                   loading="lazy" 
                   style={{

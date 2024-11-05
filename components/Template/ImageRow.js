@@ -35,6 +35,7 @@ const ImageRow = ({ title, theme, themeUse, description, date, image, short }) =
             alt="Picture"
             loading="lazy" 
             quality={75}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
             onLoad={handleImageLoad}
             style={{
             objectFit: "cover",

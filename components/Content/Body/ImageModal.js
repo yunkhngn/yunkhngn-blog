@@ -23,7 +23,9 @@ const ImageModal = ({url, theme}) => {
         fill={true}
         src={"https:" + url}
         alt="img"
-        priority={true}
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+        quality={75}
+        loading="lazy"
         onLoad={handleImageLoad}
         style={{
           objectFit: "cover",

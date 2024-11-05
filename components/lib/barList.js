@@ -17,13 +17,13 @@ const barList ={
           {
             id: 3,
             name: "Library",
-            icon: "Bulk",
+            icon: "History",
             url: "/library",
           },
           {
             id: 4,
             name: "Photo",
-            icon: "History",
+            icon: "Bulk",
             url: "/photo",
           },
           {

@@ -18,32 +18,37 @@ const photo = ({themeUse, data,theme}) => {
   )
 }
 
-export async function getStaticProps() {
-  const response = await client.getEntries({
-    content_type: 'picture',
-  });
+function transformData(items) {
+  return items.map((item) => ({
+    id: item.sys.id,
+    title: item.fields.title,
+    description: item.fields.description,
+    slug: item.fields.slug,
+    images: item.fields.images.map((img) => ({
+      url: img.fields.file.url,
+      title: img.fields.title || '',
+      description: img.fields.description || '',
+    })),
+    createdAt: item.sys.createdAt,
+    updatedAt: item.sys.updatedAt,
+  })).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+}
 
-  const transformedData = response.items.map((item) => {
+export async function getStaticProps() {
+  try {
+    const response = await client.getEntries({ content_type: 'picture' });
+    const transformedData = transformData(response.items);
+
     return {
-      id: item.sys.id,
-      title: item.fields.title, 
-      description: item.fields.description, 
-      slug: item.fields.slug, 
-      images: item.fields.images.map((img) => ({
-        url: img.fields.file.url, 
-        title: img.fields.title || '',
-        description: img.fields.description || '', 
-      })),
-      createdAt: item.sys.createdAt, 
-      updatedAt: item.sys.updatedAt,
+      props: { data: transformedData },
+      revalidate: 60,
     };
-  });
-  transformedData.sort((a, b) => {return new Date(b.createdAt) - new Date(a.createdAt);});
-  return {
-    props: {
-      data: transformedData,
-    },
-    revalidate: 60
-  };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return {
+      props: { data: [] },
+      revalidate: 60,
+    };
+  }
 }
 export default photo

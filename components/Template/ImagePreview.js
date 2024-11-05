@@ -18,7 +18,8 @@ const ImagePreview = ({img,alt, isOpen, setIsOpen}) => {
       src={img}
       alt={alt}
       fill={true}
-      priority={true}
+      loading="lazy"
+      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
       quality={75}
       onClick={() => setIsOpen(false)}
       style={{
