@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
-import { useEffect } from "react";
+
 const ThemeLoader = ({ theme, setTheme, setThemeUse, themeProvider }) => {
   useEffect(() => {
     const isFirstTimeOnPage = !localStorage.getItem("userTheme");
@@ -43,16 +43,16 @@ const ThemeLoader = ({ theme, setTheme, setThemeUse, themeProvider }) => {
     document.documentElement.className =
       theme === "light" ? "light-theme" : "dark-theme";
   }, [theme]);
+
   return (
     <Head>
-      {/* Đoạn style để thiết lập theme ngay lập tức */}
       <style>
         {`
             :root {
               --background-color-light: #ffffff;
-              --background-color-dark: #000000;
-              --text-color-light: #000000;
-              --text-color-dark: #ffffff;
+              --background-color-dark: #161616;
+              --text-color-light: #171717;
+              --text-color-dark: #ededed;
             }
             
             html.light-theme {
@@ -64,12 +64,10 @@ const ThemeLoader = ({ theme, setTheme, setThemeUse, themeProvider }) => {
               background-color: var(--background-color-dark);
               color: var(--text-color-dark);
             }
-
-            /* Đặt theme ngay lập tức */
+            
             html {
               background-color: var(--background-color-light);
               color: var(--text-color-light);
-              transition: background-color 0.1s ease-out, color 0.1s ease-out;
             }
           `}
       </style>
@@ -83,6 +81,7 @@ const ThemeLoader = ({ theme, setTheme, setThemeUse, themeProvider }) => {
                 } else {
                   var systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
                   document.documentElement.className = systemTheme === 'dark' ? 'dark-theme' : 'light-theme';
+                  localStorage.setItem('userTheme', systemTheme);
                 }
               })();
             `,

@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: false,
+  reactStrictMode: true,
   i18n: {
     locales: ["vi"],
     defaultLocale: "vi",
@@ -43,6 +43,15 @@ const nextConfig = {
     return config;
   },
 }
+
+const withPurgeCss = require('next-purgecss');
+module.exports = withPurgeCss({
+  purgeCssPaths: [
+    'pages/**/*',
+    'components/**/*'
+  ],
+});
+
 
 // /** @type {import('next').NextConfig} */
 // const withBundleAnalyzer = require('@next/bundle-analyzer')({
