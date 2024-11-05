@@ -12,6 +12,7 @@
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^16.6.10",
     "@contentful/rich-text-react-renderer": "^15.22.11",
+    "@contentful/rich-text-types": "^17.0.0",
     "@emailjs/browser": "^4.4.1",
     "@hcaptcha/react-hcaptcha": "^1.11.0",
     "@react-three/drei": "^9.112.0",
@@ -22,16 +23,12 @@
     "contentful": "^10.15.0",
     "framer-motion": "^6.3.3",
     "html-to-text": "^9.0.5",
-    "isomorphic-unfetch": "^3.1.0",
     "kbar": "^0.1.0-beta.34",
     "next": "^14.2.10",
     "next-sitemap": "^4.2.3",
-    "qs": "^6.10.3",
     "react": "^18.1.0",
     "react-dom": "18.1.0",
-    "react-loading-skeleton": "^3.4.0",
     "react-markdown": "^9.0.1",
-    "react-syntax-highlighter": "^15.5.0",
     "react-transition-group": "^4.4.2",
     "styletron-engine-atomic": "^1.4.8",
     "styletron-react": "^6.0.2",
@@ -40,8 +37,7 @@
   "devDependencies": {
     "@next/bundle-analyzer": "^14.2.12",
     "eslint": "8.14.0",
-    "eslint-config-next": "12.1.5",
-    "webpack-bundle-analyzer": "^4.10.2"
+    "eslint-config-next": "12.1.5"
   },
   "engines": {
     "node": ">=18.x"
