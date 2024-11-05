@@ -174,7 +174,7 @@ const WritingPage = ({ post, themeUse, theme }) => {
           {"Hà Nội, ngày " + formatDate(post.createdAt)}
         </Para>
         <hr className={"hr" + theme} />
-        <Para color={themeUse.secondary}><strong>Tác giả:</strong> @yun.khngn</Para>
+        <Para color={themeUse.secondary}><strong>Author:</strong> @yun.khngn</Para>
         <Para color={themeUse.secondary}><strong>Description: </strong>{post.Desc}</Para>
         <SocialShare url={desc.url} theme={theme}/>
         <Spacer theme={theme} length="120px" />
