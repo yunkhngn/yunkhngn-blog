@@ -81,22 +81,34 @@ const ImageRow = ({ title, theme, themeUse, description, date, image, short }) =
         </Para>
         </Div>
         <hr className={"hr" + theme} />
-        <Para
-          color={themeUse.secondary}
-          p={{ xs: "10px", md: "16px" }}
-          margin="true"
-          align="left"
-          which="left"
-          transition
+        <Div
+        d={{ xs: "block", md: "flex" }}
         >
-         {FormattedDate(date)}
-        </Para>
+          <Para
+              color={themeUse.secondary}
+              margin="true"
+              align="left"
+              which="left"
+              transition
+            >
+            <strong>Ngày đăng:</strong>
+            </Para>
+          <Para
+            color={themeUse.secondary}
+            p={{ xs: "10px", md: "16px" }}
+            margin="true"
+            align="left"
+            which="left"
+            transition
+          >
+          {FormattedDate(date)}
+          </Para>
+        </Div>
       </Div>
       <Div
-      textAlign="left"
+        textAlign="left"
         align="left"
         w="100%"
-        d="flex"
         m={{t: "5px",b:"5px"}}
       >
       <Para
@@ -104,8 +116,25 @@ const ImageRow = ({ title, theme, themeUse, description, date, image, short }) =
           color={themeUse.secondary}
           transition
         >
-         <i>{short}</i>
+         {short}
         </Para>
+        <Div
+        d="flex"
+        w="100%"
+        justify="space-between"
+        >
+          <Para
+            align="left"
+            color={themeUse.secondary}
+            transition
+            margin="true"
+            which="right"
+            
+          >
+          <strong>Author:</strong> @yun.khngn
+          </Para>
+          <hr className={"hr" + theme} />
+        </Div>
       </Div>
     </Div>
   );
