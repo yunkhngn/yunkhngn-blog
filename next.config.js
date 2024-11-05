@@ -30,7 +30,16 @@ const nextConfig = {
     minimumCacheTTL: 60,
   },
   webpack: (config) => {
-    config.optimization.minimize = true;
+    config.optimization.minimize = true; // Bật tối ưu hóa cho Webpack
+    config.plugins.push(
+      new (require('compression-webpack-plugin'))({
+        filename: '[file].gz', // Đặt tên file nén
+        algorithm: 'gzip',
+        test: /\.(js|css|html|svg)$/, // Các định dạng file để nén
+        threshold: 10240, // Nén file lớn hơn 10kB
+        minRatio: 0.8, // Tỉ lệ tối thiểu
+      })
+    );
     return config;
   },
 }
