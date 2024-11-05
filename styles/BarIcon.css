@@ -10,7 +10,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s, margin 200ms, translateY 0.25s, background-image 0.25s ease-out, color 0.25s ease-out;
+    transition: transform 0.2s, margin 200ms, translateY 0.25s, background-color 0.25s ease-out, color 0.25s ease-out;
   }
 
 .Icon--container {
@@ -66,9 +66,11 @@
 }
 
 .Iconlight {
-    background-image: linear-gradient( 45deg, hsl(0 0% 97.3%), hsl(0 0% 90.9%), hsl(0 0% 97.3%), hsl(0 0% 90.9%));
+    /* background-image: linear-gradient( 45deg, hsl(0 0% 97.3%), hsl(0 0% 90.9%), hsl(0 0% 97.3%), hsl(0 0% 90.9%)); */
+    background-color: hsl(0 0% 90.9%);
 }
 
 .Icondark {
-    background-image: linear-gradient( 45deg, hsl(0 0% 11.0%), hsl(0 0% 13.6%), hsl(0 0% 11.0%), hsl(0 0% 13.6%));
+    /* background-image: linear-gradient( 45deg, hsl(0 0% 11.0%), hsl(0 0% 13.6%), hsl(0 0% 11.0%), hsl(0 0% 13.6%)); */
+    background-color: hsl(0 0% 13.6%);
 }

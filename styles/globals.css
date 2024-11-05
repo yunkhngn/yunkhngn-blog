@@ -271,7 +271,7 @@ iframe {
   word-break: break-word;
   width: 80%;
 }
-html, input, textarea, button, p, div{
+html, input, textarea, button{
   transition: all 0.25s ease-out !important; 
 }
 .about--content{
