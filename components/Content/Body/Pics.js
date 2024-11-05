@@ -52,8 +52,9 @@ const Pics = ({ desc, theme, themeUse, data }) => {
                     fill={true}
                     src={"https:" + item.attributes.Image}
                     alt={item.attributes.Title}
-                    quality={70}
+                    quality={50}
                     loading="lazy" 
+                    sizes="(max-width: 768px) calc(100vw / 3), (max-width: 1200px) calc(100vw / 3), 33vw"
                     onLoad={() => handleImageLoad(item.id)} 
                     style={{
                       objectFit: "cover",
