@@ -27,7 +27,6 @@
     "next": "^15.0.2",
     "next-purgecss": "^4.0.0",
     "next-sitemap": "^4.2.3",
-    "postcss": "^8.4.47",
     "react": "^18.1.0",
     "react-dom": "^18.3.1",
     "react-markdown": "^9.0.1",
