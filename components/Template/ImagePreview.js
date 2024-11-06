@@ -20,7 +20,6 @@ const ImagePreview = ({img,alt, isOpen, setIsOpen}) => {
       fill={true}
       loading="lazy"
       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
-      quality={75}
       onClick={() => setIsOpen(false)}
       style={{
         objectFit: "contain",

@@ -24,7 +24,6 @@ const ImageModal = ({url, theme}) => {
         src={"https:" + url}
         alt="img"
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
-        quality={75}
         loading="lazy"
         onLoad={handleImageLoad}
         style={{
