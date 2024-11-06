@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }) {
           <div className={"selection--" + theme}>
             <CmdBar theme={theme} />
             <StyleReset />
-            <AnimatePresence exitBeforeEnter>
+            <AnimatePresence mode="wait">
               <AnimatedTag key={router.pathname}>
                   <Component
                     themeUse={themeUse.styles}
