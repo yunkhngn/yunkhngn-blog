@@ -63,7 +63,7 @@ const barList ={
       {
         id: "homeAction",
         name: "Trang chủ",
-        shortcut: ["t"],
+        shortcut: ["1"],
         keywords: "back home, trang chu",
         section: "Navigation",
         perform: () => Router.push('/'),
@@ -72,7 +72,7 @@ const barList ={
       {
         id: "aboutMeAction",
         name: "Giới thiệu",
-        shortcut: ["g"],
+        shortcut: ["2"],
         keywords: "gioi thieu ve toi",
         section: "Navigation",
         perform: () => Router.push('/about'),
@@ -81,7 +81,7 @@ const barList ={
       {
         id: "projectsAction",
         name: "Dự án",
-        shortcut: ["d"],
+        shortcut: ["3"],
         keywords: "project projects du an work featured",
         section: "Navigation",
         perform: () => Router.push('/project'),
@@ -90,7 +90,7 @@ const barList ={
       {
         id: "libraryAction",
         name: "Thư viện",
-        shortcut: ["l"],
+        shortcut: ["4"],
         keywords: "library thu vien design work behance",
         section: "Navigation",
         perform: () => Router.push('/library'),
@@ -99,7 +99,7 @@ const barList ={
       {
         id: "photoAction",
         name: "Ảnh chụp",
-        shortcut: ["p"],
+        shortcut: ["5"],
         keywords: "library thu vien anh chup photo",
         section: "Navigation",
         perform: () => Router.push('/photo'),
@@ -108,7 +108,7 @@ const barList ={
       {
         id: "writingsAction",
         name: "Viết linh tinh",
-        shortcut: ["v"],
+        shortcut: ["6"],
         keywords: "writing writings viet linh tinh blog",
         section: "Navigation",
         perform: () => Router.push('/writing'),
@@ -117,20 +117,38 @@ const barList ={
       {
         id: "scrollToTopAction",
         name: "Kéo lên",
-        shortcut: ["s","t"],
+        shortcut: ["w"],
         keywords: "scroll top",
         section: "Preferences",
-        perform: () => window.scrollTo(0, 0),
-        subtitle: "Kéo lên trên cùng.",
+        perform: () => window.scrollBy({ top: -window.innerHeight / 2, behavior: 'smooth' }),
+        subtitle: "Kéo lên trên.",
       },
       {
         id: "scrollToBotAction",
         name: "Kéo xuống dưới",
-        shortcut: ["s","b"],
+        shortcut: ["s"],
         keywords: "scroll bottom",
         section: "Preferences",
-        perform: () => window.scrollTo(0, document.body.scrollHeight),
+        perform: () => window.scrollBy({ top: window.innerHeight / 2, behavior: 'smooth' }),
         subtitle: "Kéo xuống dưới cùng.",
+      },
+      {
+        id: "backAction",
+        name: "Quay lại",
+        shortcut: ["a"],
+        keywords: "back to previous page",
+        section: "Preferences",
+        perform: () => Router.back(),
+        subtitle: "Quay lại.",
+      },
+      {
+        id: "nextAction",
+        name: "Trang tiếp",
+        shortcut: ["d"],
+        keywords: "back to previous page",
+        section: "Preferences",
+        perform: () => window.history.forward(),
+        subtitle: "Quay lại.",
       },
       {
         id: "facebookAction",
@@ -167,6 +185,15 @@ const barList ={
         section: "Social media",
         perform: () => window.open('https://www.behance.net/yunkhngn_', '_blank'),
         subtitle: "Các dự án thiết kế của tớ trên Behance.",
+      },
+      {
+        id: "contactAction",
+        name: "Liên hệ",
+        shortcut: ["7"],
+        keywords: "contact lien he email",
+        section: "Navigation",
+        perform: () => Router.push('/contact'),
+        subtitle: "Liên hệ với tớ.",
       },
     ]
 }
