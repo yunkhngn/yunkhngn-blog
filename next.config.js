@@ -44,15 +44,6 @@ const nextConfig = {
   },
 }
 
-const withPurgeCss = require('next-purgecss');
-module.exports = withPurgeCss({
-  purgeCssPaths: [
-    'pages/**/*',
-    'components/**/*'
-  ],
-});
-
-
 // /** @type {import('next').NextConfig} */
 // const withBundleAnalyzer = require('@next/bundle-analyzer')({
 //   enabled: process.env.ANALYZE === 'true', // Bật phân tích khi biến môi trường ANAYZE là true
