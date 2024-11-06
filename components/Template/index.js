@@ -4,7 +4,6 @@ export {default as ImagePreview} from './ImagePreview'
 export {default as ModalAsk} from './ModalAsk'
 export {default as RowContent} from './RowContent'
 export {default as ImageRow} from './ImageRow'
-export {default as Dog} from './Dog'
 export {default as MusicPlayer} from './MusicPlayer'
 export {default as ProjectRow} from './ProjectRow'
 
