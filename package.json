@@ -15,8 +15,6 @@
     "@contentful/rich-text-types": "^17.0.0",
     "@emailjs/browser": "^4.4.1",
     "@hcaptcha/react-hcaptcha": "^1.11.0",
-    "@react-three/drei": "^9.112.0",
-    "@react-three/fiber": "^8.17.7",
     "@vercel/toolbar": "^0.1.22",
     "atomize": "^1.0.28",
     "compression-webpack-plugin": "^11.1.0",

@@ -61,6 +61,7 @@ const BarIcon = ({ icon, name, url, clickHandler, changeColor, theme }) => {
       <Icon
         d={displayNav ? null : "none"}
         name="Dot"
+        className="Icon"
         m="auto"
         color={changeColor ? "#dbdbdb" : "#3e3e3e"}
         size="10px"
