@@ -21,6 +21,26 @@
     align-items: center;
 }
 
+.true--color {
+    background-color: #dbdbdb;
+}
+.false--color {
+    background-color: #3e3e3e;
+}
+
+.dot{
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 2px;
+    transition: background-color 0.25s ease-out;
+}
+
+.display--false{
+    display: none;
+}
+
 @media screen and (min-width: 930px) {
     .Icon:hover{
         transform: scale(1.4) translateY(-15px) ;
