@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://khoanguyen.codes
+Host: https://yunkhngn.dev
 
 # Sitemaps
-Sitemap: https://khoanguyen.codes/sitemap.xml
+Sitemap: https://yunkhngn.dev/sitemap.xml

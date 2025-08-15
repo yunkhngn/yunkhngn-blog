@@ -18,7 +18,7 @@ export default function Meta({description}) {
             <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
             <meta name="msapplication-config" content="/browserconfig.xml" />
             <meta name="theme-color" content="#000000" />
-            <link rel="canonical" href={description.url || "https://khoanguyen.codes"}/>
+            <link rel="canonical" href={description.url || "https://yunkhngn.dev"}/>
             <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
             <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
             <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
@@ -43,7 +43,7 @@ export default function Meta({description}) {
             {/* <!-- Open Graph / Facebook --> */}
             <meta property="og:site_name" content="Khoa Nguyen"></meta>
             <meta property="og:type" content="website" />
-            <meta property="og:url" content={description.url || "https://khoanguyen.codes"} />
+            <meta property="og:url" content={description.url || "https://yunkhngn.dev"} />
             <meta property="og:title" content={description.title} />
             <meta property="og:description" content={description.desc || "Xin chào, tớ là Khoa Nguyễn. Tớ là sinh viên chuyên ngành Kỹ thuật phần mềm tại Đại học FPT. Hiện tại tớ cũng đang là freelancer thiết kế đồ hoạ và phát triển một số dự án cá nhân."} />
             <meta property="og:image" content={description.img} />
@@ -53,7 +53,7 @@ export default function Meta({description}) {
             <meta property="fb:app_id" content="1881282985689458" />
             {/* <!-- Twitter --> */}
             <meta property="twitter:card" content="summary_large_image"/>
-            <meta property="twitter:url" content={description.url || "https://khoanguyen.codes"} />
+            <meta property="twitter:url" content={description.url || "https://yunkhngn.dev"} />
             <meta property="twitter:title" content={description.title}/>
             <meta property="twitter:description" content={(description.desc) ? description.desc : "Xin chào, tớ là Khoa Nguyễn. Tớ là sinh viên chuyên ngành Kỹ thuật phần mềm tại Đại học FPT. Hiện tại tớ cũng đang là freelancer thiết kế đồ hoạ và phát triển một số dự án cá nhân."}/>
             <meta property="twitter:image" content={description.img}/>

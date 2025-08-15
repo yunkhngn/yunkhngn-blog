@@ -161,7 +161,7 @@ const WritingPage = ({ post, themeUse, theme }) => {
   const desc = {
     title: `${post.Title} - ${post.Desc}`,
     desc: truncateHtml(post.Body, 200),
-    url: `https://khoanguyen.codes/writing/${post.slug}`,
+    url: `https://yunkhngn.dev/writing/${post.slug}`,
     img: src,
     route: `/writing/${post.slug}`,
   };

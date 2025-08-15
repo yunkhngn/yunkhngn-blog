@@ -2,7 +2,7 @@
 
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-    siteUrl:'https://khoanguyen.codes',
+    siteUrl:'https://yunkhngn.dev/',
     generateRobotsTxt: true, // Tạo tệp robots.txt
     changefreq: 'daily', // Tần suất thay đổi nội dung
     priority: 0.7, // Độ ưu tiên của các trang

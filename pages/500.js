@@ -2,7 +2,7 @@ import {Title, Para, Template, Spacer} from '../components/Template/'
 
 const description = {
     title: 'Server-side error occurred - Khoa Nguyễn',
-    url: 'https://khoanguyen.codes/',
+    url: 'https://yunkhngn.dev',
 }
 
 const Custom500 = ({themeUse, theme}) =>{

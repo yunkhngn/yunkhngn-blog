@@ -27,7 +27,7 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
   const desc = {
     title: data.title + " - Ảnh chụp",
     desc: data.description,
-    url: `https://khoanguyen.codes/photo/${data.slug}`,
+    url: `https://yunkhngn.dev/photo/${data.slug}`,
     img: `https:${data.images[0].fields.file.url}`,
     route: "/photo/" + data.slug,
   };

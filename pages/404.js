@@ -2,7 +2,7 @@ import {Title, Para, Template, Spacer, Back} from '../components/Template/'
 
 const description = {
     title: '404 Not found | Khoa Nguyễn',
-    url: 'https://khoanguyen.codes/',
+    url: 'https://yunkhngn.dev',
 }
 
 const Custom404 = ({themeUse, theme}) =>{
