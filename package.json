@@ -45,7 +45,8 @@
   },
   "resolutions": {
     "minimist": "^1.2.8",
-    "path-to-regexp": "^8.2.0"
+    "path-to-regexp": "^8.2.0",
+     "nanoid": "^3.3.9"
   },
   "engines": {
     "node": ">=18.x"
