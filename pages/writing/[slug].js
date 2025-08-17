@@ -1,3 +1,4 @@
+import {useRouter } from 'next/router';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
@@ -9,16 +10,11 @@ import Image from 'next/image';
 
 const contentful = require('contentful');
 
-
 const client = contentful.createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
   environment: process.env.CONTENTFUL_ENVIRONMENT,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 });
-
-const shimmer = (w, h) =>
-  `<svg width="${w}" height="${h}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><defs><linearGradient id="g"><stop stop-color="#eee" offset="20%"/><stop stop-color="#ddd" offset="50%"/><stop stop-color="#eee" offset="70%"/></linearGradient></defs><rect width="${w}" height="${h}" fill="#eee"/><rect id="r" width="${w}" height="${h}" fill="url(#g)"/></svg>`;
-const toBase64 = (str) => typeof window === 'undefined' ? Buffer.from(str).toString('base64') : window.btoa(str);
 
 const options = {
   renderNode: {
@@ -40,8 +36,6 @@ const options = {
                 objectFit: "cover",
               }}
               onDragStart={(e) => e.preventDefault()}
-              placeholder="blur"
-              blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
             />
           </div>
             {description && (
@@ -86,20 +80,21 @@ const formatDate = (dateString) => {
   const year = date.getFullYear();
   return `${day} tháng ${month} năm ${year}.`;
 }
+export async function getStaticPaths() {
+  const response = await client.getEntries({ content_type: 'blogPage' });
 
-export async function getServerSideProps({ params, res }) {
+  const paths = response.items.map((item) => ({
+    params: { slug: item.fields.slug },
+  }));
+
+  return { paths, fallback: true }; 
+}
+
+export async function getStaticProps({ params }) {
   try {
-    // Optional: disable HTML caching for immediate updates
-    if (res && res.setHeader) {
-      res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate=300');
-    }
-
     const response = await client.getEntries({
       content_type: 'blogPage',
       'fields.slug': params.slug,
-      limit: 1,
-      include: 0,
-      select: 'fields.title,fields.body,fields.description,fields.slug,sys.createdAt',
     });
 
     if (response.items.length > 0) {
@@ -109,23 +104,30 @@ export async function getServerSideProps({ params, res }) {
         Title: item.fields.title,
         Image: `https:${item.fields.image.fields.file.url}`,
         createdAt: item.sys.createdAt,
-        Body: item.fields.body,
+        Body: item.fields.body,  
         Desc: item.fields.description,
         slug: item.fields.slug,
       };
       return {
-        props: { post: postData },
+        props: { post: postData }, 
+        revalidate: 60, 
+      };
+    } else {
+      return {
+        notFound: true, 
       };
     }
-
-    return { notFound: true };
   } catch (error) {
-    console.error('SSR fetch error:', error);
+    console.error('Error fetching post:', error);
     return { notFound: true };
   }
 }
 
 const WritingPage = ({ post, themeUse, theme }) => {
+  const router = useRouter();
+  if (router.isFallback) {
+    return <p>Loading...</p>;
+  }
 
   const truncateHtml = (htmlString, maxLength) => {
     const text = htmlToText(documentToHtmlString(htmlString), {
