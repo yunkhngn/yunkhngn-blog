@@ -10,7 +10,7 @@ const Intro = ({theme,themeUse, content}) => {
             <Spacer theme={theme} length={{xs:"100%", md:"200px"}}/>
             <ReactMarkdown>{content}</ReactMarkdown>
             <br/>
-            <i><span className={"keyboard kb--"+theme}>&#8984;</span><span className={"keyboard kb--"+theme}>k</span>để khám phá...</i>
+            <i><span className={"keyboard kb--"+theme}>&#8984;</span> <span className={"keyboard kb--"+theme}>k</span> để khám phá...</i>
             <Spacer theme={theme} length="160px"/>
             <SocialLink theme={theme}/>
             <Spacer theme={theme} length="60px"/>
