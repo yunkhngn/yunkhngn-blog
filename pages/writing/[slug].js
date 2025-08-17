@@ -9,11 +9,16 @@ import Image from 'next/image';
 
 const contentful = require('contentful');
 
+
 const client = contentful.createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
   environment: process.env.CONTENTFUL_ENVIRONMENT,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 });
+
+const shimmer = (w, h) =>
+  `<svg width="${w}" height="${h}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><defs><linearGradient id="g"><stop stop-color="#eee" offset="20%"/><stop stop-color="#ddd" offset="50%"/><stop stop-color="#eee" offset="70%"/></linearGradient></defs><rect width="${w}" height="${h}" fill="#eee"/><rect id="r" width="${w}" height="${h}" fill="url(#g)"/></svg>`;
+const toBase64 = (str) => typeof window === 'undefined' ? Buffer.from(str).toString('base64') : window.btoa(str);
 
 const options = {
   renderNode: {
@@ -35,6 +40,8 @@ const options = {
                 objectFit: "cover",
               }}
               onDragStart={(e) => e.preventDefault()}
+              placeholder="blur"
+              blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
             />
           </div>
             {description && (
@@ -84,13 +91,15 @@ export async function getServerSideProps({ params, res }) {
   try {
     // Optional: disable HTML caching for immediate updates
     if (res && res.setHeader) {
-      res.setHeader('Cache-Control', 'no-store');
+      res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate=300');
     }
 
     const response = await client.getEntries({
       content_type: 'blogPage',
       'fields.slug': params.slug,
       limit: 1,
+      include: 0,
+      select: 'fields.title,fields.body,fields.description,fields.slug,sys.createdAt',
     });
 
     if (response.items.length > 0) {
