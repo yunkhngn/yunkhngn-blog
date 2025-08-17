@@ -65,8 +65,7 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
 export async function getServerSideProps({ params, res }) {
   try {
     if (res && res.setHeader) {
-      // Cache HTML at CDN for 60s; serve stale while revalidating 300s
-      res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate=300');
+         res.setHeader('Cache-Control', 'no-store');
     }
 
     const response = await client.getEntries({
