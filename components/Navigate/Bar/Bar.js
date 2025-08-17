@@ -40,7 +40,7 @@ const Bar = ({ setTheme, theme, setThemeUse, themeProvider }) => {
 
         <div className="Bar--section">
           {barList.navigate.map((item) => (
-            <Link href={item.url} passHref key={item.id} scroll={true}>
+            <Link href={item.url} prefetch={true} passHref key={item.id} scroll={true}>
               <div
                 className="Bar--section"
                 role="navigation"
@@ -72,7 +72,7 @@ const Bar = ({ setTheme, theme, setThemeUse, themeProvider }) => {
               theme={theme}
             />
           ))}
-          <Link href="/contact" passHref>
+          <Link href="/contact" passHref prefetch={true}>
               <div
                 className="Bar--section"
                 role="navigation"
