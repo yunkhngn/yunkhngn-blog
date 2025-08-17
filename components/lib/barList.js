@@ -82,18 +82,9 @@ const barList ={
         subtitle: "Các dự án của tớ.",
       },
       {
-        id: "libraryAction",
-        name: "Thư viện",
-        shortcut: ["4"],
-        keywords: "library thu vien design work behance",
-        section: "Navigation",
-        perform: () => Router.push('/library'),
-        subtitle: "Thư viện dự án thiết kế.",
-      },
-      {
         id: "photoAction",
         name: "Ảnh chụp",
-        shortcut: ["5"],
+        shortcut: ["4"],
         keywords: "library thu vien anh chup photo",
         section: "Navigation",
         perform: () => Router.push('/photo'),
@@ -102,7 +93,7 @@ const barList ={
       {
         id: "writingsAction",
         name: "Viết linh tinh",
-        shortcut: ["6"],
+        shortcut: ["5"],
         keywords: "writing writings viet linh tinh blog",
         section: "Navigation",
         perform: () => Router.push('/writing'),
