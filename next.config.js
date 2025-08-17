@@ -40,6 +40,16 @@ const nextConfig = {
         minRatio: 0.8, // Tỉ lệ tối thiểu
       })
     );
+    // Polyfill `process` for browser (some deps expect it)
+    const webpack = require('webpack');
+    config.resolve = config.resolve || {};
+    config.resolve.fallback = {
+      ...(config.resolve.fallback || {}),
+      process: require.resolve('process/browser'),
+    };
+    config.plugins.push(new webpack.ProvidePlugin({
+      process: 'process/browser',
+    }));
     return config;
   },
 }
