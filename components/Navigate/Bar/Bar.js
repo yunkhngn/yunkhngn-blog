@@ -23,7 +23,7 @@ const Bar = ({ setTheme, theme, setThemeUse, themeProvider }) => {
     <nav id="bar" className={"Bar--container Bar--" + theme}>
       <div className="Bar">
         <div className="Bar--section">
-          <Link href="/" passHref>
+          <Link href="/" passHref prefetch={true}>
             <div className="Bar--section" aria-label="Home" role="navigation">
               <Icon
                 icon="HomeSolid2"
