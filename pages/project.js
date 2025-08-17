@@ -11,16 +11,17 @@ const projects = ({themeUse,theme,prj}) => {
     );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps({ res }) {
   try {
     const token = process.env.GITHUB_TOKEN; 
-    const res = await fetch('https://api.github.com/users/yunkhngn/repos', {
+    const response = await fetch('https://api.github.com/users/yunkhngn/repos', {
       headers: {
         'Authorization': `token ${token}`, 
         'Accept': 'application/vnd.github.v3+json' 
       }
     });
-    const prj = await res.json();
+    const prj = await response.json();
+    res.setHeader('Cache-Control', 'no-store');
     const filteredRepos = prj
     .filter(repo => !repo.fork)
     .filter(repo => repo.name !== 'yunkhngn')
@@ -33,8 +34,7 @@ export async function getStaticProps() {
     return {
       props: {
         prj: filteredRepos,
-      },
-      revalidate: 60 
+      }
     };
   }
   catch (error) {

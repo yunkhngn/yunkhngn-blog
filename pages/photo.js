@@ -34,20 +34,19 @@ function transformData(items) {
   })).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps({ res }) {
   try {
     const response = await client.getEntries({ content_type: 'picture' });
+    res.setHeader('Cache-Control', 'no-store');
     const transformedData = transformData(response.items);
-
     return {
       props: { data: transformedData },
-      revalidate: 60,
     };
   } catch (error) {
     console.error("Error fetching data:", error);
+    res.setHeader('Cache-Control', 'no-store');
     return {
       props: { data: [] },
-      revalidate: 60,
     };
   }
 }

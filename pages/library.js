@@ -19,11 +19,13 @@ const writings = ({themeUse,theme, data}) => {
     );
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async ({ res }) => {
     try {
       const response = await client.getEntries({
         content_type: 'behanceBlog'
       });
+
+      res.setHeader('Cache-Control', 'no-store');
 
       const sortedData = response.items.map(item => ({
         id: item.sys.id,
@@ -41,16 +43,14 @@ export const getStaticProps = async () => {
       return {
         props: {
           data: sortedData
-        },
-        revalidate: 60 // ISR sau mỗi 60 giây
+        }
       };
     } catch (error) {
       console.error('Error fetching entries:', error);
       return {
         props: {
           data: [] // Trả về mảng rỗng nếu có lỗi
-        },
-        revalidate: 60
+        }
       };
     }
   };
