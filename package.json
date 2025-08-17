@@ -44,7 +44,8 @@
     "eslint-config-next": "^15.4.6"
   },
   "resolutions": {
-    "minimist": "^1.2.8"
+    "minimist": "^1.2.8",
+    "path-to-regexp": "^8.2.0"
   },
   "engines": {
     "node": ">=18.x"
