@@ -1,4 +1,3 @@
-import {useRouter } from 'next/router';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
@@ -80,21 +79,18 @@ const formatDate = (dateString) => {
   const year = date.getFullYear();
   return `${day} tháng ${month} năm ${year}.`;
 }
-export async function getStaticPaths() {
-  const response = await client.getEntries({ content_type: 'blogPage' });
 
-  const paths = response.items.map((item) => ({
-    params: { slug: item.fields.slug },
-  }));
-
-  return { paths, fallback: true }; 
-}
-
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params, res }) {
   try {
+    // Optional: disable HTML caching for immediate updates
+    if (res && res.setHeader) {
+      res.setHeader('Cache-Control', 'no-store');
+    }
+
     const response = await client.getEntries({
       content_type: 'blogPage',
       'fields.slug': params.slug,
+      limit: 1,
     });
 
     if (response.items.length > 0) {
@@ -104,30 +100,23 @@ export async function getStaticProps({ params }) {
         Title: item.fields.title,
         Image: `https:${item.fields.image.fields.file.url}`,
         createdAt: item.sys.createdAt,
-        Body: item.fields.body,  
+        Body: item.fields.body,
         Desc: item.fields.description,
         slug: item.fields.slug,
       };
       return {
-        props: { post: postData }, 
-        revalidate: 60, 
-      };
-    } else {
-      return {
-        notFound: true, 
+        props: { post: postData },
       };
     }
+
+    return { notFound: true };
   } catch (error) {
-    console.error('Error fetching post:', error);
+    console.error('SSR fetch error:', error);
     return { notFound: true };
   }
 }
 
 const WritingPage = ({ post, themeUse, theme }) => {
-  const router = useRouter();
-  if (router.isFallback) {
-    return <p>Loading...</p>;
-  }
 
   const truncateHtml = (htmlString, maxLength) => {
     const text = htmlToText(documentToHtmlString(htmlString), {
