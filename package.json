@@ -46,7 +46,9 @@
   "resolutions": {
     "minimist": "^1.2.8",
     "path-to-regexp": "^8.2.0",
-    "nanoid": "^5.1.5"
+    "nanoid": "^5.1.5",
+    "cookie": "^1.0.2",
+    "brace-expansion": "^4.0.1"
   },
   "engines": {
     "node": ">=18.x"
