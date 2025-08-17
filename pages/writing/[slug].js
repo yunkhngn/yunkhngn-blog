@@ -1,9 +1,8 @@
-import {useRouter } from 'next/router';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { Title, Para, Template, Spacer, Footer, Back, SocialShare } from '../../components/Template';
-import { PicWrite } from "../../components/Content";
+import PicWrite from "../../components/Content/Body/PicWrite";
 import { Text } from 'atomize';
 import { htmlToText } from 'html-to-text';
 import Image from 'next/image';
@@ -76,25 +75,22 @@ const options = {
 const formatDate = (dateString) => {
   const date = new Date(dateString);
   const day = String(date.getDate()).padStart(2, '0');
-  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const month = String(date.getMonth() + 1, 10).padStart(2, '0');
   const year = date.getFullYear();
   return `${day} tháng ${month} năm ${year}.`;
 }
-export async function getStaticPaths() {
-  const response = await client.getEntries({ content_type: 'blogPage' });
-
-  const paths = response.items.map((item) => ({
-    params: { slug: item.fields.slug },
-  }));
-
-  return { paths, fallback: true }; 
-}
-
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params, res }) {
   try {
+    if (res && res.setHeader) {
+      // Cache HTML at CDN for 60s, serve stale while revalidating
+      res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate=300');
+    }
+
     const response = await client.getEntries({
       content_type: 'blogPage',
       'fields.slug': params.slug,
+      limit: 1,
+      include: 1,
     });
 
     if (response.items.length > 0) {
@@ -102,32 +98,23 @@ export async function getStaticProps({ params }) {
       const postData = {
         id: item.sys.id,
         Title: item.fields.title,
-        Image: `https:${item.fields.image.fields.file.url}`,
+        Image: item.fields.image?.fields?.file?.url ? `https:${item.fields.image.fields.file.url}` : null,
         createdAt: item.sys.createdAt,
-        Body: item.fields.body,  
+        Body: item.fields.body,
         Desc: item.fields.description,
         slug: item.fields.slug,
       };
-      return {
-        props: { post: postData }, 
-        revalidate: 60, 
-      };
-    } else {
-      return {
-        notFound: true, 
-      };
+      return { props: { post: postData } };
     }
+
+    return { notFound: true };
   } catch (error) {
-    console.error('Error fetching post:', error);
+    console.error('SSR fetch error:', error);
     return { notFound: true };
   }
 }
 
 const WritingPage = ({ post, themeUse, theme }) => {
-  const router = useRouter();
-  if (router.isFallback) {
-    return <p>Loading...</p>;
-  }
 
   const truncateHtml = (htmlString, maxLength) => {
     const text = htmlToText(documentToHtmlString(htmlString), {
