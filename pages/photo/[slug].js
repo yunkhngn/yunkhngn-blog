@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 const contentful = require("contentful");
 import { Div } from 'atomize';
 import ReactMarkdown from "react-markdown";
@@ -12,10 +11,6 @@ const client = contentful.createClient({
 });
 
 const PhotoDisplay = ({ data, themeUse, theme }) => {
-  const router = useRouter();
-  if (router.isFallback) {
-    return <div>Loading...</div>;
-  }
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const day = String(date.getDate()).padStart(2, "0");
@@ -37,6 +32,7 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
     url: img.fields.file.url,
     title: img.fields.title || "",
   }));
+  
   return (
     <Template description={desc} height="100%">
       <article>
@@ -66,43 +62,37 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
   );
 };
 
-export async function getStaticPaths() {
-  const response = await client.getEntries({ content_type: "picture" });
-  const paths = response.items.map((item) => ({
-    params: { slug: item.fields.slug },
-  }));
-  return { paths, fallback: true };
-}
-
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params, res }) {
   try {
+    if (res && res.setHeader) {
+      // Cache HTML at CDN for 60s; serve stale while revalidating 300s
+      res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate=300');
+    }
+
     const response = await client.getEntries({
       content_type: "picture",
-      "fields.slug": params.slug,
+      'fields.slug': params.slug,
+      limit: 1,
+      include: 1, // resolve linked assets for images
+      select: 'fields.title,fields.description,fields.images,fields.slug,sys.createdAt',
     });
+
     if (response.items.length > 0) {
       const item = response.items[0];
       const transformedData = {
         id: item.sys.id,
         title: item.fields.title,
-        description: item.fields.description,
-        images: item.fields.images,
+        description: item.fields.description || '',
+        images: item.fields.images || [],
         createdAt: item.sys.createdAt,
         slug: item.fields.slug,
       };
-      return {
-        props: {
-          data: transformedData,
-        },
-        revalidate: 60,
-      };
+      return { props: { data: transformedData } };
     } else {
-      return {
-        notFound: true,
-      };
+      return { notFound: true };
     }
   } catch (error) {
-    console.error("Error fetching post:", error);
+    console.error("SSR fetch error (photo/[slug]):", error);
     return { notFound: true };
   }
 }
