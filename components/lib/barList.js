@@ -16,18 +16,12 @@ const barList ={
           },
           {
             id: 3,
-            name: "Library",
-            icon: "History",
-            url: "/library",
-          },
-          {
-            id: 4,
             name: "Photo",
             icon: "Bulk",
             url: "/photo",
           },
           {
-            id: 5,
+            id: 4,
             name: "Writing",
             icon: "EditSolid",
             url: "/writing",

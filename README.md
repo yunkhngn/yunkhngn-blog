@@ -1,111 +1,40 @@
-# Khoa Nguyễn personal website
+# yunkhngn-blog
 
-![Thumbnail](https://khoanguyen.codes/image/wall.png)
+A personal blog project built with modern web technologies.
 
-Đây là source cho trang web cá nhân của Khoa Nguyễn. Website này được phát triển sử dụng Nextjs nhằm tối ưu hóa hiệu suất và SEO.
+## Features
 
-## Mục lục
+- Responsive design
+- Markdown-based posts
+- Syntax highlighting for code
+- Easy customization
 
-- [Giới thiệu](#giới-thiệu)
-- [Cài đặt](#cài-đặt)
-- [Cách sử dụng](#cách-sử-dụng)
-- [Thư mục dự án](#thư-mục-dự-án)
-- [Các tính năng](#các-tính-năng)
-- [Cải thiện và Sửa lỗi](#cải-thiện-và-sửa-lỗi)
-- [Đóng góp](#đóng-góp)
+## Getting Started
 
-## Giới thiệu
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/yunkhngn-blog.git
+   ```
+2. Install dependencies:
+   ```bash
+   cd yunkhngn-blog
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-Website cá nhân của Khoa Nguyễn được phát triển nhằm mục đích giới thiệu bản thân, công việc và các dự án đã thực hiện. Trang web này bao gồm một blog, danh sách các dự án, thông tin liên hệ, ảnh và các bài viết.
+## Folder Structure
 
-## Cài đặt
+- `src/` — Source code
+- `public/` — Static assets
+- `posts/` — Blog posts in markdown
 
-1. **Yêu cầu**:
-   - Node.js >= 14.x
-   - NPM hoặc Yarn
+## Contributing
 
-2. **Clone dự án**:
-```bash
-git clone https://github.com/yunkhngn/next-project.git
-cd next-project
-```
-3. **Cài đặt các package**
-```bash
-npm install
-# hoặc sử dụng yarn
-yarn install
-```
-4. **Chạy web**
-```bash
-npm run dev
-# hoặc sử dụng yarn
-yarn dev
-```
-5. **Build ứng dụng**
-```bash
-npm run build
-# hoặc sử dụng yarn
-yarn build
-```
-## Cách sử dụng
+Pull requests are welcome. For major changes, please open an issue first.
 
-- Chạy development: Truy cập http://localhost:3000.
+## License
 
-- Deloy: Sử dụng các nền tảng như Vercel, Netlify, hoặc các dịch vụ cloud khác để triển khai website.
-
-## Thư mục dự án
-> Dùng cho mục đích bảo trì.
-
-- `/components/Hooks`: Chứa các tags để dùng
-
-- `/components/Post`: Chứa các element con trong trang
-
-- `/lib`: Chứa content của dự án
-
-- `/pages`: Chứa các page route
-
-- `/public`: Chứa các file static và ảnh
-
-- `/styles`: Chứa các file css
-
-## Các tính năng
-> NOTE: Các feature đang và sẽ được xây dựng.
-- [X] Tạo trang ảnh
-- [X] Làm modal khi click vào ảnh trong photo
-- [X] Làm search cho writing
-- [X] Tạo change log
-- [X] Add thêm nội dung cho trang chủ
-- [X] Làm tooltip cho các icon
-- [X] Sửa lại trang writing list có ảnh
-- [X] Skeleton cho ảnh
-- [X] Embed youtube
-- [ ] Làm Navigation
-- [ ] Tạo genre và làm search
-- [ ] Tạo preview page cho contentful
-
-
-## Cải thiện và sửa lỗi
-> NOTE: Updating thêm
-- [X] Cải thiện SEO và loading trang web.
-- [X] Fix getStaticProps ở các trang
-- [X] Fix darkmode có lưu vào
-- [X] Move favicon ra ngoài
-- [X] Redesign lại trang ảnh
-- [X] Cải thiện thêm trang github
-- [X] Tối ưu load ảnh
-- [X] Sửa lại trang about
-- [X] Bỏ www ở domain 
-- [X] Fix google console k hiển thị favicon
-- [X] Sửa lại màu của project tags
-- [X] Fix meta tag image nhiều lúc k hiển thị ở photo
-- [X] Sửa tối ưu lại source
-- [X] Cải thiện hiệu suất
-- [X] Add ảnh vào post
-- [X] Fix theme load
-- [X] Optimize lại web hơn nữa, những cái trang có ảnh dễ bị khựng
-- [ ] Back về vẫn giữ nguyên position trang cũ
-- [ ] Fix bar che mất cái nút quay lại k click dc 
-
-## Đóng góp
-@yunkhngn
-
+This project is licensed under the MIT License.

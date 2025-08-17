@@ -62,7 +62,7 @@ a {
   min-height: 100vh;
 }
 
-*::visited {
+*:visited {
   color: inherit;
   text-decoration: none;
 }
