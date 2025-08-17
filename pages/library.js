@@ -37,9 +37,6 @@ export const getServerSideProps = async ({ res }) => {
           desc: item.fields.desc
         }
       }));
-  
-      console.log('Sorted data:', sortedData); // Log để kiểm tra dữ liệu sau khi xử lý
-  
       return {
         props: {
           data: sortedData
