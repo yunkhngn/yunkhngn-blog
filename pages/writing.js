@@ -39,14 +39,18 @@ const truncateHtml = (htmlString, maxLength) => {
   return truncatedText.trim();
 };
 
-const writing = ({themeUse,theme, content}) => {
-  
-    return (
-        <Template description={desc.blog} height="100%">
-            <Title color={themeUse.primary}>{desc.blog.heading}</Title>
-            <Write desc={desc.blog} themeUse={themeUse} theme={theme} content={content}/>
-        </Template>
-    );
+export default function WritingPage({theme, themeUse, content}) {
+  return (
+    <Template 
+      description={{
+        ...desc.blog,
+        structuredDataType: 'website'
+      }}
+    >
+      <Title color={themeUse.primary}>{desc.blog.heading}</Title>
+      <Write desc={desc.blog} themeUse={themeUse} theme={theme} content={content}/>
+    </Template>
+  )
 }
 
 export async function getStaticProps() {
@@ -85,4 +89,3 @@ export async function getStaticProps() {
   }
 }
 
-export default writing;

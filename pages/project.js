@@ -1,14 +1,19 @@
 import {Template, Title} from '../components/Template'
-import {Project} from '../components/Content'
+import {Project} from '../components/Content/'
 import {desc} from '../components/lib'
 
-const projects = ({themeUse,theme,prj}) => {
-    return (
-        <Template description={desc.projects} height="100%">
-            <Title color={themeUse.primary}>{desc.projects.heading}</Title>
-            <Project desc={desc.projects} prj={prj} themeUse={themeUse} theme={theme}/>
-        </Template>
-    );
+export default function ProjectPage({theme, themeUse, prj}) {
+  return (
+    <Template 
+      description={{
+        ...desc.projects,
+        structuredDataType: 'website'
+      }}
+    >
+      <Title color={themeUse.primary}>{desc.projects.heading}</Title>
+      <Project desc={desc.projects} theme={theme} themeUse={themeUse} prj={prj}/>
+    </Template>
+  )
 }
 
 export async function getStaticProps() {
@@ -82,4 +87,3 @@ export async function getStaticProps() {
     };
   }
 }
-export default projects;

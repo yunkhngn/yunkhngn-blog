@@ -9,12 +9,17 @@ const client = contentful.createClient({
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 });
 
-const photo = ({themeUse, data,theme}) => {
+export default function PhotoPage({theme, themeUse, data}) {
   return (
-      <Template description={desc.photo} height="100%">
-          <Title color={themeUse.primary}>{desc.photo.heading}</Title>
-          <Gallery desc={desc.photo} data={data} theme={theme} themeUse={themeUse}/>
-      </Template>
+    <Template 
+      description={{
+        ...desc.photo,
+        structuredDataType: 'website'
+      }}
+    >
+      <Title color={themeUse.primary}>{desc.photo.heading}</Title>
+      <Gallery desc={desc.photo} data={data} theme={theme} themeUse={themeUse}/>
+    </Template>
   )
 }
 
@@ -50,4 +55,3 @@ export async function getServerSideProps({ res }) {
     };
   }
 }
-export default photo
