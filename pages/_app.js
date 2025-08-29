@@ -69,16 +69,48 @@ function MyApp({ Component, pageProps }) {
     router.prefetch('/contact');
   }, [router]);
 
-  // Register service worker
+  // Register service worker with better update handling
   useEffect(() => {
     if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
       navigator.serviceWorker.register('/sw.js')
         .then((registration) => {
           console.log('SW registered: ', registration);
+
+          // Handle service worker updates
+          registration.addEventListener('updatefound', () => {
+            const newWorker = registration.installing;
+            newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                // New service worker is available
+                console.log('New service worker available');
+                // Optionally show update notification to user
+                if (confirm('New version available! Reload to update?')) {
+                  window.location.reload();
+                }
+              }
+            });
+          });
         })
         .catch((registrationError) => {
           console.log('SW registration failed: ', registrationError);
         });
+
+      // Handle service worker controller change
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        console.log('Service worker controller changed');
+        // Reload page to use new service worker
+        window.location.reload();
+      });
+    }
+  }, []);
+
+  // Load clear cache script
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const script = document.createElement('script');
+      script.src = '/clear-cache.js';
+      script.async = true;
+      document.head.appendChild(script);
     }
   }, []);
 
@@ -95,6 +127,11 @@ function MyApp({ Component, pageProps }) {
           <link rel="preconnect" href="https://api.github.com" />
           <link rel="preconnect" href="https://images.ctfassets.net" />
           <link rel="preconnect" href="https://raw.githubusercontent.com" />
+          
+          {/* Cache control headers */}
+          <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+          <meta httpEquiv="Pragma" content="no-cache" />
+          <meta httpEquiv="Expires" content="0" />
         </Head>
         <ThemeLoader
           theme={theme}
