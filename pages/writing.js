@@ -49,33 +49,40 @@ const writing = ({themeUse,theme, content}) => {
     );
 }
 
-export async function getServerSideProps({ res }) {
-  // SSR: luôn render mới; nếu muốn cache ngắn hạn thì đổi về s-maxage
-  if (res && res.setHeader) {
-    res.setHeader('Cache-Control', 'no-store');
+export async function getStaticProps() {
+  try {
+    const response = await client.getEntries({
+      content_type: 'blogPage',
+      include: 1, // resolve linked assets (image)
+      // select: 'fields.title,fields.image,fields.slug,fields.description,sys.createdAt,fields.body', // có thể bật để giảm payload
+    });
+
+    const content = response.items
+      .map(item => ({
+        id: item.sys.id,
+        attributes: {
+          Title: item.fields.title,
+          Image: `https:${item.fields.image.fields.file.url}`,
+          Slug: item.fields.slug,
+          createdAt: item.sys.createdAt,
+          Desc: item.fields.description,
+          Short: truncateHtml(item.fields.body, 200),
+        }
+      }))
+      .sort((a, b) => new Date(b.attributes.createdAt) - new Date(a.attributes.createdAt));
+
+    return { 
+      props: { content },
+      // Revalidate every 30 minutes (1800 seconds)
+      revalidate: 1800,
+    };
+  } catch (error) {
+    console.error('Error fetching content:', error);
+    return {
+      props: { content: [] },
+      revalidate: 1800,
+    };
   }
-
-  const response = await client.getEntries({
-    content_type: 'blogPage',
-    include: 1, // resolve linked assets (image)
-    // select: 'fields.title,fields.image,fields.slug,fields.description,sys.createdAt,fields.body', // có thể bật để giảm payload
-  });
-
-  const content = response.items
-    .map(item => ({
-      id: item.sys.id,
-      attributes: {
-        Title: item.fields.title,
-        Image: `https:${item.fields.image.fields.file.url}`,
-        Slug: item.fields.slug,
-        createdAt: item.sys.createdAt,
-        Desc: item.fields.description,
-        Short: truncateHtml(item.fields.body, 200),
-      }
-    }))
-    .sort((a, b) => new Date(b.attributes.createdAt) - new Date(a.attributes.createdAt));
-
-  return { props: { content } };
 }
 
 export default writing;

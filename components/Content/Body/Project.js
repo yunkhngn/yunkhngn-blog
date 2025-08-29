@@ -1,11 +1,61 @@
 import { Para, Search, ProjectRow } from "../../Template";
 import { Div } from "atomize";
+import { useState, useEffect } from "react";
 
 const Project = ({ desc, theme, themeUse, prj }) => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
+
   const dateFormer = (date) => {
     let dateArr = date.split("T")[0].split("-");
     return `${dateArr[2]}/${dateArr[1]}/${dateArr[0]}`;
   };
+
+  if (isLoading) {
+    return (
+      <article>
+        <Para color={themeUse.secondary}>{desc.desc}</Para>
+        <Div m={{ b: "1.7em" }} />
+        <hr className={"hr" + theme} />
+        <Div
+          d="flex"
+          flexDir="column"
+          align="center"
+          justify="center"
+          minH="50vh"
+          p="2rem"
+        >
+          <Div
+            w="100%"
+            maxW="800px"
+            spaceY="1rem"
+          >
+            {[...Array(3)].map((_, i) => (
+              <Div
+                key={i}
+                h="120px"
+                bg={themeUse.secondary}
+                rounded="lg"
+                w="100%"
+                m={{ b: "1rem" }}
+                style={{
+                  animation: 'pulse 1.5s ease-in-out infinite',
+                }}
+              />
+            ))}
+          </Div>
+        </Div>
+      </article>
+    );
+  }
+
   return (
     <article>
       <Para color={themeUse.secondary}>{desc.desc}</Para>
@@ -29,7 +79,7 @@ const Project = ({ desc, theme, themeUse, prj }) => {
             item={item}
             theme={theme}
             themeUse={themeUse}
-          />
+           />
           ))
         )}
       </Div>

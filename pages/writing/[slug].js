@@ -80,12 +80,34 @@ const formatDate = (dateString) => {
   return `${day} tháng ${month} năm ${year}.`;
 }
 
-export async function getServerSideProps({ params, res }) {
+// Generate static paths for all blog posts
+export async function getStaticPaths() {
   try {
-    if (res && res.setHeader) {
-      res.setHeader('Cache-Control', 'no-store');
-    }
+    const response = await client.getEntries({
+      content_type: 'blogPage',
+      select: 'fields.slug',
+      limit: 1000, // Adjust based on your content volume
+    });
 
+    const paths = response.items.map((item) => ({
+      params: { slug: item.fields.slug },
+    }));
+
+    return {
+      paths,
+      fallback: 'blocking', // Enable ISR for new posts
+    };
+  } catch (error) {
+    console.error('Error generating static paths:', error);
+    return {
+      paths: [],
+      fallback: 'blocking',
+    };
+  }
+}
+
+export async function getStaticProps({ params }) {
+  try {
     const response = await client.getEntries({
       content_type: 'blogPage',
       'fields.slug': params.slug,
@@ -104,12 +126,15 @@ export async function getServerSideProps({ params, res }) {
         Desc: item.fields.description,
         slug: item.fields.slug,
       };
-      return { props: { post: postData } };
+      return { 
+        props: { post: postData },
+        revalidate: 3600, // Revalidate every hour
+      };
     }
 
     return { notFound: true };
   } catch (error) {
-    console.error('SSR fetch error:', error);
+    console.error('Static generation error:', error);
     return { notFound: true };
   }
 }

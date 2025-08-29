@@ -25,22 +25,59 @@ const nextConfig = {
         port: '',
         pathname: '**/**/**/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'raw.githubusercontent.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 60,
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-  webpack: (config) => {
-    config.optimization.minimize = true; // Bật tối ưu hóa cho Webpack
-    config.plugins.push(
-      new (require('compression-webpack-plugin'))({
-        filename: '[file].gz', // Đặt tên file nén
-        algorithm: 'gzip',
-        test: /\.(js|css|html|svg)$/, // Các định dạng file để nén
-        threshold: 10240, // Nén file lớn hơn 10kB
-        minRatio: 0.8, // Tỉ lệ tối thiểu
-      })
-    );
-    // Polyfill `process` for browser (some deps expect it)
+  // Performance optimizations
+  experimental: {
+    optimizePackageImports: ['framer-motion', 'react-markdown'],
+  },
+  // Compression and optimization
+  compress: true,
+  poweredByHeader: false,
+  webpack: (config, { dev, isServer }) => {
+    // Production optimizations
+    if (!dev) {
+      config.optimization.minimize = true;
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all',
+          },
+          common: {
+            name: 'common',
+            minChunks: 2,
+            chunks: 'all',
+            enforce: true,
+          },
+        },
+      };
+      
+      // Compression plugin
+      config.plugins.push(
+        new (require('compression-webpack-plugin'))({
+          filename: '[file].gz',
+          algorithm: 'gzip',
+          test: /\.(js|css|html|svg)$/,
+          threshold: 10240,
+          minRatio: 0.8,
+        })
+      );
+    }
+
+    // Polyfill `process` for browser
     const webpack = require('webpack');
     config.resolve = config.resolve || {};
     config.resolve.fallback = {
@@ -50,19 +87,47 @@ const nextConfig = {
     config.plugins.push(new webpack.ProvidePlugin({
       process: 'process/browser',
     }));
+
     return config;
+  },
+  // Headers for caching and security
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block',
+          },
+        ],
+      },
+      {
+        source: '/static/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ];
   },
 }
 
-// /** @type {import('next').NextConfig} */
-// const withBundleAnalyzer = require('@next/bundle-analyzer')({
-//   enabled: process.env.ANALYZE === 'true', // Bật phân tích khi biến môi trường ANAYZE là true
-// });
-
-
-// module.exports = withBundleAnalyzer(nextConfig);
-
+// Bundle analyzer - sửa cách import
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 
 const withVercelToolbar = require('@vercel/toolbar/plugins/next')();
-// Instead of module.exports = nextConfig, do this:
-module.exports = withVercelToolbar(nextConfig);
+
+module.exports = withBundleAnalyzer(withVercelToolbar(nextConfig));

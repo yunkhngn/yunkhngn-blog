@@ -11,17 +11,50 @@ const projects = ({themeUse,theme,prj}) => {
     );
 }
 
-export async function getServerSideProps({ res }) {
+export async function getStaticProps() {
   try {
     const token = process.env.GITHUB_TOKEN; 
+    
+    if (!token) {
+      console.warn('GitHub token not found, using fallback data');
+      return {
+        props: {
+          prj: [],
+        },
+        revalidate: 3600,
+      };
+    }
+
     const response = await fetch('https://api.github.com/users/yunkhngn/repos', {
       headers: {
         'Authorization': `token ${token}`, 
         'Accept': 'application/vnd.github.v3+json' 
       }
     });
+
+    if (!response.ok) {
+      console.error(`GitHub API error: ${response.status} ${response.statusText}`);
+      return {
+        props: {
+          prj: [],
+        },
+        revalidate: 3600,
+      };
+    }
+
     const prj = await response.json();
-    res.setHeader('Cache-Control', 'no-store');
+    
+    // Check if response is an array (success) or object (error)
+    if (!Array.isArray(prj)) {
+      console.error('GitHub API returned non-array response:', prj);
+      return {
+        props: {
+          prj: [],
+        },
+        revalidate: 3600,
+      };
+    }
+    
     const filteredRepos = prj
     .filter(repo => !repo.fork)
     .filter(repo => repo.name !== 'yunkhngn')
@@ -34,15 +67,18 @@ export async function getServerSideProps({ res }) {
     return {
       props: {
         prj: filteredRepos,
-      }
+      },
+      // Revalidate every 1 hour (3600 seconds)
+      revalidate: 3600,
     };
   }
   catch (error) {
-    console.error(error);
+    console.error('Error fetching GitHub repos:', error);
     return {
       props: {
         prj: [],
       },
+      revalidate: 3600,
     };
   }
 }

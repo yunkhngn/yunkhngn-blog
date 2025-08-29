@@ -8,9 +8,10 @@ import NProgress from 'nprogress';
 import { styletron } from "../styletron";
 import { Provider as StyletronProvider } from "styletron-react";
 import { StyleReset } from "atomize";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useRouter } from "next/router";
 import { AnimatedTag, ThemeLoader } from "../components/Template";
+import LoadingCanva from "../components/Template/Function/LoadingCanva";
 
 import { barList } from "../components/lib";
 import { KBarProvider } from "kbar";
@@ -18,9 +19,17 @@ import { AnimatePresence } from "framer-motion";
 import { themeProvider } from "../components/lib";
 import dynamic from "next/dynamic";
 import { VercelToolbar } from '@vercel/toolbar/next';
+import Head from 'next/head';
 
-const Bar = dynamic(() => import("../components/Navigate").then(mod => mod.Bar), { ssr: false });
-const CmdBar = dynamic(() => import("../components/Navigate").then(mod => mod.CmdBar), { ssr: false });
+// Lazy load heavy components
+const Bar = dynamic(() => import("../components/Navigate").then(mod => mod.Bar), { 
+  ssr: false,
+  loading: () => <div style={{ height: '60px' }} />
+});
+const CmdBar = dynamic(() => import("../components/Navigate").then(mod => mod.CmdBar), { 
+  ssr: false,
+  loading: () => <div style={{ height: '40px' }} />
+});
 
 function MyApp({ Component, pageProps }) {
   const shouldInjectToolbar = process.env.NODE_ENV === 'development'
@@ -50,8 +59,43 @@ function MyApp({ Component, pageProps }) {
     };
   }, [router.events]);
 
+  // Prefetch critical pages
+  useEffect(() => {
+    // Prefetch main pages
+    router.prefetch('/writing');
+    router.prefetch('/project');
+    router.prefetch('/photo');
+    router.prefetch('/about');
+    router.prefetch('/contact');
+  }, [router]);
+
+  // Register service worker
+  useEffect(() => {
+    if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
+      navigator.serviceWorker.register('/sw.js')
+        .then((registration) => {
+          console.log('SW registered: ', registration);
+        })
+        .catch((registrationError) => {
+          console.log('SW registration failed: ', registrationError);
+        });
+    }
+  }, []);
+
   return (
       <StyletronProvider value={styletron}>
+        <Head>
+          {/* Preload critical resources */}
+          <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+          <link rel="dns-prefetch" href="//api.github.com" />
+          <link rel="dns-prefetch" href="//images.ctfassets.net" />
+          <link rel="dns-prefetch" href="//raw.githubusercontent.com" />
+          
+          {/* Preconnect to external domains */}
+          <link rel="preconnect" href="https://api.github.com" />
+          <link rel="preconnect" href="https://images.ctfassets.net" />
+          <link rel="preconnect" href="https://raw.githubusercontent.com" />
+        </Head>
         <ThemeLoader
           theme={theme}
           setTheme={setTheme}
@@ -68,15 +112,17 @@ function MyApp({ Component, pageProps }) {
           <div className={"selection--" + theme}>
             <CmdBar theme={theme} />
             <StyleReset />
-            <AnimatePresence mode="wait">
-              <AnimatedTag key={router.pathname}>
-                  <Component
-                    themeUse={themeUse.styles}
-                    theme={theme}
-                    {...pageProps}
-                  />
-              </AnimatedTag>
-            </AnimatePresence>
+            <Suspense fallback={<LoadingCanva theme={theme} themeUse={themeUse} />}>
+              <AnimatePresence mode="wait">
+                <AnimatedTag key={router.pathname}>
+                    <Component
+                      themeUse={themeUse.styles}
+                      theme={theme}
+                      {...pageProps}
+                    />
+                </AnimatedTag>
+              </AnimatePresence>
+            </Suspense>
             <Bar
               theme={theme}
               setTheme={setTheme}
