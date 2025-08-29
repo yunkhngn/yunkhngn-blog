@@ -30,7 +30,7 @@ function clearAllCaches() {
   }
   
   console.log('All caches cleared!');
-  alert('Cache cleared! Please refresh the page.');
+  // Removed alert to avoid popup
 }
 
 // Auto-clear cache on version mismatch
