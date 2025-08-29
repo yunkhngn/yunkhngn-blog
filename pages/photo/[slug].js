@@ -42,7 +42,9 @@ const PhotoDisplay = ({ data, themeUse, theme }) => {
         </Para>
         <SocialShare url={desc.url} theme={theme}/>
         <Spacer theme={theme} length="10em" />
-        <ReactMarkdown className="richText">{data.description}</ReactMarkdown>
+        <Div className="richText">
+          <ReactMarkdown>{data.description}</ReactMarkdown>
+        </Div>
         <Div m={{ b: "1.7em" }} />
         <hr className={"hr" + theme} />
         <Div m={{ b: "1.7em" }} />

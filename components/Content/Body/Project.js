@@ -9,7 +9,7 @@ const Project = ({ desc, theme, themeUse, prj }) => {
     // Simulate loading time
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 500);
+    }, 800);
     return () => clearTimeout(timer);
   }, []);
 
@@ -18,40 +18,181 @@ const Project = ({ desc, theme, themeUse, prj }) => {
     return `${dateArr[2]}/${dateArr[1]}/${dateArr[0]}`;
   };
 
+  // Get skeleton color based on theme
+  const getSkeletonColor = () => {
+    return theme === "light" ? "gray300" : themeUse.secondary;
+  };
+
   if (isLoading) {
     return (
       <article>
         <Para color={themeUse.secondary}>{desc.desc}</Para>
         <Div m={{ b: "1.7em" }} />
         <hr className={"hr" + theme} />
-        <Div
-          d="flex"
-          flexDir="column"
-          align="center"
-          justify="center"
-          minH="50vh"
-          p="2rem"
-        >
+        
+        {/* Search skeleton */}
+        <Div m={{ b: "2rem" }}>
           <Div
+            h="1.5rem"
+            bg={getSkeletonColor()}
+            rounded="md"
+            w="40%"
+            m={{ b: "0.5rem" }}
+            style={{
+              animation: 'pulse 2s ease-in-out infinite',
+            }}
+          />
+          <Div
+            h="1rem"
+            bg={getSkeletonColor()}
+            rounded="md"
+            w="60%"
+            m={{ b: "1rem" }}
+            style={{
+              animation: 'pulse 2s ease-in-out infinite',
+              animationDelay: '0.2s',
+            }}
+          />
+          <Div
+            h="3.5rem"
+            bg={getSkeletonColor()}
+            rounded="12px"
             w="100%"
-            maxW="800px"
-            spaceY="1rem"
-          >
-            {[...Array(3)].map((_, i) => (
-              <Div
-                key={i}
-                h="120px"
-                bg={themeUse.secondary}
-                rounded="lg"
-                w="100%"
-                m={{ b: "1rem" }}
-                style={{
-                  animation: 'pulse 1.5s ease-in-out infinite',
-                }}
-              />
-            ))}
-          </Div>
+            style={{
+              animation: 'pulse 2s ease-in-out infinite',
+              animationDelay: '0.4s',
+            }}
+          />
         </Div>
+
+        {/* Project cards skeleton */}
+        <Div>
+          {[...Array(3)].map((_, i) => (
+            <Div
+              key={i}
+              bg={themeUse.background}
+              border="1px solid"
+              borderColor={theme === "light" ? "gray300" : themeUse.border}
+              rounded="24px"
+              p="1.5rem"
+              m={{ b: "1rem" }}
+              style={{
+                animation: 'slideIn 0.6s ease-out',
+                animationDelay: `${i * 0.1}s`,
+                animationFillMode: 'both',
+              }}
+            >
+              <Div d="flex" justify="space-between" align="flex-start">
+                <Div w="80%">
+                  {/* Title skeleton */}
+                  <Div
+                    h="1.5rem"
+                    bg={getSkeletonColor()}
+                    rounded="md"
+                    w="50%"
+                    m={{ b: "0.75rem" }}
+                    style={{
+                      animation: 'pulse 2s ease-in-out infinite',
+                      animationDelay: `${i * 0.2}s`,
+                    }}
+                  />
+                  
+                  {/* Description skeleton */}
+                  <Div
+                    h="1rem"
+                    bg={getSkeletonColor()}
+                    rounded="md"
+                    w="90%"
+                    m={{ b: "0.5rem" }}
+                    style={{
+                      animation: 'pulse 2s ease-in-out infinite',
+                      animationDelay: `${i * 0.2 + 0.1}s`,
+                    }}
+                  />
+                  <Div
+                    h="1rem"
+                    bg={getSkeletonColor()}
+                    rounded="md"
+                    w="70%"
+                    m={{ b: "1rem" }}
+                    style={{
+                      animation: 'pulse 2s ease-in-out infinite',
+                      animationDelay: `${i * 0.2 + 0.2}s`,
+                    }}
+                  />
+                  
+                  {/* Tags skeleton */}
+                  <Div d="flex" gap="0.5rem" flexWrap="wrap">
+                    <Div
+                      h="1.5rem"
+                      bg={getSkeletonColor()}
+                      rounded="full"
+                      w="4rem"
+                      style={{
+                        animation: 'pulse 2s ease-in-out infinite',
+                        animationDelay: `${i * 0.2 + 0.3}s`,
+                      }}
+                    />
+                    <Div
+                      h="1.5rem"
+                      bg={getSkeletonColor()}
+                      rounded="full"
+                      w="6rem"
+                      style={{
+                        animation: 'pulse 2s ease-in-out infinite',
+                        animationDelay: `${i * 0.2 + 0.4}s`,
+                      }}
+                    />
+                    <Div
+                      h="1.5rem"
+                      bg={getSkeletonColor()}
+                      rounded="full"
+                      w="8rem"
+                      style={{
+                        animation: 'pulse 2s ease-in-out infinite',
+                        animationDelay: `${i * 0.2 + 0.5}s`,
+                      }}
+                    />
+                  </Div>
+                </Div>
+                
+                {/* Star count skeleton */}
+                <Div
+                  h="1.5rem"
+                  bg={getSkeletonColor()}
+                  rounded="md"
+                  w="4rem"
+                  style={{
+                    animation: 'pulse 2s ease-in-out infinite',
+                    animationDelay: `${i * 0.2 + 0.6}s`,
+                  }}
+                />
+              </Div>
+            </Div>
+          ))}
+        </Div>
+
+        <style jsx>{`
+          @keyframes pulse {
+            0%, 100% {
+              opacity: 0.6;
+            }
+            50% {
+              opacity: 1;
+            }
+          }
+          
+          @keyframes slideIn {
+            from {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+        `}</style>
       </article>
     );
   }
