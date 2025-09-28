@@ -1,4 +1,6 @@
 // Temporary simple home page for debugging
+import Link from 'next/link';
+
 export default function Home({theme, themeUse}) {
   return (
     <div style={{ 
@@ -12,9 +14,9 @@ export default function Home({theme, themeUse}) {
       <p>Đây là trang chủ đơn giản để debug</p>
       <p>Theme: {theme || 'light'}</p>
       <div style={{ marginTop: '20px' }}>
-        <a href="/test" style={{ color: '#007bff', textDecoration: 'none' }}>
+        <Link href="/test" style={{ color: '#007bff', textDecoration: 'none' }}>
           → Test page
-        </a>
+        </Link>
       </div>
       <div style={{ marginTop: '20px', padding: '20px', backgroundColor: 'white', borderRadius: '8px' }}>
         <h3>Debug Info:</h3>
