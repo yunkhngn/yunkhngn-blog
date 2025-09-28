@@ -123,11 +123,12 @@ const nextConfig = {
   },
 }
 
-// Bundle analyzer - sửa cách import
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-});
+// Temporarily disable bundle analyzer and vercel toolbar for performance debugging
+// const withBundleAnalyzer = require('@next/bundle-analyzer')({
+//   enabled: process.env.ANALYZE === 'true',
+// });
 
-const withVercelToolbar = require('@vercel/toolbar/plugins/next')();
+// const withVercelToolbar = require('@vercel/toolbar/plugins/next')();
 
-module.exports = withBundleAnalyzer(withVercelToolbar(nextConfig));
+// module.exports = withBundleAnalyzer(withVercelToolbar(nextConfig));
+module.exports = nextConfig;

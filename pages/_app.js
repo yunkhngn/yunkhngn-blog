@@ -59,60 +59,42 @@ function MyApp({ Component, pageProps }) {
     };
   }, [router.events]);
 
-  // Prefetch critical pages
+  // Prefetch critical pages after initial load
   useEffect(() => {
-    // Prefetch main pages
-    router.prefetch('/writing');
-    router.prefetch('/project');
-    router.prefetch('/photo');
-    router.prefetch('/about');
-    router.prefetch('/contact');
+    // Delay prefetch to not block initial load
+    const timer = setTimeout(() => {
+      router.prefetch('/writing');
+      router.prefetch('/project');
+      router.prefetch('/photo');
+      router.prefetch('/about');
+      router.prefetch('/contact');
+    }, 2000); // Wait 2 seconds after load
+
+    return () => clearTimeout(timer);
   }, [router]);
 
-  // Register service worker with better update handling
+  // Temporarily disable service worker to debug loading issues
   useEffect(() => {
-    if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
-      navigator.serviceWorker.register('/sw.js')
-        .then((registration) => {
-          console.log('SW registered: ', registration);
-
-          // Handle service worker updates
-          registration.addEventListener('updatefound', () => {
-            const newWorker = registration.installing;
-            newWorker.addEventListener('statechange', () => {
-              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                // New service worker is available
-                console.log('New service worker available');
-                // Optionally show update notification to user
-                if (confirm('New version available! Reload to update?')) {
-                  window.location.reload();
-                }
-              }
-            });
-          });
-        })
-        .catch((registrationError) => {
-          console.log('SW registration failed: ', registrationError);
+    if ('serviceWorker' in navigator) {
+      // Unregister all existing service workers
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        registrations.forEach((registration) => {
+          console.log('Unregistering service worker:', registration);
+          registration.unregister();
         });
-
-      // Handle service worker controller change
-      navigator.serviceWorker.addEventListener('controllerchange', () => {
-        console.log('Service worker controller changed');
-        // Reload page to use new service worker
-        window.location.reload();
       });
     }
   }, []);
 
-  // Load clear cache script
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const script = document.createElement('script');
-      script.src = '/clear-cache.js';
-      script.async = true;
-      document.head.appendChild(script);
-    }
-  }, []);
+  // Temporarily disable clear cache script
+  // useEffect(() => {
+  //   if (typeof window !== 'undefined') {
+  //     const script = document.createElement('script');
+  //     script.src = '/clear-cache.js';
+  //     script.async = true;
+  //     document.head.appendChild(script);
+  //   }
+  // }, []);
 
   return (
       <StyletronProvider value={styletron}>
@@ -164,7 +146,8 @@ function MyApp({ Component, pageProps }) {
             <div className="blur-overlay" />
           </div>
         </KBarProvider>
-        {shouldInjectToolbar && <VercelToolbar />}
+        {/* Temporarily disable VercelToolbar */}
+        {/* {shouldInjectToolbar && <VercelToolbar />} */}
       </StyletronProvider>
   );
 }
