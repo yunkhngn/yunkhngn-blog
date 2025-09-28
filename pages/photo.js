@@ -39,19 +39,23 @@ function transformData(items) {
   })).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 }
 
-export async function getServerSideProps({ res }) {
+export async function getStaticProps() {
   try {
-    const response = await client.getEntries({ content_type: 'picture' });
-    res.setHeader('Cache-Control', 'no-store');
+    const response = await client.getEntries({ 
+      content_type: 'picture',
+      limit: 50,
+      order: '-sys.createdAt'
+    });
     const transformedData = transformData(response.items);
     return {
       props: { data: transformedData },
+      revalidate: 1800, // Revalidate every 30 minutes
     };
   } catch (error) {
     console.error("Error fetching data:", error);
-    res.setHeader('Cache-Control', 'no-store');
     return {
       props: { data: [] },
+      revalidate: 300, // Retry after 5 minutes on error
     };
   }
 }

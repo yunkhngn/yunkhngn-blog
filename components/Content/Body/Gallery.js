@@ -27,16 +27,22 @@ const Gallery = ({ desc, theme, themeUse, data }) => {
               <div className={"photo" + (!loaded[item.id] ? " skeleton--" + theme : "")}>
                 <Image
                   fill={true}
-                  src={"https:" + item.images[0].url}
-                  alt={item.title}
-                  quality={50}
+                  src={item.images[0].url.startsWith('http') ? item.images[0].url : `https:${item.images[0].url}`}
+                  alt={item.title || 'Photo'}
+                  quality={75}
                   sizes="(max-width: 768px) calc(100vw / 3), (max-width: 1200px) calc(100vw / 3), 33vw"
                   onLoad={() => handleImageLoad(item.id)} 
+                  onError={(e) => {
+                    console.error('Image failed to load:', item.images[0].url);
+                    e.target.style.display = 'none';
+                  }}
                   loading="lazy" 
                   style={{
                     objectFit: 'cover',
                   }}
                   onDragStart={(e) => e.preventDefault()}
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                 />
               </div>
             </Link>
