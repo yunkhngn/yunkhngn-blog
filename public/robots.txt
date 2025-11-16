@@ -1,12 +1,9 @@
 # *
 User-agent: *
 Allow: /
-Disallow: /api/
-Disallow: /admin/
-Disallow: /_next/
 
 # Host
-Host: https://yunkhngn.dev
+Host: https://yunkhngn.dev/
 
 # Sitemaps
 Sitemap: https://yunkhngn.dev/sitemap.xml
