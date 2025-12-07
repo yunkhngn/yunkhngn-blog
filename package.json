@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "private": true,
   "scripts": {
-     "dev": "next dev --turbopack",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -28,7 +28,7 @@
     "html-to-text": "^9.0.5",
     "kbar": "^0.1.0-beta.48",
     "nanoid": "^5.1.5",
-    "next": "^15.4.7",
+    "next": "^16.0.7",
     "next-sitemap": "^4.2.3",
     "nprogress": "^0.2.0",
     "path-to-regexp": "^8.2.0",
@@ -48,7 +48,7 @@
   "resolutions": {
     "minimist": "^1.2.8",
     "path-to-regexp": "^8.2.0",
-     "nanoid": "3.3.8",
+    "nanoid": "3.3.8",
     "cookie": "^1.0.2",
     "brace-expansion": "^4.0.1"
   },
